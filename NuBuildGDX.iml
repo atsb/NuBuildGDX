@@ -22,7 +22,6 @@
     <orderEntry type="library" name="lwjgl-2.9.3" level="project" />
     <orderEntry type="library" name="lwjgl-platform-2.9.3-natives-linux" level="project" />
     <orderEntry type="library" name="lwjgl-platform-2.9.3-natives-windows" level="project" />
-    <orderEntry type="library" name="miglayout15-swing" level="project" />
     <orderEntry type="library" name="jinput-2.0.9" level="project" />
   </component>
 </module>
