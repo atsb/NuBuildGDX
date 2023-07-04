@@ -7,24 +7,22 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="miglayout15-swing" level="project" />
     <orderEntry type="library" name="annotations-24.0.1" level="project" />
+    <orderEntry type="library" name="gdx-1.9.10" level="project" />
     <orderEntry type="library" name="gdx-backend-lwjgl-1.9.10" level="project" />
     <orderEntry type="library" name="gdx-controllers-1.9.10" level="project" />
     <orderEntry type="library" name="gdx-controllers-desktop-1.9.10" level="project" />
     <orderEntry type="library" name="gdx-controllers-platform-1.9.10-natives-desktop" level="project" />
-    <orderEntry type="library" name="jinput-2.0.7" level="project" />
+    <orderEntry type="library" name="gdx-platform-1.9.10-natives-desktop" level="project" />
     <orderEntry type="library" name="jinput-platform-2.0.7-natives-all" level="project" />
+    <orderEntry type="library" name="jna-5.4.0" level="project" />
     <orderEntry type="library" name="jna-openal-natives-linux" level="project" />
-    <orderEntry type="library" name="jna-openal-natives-macos" level="project" />
     <orderEntry type="library" name="jna-openal-natives-windows" level="project" />
+    <orderEntry type="library" name="jorbis" level="project" />
     <orderEntry type="library" name="lwjgl-2.9.3" level="project" />
     <orderEntry type="library" name="lwjgl-platform-2.9.3-natives-linux" level="project" />
-    <orderEntry type="library" name="lwjgl-platform-2.9.3-natives-osx" level="project" />
     <orderEntry type="library" name="lwjgl-platform-2.9.3-natives-windows" level="project" />
-    <orderEntry type="library" name="gdx-1.9.10" level="project" />
-    <orderEntry type="library" name="gdx-platform-1.9.10-natives-desktop" level="project" />
-    <orderEntry type="library" name="jna-5.4.0" level="project" />
-    <orderEntry type="library" name="jorbis" level="project" />
+    <orderEntry type="library" name="miglayout15-swing" level="project" />
+    <orderEntry type="library" name="jinput-2.0.9" level="project" />
   </component>
 </module>
