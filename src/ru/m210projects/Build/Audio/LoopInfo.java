@@ -1,0 +1,53 @@
+// This file is part of BuildGDX.
+// Copyright (C) 2017-2018  Alexander Makarov-[M210] (m210-2007@mail.ru)
+//
+// BuildGDX is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// BuildGDX is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with BuildGDX.  If not, see <http://www.gnu.org/licenses/>.
+
+
+package ru.m210projects.Build.Audio;
+
+import java.nio.ByteBuffer;
+
+public class LoopInfo {
+	public boolean looped;
+	public ByteBuffer data;
+	public int sampleRate;
+	public int format;
+	public int start;
+	public int end;
+	
+	public void set(ByteBuffer data, int start, int end, int format, int sampleRate)
+	{
+		this.start = start;
+		this.end = end;
+		this.data = data;
+		this.format = format;
+		this.sampleRate = sampleRate;
+		this.looped = true;
+	}
+	
+	public ByteBuffer getData()
+	{
+		data.position(start);
+		data.limit(end);
+		return data;
+	}
+	
+	public void clear()
+	{
+		start = end = sampleRate = format = 0;
+		data = null;
+		looped = false;
+	}
+}

@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Main-Class: ru.m210projects.Launcher.desktop.Main
