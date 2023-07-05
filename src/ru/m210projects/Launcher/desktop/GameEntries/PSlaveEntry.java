@@ -30,7 +30,7 @@ import ru.m210projects.Powerslave.Main;
 public abstract class PSlaveEntry extends GameEntry {
 
 	public PSlaveEntry() {
-		super("PowerslaveGDX", appversion);
+		super("NuPowerslaveGDX", appversion);
 	}
 
 	@Override

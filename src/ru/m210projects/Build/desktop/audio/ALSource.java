@@ -36,8 +36,8 @@ import ru.m210projects.Build.OnSceenDisplay.Console;
 
 public class ALSource extends Source {
 
-	private final ALSoundDrv drv;
-	private final ALAudio al;
+	private ALSoundDrv drv;
+	private ALAudio al;
 	public ALSource(ALSoundDrv drv, int bufferId, int sourceId) {
 		super(bufferId, sourceId, 0);
 		this.drv = drv;
@@ -62,6 +62,12 @@ public class ALSource extends Source {
 		if(!drv.isInited()) return false;
 		return al.alGetSourcei(sourceId, AL_SOURCE_STATE) == AL_PLAYING;
 	}
+	
+	@Override
+	public boolean isGlobal() {
+		if(!drv.isInited()) return false;
+		return al.alGetSourcei(sourceId, AL_SOURCE_RELATIVE) == 1;
+	}
 
 	@Override
 	public void setPosition(float x, float y, float z) {
@@ -84,7 +90,7 @@ public class ALSource extends Source {
 		if(error != AL_NO_ERROR) 
 			Console.Println("OpenAL Error setVolume " + error + ", value is " + volume, OSDTEXT_RED);
 	}
-	
+
 	@Override
 	public float getVolume() {
 		if(!drv.isInited()) return 0;
@@ -96,7 +102,7 @@ public class ALSource extends Source {
 		if(!drv.isInited()) return 0;
 		return al.alGetSourcef(sourceId, AL_PITCH);
 	}
-
+	
 	@Override
 	public void setPitch(float pitch) {
 		if(!drv.isInited()) return;
@@ -112,16 +118,10 @@ public class ALSource extends Source {
 	public void setGlobal(int num) {
 		if(!drv.isInited()) return;
 		al.alSourcei(sourceId, AL_SOURCE_RELATIVE,  num);
-
+		
 		int error = al.alGetError();
 		if(error != AL_NO_ERROR) 
 			Console.Println("OpenAL Error setGlobal " + error + ", value is " + num, OSDTEXT_RED);
-	}
-	
-	@Override
-	public boolean isGlobal() {
-		if(!drv.isInited()) return false;
-		return al.alGetSourcei(sourceId, AL_SOURCE_RELATIVE) == 1;
 	}
 
 	@Override

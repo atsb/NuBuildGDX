@@ -21,38 +21,38 @@ import com.badlogic.gdx.InputProcessor;
 
 public interface MouseInterface {
 
-	void reset();
+	public void reset();
 
-	int getX();
+	public int getX();
 
-	int getY();
+	public int getY();
 	
-	int getDeltaX();
+	public int getDeltaX();
 
-	int getDeltaY();
+	public int getDeltaY();
 
-	boolean isTouched();
+	public boolean isTouched();
 	
-	boolean justTouched();
+	public boolean justTouched();
 	
-	boolean isButtonPressed(int button);
+	public boolean isButtonPressed(int button);
 
-	boolean isButtonJustPressed(int button);
+	public boolean isButtonJustPressed(int button);
 	
-	int getDWheel();
+	public int getDWheel();
 
-	long processEvents(InputProcessor processor);
+	public long processEvents(InputProcessor processor);
 
-	void setCursorCatched(boolean catched);
+	public void setCursorCatched(boolean catched);
 
-	boolean isCursorCatched();
+	public boolean isCursorCatched();
 
-	void setCursorPosition(int x, int y);
+	public void setCursorPosition(int x, int y);
 
-	void showCursor(boolean b);
+	public void showCursor(boolean b);
 
-	boolean isInsideWindow();
+	public boolean isInsideWindow();
 	
-	void setWindowHandle();
+	public void setWindowHandle();
 
 }

@@ -18,15 +18,16 @@ package ru.m210projects.Build.desktop;
 
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Files;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.badlogic.gdx.backends.lwjgl.LwjglClipboard;
-import com.badlogic.gdx.backends.lwjgl.LwjglFiles;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Clipboard;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Files;
 import com.badlogic.gdx.utils.Clipboard;
 
 import ru.m210projects.Build.Architecture.ApplicationFactory;
 import ru.m210projects.Build.Architecture.BuildApplication.Platform;
 import ru.m210projects.Build.Architecture.BuildConfiguration;
 import ru.m210projects.Build.Architecture.BuildFrame;
+import ru.m210projects.Build.Architecture.BuildFrame.FrameType;
 import ru.m210projects.Build.Architecture.BuildGraphics;
 import ru.m210projects.Build.Architecture.BuildInput;
 import ru.m210projects.Build.Architecture.BuildMessage;
@@ -37,22 +38,21 @@ import ru.m210projects.Build.Render.VideoMode;
 import ru.m210projects.Build.desktop.AWT.AWTGraphics;
 import ru.m210projects.Build.desktop.AWT.AWTInput;
 import ru.m210projects.Build.desktop.Controllers.JControllers;
-import ru.m210projects.Build.desktop.Lwjgl.LwjglGraphics;
-import ru.m210projects.Build.desktop.Lwjgl.LwjglInput;
+import ru.m210projects.Build.desktop.GLFW.Lwjgl3Graphics;
+import ru.m210projects.Build.desktop.GLFW.Lwjgl3Input;
 import ru.m210projects.Build.desktop.audio.ALAudio;
 import ru.m210projects.Build.desktop.audio.ALSoundDrv;
 import ru.m210projects.Build.desktop.audio.GdxAL;
-import ru.m210projects.Build.desktop.audio.LwjglAL;
 
 public class DesktopFactory implements ApplicationFactory {
 
-	private final BuildConfiguration cfg;
+	private BuildConfiguration cfg;
 
 	public DesktopFactory(BuildConfiguration cfg)
 	{
 		this.cfg = cfg;
 	}
-
+	
 	@Override
 	public BuildConfiguration getConfiguration() {
 		return cfg;
@@ -70,7 +70,7 @@ public class DesktopFactory implements ApplicationFactory {
 
 	@Override
 	public Files getFiles() {
-		return new LwjglFiles();
+		return new Lwjgl3Files();
 	}
 
 	@Override
@@ -89,33 +89,33 @@ public class DesktopFactory implements ApplicationFactory {
 		else if ( osName.startsWith("Mac OS X") || osName.startsWith("Darwin") )
 			platform = Platform.MacOSX;
 		else platform = null;
-
+		
 		return platform;
 	}
-
+	
 	@Override
-	public BuildFrame getFrame() {
-		return new BuildFrame(cfg) {
+	public BuildFrame getFrame(BuildConfiguration config, FrameType type) {
+		return new BuildFrame(config) {
 			@Override
 			public BuildGraphics getGraphics(FrameType type) {
-				if(type == FrameType.GL)
-					return new LwjglGraphics(cfg);
-
+				if(type == FrameType.GL) 
+					return new Lwjgl3Graphics(cfg);
+				
 				if(type == FrameType.Canvas)
 					return new AWTGraphics(cfg);
-
-				throw new UnsupportedOperationException("Unsupported frame type: " + type);
+				
+				throw new UnsupportedOperationException("Unsupported frame type: " + type); 
 			}
 
 			@Override
 			public BuildInput getInput(FrameType type) {
-				if(type == FrameType.GL)
-					return new LwjglInput();
-
+				if(type == FrameType.GL) 
+					return new Lwjgl3Input();
+				
 				if(type == FrameType.Canvas)
 					return new AWTInput();
-
-				throw new UnsupportedOperationException("Unsupported frame type: " + type);
+				
+				throw new UnsupportedOperationException("Unsupported frame type: " + type); 
 			}
 		};
 	}
@@ -127,9 +127,9 @@ public class DesktopFactory implements ApplicationFactory {
 
 	@Override
 	public Clipboard getClipboard() {
-		return new LwjglClipboard();
+		return new Lwjgl3Clipboard();
 	}
-
+	
 	@Override
 	public int getVersion() {
 		String version = System.getProperty("java.version");
@@ -143,20 +143,12 @@ public class DesktopFactory implements ApplicationFactory {
 
 	public static void InitVideoModes()
 	{
-		VideoMode.initVideoModes(LwjglApplicationConfiguration.getDisplayModes(), LwjglApplicationConfiguration.getDesktopDisplayMode());
+		VideoMode.initVideoModes(Lwjgl3ApplicationConfiguration.getDisplayModes(), Lwjgl3ApplicationConfiguration.getDisplayMode());
 	}
-
+	
 	public static void InitSoundDrivers()
 	{
 		BuildAudio.registerDriver(Driver.Sound, new ALSoundDrv(new ALSoundDrv.DriverCallback() {
-			@Override
-			public ALAudio InitDriver() throws Throwable {
-				return new LwjglAL();
-			}
-		}, "OpenAL 1.15.1"));
-
-		BuildAudio.registerDriver(Driver.Sound, new ALSoundDrv(new ALSoundDrv.DriverCallback() {
-			@Override
 			public ALAudio InitDriver() throws Throwable {
 				return new GdxAL();
 			}

@@ -44,7 +44,7 @@ public abstract class BuildControls {
 	protected BuildControllers gpmanager;
 	protected BuildConfig pCfg;
 
-	public enum JoyStick { Turning, Moving }
+	public enum JoyStick { Turning, Moving };
 
 	public BuildControls(BuildConfig cfg, BuildControllers gpmanager)
 	{
@@ -150,7 +150,7 @@ public abstract class BuildControls {
 		if(gpmanager.isValidDevice(pCfg.gJoyDevice)) {
 			stick1.set(gpmanager.getStickValue(pCfg.gJoyDevice, pCfg.gJoyTurnAxis, pCfg.gJoyLookAxis));
 			stick2.set(gpmanager.getStickValue(pCfg.gJoyDevice, pCfg.gJoyStrafeAxis, pCfg.gJoyMoveAxis));
-        }
+		}
 	}
 
 	public Vector2 ctrlGetStick(JoyStick stick) {
@@ -188,7 +188,10 @@ public abstract class BuildControls {
 
 	public boolean ctrlAxisStatus(int keyId)
 	{
-		return keyId >= 0 && maxisstatus[keyId];
+		if(keyId >= 0 && maxisstatus[keyId])
+			return true;
+
+		return false;
 	}
 
 	public boolean ctrlKeyStatusOnce(int keyId)

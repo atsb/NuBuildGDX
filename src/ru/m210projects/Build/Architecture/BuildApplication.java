@@ -60,7 +60,7 @@ public class BuildApplication implements Application {
 
 		if (config.title == null) config.title = listener.getClass().getSimpleName();
 
-		frame = factory.getFrame();
+		frame = factory.getFrame(config, type.getFrameType());
 		if(config.getIconPaths().size > 0)
 			frame.icon = this.getClass().getResource("/" + config.getIconPaths().first());
 

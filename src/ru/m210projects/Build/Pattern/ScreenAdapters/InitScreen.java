@@ -113,7 +113,7 @@ public class InitScreen extends ScreenAdapter {
 		Console.SetLogFile(game.appname + ".log");
 
 		Console.Println("BUILD engine by Ken Silverman (http://www.advsys.net/ken) \r\n" + game.appname + " "
-				+ game.sversion + "(NuBuildGDX v" + Engine.version + ") by [M210�] (http://m210.duke4.net)");
+				+ game.sversion + "(NuBuildGDX v" + Engine.version + ")");
 
 		Console.Println("Current date " + game.date.getLaunchDate());
 

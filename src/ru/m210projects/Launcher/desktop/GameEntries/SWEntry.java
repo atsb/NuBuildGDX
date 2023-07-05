@@ -30,7 +30,7 @@ import ru.m210projects.Wang.Main;
 public abstract class SWEntry extends GameEntry {
 
 	public SWEntry() {
-		super("WangGDX", appversion);
+		super("NuWangGDX", appversion);
 	}
 	
 	@Override

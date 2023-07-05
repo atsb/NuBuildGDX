@@ -93,7 +93,7 @@ public class JController implements BuildController {
 		float mag = (float) Math.sqrt(lx*lx + ly*ly);
 		float nlx = lx / mag;
 		float nly = ly / mag;
-		float nlm;
+		float nlm = 0.0f;
 		if (mag > deadZone)
 		{
 			if (mag > 1.0f)
@@ -172,7 +172,10 @@ public class JController implements BuildController {
 	@Override
 	public boolean buttonStatus(int buttonCode)
 	{
-		return buttonCode >= 0 && buttonCode < allButtonsCount && buttonStatus[buttonCode];
+		if(buttonCode >= 0 && buttonCode < allButtonsCount && buttonStatus[buttonCode]) 
+			return true;
+
+		return false;
 	}
 	
 	private void dPadHandler()

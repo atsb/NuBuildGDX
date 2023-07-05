@@ -55,7 +55,7 @@ import ru.m210projects.Build.Audio.SourceCallback;
 import ru.m210projects.Build.Loader.WAVLoader;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 
-import com.badlogic.gdx.backends.lwjgl.audio.OggInputStream;
+import com.badlogic.gdx.backends.lwjgl3.audio.OggInputStream;
 import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.StreamUtils;
 
@@ -63,13 +63,13 @@ public class ALSoundDrv implements Sound {
 	
 	protected DriverCallback driverCallback;
 	public interface DriverCallback {
-		ALAudio InitDriver() throws Throwable;
+		public ALAudio InitDriver() throws Throwable;
 	}
 
 	protected boolean noDevice = true;
 
 	private final static FloatBuffer NULLVECTOR = BufferUtils.newFloatBuffer(3);
-	private final static FloatBuffer orientation = BufferUtils.newFloatBuffer(6);
+	private final static FloatBuffer orientation = (FloatBuffer)BufferUtils.newFloatBuffer(6);
 	private final float[] deforientation = new float[] {0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f};
 
 	protected SystemType system;
@@ -78,7 +78,7 @@ public class ALSoundDrv implements Sound {
 	protected SourceManager sourceManager;
 	private float soundVolume = 0.5f;
 
-	private final String name;
+	private String name;
 	protected List<Source> loopedSource = new ArrayList<Source>();
 	
 	private boolean alReverbEnable = false;
@@ -281,7 +281,7 @@ public class ALSoundDrv implements Sound {
 		if(data == null)
 			return null;
 		
-		if(data[0] == 0x52 && data[1] == 0x49 && data[2] == 0x46 && data[3] == 0x46) { //RIFF
+		if(data[0] == 0x52 && data[1] == 0x59 && data[2] == 0x46 && data[3] == 0x46) { //RIFF
 			try {
 				return new WAVLoader(data);
 			} catch (Exception e) {}
@@ -336,7 +336,7 @@ public class ALSoundDrv implements Sound {
 
 		Iterator<Source> it = sourceManager.iterator();
 	    while(it.hasNext()) {
-	    	Source s = it.next();
+	    	Source s = (Source)it.next();
 	    	if(s.flags != Source.Locked) //Don't set reverb for music
 	    		al.setSourceReverb(s.sourceId, alReverbEnable, alReverbDelay);
 	    }
@@ -366,7 +366,7 @@ public class ALSoundDrv implements Sound {
 		alCurrentSoftResampler = num;
 		Iterator<Source> it = sourceManager.iterator();
 	    while(it.hasNext()) {
-	    	Source s = it.next();
+	    	Source s = (Source)it.next();
 	    	al.setSourceSoftResampler(s.sourceId, alCurrentSoftResampler);
 	    }
 	}
@@ -394,7 +394,7 @@ public class ALSoundDrv implements Sound {
 	protected class SourceManager extends java.util.PriorityQueue<Source>
 	{
 		private static final long serialVersionUID = 1L;
-		private final Source[] allSources;
+		private Source[] allSources;
 		
 		public SourceManager(int maxSources) {
 			allSources = new Source[maxSources];
@@ -429,7 +429,6 @@ public class ALSoundDrv implements Sound {
 					source.callback = null;
 					callback.run(source.channel);
 				}
-
 				source.free = true;
 				source.priority = 0;
 				source.flags = 0;
@@ -437,7 +436,7 @@ public class ALSoundDrv implements Sound {
 				source.format = 0;
 				source.rate = 0;
 				source.data = null;
-	
+
 				add(source);
 			}
 		}
@@ -449,10 +448,18 @@ public class ALSoundDrv implements Sound {
 					freeSource(allSources[i]);
 			}
 		}
-
+		
 		protected Source obtainSource(int priority)
 		{
-			if(size() > 0 && (element().priority < priority || !element().isPlaying()))
+//			System.out.println("obtainSource()");
+//			Iterator<Source> it = this.iterator();
+//		    while(it.hasNext()) {
+//		      Source obj = (Source)it.next();
+//		      System.out.println(obj.sourceId + " " + obj.free + " " + obj.priority + " " + obj.flags);
+//		    }
+//		    System.out.println();
+
+			if(size() > 0 && element().priority < priority || !element().isPlaying())
 			{
 				Source source = remove();
 				int sourceId = source.sourceId;
@@ -509,23 +516,10 @@ public class ALSoundDrv implements Sound {
 		}
 	}
 	
-	public void printSources(SourceManager sourceManager)
-	{
-		Iterator<Source> it = sourceManager.iterator();
-	    while(it.hasNext()) {
-	      Source obj = it.next();
-	      System.out.println("#" + obj.sourceId + " isFree: " + obj.free + " pri: " + obj.priority + " vol: " + String.format("%.2f", obj.getVolume()).replace(',', '.') + " pitch: " + String.format("%.2f", obj.getPitch()).replace(',', '.') + " flags: " + obj.flags);
-	    }
-	    System.out.println();
-	}
-	
 	@Override
 	public void update() {
 		if(noDevice) return;
 		
-//		System.out.println("update()");
-//		printSources(this.sourceManager);
-
 		mus.update();
 
 		int error = al.alGetError();

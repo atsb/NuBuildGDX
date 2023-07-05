@@ -21,7 +21,7 @@ public abstract class WHEntry extends GameEntry {
 	}
 	
 	public WHEntry() {
-		super("WitchavenGDX", appversion);
+		super("NuWitchavenGDX", appversion);
 	}
 
 	@Override

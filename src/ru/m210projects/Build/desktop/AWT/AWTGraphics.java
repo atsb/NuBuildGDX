@@ -41,7 +41,7 @@ import ru.m210projects.Build.Render.Types.GL10;
 public class AWTGraphics extends BuildGraphics {
 
 	protected JDisplay display;
-	private final BuildConfiguration config;
+	private BuildConfiguration config;
 	
 	public AWTGraphics(BuildConfiguration config)
 	{

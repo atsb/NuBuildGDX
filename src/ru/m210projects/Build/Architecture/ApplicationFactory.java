@@ -40,7 +40,7 @@ public interface ApplicationFactory {
 
 	Platform getPlatform();
 
-	BuildFrame getFrame();
+	BuildFrame getFrame(BuildConfiguration config, BuildFrame.FrameType type);
 
 	ApplicationType getApplicationType();
 

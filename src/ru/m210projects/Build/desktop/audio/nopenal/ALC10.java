@@ -111,7 +111,7 @@ public class ALC10 {
     }
 
     public static int alcGetInteger(ALCdevice deviceHandle, int token) {
-    	int[] dest = new int[1];
+    	int dest[] = new int[1];
     	getNative().alcGetIntegerv(deviceHandle, token, 4, dest);
     	return dest[0];
     }

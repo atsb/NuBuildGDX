@@ -38,9 +38,6 @@ import static com.badlogic.gdx.utils.SharedLibraryLoader.isWindows;
 
 import java.io.File;
 import java.nio.IntBuffer;
-
-import org.lwjgl.LWJGLException;
-
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.SharedLibraryLoader;
 import com.sun.jna.Native;
@@ -74,13 +71,13 @@ public final class AL {
 	 *
 	 * @param oalPath Path to search for OpenAL library
 	 */
-	private static void nCreate(String oalPath) throws LWJGLException
+	private static void nCreate(String oalPath) throws Exception
 	{
 		if(alnative != null) return;
 		try {
-			alnative = Native.load(oalPath, SharedLibraryAL.class);
+			alnative = (SharedLibraryAL) Native.load(oalPath, SharedLibraryAL.class);
 		} catch (Throwable t) {
-			throw new LWJGLException(t.getMessage());
+			throw new Exception(t.getMessage());
 		}
 	}
 
@@ -141,12 +138,12 @@ public final class AL {
 			throw new Exception("Could not locate OpenAL library.");
 	}
 
-	private static void init(String deviceArguments, int contextFrequency, int contextRefresh, boolean contextSynchronized, boolean openDevice) throws LWJGLException {
+	private static void init(String deviceArguments, int contextFrequency, int contextRefresh, boolean contextSynchronized, boolean openDevice) throws Exception {
 		try {
 			if(openDevice) {
 				device = ALC10.alcOpenDevice(deviceArguments);
 				if (device == null) {
-					throw new LWJGLException("Could not open ALC device");
+					throw new Exception("Could not open ALC device");
 				}
 
 				if (contextFrequency == -1) {
@@ -158,7 +155,7 @@ public final class AL {
 				}
 				ALC10.alcMakeContextCurrent(context);
 			}
-		} catch (LWJGLException e) {
+		} catch (Exception e) {
 			destroy();
 			throw e;
 		}

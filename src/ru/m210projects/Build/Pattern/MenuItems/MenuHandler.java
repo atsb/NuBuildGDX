@@ -237,7 +237,8 @@ public abstract class MenuHandler {
 		pMenu.open(this, nItem);
 		gShowMenu = true;
 		
-		BuildGdx.input.setCursorCatched(false);
+		BuildGdx.input.setCursorCatched(true);
+		BuildGdx.input.setCursorPosition(xdim / 2, ydim / 2);
 	}
 	
 	public void mClose()

@@ -17,9 +17,9 @@
 package ru.m210projects.Build.desktop.AWT;
 
 import static ru.m210projects.Build.Input.Keymap.KEY_CAPSLOCK;
+import static ru.m210projects.Build.Input.Keymap.KEY_NUMDECIMAL;
 import static ru.m210projects.Build.Input.Keymap.KEY_PAUSE;
 import static ru.m210projects.Build.Input.Keymap.KEY_SCROLLOCK;
-import static ru.m210projects.Build.Input.Keymap.KEY_NUMDECIMAL;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -44,12 +44,9 @@ import javax.swing.event.DocumentListener;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.backends.lwjgl.LwjglNativesLoader;
 import com.badlogic.gdx.utils.Pool;
 
-import ru.m210projects.Build.Architecture.BuildApplication.Platform;
 import ru.m210projects.Build.Architecture.BuildFrame;
-import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.Architecture.BuildInput;
 
 public class AWTInput implements BuildInput, KeyListener {
@@ -169,17 +166,7 @@ public class AWTInput implements BuildInput, KeyListener {
 	{
 		this.frame = frame;
 		JDisplay display = ((AWTGraphics) frame.getGraphics()).display;
-
-		if(BuildGdx.app.getPlatform() == Platform.Windows) {
-			try {
-				this.mouse = new LwjglMouse(display);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else LwjglNativesLoader.load(); //This also needs for Pixmap working
-
-		if(this.mouse == null)
-			this.mouse = new AWTMouse(display);
+		this.mouse = new AWTMouse(display);
 
 		this.setListeners(display.getCanvas());
 	}
@@ -220,7 +207,7 @@ public class AWTInput implements BuildInput, KeyListener {
 					@Override
 					public boolean isOptimizedDrawingEnabled () {
 						return false;
-					}
+					};
 				};
 
 				textPanel.setLayout(new OverlayLayout(textPanel));
@@ -254,7 +241,10 @@ public class AWTInput implements BuildInput, KeyListener {
 					}
 
 					private void updated () {
-						placeholderLabel.setVisible(textField.getText().length() == 0);
+						if (textField.getText().length() == 0)
+							placeholderLabel.setVisible(true);
+						else
+							placeholderLabel.setVisible(false);
 					}
 				});
 
@@ -287,8 +277,8 @@ public class AWTInput implements BuildInput, KeyListener {
 
 				Object selectedValue = pane.getValue();
 
-				if ((selectedValue instanceof Integer)
-						&& ((Integer) selectedValue).intValue() == JOptionPane.OK_OPTION) {
+				if (selectedValue != null && (selectedValue instanceof Integer)
+					&& ((Integer)selectedValue).intValue() == JOptionPane.OK_OPTION) {
 					listener.input(textField.getText());
 				} else {
 					listener.canceled();
@@ -687,7 +677,8 @@ public class AWTInput implements BuildInput, KeyListener {
 
 	@Override
 	public boolean isPeripheralAvailable (Peripheral peripheral) {
-		return peripheral == Peripheral.HardwareKeyboard;
+		if (peripheral == Peripheral.HardwareKeyboard) return true;
+		return false;
 	}
 
 	@Override

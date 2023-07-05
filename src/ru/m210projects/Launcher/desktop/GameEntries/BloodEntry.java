@@ -36,7 +36,7 @@ public abstract class BloodEntry extends GameEntry {
 	public boolean isDemo = false;
 	
 	public BloodEntry() {
-		super("BloodGDX", appversion);
+		super("NuBloodGDX", appversion);
 	}
 
 	@Override

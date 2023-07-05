@@ -35,7 +35,7 @@ import ru.m210projects.Launcher.desktop.CheckFiles;
 public abstract class NamEntry extends GameEntry {
 
 	public NamEntry() {
-		super("NamGDX", appversion);
+		super("NuNamGDX", appversion);
 	}
 
 	@Override

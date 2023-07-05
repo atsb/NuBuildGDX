@@ -36,7 +36,7 @@ import java.io.ByteArrayInputStream;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import com.badlogic.gdx.backends.lwjgl.audio.OggInputStream;
+import com.badlogic.gdx.backends.lwjgl3.audio.OggInputStream;
 import com.badlogic.gdx.utils.BufferUtils;
 import com.badlogic.gdx.utils.StreamUtils;
 
@@ -57,8 +57,8 @@ public class ALMusicDrv implements Music {
 	protected IntBuffer musicBuffers;
 	protected final int musicBufferCount = 3;
 	
-	private final ALSoundDrv drv;
-	private final ALAudio al;
+	private ALSoundDrv drv;
+	private ALAudio al;
 	public ALMusicDrv(ALSoundDrv drv) {
 		this.drv = drv;
 		this.al = drv.getALAudio();
@@ -158,16 +158,16 @@ abstract class OpenALMusic {
 	static private final byte[] tempBytes = new byte[bufferSize];
 	static private final ByteBuffer tempBuffer = BufferUtils.newByteBuffer(bufferSize);
 
-	private final SourceManager sourceManager;
+	private SourceManager sourceManager;
 	private Source source = null;
 	private int format, sampleRate;
 	private boolean isLooping, isPlaying;
 	private float renderedSeconds, secondsPerBuffer;
 	protected byte[] data;
 	private float musicVolume;
-	private final IntBuffer musicBuffers;
-	private final ALSoundDrv drv;
-	private final ALAudio al;
+	private IntBuffer musicBuffers;
+	private ALSoundDrv drv;
+	private ALAudio al;
 	
 	public OpenALMusic (ALSoundDrv drv, IntBuffer ALbuffers, byte[] data) {
 		this.drv = drv;
