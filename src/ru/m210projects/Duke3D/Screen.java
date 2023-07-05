@@ -37,22 +37,7 @@ import static ru.m210projects.Build.Engine.ydim;
 import static ru.m210projects.Build.Net.Mmulti.myconnectindex;
 import static ru.m210projects.Build.Pragmas.scale;
 import static ru.m210projects.Build.Strhandler.Bitoa;
-import static ru.m210projects.Duke3D.Globals.CHAINGUN_WEAPON;
-import static ru.m210projects.Duke3D.Globals.DEVISTATOR_WEAPON;
-import static ru.m210projects.Duke3D.Globals.FREEZE_WEAPON;
-import static ru.m210projects.Duke3D.Globals.GROW_WEAPON;
-import static ru.m210projects.Duke3D.Globals.HANDBOMB_WEAPON;
-import static ru.m210projects.Duke3D.Globals.HANDREMOTE_WEAPON;
-import static ru.m210projects.Duke3D.Globals.PISTOL_WEAPON;
-import static ru.m210projects.Duke3D.Globals.RPG_WEAPON;
-import static ru.m210projects.Duke3D.Globals.SHOTGUN_WEAPON;
-import static ru.m210projects.Duke3D.Globals.SHRINKER_WEAPON;
-import static ru.m210projects.Duke3D.Globals.TRIPBOMB_WEAPON;
-import static ru.m210projects.Duke3D.Globals.buf;
-import static ru.m210projects.Duke3D.Globals.currentGame;
-import static ru.m210projects.Duke3D.Globals.ps;
-import static ru.m210projects.Duke3D.Globals.screenpeek;
-import static ru.m210projects.Duke3D.Globals.ud;
+import static ru.m210projects.Duke3D.Globals.*;
 import static ru.m210projects.Duke3D.Main.cfg;
 import static ru.m210projects.Duke3D.Main.engine;
 import static ru.m210projects.Duke3D.Main.game;
@@ -286,24 +271,32 @@ public class Screen {
 				(((p.ammo_amount[HANDBOMB_WEAPON] == 0) ? 1 : 0) | (!p.gotweapon[HANDBOMB_WEAPON] ? 1 : 0)) * 9 + 12
 						- ((cw == HANDBOMB_WEAPON || cw == HANDREMOTE_WEAPON) ? 19 : 0));
 
-		if ((p.subweapon & (1 << GROW_WEAPON)) != 0)
-			weaponnum(SHRINKER_WEAPON, x + 39, y + 12, p.ammo_amount[GROW_WEAPON],
-					currentGame.getCON().max_ammo_amount[GROW_WEAPON],
-					(!p.gotweapon[GROW_WEAPON] ? 9 : 0) + 12 - ((cw == GROW_WEAPON) ? 18 : 0));
+		if ((p.subweapon & (1 << EXPANDER_WEAPON)) != 0)
+			weaponnum(SHRINKER_WEAPON, x + 39, y + 12, p.ammo_amount[EXPANDER_WEAPON],
+					currentGame.getCON().max_ammo_amount[EXPANDER_WEAPON],
+					(!p.gotweapon[EXPANDER_WEAPON] ? 9 : 0) + 12 - ((cw == EXPANDER_WEAPON) ? 18 : 0));
 		else
 			weaponnum(SHRINKER_WEAPON, x + 39, y + 12, p.ammo_amount[SHRINKER_WEAPON],
 					currentGame.getCON().max_ammo_amount[SHRINKER_WEAPON],
 					(!p.gotweapon[SHRINKER_WEAPON] ? 9 : 0) + 12 - ((cw == SHRINKER_WEAPON) ? 18 : 0));
 
-		weaponnum(DEVISTATOR_WEAPON, x + 70, y, p.ammo_amount[DEVISTATOR_WEAPON],
-				currentGame.getCON().max_ammo_amount[DEVISTATOR_WEAPON],
-				(!p.gotweapon[DEVISTATOR_WEAPON] ? 9 : 0) + 12 - ((cw == DEVISTATOR_WEAPON) ? 18 : 0));
+		weaponnum(DEVASTATOR_WEAPON, x + 70, y, p.ammo_amount[DEVASTATOR_WEAPON],
+				currentGame.getCON().max_ammo_amount[DEVASTATOR_WEAPON],
+				(!p.gotweapon[DEVASTATOR_WEAPON] ? 9 : 0) + 12 - ((cw == DEVASTATOR_WEAPON) ? 18 : 0));
 
 		weaponnum(TRIPBOMB_WEAPON, x + 70, y + 6, p.ammo_amount[TRIPBOMB_WEAPON],
 				currentGame.getCON().max_ammo_amount[TRIPBOMB_WEAPON],
 				(!p.gotweapon[TRIPBOMB_WEAPON] ? 9 : 0) + 12 - ((cw == TRIPBOMB_WEAPON) ? 18 : 0));
 
-		weaponnum(-1, x + 70, y + 12, p.ammo_amount[FREEZE_WEAPON], currentGame.getCON().max_ammo_amount[FREEZE_WEAPON],
+		// 20th Anniversary World Tour - allow Incinerator to appear on hud as well
+		// Why wasn't this simple fix done anyway?  Oh well, Fixed by the Gib!
+		if ((p.subweapon & (1 << INCINERATOR_WEAPON)) != 0)
+			weaponnum(-1, x + 70, y + 12, p.ammo_amount[INCINERATOR_WEAPON],
+					currentGame.getCON().max_ammo_amount[INCINERATOR_WEAPON],
+				(!p.gotweapon[INCINERATOR_WEAPON] ? 9 : 0) + 12 - ((cw == INCINERATOR_WEAPON) ? 18 : 0));
+		else
+			weaponnum(-1, x + 70, y + 12, p.ammo_amount[FREEZE_WEAPON],
+					currentGame.getCON().max_ammo_amount[FREEZE_WEAPON],
 				(!p.gotweapon[FREEZE_WEAPON] ? 9 : 0) + 12 - ((cw == FREEZE_WEAPON) ? 18 : 0));
 	}
 

@@ -461,9 +461,9 @@ public class GameScreen extends GameAdapter {
 		if (ud.overhead_on != 0) {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
 				zoom += mulscale(j, Math.max(zoom, 256), 6);
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
 				zoom -= mulscale(j, Math.max(zoom, 256), 6);
 
 			if ((zoom > 2048))
@@ -482,16 +482,16 @@ public class GameScreen extends GameAdapter {
 				FTA(83 + (ud.scrollmode ? 1 : 0), ps[myconnectindex]);
 			}
 		} else {
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 				if (ud.screen_size > 0) {
 					sound(THUD);
-					enlargeScreen();
+					shrinkScreen();
 				}
 			}
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 				if (ud.screen_size < 3) {
 					sound(THUD);
-					shrinkScreen();
+					enlargeScreen();
 				}
 			}
 		}
@@ -574,7 +574,7 @@ public class GameScreen extends GameAdapter {
 			makeScreenshot();
 	}
 
-	public boolean shrinkScreen() {
+	public boolean enlargeScreen() {
 		ud.screen_size++;
 		if (!engine.getTile(ALTHUDRIGHT).isLoaded() && !engine.getTile(ALTHUDLEFT).isLoaded() && ud.screen_size == 2)
 			ud.screen_size++;
@@ -585,7 +585,7 @@ public class GameScreen extends GameAdapter {
 		return true;
 	}
 
-	public boolean enlargeScreen() {
+	public boolean shrinkScreen() {
 		ud.screen_size--;
 		if (!engine.getTile(ALTHUDRIGHT).isLoaded() && !engine.getTile(ALTHUDLEFT).isLoaded() && ud.screen_size == 2)
 			ud.screen_size--;
@@ -1173,30 +1173,30 @@ public class GameScreen extends GameAdapter {
 						i = 0;
 
 						while ((k >= 0 && k < 10)
-								|| (currentGame.getCON().PLUTOPAK && k == GROW_WEAPON
-										&& (p.subweapon & (1 << GROW_WEAPON)) != 0)
-								|| (currentGame.getCON().type == 20 && k == FLAMETHROWER_WEAPON
-										&& (p.subweapon & (1 << FLAMETHROWER_WEAPON)) != 0)) {
+								|| (currentGame.getCON().PLUTOPAK && k == EXPANDER_WEAPON
+										&& (p.subweapon & (1 << EXPANDER_WEAPON)) != 0)
+								|| (currentGame.getCON().type == 20 && k == INCINERATOR_WEAPON
+										&& (p.subweapon & (1 << INCINERATOR_WEAPON)) != 0)) {
 							switch (k) {
-							case FLAMETHROWER_WEAPON: // Twentieth Anniversary World Tour
+							case INCINERATOR_WEAPON: // Twentieth Anniversary World Tour
 								if (j == -1)
 									k = TRIPBOMB_WEAPON;
 								else
 									k = PISTOL_WEAPON;
 								break;
-							case GROW_WEAPON:
+							case EXPANDER_WEAPON:
 								if (j == -1)
 									k = HANDBOMB_WEAPON;
 								else
-									k = DEVISTATOR_WEAPON;
+									k = DEVASTATOR_WEAPON;
 								break;
 							default:
 								k += j;
-								if (k == SHRINKER_WEAPON && (p.subweapon & (1 << GROW_WEAPON)) != 0)
-									k = GROW_WEAPON;
+								if (k == SHRINKER_WEAPON && (p.subweapon & (1 << EXPANDER_WEAPON)) != 0)
+									k = EXPANDER_WEAPON;
 
-								if (k == FREEZE_WEAPON && (p.subweapon & (1 << FLAMETHROWER_WEAPON)) != 0)
-									k = FLAMETHROWER_WEAPON;
+								if (k == FREEZE_WEAPON && (p.subweapon & (1 << INCINERATOR_WEAPON)) != 0)
+									k = INCINERATOR_WEAPON;
 
 								break;
 							}
@@ -1208,37 +1208,37 @@ public class GameScreen extends GameAdapter {
 
 							if (p.gotweapon[k] && p.ammo_amount[k] > 0) {
 								if (currentGame.getCON().PLUTOPAK && k == SHRINKER_WEAPON
-										&& (p.subweapon & (1 << GROW_WEAPON)) != 0)
-									k = GROW_WEAPON;
+										&& (p.subweapon & (1 << EXPANDER_WEAPON)) != 0)
+									k = EXPANDER_WEAPON;
 								if (currentGame.getCON().type == 20 && k == FREEZE_WEAPON
-										&& (p.subweapon & (1 << FLAMETHROWER_WEAPON)) != 0)
-									k = FLAMETHROWER_WEAPON;
+										&& (p.subweapon & (1 << INCINERATOR_WEAPON)) != 0)
+									k = INCINERATOR_WEAPON;
 								j = k;
 								break;
-							} else if (currentGame.getCON().PLUTOPAK && k == GROW_WEAPON
-									&& p.ammo_amount[GROW_WEAPON] == 0 && p.gotweapon[SHRINKER_WEAPON]
+							} else if (currentGame.getCON().PLUTOPAK && k == EXPANDER_WEAPON
+									&& p.ammo_amount[EXPANDER_WEAPON] == 0 && p.gotweapon[SHRINKER_WEAPON]
 									&& p.ammo_amount[SHRINKER_WEAPON] > 0) {
 								j = SHRINKER_WEAPON;
-								p.subweapon &= ~(1 << GROW_WEAPON);
+								p.subweapon &= ~(1 << EXPANDER_WEAPON);
 								break;
 							} else if (currentGame.getCON().PLUTOPAK && k == SHRINKER_WEAPON
-									&& p.ammo_amount[SHRINKER_WEAPON] == 0 && p.gotweapon[GROW_WEAPON]
-									&& p.ammo_amount[GROW_WEAPON] > 0) {
-								j = GROW_WEAPON;
-								p.subweapon |= (1 << GROW_WEAPON);
+									&& p.ammo_amount[SHRINKER_WEAPON] == 0 && p.gotweapon[EXPANDER_WEAPON]
+									&& p.ammo_amount[EXPANDER_WEAPON] > 0) {
+								j = EXPANDER_WEAPON;
+								p.subweapon |= (1 << EXPANDER_WEAPON);
 								break;
 							} // Twentieth Anniversary World Tour
-							else if (currentGame.getCON().type == 20 && k == FLAMETHROWER_WEAPON
-									&& p.ammo_amount[FLAMETHROWER_WEAPON] == 0 && p.gotweapon[FREEZE_WEAPON]
+							else if (currentGame.getCON().type == 20 && k == INCINERATOR_WEAPON
+									&& p.ammo_amount[INCINERATOR_WEAPON] == 0 && p.gotweapon[FREEZE_WEAPON]
 									&& p.ammo_amount[FREEZE_WEAPON] > 0) {
 								j = FREEZE_WEAPON;
-								p.subweapon &= ~(1 << FLAMETHROWER_WEAPON);
+								p.subweapon &= ~(1 << INCINERATOR_WEAPON);
 								break;
 							} else if (currentGame.getCON().type == 20 && k == FREEZE_WEAPON
-									&& p.ammo_amount[FREEZE_WEAPON] == 0 && p.gotweapon[FLAMETHROWER_WEAPON]
-									&& p.ammo_amount[FLAMETHROWER_WEAPON] > 0) {
-								j = FLAMETHROWER_WEAPON;
-								p.subweapon |= (1 << FLAMETHROWER_WEAPON);
+									&& p.ammo_amount[FREEZE_WEAPON] == 0 && p.gotweapon[INCINERATOR_WEAPON]
+									&& p.ammo_amount[INCINERATOR_WEAPON] > 0) {
+								j = INCINERATOR_WEAPON;
+								p.subweapon |= (1 << INCINERATOR_WEAPON);
 								break;
 							}
 
@@ -1265,37 +1265,37 @@ public class GameScreen extends GameAdapter {
 
 					// Twentieth Anniversary World Tour
 					if (j == FREEZE_WEAPON && currentGame.getCON().type == 20) {
-						if (p.curr_weapon != FLAMETHROWER_WEAPON && p.curr_weapon != FREEZE_WEAPON) {
-							if (p.ammo_amount[FLAMETHROWER_WEAPON] > 0) {
-								if ((p.subweapon & (1 << FLAMETHROWER_WEAPON)) == (1 << FLAMETHROWER_WEAPON))
-									j = FLAMETHROWER_WEAPON;
+						if (p.curr_weapon != INCINERATOR_WEAPON && p.curr_weapon != FREEZE_WEAPON) {
+							if (p.ammo_amount[INCINERATOR_WEAPON] > 0) {
+								if ((p.subweapon & (1 << INCINERATOR_WEAPON)) == (1 << INCINERATOR_WEAPON))
+									j = INCINERATOR_WEAPON;
 								else if (p.ammo_amount[FREEZE_WEAPON] == 0) {
-									j = FLAMETHROWER_WEAPON;
-									p.subweapon |= (1 << FLAMETHROWER_WEAPON);
+									j = INCINERATOR_WEAPON;
+									p.subweapon |= (1 << INCINERATOR_WEAPON);
 								}
 							} else if (p.ammo_amount[FREEZE_WEAPON] > 0)
-								p.subweapon &= ~(1 << FLAMETHROWER_WEAPON);
+								p.subweapon &= ~(1 << INCINERATOR_WEAPON);
 						} else if (p.curr_weapon == FREEZE_WEAPON) {
-							p.subweapon |= (1 << FLAMETHROWER_WEAPON);
-							j = FLAMETHROWER_WEAPON;
+							p.subweapon |= (1 << INCINERATOR_WEAPON);
+							j = INCINERATOR_WEAPON;
 						} else
-							p.subweapon &= ~(1 << FLAMETHROWER_WEAPON);
+							p.subweapon &= ~(1 << INCINERATOR_WEAPON);
 					} else if (j == SHRINKER_WEAPON && currentGame.getCON().PLUTOPAK) {
-						if (p.curr_weapon != GROW_WEAPON && p.curr_weapon != SHRINKER_WEAPON) {
-							if (p.ammo_amount[GROW_WEAPON] > 0) {
-								if ((p.subweapon & (1 << GROW_WEAPON)) == (1 << GROW_WEAPON))
-									j = GROW_WEAPON;
+						if (p.curr_weapon != EXPANDER_WEAPON && p.curr_weapon != SHRINKER_WEAPON) {
+							if (p.ammo_amount[EXPANDER_WEAPON] > 0) {
+								if ((p.subweapon & (1 << EXPANDER_WEAPON)) == (1 << EXPANDER_WEAPON))
+									j = EXPANDER_WEAPON;
 								else if (p.ammo_amount[SHRINKER_WEAPON] == 0) {
-									j = GROW_WEAPON;
-									p.subweapon |= (1 << GROW_WEAPON);
+									j = EXPANDER_WEAPON;
+									p.subweapon |= (1 << EXPANDER_WEAPON);
 								}
 							} else if (p.ammo_amount[SHRINKER_WEAPON] > 0)
-								p.subweapon &= ~(1 << GROW_WEAPON);
+								p.subweapon &= ~(1 << EXPANDER_WEAPON);
 						} else if (p.curr_weapon == SHRINKER_WEAPON) {
-							p.subweapon |= (1 << GROW_WEAPON);
-							j = GROW_WEAPON;
+							p.subweapon |= (1 << EXPANDER_WEAPON);
+							j = EXPANDER_WEAPON;
 						} else
-							p.subweapon &= ~(1 << GROW_WEAPON);
+							p.subweapon &= ~(1 << EXPANDER_WEAPON);
 					}
 
 					if (p.holster_weapon != 0) {
@@ -1336,22 +1336,22 @@ public class GameScreen extends GameAdapter {
 								}
 							addweapon(p, RPG_WEAPON);
 							break;
-						case DEVISTATOR_WEAPON:
-							if (p.ammo_amount[DEVISTATOR_WEAPON] == 0 && p.show_empty_weapon == 0) {
+						case DEVASTATOR_WEAPON:
+							if (p.ammo_amount[DEVASTATOR_WEAPON] == 0 && p.show_empty_weapon == 0) {
 								p.last_full_weapon = p.curr_weapon;
 								p.show_empty_weapon = 32;
 							}
-							addweapon(p, DEVISTATOR_WEAPON);
+							addweapon(p, DEVASTATOR_WEAPON);
 							break;
 						case FREEZE_WEAPON:
-						case FLAMETHROWER_WEAPON: // Twentieth Anniversary World Tour
+						case INCINERATOR_WEAPON: // Twentieth Anniversary World Tour
 							if (p.ammo_amount[j] == 0 && p.show_empty_weapon == 0) {
 								p.last_full_weapon = p.curr_weapon;
 								p.show_empty_weapon = 32;
 							}
 							addweapon(p, j);
 							break;
-						case GROW_WEAPON:
+						case EXPANDER_WEAPON:
 						case SHRINKER_WEAPON:
 
 							if (p.ammo_amount[j] == 0 && p.show_empty_weapon == 0) {

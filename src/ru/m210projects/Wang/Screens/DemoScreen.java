@@ -243,10 +243,10 @@ public class DemoScreen extends GameScreen {
 			}
 		}
 
-		if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true)) {
+		if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 			SetBorder(pp, gs.BorderNum + 1);
 		}
-		if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, true)) {
+		if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 			SetBorder(pp, gs.BorderNum - 1);
 		}
 	}

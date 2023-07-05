@@ -100,8 +100,8 @@ public class Config extends BuildConfig {
 			Keys.SHIFT_LEFT, //GameKeys.Run
 			KEY_CAPSLOCK, 		//AutoRun
 			Keys.TAB, //GameKeys.Map_Toggle,
-			Keys.EQUALS, //GameKeys.Enlarge_Screen,
-			Keys.MINUS, //GameKeys.Shrink_Screen,
+			Keys.EQUALS, //GameKeys.Enlarge_Hud,
+			Keys.MINUS, //GameKeys.Shrink_Hud,
 			Keys.GRAVE,		//Show_Console
 			Keys.F, //LSPKeys.Map_Follow_Mode,
 			Keys.I, //LSPKeys.Toggle_Crosshair,
@@ -143,8 +143,8 @@ public class Config extends BuildConfig {
 			Keys.SHIFT_LEFT, //GameKeys.Run
 			KEY_CAPSLOCK, 		//AutoRun
 			Keys.TAB, //GameKeys.Map_Toggle,
-			Keys.EQUALS, //GameKeys.Enlarge_Screen,
-			Keys.MINUS, //GameKeys.Shrink_Screen,
+			Keys.EQUALS, //GameKeys.Enlarge_Hud,
+			Keys.MINUS, //GameKeys.Shrink_Hud,
 			Keys.GRAVE,		//Show_Console
 			Keys.F, //LSPKeys.Map_Follow_Mode,
 			Keys.I, //LSPKeys.Toggle_Crosshair,
@@ -277,8 +277,8 @@ public class Config extends BuildConfig {
 				GameKeys.Run,
 				LSPKeys.AutoRun,
 				GameKeys.Map_Toggle,
-				GameKeys.Enlarge_Screen,
-				GameKeys.Shrink_Screen,
+				GameKeys.Enlarge_Hud,
+				GameKeys.Shrink_Hud,
 				GameKeys.Show_Console,
 				
 				LSPKeys.Map_Follow_Mode,

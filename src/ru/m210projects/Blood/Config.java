@@ -131,8 +131,8 @@ public class Config extends BuildConfig {
 		Keys.RIGHT_BRACKET, //Inventory_Right 35
 		Keys.TAB,			//Map_Toggle 36
 		Keys.F,			//Map_Follow_Mode 37
-		Keys.MINUS, 	//Shrink_Screen 38
-		Keys.EQUALS,	//Enlarge_Screen 39
+		Keys.MINUS, 	//Shrink_Hud 38
+		Keys.EQUALS,	//Enlarge_Hud 39
 		Keys.T, 		//Send_Message 40
 		Keys.K,			//See_Coop_View 41
 		Keys.F7,		//See_Chase_View 42
@@ -203,8 +203,8 @@ public class Config extends BuildConfig {
 			Keys.RIGHT_BRACKET, //Inventory_Right 35
 			Keys.TAB,			//Map_Toggle 36
 			Keys.F,			//Map_Follow_Mode 37
-			Keys.MINUS, 	//Shrink_Screen 38
-			Keys.EQUALS,	//Enlarge_Screen 39
+			Keys.MINUS, 	//Shrink_Hud 38
+			Keys.EQUALS,	//Enlarge_Hud 39
 			Keys.T, 		//Send_Message 40
 			Keys.K,			//See_Coop_View 41
 			Keys.F7,		//See_Chase_View 42
@@ -470,8 +470,8 @@ public class Config extends BuildConfig {
 			BloodKeys.Inventory_Right,
 			GameKeys.Map_Toggle,
 			BloodKeys.Map_Follow_Mode,
-			GameKeys.Shrink_Screen,
-			GameKeys.Enlarge_Screen,
+			GameKeys.Shrink_Hud,
+			GameKeys.Enlarge_Hud,
 			GameKeys.Send_Message,
 			BloodKeys.See_Coop_View,
 			BloodKeys.See_Chase_View,

@@ -127,8 +127,8 @@ public class Config extends BuildConfig {
 		Keys.RIGHT_BRACKET, //Inventory_Right 34
 		Keys.TAB,			//Map_Toggle 35
 		Keys.F,			//Map_Follow_Mode 36
-		Keys.MINUS, 	//Shrink_Screen 37
-		Keys.EQUALS,	//Enlarge_Screen 38
+		Keys.MINUS, 	//Shrink_Hud 37
+		Keys.EQUALS,	//Enlarge_Hud 38
 		Keys.T, 		//Send_Message 39
 		Keys.K,			//See_Coop_View 40
 		Keys.F7,		//See_Chase_View 41
@@ -199,8 +199,8 @@ public class Config extends BuildConfig {
 			Keys.RIGHT_BRACKET, //Inventory_Right 34
 			Keys.TAB,			//Map_Toggle 35
 			Keys.F,			//Map_Follow_Mode 36
-			Keys.MINUS, 	//Shrink_Screen 37
-			Keys.EQUALS,	//Enlarge_Screen 38
+			Keys.MINUS, 	//Shrink_Hud 37
+			Keys.EQUALS,	//Enlarge_Hud 38
 			Keys.T, 		//Send_Message 39
 			Keys.K,			//See_Coop_View 40
 			Keys.F7,		//See_Chase_View 41
@@ -403,8 +403,8 @@ public class Config extends BuildConfig {
 			DukeKeys.Inventory_Right,
 			GameKeys.Map_Toggle,
 			DukeKeys.Map_Follow_Mode,
-			GameKeys.Shrink_Screen,
-			GameKeys.Enlarge_Screen,
+			GameKeys.Shrink_Hud,
+			GameKeys.Enlarge_Hud,
 			GameKeys.Send_Message,
 			DukeKeys.See_Coop_View,
 			DukeKeys.See_Chase_View,

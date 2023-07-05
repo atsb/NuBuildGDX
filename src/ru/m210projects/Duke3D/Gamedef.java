@@ -1468,11 +1468,11 @@ public class Gamedef {
 			con.max_ammo_amount[RPG_WEAPON] = params[j++];
 			con.max_ammo_amount[HANDBOMB_WEAPON] = params[j++];
 			con.max_ammo_amount[SHRINKER_WEAPON] = params[j++];
-			con.max_ammo_amount[DEVISTATOR_WEAPON] = params[j++];
+			con.max_ammo_amount[DEVASTATOR_WEAPON] = params[j++];
 			con.max_ammo_amount[TRIPBOMB_WEAPON] = params[j++];
 			con.max_ammo_amount[FREEZE_WEAPON] = params[j++];
 			if (con.type != 13)
-				con.max_ammo_amount[GROW_WEAPON] = params[j++];
+				con.max_ammo_amount[EXPANDER_WEAPON] = params[j++];
 			con.camerashitable = (char) params[j++];
 			con.numfreezebounces = params[j++];
 			con.freezerhurtowner = (char) params[j++];
@@ -1487,7 +1487,7 @@ public class Gamedef {
 			}
 
 			if (con.type == 20) // Twentieth Anniversary World Tour
-				con.max_ammo_amount[FLAMETHROWER_WEAPON] = params[j++];
+				con.max_ammo_amount[INCINERATOR_WEAPON] = params[j++];
 
 			scriptptr++;
 			return false;

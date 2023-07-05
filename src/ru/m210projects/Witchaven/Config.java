@@ -132,8 +132,8 @@ public class Config extends BuildConfig {
 		Keys.RIGHT_BRACKET, //Inventory_Right
 		Keys.TAB,			//Map_Toggle
 		Keys.F,			//Map_Follow_Mode
-		Keys.MINUS, 	//Shrink_Screen
-		Keys.EQUALS,	//Enlarge_Screen
+		Keys.MINUS, 	//Shrink_Hud
+		Keys.EQUALS,	//Enlarge_Hud
 		Keys.U,			//Mouse_Aiming
 		Keys.I,			//Toggle_Crosshair
 		Keys.INSERT,	 //Fly_up
@@ -205,8 +205,8 @@ public class Config extends BuildConfig {
 		Keys.RIGHT_BRACKET, //Inventory_Right 
 		Keys.TAB,			//Map_Toggle 
 		Keys.F,			//Map_Follow_Mode 
-		Keys.MINUS, 	//Shrink_Screen 
-		Keys.EQUALS,	//Enlarge_Screen 
+		Keys.MINUS, 	//Shrink_Hud 
+		Keys.EQUALS,	//Enlarge_Hud 
 		0,				//Mouse_Aiming 
 		0,				//Toggle_Crosshair 
 		Keys.INSERT,	 //Fly_up 
@@ -297,8 +297,8 @@ public class Config extends BuildConfig {
 			WhKeys.Inventory_Right,
 			GameKeys.Map_Toggle,
 			WhKeys.Map_Follow_Mode,
-			GameKeys.Shrink_Screen,
-			GameKeys.Enlarge_Screen,
+			GameKeys.Shrink_Hud,
+			GameKeys.Enlarge_Hud,
 			GameKeys.Mouse_Aiming,
 			WhKeys.Toggle_Crosshair,
 			WhKeys.Fly_up,

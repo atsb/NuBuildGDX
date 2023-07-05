@@ -87,12 +87,12 @@ public class Globals {
 	public static final int RPG_WEAPON          = 4;
 	public static final int HANDBOMB_WEAPON     = 5;
 	public static final int SHRINKER_WEAPON     = 6;
-	public static final int DEVISTATOR_WEAPON   = 7;
+	public static final int DEVASTATOR_WEAPON   = 7;
 	public static final int TRIPBOMB_WEAPON     = 8;
 	public static final int FREEZE_WEAPON       = 9;
 	public static final int HANDREMOTE_WEAPON   = 10;
-	public static final int GROW_WEAPON         = 11;
-	public static final int FLAMETHROWER_WEAPON = 12; //Twentieth Anniversary World Tour
+	public static final int EXPANDER_WEAPON         = 11;
+	public static final int INCINERATOR_WEAPON = 12; //Twentieth Anniversary World Tour
 
 	public static final int MAXANIMWALLS = 512;
 	public static final int NUMOFFIRSTTIMEACTIVE = 256;

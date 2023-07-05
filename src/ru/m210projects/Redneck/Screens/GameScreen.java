@@ -465,9 +465,9 @@ public class GameScreen extends GameAdapter {
 		if( ud.overhead_on != 0)
 		{
             int j = totalclock-nonsharedtimer; nonsharedtimer += j;
-            if ( input.ctrlGetInputKey(GameKeys.Enlarge_Screen, false) )
+            if ( input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false) )
                 zoom += mulscale(j,Math.max(zoom,256), 6);
-            if ( input.ctrlGetInputKey(GameKeys.Shrink_Screen, false) )
+            if ( input.ctrlGetInputKey(GameKeys.Shrink_Hud, false) )
                 zoom -= mulscale(j,Math.max(zoom,256), 6);
 
             if( (zoom > 2048) )
@@ -487,7 +487,7 @@ public class GameScreen extends GameAdapter {
 	   	    	 FTA(83+(ud.scrollmode?1:0),ps[myconnectindex]);
             }
 		} else {
-			 if ( input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true) )
+			 if ( input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true) )
 			 {
 				 if(ud.screen_size > 0) {
 					 sound(THUD);
@@ -496,7 +496,7 @@ public class GameScreen extends GameAdapter {
 					 vscrn(ud.screen_size);
 				 }
 			 }
-			 if ( input.ctrlGetInputKey(GameKeys.Shrink_Screen, true) )
+			 if ( input.ctrlGetInputKey(GameKeys.Shrink_Hud, true) )
 			 {
 				 if(ud.screen_size < 4) {
 					 sound(THUD);

@@ -93,8 +93,8 @@ public abstract class BuildConfig extends IniFile {
 	public enum GameKeys implements KeyType {
 
 		Move_Forward, Move_Backward, Turn_Left, Turn_Right, Turn_Around, Strafe, Strafe_Left, Strafe_Right, Jump,
-		Crouch, Run, Open, Weapon_Fire, Next_Weapon, Previous_Weapon, Look_Up, Look_Down, Map_Toggle, Enlarge_Screen,
-		Shrink_Screen, Send_Message, Mouse_Aiming, Menu_Toggle, Show_Console;
+		Crouch, Run, Open, Weapon_Fire, Next_Weapon, Previous_Weapon, Look_Up, Look_Down, Map_Toggle, Enlarge_Hud,
+		Shrink_Hud, Send_Message, Mouse_Aiming, Menu_Toggle, Show_Console;
 
 		private int num = -1;
 		private String name;

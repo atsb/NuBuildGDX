@@ -251,9 +251,9 @@ public class GameScreen extends GameAdapter {
 		if ((dimensionmode == 5 || dimensionmode == 6)) {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
 				zoom += mulscale(j, Math.max(zoom, 256), 6);
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
 				zoom -= mulscale(j, Math.max(zoom, 256), 6);
 
 			if ((zoom > 2048))
@@ -273,10 +273,10 @@ public class GameScreen extends GameAdapter {
 				PutStringInfoLine(pp, "ScrollMode " + (ScrollMode2D ? "ON" : "OFF"));
 			}
 		} else {
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 				SetBorder(pp, gs.BorderNum + 1);
 			}
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 				SetBorder(pp, gs.BorderNum - 1);
 			}
 		}

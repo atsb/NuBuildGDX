@@ -160,11 +160,11 @@ public class DemoScreen extends GameScreen {
 		if (input.ctrlGetInputKey(BloodKeys.Make_Screenshot, true))
 			makeScreenshot();
 
-		if(input.ctrlGetInputKey(GameKeys.Shrink_Screen, true)) {
+		if(input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 			viewResizeView(cfg.gViewSize + 1);
 		}
 
-		if(input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true)) {
+		if(input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 			viewResizeView(cfg.gViewSize - 1);
 		}
 	}

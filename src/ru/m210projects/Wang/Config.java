@@ -105,8 +105,8 @@ public class Config extends BuildConfig {
 			Keys.RIGHT_BRACKET, // Inventory_Right 34
 			Keys.TAB, // Map_Toggle 35
 			Keys.F, // Map_Follow_Mode 36
-			Keys.MINUS, // Shrink_Screen 37
-			Keys.EQUALS, // Enlarge_Screen 38
+			Keys.MINUS, // Shrink_Hud 37
+			Keys.EQUALS, // Enlarge_Hud 38
 			Keys.T, // Send_Message 39
 			Keys.K, // See_Coop_View 40
 			Keys.F7, // See_Chase_View 41
@@ -176,8 +176,8 @@ public class Config extends BuildConfig {
 			Keys.RIGHT_BRACKET, // Inventory_Right 34
 			Keys.TAB, // Map_Toggle 35
 			Keys.F, // Map_Follow_Mode 36
-			Keys.MINUS, // Shrink_Screen 37
-			Keys.EQUALS, // Enlarge_Screen 38
+			Keys.MINUS, // Shrink_Hud 37
+			Keys.EQUALS, // Enlarge_Hud 38
 			Keys.T, // Send_Message 39
 			Keys.K, // See_Coop_View 40
 			Keys.F7, // See_Chase_View 41
@@ -346,7 +346,7 @@ public class Config extends BuildConfig {
 				SwKeys.Tilt_Right, SwKeys.Weapon_1, SwKeys.Weapon_2, SwKeys.Weapon_3, SwKeys.Weapon_4, SwKeys.Weapon_5,
 				SwKeys.Weapon_6, SwKeys.Weapon_7, SwKeys.Weapon_8, SwKeys.Weapon_9, SwKeys.Weapon_10,
 				SwKeys.Inventory_Use, SwKeys.Inventory_Left, SwKeys.Inventory_Right, GameKeys.Map_Toggle,
-				SwKeys.Map_Follow_Mode, GameKeys.Shrink_Screen, GameKeys.Enlarge_Screen, GameKeys.Send_Message,
+				SwKeys.Map_Follow_Mode, GameKeys.Shrink_Hud, GameKeys.Enlarge_Hud, GameKeys.Send_Message,
 				SwKeys.See_Coop_View, SwKeys.See_Chase_View, GameKeys.Mouse_Aiming, SwKeys.Toggle_Crosshair,
 				GameKeys.Next_Weapon, GameKeys.Previous_Weapon, SwKeys.Holster_Weapon, SwKeys.Show_Opp_Weapon,
 				SwKeys.NightVision, SwKeys.SmokeBomb, SwKeys.GasBomb, SwKeys.MedKit, SwKeys.FlashBomb, SwKeys.Caltrops,

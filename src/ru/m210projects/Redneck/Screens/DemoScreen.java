@@ -194,7 +194,7 @@ public class DemoScreen extends GameScreen {
 			}
 		}
 
-		 if ( input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true) )
+		 if ( input.ctrlGetInputKey(GameKeys.Shrink_Hud, true) )
 		 {
 			 if(ud.screen_size > 0) {
 				 sound(THUD);
@@ -203,7 +203,7 @@ public class DemoScreen extends GameScreen {
 				 vscrn(ud.screen_size);
 			 }
 		 }
-		 if ( input.ctrlGetInputKey(GameKeys.Shrink_Screen, true) )
+		 if ( input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true) )
 		 {
 			 if(ud.screen_size < 4) {
 				 sound(THUD);

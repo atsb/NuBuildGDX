@@ -602,17 +602,17 @@ public class GameScreen extends GameAdapter {
 		}
 
 		if (gViewMode == kView3D) {
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, true))
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true))
 				viewResizeView(cfg.gViewSize + 1);
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true))
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true))
 				viewResizeView(cfg.gViewSize - 1);
 		} else {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
 
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
 				kMapZoom = ClipLow(kMapZoom - mulscale(j, Math.max(kMapZoom, 256), 6), 16);
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
 				kMapZoom = ClipHigh(kMapZoom + mulscale(j, Math.max(kMapZoom, 256), 6), 4096);
 		}
 	}

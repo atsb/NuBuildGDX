@@ -1573,7 +1573,7 @@ public class View {
 					case TRIPBOMB_WEAPON:
 						tsprite[spritesortcnt].picnum = TRIPBOMBSPRITE;
 						break;
-					case GROW_WEAPON:
+					case EXPANDER_WEAPON:
 						tsprite[spritesortcnt].picnum = GROWSPRITEICON;
 						break;
 					case SHRINKER_WEAPON:
@@ -1582,11 +1582,11 @@ public class View {
 					case FREEZE_WEAPON:
 						tsprite[spritesortcnt].picnum = FREEZESPRITE;
 						break;
-					case FLAMETHROWER_WEAPON: // Twentieth Anniversary World Tour
+					case INCINERATOR_WEAPON: // Twentieth Anniversary World Tour
 						if (currentGame.getCON().type == 20)
 							tsprite[spritesortcnt].picnum = FLAMETHROWERSPRITE;
 						break;
-					case DEVISTATOR_WEAPON:
+					case DEVASTATOR_WEAPON:
 						tsprite[spritesortcnt].picnum = DEVISTATORSPRITE;
 						break;
 					}
@@ -2177,7 +2177,7 @@ public class View {
 		engine.printext256(250, y + 28, 31, -1, buffer, 1, 1.0f);
 		buildString(buffer, 0, "OG= ", ps[snum].on_ground ? 1 : 0);
 		engine.printext256(250, y + 35, 31, -1, buffer, 1, 1.0f);
-		buildString(buffer, 0, "AM= ", ps[snum].ammo_amount[GROW_WEAPON]);
+		buildString(buffer, 0, "AM= ", ps[snum].ammo_amount[EXPANDER_WEAPON]);
 		engine.printext256(250, y + 43, 31, -1, buffer, 1, 1.0f);
 		buildString(buffer, 0, "LFW= ", ps[snum].last_full_weapon);
 		engine.printext256(250, y + 50, 31, -1, buffer, 1, 1.0f);

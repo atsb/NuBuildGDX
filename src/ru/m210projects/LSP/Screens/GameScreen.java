@@ -225,9 +225,9 @@ public class GameScreen extends GameAdapter {
 		if (gPlayer[myconnectindex].gViewMode != 3) {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
 				gPlayer[myconnectindex].zoom += mulscale(j, Math.max(gPlayer[myconnectindex].zoom, 256), 6);
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
 				gPlayer[myconnectindex].zoom -= mulscale(j, Math.max(gPlayer[myconnectindex].zoom, 256), 6);
 
 			if ((gPlayer[myconnectindex].zoom > 2048))

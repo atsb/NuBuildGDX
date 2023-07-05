@@ -144,11 +144,11 @@ public class DemoScreen extends GameScreen {
 		if (input.ctrlGetInputKey(GameKeys.Menu_Toggle, true))
 			menu.mOpen(menu.mMenus[MAIN], -1);
 		
-		if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true)) {
+		if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 			if (cfg.nScreenSize > 0) {
 				cfg.nScreenSize = BClipLow(cfg.nScreenSize - 1, 0);
 			}
-		} else if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, true)) {
+		} else if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 			if (cfg.nScreenSize < 2) {
 				cfg.nScreenSize = BClipHigh(cfg.nScreenSize + 1, 2);
 			}

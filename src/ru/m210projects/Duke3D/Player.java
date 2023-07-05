@@ -1425,10 +1425,10 @@ public class Player {
 			if (p.show_empty_weapon > 0) {
 				p.show_empty_weapon--;
 				if (p.show_empty_weapon == 0) {
-					if (p.last_full_weapon == GROW_WEAPON)
-						p.subweapon |= (1 << GROW_WEAPON);
+					if (p.last_full_weapon == EXPANDER_WEAPON)
+						p.subweapon |= (1 << EXPANDER_WEAPON);
 					else if (p.last_full_weapon == SHRINKER_WEAPON)
-						p.subweapon &= ~(1 << GROW_WEAPON);
+						p.subweapon &= ~(1 << EXPANDER_WEAPON);
 					addweapon(p, p.last_full_weapon);
 					return;
 				}
@@ -1529,7 +1529,7 @@ public class Player {
 				return (0);
 			// Twentieth Anniversary World Tour
 		case FLAMETHROWERAMMO:
-			if (ps[snum].ammo_amount[FLAMETHROWER_WEAPON] < currentGame.getCON().max_ammo_amount[FLAMETHROWER_WEAPON])
+			if (ps[snum].ammo_amount[INCINERATOR_WEAPON] < currentGame.getCON().max_ammo_amount[INCINERATOR_WEAPON])
 				return (10);
 			else
 				return (0);
@@ -1544,7 +1544,7 @@ public class Player {
 			else
 				return (0);
 		case DEVISTATORAMMO:
-			if (ps[snum].ammo_amount[DEVISTATOR_WEAPON] < currentGame.getCON().max_ammo_amount[DEVISTATOR_WEAPON])
+			if (ps[snum].ammo_amount[DEVASTATOR_WEAPON] < currentGame.getCON().max_ammo_amount[DEVASTATOR_WEAPON])
 				return (25);
 			else
 				return (0);

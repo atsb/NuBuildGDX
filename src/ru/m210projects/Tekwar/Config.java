@@ -86,8 +86,8 @@ public class Config extends BuildConfig {
 		Keys.SEMICOLON, //Strafe_Right
 		Keys.TAB, 		//Map_Toggle
 		Keys.ENTER, 	//Throw_Item
-		Keys.EQUALS,	//Enlarge_Screen
-		Keys.MINUS,		//Shrink_Screen
+		Keys.EQUALS,	//Enlarge_Hud
+		Keys.MINUS,		//Shrink_Hud
 		Keys.M, 		//Send_Message
 		Keys.HOME, 		//Aim_Center
 		Keys.R,		//Rearview
@@ -141,8 +141,8 @@ public class Config extends BuildConfig {
 		Keys.D, //Strafe_Right
 		Keys.TAB, 		//Map_Toggle
 		Keys.ENTER, 	//Throw_Item
-		Keys.EQUALS,	//Enlarge_Screen
-		Keys.MINUS,		//Shrink_Screen
+		Keys.EQUALS,	//Enlarge_Hud
+		Keys.MINUS,		//Shrink_Hud
 		Keys.M, 		//Send_Message
 		Keys.HOME, 		//Aim_Center
 		Keys.R,		//Rearview

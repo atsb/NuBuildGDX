@@ -871,7 +871,7 @@ public class Weapons {
                         sprite[j].yrepeat = 30;
                         sprite[j].extra >>= 2;
                     }
-                } else if (ps[p].curr_weapon == DEVISTATOR_WEAPON) {
+                } else if (ps[p].curr_weapon == DEVASTATOR_WEAPON) {
                     sprite[j].extra >>= 2;
                     sprite[j].ang += 16 - (engine.krand() & 31);
                     sprite[j].zvel += 256 - (engine.krand() & 511);
@@ -1094,7 +1094,7 @@ public class Weapons {
         if (!p.gotweapon[weapon]) {
             p.gotweapon[weapon] = true;
             if (currentGame.getCON().PLUTOPAK && weapon == SHRINKER_WEAPON)
-                p.gotweapon[GROW_WEAPON] = true;
+                p.gotweapon[EXPANDER_WEAPON] = true;
         }
 
         p.random_club_frame = 0;
@@ -1142,7 +1142,7 @@ public class Weapons {
 
         int j, i, k;
 
-        if (p.curr_weapon == SHRINKER_WEAPON || p.curr_weapon == GROW_WEAPON)
+        if (p.curr_weapon == SHRINKER_WEAPON || p.curr_weapon == EXPANDER_WEAPON)
             p.random_club_frame += 64; // Glowing
 
         if (p.rapid_fire_hold == 1) {
@@ -1245,9 +1245,9 @@ public class Weapons {
                         break;
 
                     case SHRINKER_WEAPON:
-                    case GROW_WEAPON:
-                        if (currentGame.getCON().PLUTOPAK && p.curr_weapon == GROW_WEAPON) {
-                            if (p.ammo_amount[GROW_WEAPON] > 0) {
+                    case EXPANDER_WEAPON:
+                        if (currentGame.getCON().PLUTOPAK && p.curr_weapon == EXPANDER_WEAPON) {
+                            if (p.ammo_amount[EXPANDER_WEAPON] > 0) {
                                 (p.kickback_pic) = 1;
                                 spritesound(EXPANDERSHOOT, pi);
                             }
@@ -1263,8 +1263,8 @@ public class Weapons {
                             spritesound(CAT_FIRE, pi);
                         }
                         break;
-                    case DEVISTATOR_WEAPON:
-                        if (p.ammo_amount[DEVISTATOR_WEAPON] > 0) {
+                    case DEVASTATOR_WEAPON:
+                        if (p.ammo_amount[DEVASTATOR_WEAPON] > 0) {
                             (p.kickback_pic) = 1;
                             p.hbomb_hold_delay ^= 1;
                             spritesound(CAT_FIRE, pi);
@@ -1276,8 +1276,8 @@ public class Weapons {
                             (p.kickback_pic) = 1;
                         break;
 
-                    case FLAMETHROWER_WEAPON: // Twentieth Anniversary World Tour
-                        if (p.ammo_amount[FLAMETHROWER_WEAPON] > 0) {
+                    case INCINERATOR_WEAPON: // Twentieth Anniversary World Tour
+                        if (p.ammo_amount[INCINERATOR_WEAPON] > 0) {
                             p.kickback_pic = 1;
                             if (sector[p.cursectnum].lotag != 2)
                                 spritesound(FLAMETHROWER_INTRO, pi);
@@ -1484,12 +1484,12 @@ public class Weapons {
                     break;
 
                 case SHRINKER_WEAPON:
-                case GROW_WEAPON:
+                case EXPANDER_WEAPON:
 
-                    if (currentGame.getCON().PLUTOPAK && p.curr_weapon == GROW_WEAPON) {
+                    if (currentGame.getCON().PLUTOPAK && p.curr_weapon == EXPANDER_WEAPON) {
                         if ((p.kickback_pic) > 3) {
                             p.kickback_pic = 0;
-                            p.ammo_amount[GROW_WEAPON]--;
+                            p.ammo_amount[EXPANDER_WEAPON]--;
                             shoot(pi, GROWSPARK);
 
                             if (snum == screenpeek)
@@ -1514,7 +1514,7 @@ public class Weapons {
                     }
                     break;
 
-                case DEVISTATOR_WEAPON:
+                case DEVASTATOR_WEAPON:
                     if (p.kickback_pic != 0) {
                         (p.kickback_pic)++;
 
@@ -1523,7 +1523,7 @@ public class Weapons {
                                 gVisibility = 0;
                             lastvisinc = totalclock + 32;
                             shoot(pi, RPG);
-                            p.ammo_amount[DEVISTATOR_WEAPON]--;
+                            p.ammo_amount[DEVASTATOR_WEAPON]--;
                             checkavailweapon(p);
                         }
                         if ((p.kickback_pic) > 5)
@@ -1554,13 +1554,13 @@ public class Weapons {
                             p.kickback_pic = 0;
                     }
                     break;
-                case FLAMETHROWER_WEAPON:
+                case INCINERATOR_WEAPON:
                     if (currentGame.getCON().type != 20) // Twentieth Anniversary World Tour
                         break;
                     (p.kickback_pic)++;
                     if ((p.kickback_pic) == 2) {
                         if (sector[p.cursectnum].lotag != 2) {
-                            p.ammo_amount[FLAMETHROWER_WEAPON]--;
+                            p.ammo_amount[INCINERATOR_WEAPON]--;
                             if (snum == screenpeek)
                                 gVisibility = 0;
                             shoot(pi, FIREBALL);
@@ -2424,7 +2424,7 @@ public class Weapons {
                                 pal);
                 }
                 break;
-                case DEVISTATOR_WEAPON:
+                case DEVASTATOR_WEAPON:
                     if (sprite[p.i].pal == 1)
                         pal = 1;
                     else
@@ -2477,7 +2477,7 @@ public class Weapons {
                         myospal(weapon_xoffset + 210 - (p.look_ang >> 1), looking_arc + 261 - gun_pos, FREEZE, gs, o, pal);
 
                     break;
-                case FLAMETHROWER_WEAPON: // Twentieth Anniversary World Tour XXX
+                case INCINERATOR_WEAPON: // Twentieth Anniversary World Tour XXX
                     if (sprite[p.i].pal == 1)
                         pal = 1;
                     else {
@@ -2506,7 +2506,7 @@ public class Weapons {
                     break;
 
                 case SHRINKER_WEAPON:
-                case GROW_WEAPON:
+                case EXPANDER_WEAPON:
                     weapon_xoffset += 28;
                     looking_arc += 18;
                     if (sprite[p.i].pal == 1)
@@ -2514,7 +2514,7 @@ public class Weapons {
                     else
                         pal = sector[p.cursectnum].floorpal;
                     if ((kb) == 0) {
-                        if (cw == GROW_WEAPON) {
+                        if (cw == EXPANDER_WEAPON) {
                             myospal(weapon_xoffset + 184 - (p.look_ang >> 1), looking_arc + 240 - gun_pos, SHRINKER + 2,
                                     16 - (sintable[p.random_club_frame & 2047] >> 10), o, 2);
 
@@ -2533,7 +2533,7 @@ public class Weapons {
                             gun_pos += (engine.rand() & 3);
                         }
 
-                        if (cw == GROW_WEAPON) {
+                        if (cw == EXPANDER_WEAPON) {
                             myospal(weapon_xoffset + 184 - (p.look_ang >> 1), looking_arc + 240 - gun_pos,
                                     SHRINKER + 3 + ((kb) & 3), -32, o, 2);
 

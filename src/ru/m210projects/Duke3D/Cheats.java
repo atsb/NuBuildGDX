@@ -94,7 +94,7 @@ public class Cheats {
 					for (int weapon = PISTOL_WEAPON; weapon < (MAX_WEAPONS); weapon++)
 						addammo(weapon, ps[myconnectindex], currentGame.getCON().max_ammo_amount[weapon]);
 
-					ps[myconnectindex].ammo_amount[GROW_WEAPON] = 50;
+					ps[myconnectindex].ammo_amount[EXPANDER_WEAPON] = 50;
 
 					ps[myconnectindex].steroids_amount = 400;
 					ps[myconnectindex].heat_amount = 1200;

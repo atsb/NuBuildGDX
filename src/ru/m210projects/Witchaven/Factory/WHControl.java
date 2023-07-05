@@ -134,9 +134,9 @@ public class WHControl extends BuildControls {
 	
 		if (dimension == 2) {
 			int j = totalclock-nonsharedtimer; nonsharedtimer += j;
-			if ( ctrlGetInputKey(GameKeys.Enlarge_Screen, false) )
+			if ( ctrlGetInputKey(GameKeys.Enlarge_Hud, false) )
 				zoom += mulscale(j, Math.max(zoom,256), 6);
-			if ( ctrlGetInputKey(GameKeys.Shrink_Screen, false) )
+			if ( ctrlGetInputKey(GameKeys.Shrink_Hud, false) )
 				zoom -= mulscale(j, Math.max(zoom,256), 6);
             zoom = BClipRange(zoom, 48, 4096);
             
@@ -149,9 +149,9 @@ public class WHControl extends BuildControls {
 				}
 			}
 		} else {
-			if ( ctrlGetInputKey(GameKeys.Enlarge_Screen, true) && whcfg.gViewSize > 0)
+			if ( ctrlGetInputKey(GameKeys.Enlarge_Hud, true) && whcfg.gViewSize > 0)
 				whcfg.gViewSize--;
-			if ( ctrlGetInputKey(GameKeys.Shrink_Screen, true) && whcfg.gViewSize < 1)
+			if ( ctrlGetInputKey(GameKeys.Shrink_Hud, true) && whcfg.gViewSize < 1)
 				whcfg.gViewSize++;
 		}
 		

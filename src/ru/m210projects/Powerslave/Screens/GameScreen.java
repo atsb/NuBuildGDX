@@ -479,9 +479,9 @@ public class GameScreen extends GameAdapter {
 		if (nOverhead != 0) {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
 				zoom += mulscale(j, Math.max(zoom, 256), 6);
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, false))
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
 				zoom -= mulscale(j, Math.max(zoom, 256), 6);
 
 			if ((zoom > 2048))
@@ -499,12 +499,12 @@ public class GameScreen extends GameAdapter {
 				StatusMessage(500, "Follow mode " + (followmode ? "ON" : "OFF"), nLocalPlayer);
 			}
 		} else {
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Screen, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 				if (cfg.nScreenSize > 0) {
 					cfg.nScreenSize = BClipLow(cfg.nScreenSize - 1, 0);
 				}
 			}
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Screen, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 				if (cfg.nScreenSize < 2) {
 					cfg.nScreenSize = BClipHigh(cfg.nScreenSize + 1, 2);
 				}
