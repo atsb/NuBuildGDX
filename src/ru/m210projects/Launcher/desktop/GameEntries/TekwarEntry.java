@@ -36,7 +36,7 @@ public abstract class TekwarEntry extends GameEntry {
 	public boolean isDemo = false;
 
 	public TekwarEntry() {
-		super("NuTekWarGDX", appversion);
+		super("TekWarGDX", appversion);
 	}
 
 	@Override

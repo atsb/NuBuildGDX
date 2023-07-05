@@ -19,7 +19,7 @@ import ru.m210projects.Redneck.Main;
 public abstract class RREntry extends GameEntry {
 
 	public RREntry() {
-		super("NuRedneckGDX", appversion);
+		super("RedneckGDX", appversion);
 	}
 
 	@Override

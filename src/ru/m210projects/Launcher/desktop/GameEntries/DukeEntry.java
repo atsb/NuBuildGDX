@@ -30,7 +30,7 @@ import ru.m210projects.Duke3D.Main;
 public abstract class DukeEntry extends GameEntry {
 
 	public DukeEntry() {
-		super("NuDukeGDX", appversion);
+		super("DukeGDX", appversion);
 	}
 
 	@Override

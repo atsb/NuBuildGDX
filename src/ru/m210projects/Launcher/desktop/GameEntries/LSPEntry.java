@@ -28,7 +28,7 @@ import ru.m210projects.LSP.Main;
 public abstract class LSPEntry extends GameEntry {
 
 	public LSPEntry() {
-		super("NuLSPGDX", appversion);
+		super("LSPGDX", appversion);
 	}
 
 	@Override
