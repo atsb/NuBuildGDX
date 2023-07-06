@@ -42,7 +42,7 @@ import com.badlogic.gdx.utils.Pool;
 
 public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelListener, MouseInterface {
 
-	class TouchEvent {
+	static class TouchEvent {
 		static final int TOUCH_DOWN = 0;
 		static final int TOUCH_UP = 1;
 		static final int TOUCH_DRAGGED = 2;
@@ -88,7 +88,7 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 	{
 		try {
 			robot = new Robot(GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice());
-		} catch (Exception e) {}
+		} catch (Exception ignored) {}
 		this.display = display;
 
 		Canvas canvas = display.getCanvas();
@@ -97,6 +97,7 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 			canvas.removeMouseMotionListener(this);
 			canvas.removeMouseWheelListener(this);
 		}
+		assert canvas != null;
 		canvas.addMouseListener(this);
 		canvas.addMouseMotionListener(this);
 		canvas.addMouseWheelListener(this);

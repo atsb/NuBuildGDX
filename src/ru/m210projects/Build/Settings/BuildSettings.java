@@ -14,7 +14,7 @@ public class BuildSettings {
 	public static BuildVariable<Boolean> vsync;
 	public static BuildVariable<Integer> paletteGamma;
 	
-	public static final Integer[] fpslimits = { 0, 30, 60, 120, 144, 200, 250, 300 };
+	public static final Integer[] fpslimits = { 0, 30, 60, 120, 144, 240, 320, 480};
 	
 	public static void init(final Engine engine, final BuildConfig cfg)
 	{

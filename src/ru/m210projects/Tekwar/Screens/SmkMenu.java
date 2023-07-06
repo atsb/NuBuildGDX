@@ -91,7 +91,7 @@ public abstract class SmkMenu extends ScreenAdapter {
 		helpclock = 0;
 		message = MessageType.NONE;
 
-		BuildGdx.input.setCursorCatched(false);
+		BuildGdx.input.setCursorCatched(true);
 		game.pInput.ctrlResetKeyStatus();
 		init(init());
 	}

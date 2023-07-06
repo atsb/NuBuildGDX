@@ -120,12 +120,8 @@ public abstract class BuildFrame {
 		if (shouldRender) {
 			graphics.updateTime();
 			graphics.frameId++;
-		} else {
-			// Sleeps to avoid wasting CPU in an empty loop.
-			if (frameRate == -1) frameRate = 10;
-			if (frameRate == 0) frameRate = getConfig().backgroundFPS;
-			if (frameRate == 0) frameRate = 30;
 		}
+
 		if (frameRate > 0) graphics.sync(frameRate);
 
 		return shouldRender;

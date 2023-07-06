@@ -46,23 +46,6 @@ public class DesktopMessage implements BuildMessage {
 			return false;
 
 		BuildGdx.input.setCursorCatched(false);
-		if(message.length() >= 384)
-		{
-			message = message.substring(0, 384);
-			message += "...";
-		}
-
-//		DisplayMode fullscreen = null;
-//		if(BuildGdx.graphics != null && BuildGdx.graphics.isFullscreen()) {
-//			fullscreen = BuildGdx.graphics.getDisplayMode();
-//			BuildGdx.graphics.setWindowedMode(BuildGdx.graphics.getWidth(), BuildGdx.graphics.getHeight());
-//		}
-
-		if(update)
-		{
-			message = "You are using the old version of BuildGdx and have to update it! \r\n \r\n \r\n" + message;
-			type = MessageType.Info;
-		}
 
 		switch(type)
 		{
@@ -74,9 +57,6 @@ public class DesktopMessage implements BuildMessage {
 				ShowPanel(JOptionPane.INFORMATION_MESSAGE, JOptionPane.YES_NO_OPTION, header, message);
 			}
 
-//	        if(fullscreen != null)
-//	        	BuildGdx.graphics.setFullscreenMode(fullscreen);
-
 	        Object selectedValue = panel.getValue();
 	        if (selectedValue instanceof Integer) {
 	        	if(((Integer)selectedValue).intValue() == JOptionPane.YES_OPTION)
@@ -86,9 +66,6 @@ public class DesktopMessage implements BuildMessage {
 			return false;
 		case Info:
 			ShowPanel(JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, header, message);
-//			if(fullscreen != null)
-//	        	BuildGdx.graphics.setFullscreenMode(fullscreen);
-
 			return false;
 		}
 

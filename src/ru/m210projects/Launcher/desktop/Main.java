@@ -56,7 +56,7 @@ import ru.m210projects.Launcher.desktop.GameEntries.WHEntry;
 
 public class Main {
 
-	public static String appversion = "v1.18";
+	public static String appversion = "v1.18.1";
 	public static final String headerPath = "Headers";
 	public static final String iconPath = "Games";
 	public static final Platform platform = getPlatform();
