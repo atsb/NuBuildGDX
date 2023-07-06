@@ -1467,12 +1467,6 @@ public class Player {
 				if (v229 < 0)
 					nPlayerScore[player]--;
 //				else  XXX Crash v229 == 20811
-//					if (sprite[v229].statnum == 100) {
-//					if (GetPlayerFromSprite(v229) == player)
-//						--nPlayerScore[player];
-//					else
-//						++nPlayerScore[player];
-//				}
 
 				int deathType;
 				if ((a1 & 0x7F0000) == 0xA0000) {

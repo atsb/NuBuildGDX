@@ -190,62 +190,7 @@ public class Trigger {
 		return 1;
 	}
 
-	/*public static int SetSpriteState( int nSprite, XSPRITE pXSprite, int state )
-	{
-		if ( (pXSprite.busy & kFluxMask) == 0 && pXSprite.state == state )
-			return state ^ pXSprite.state;
-
-		pXSprite.busy = state << 16;
-		pXSprite.state = (short) state;
-
-		checkEventList(nSprite, SS_SPRITE);
-		if ( (sprite[nSprite].hitag & kAttrRespawn) != 0 && (sprite[nSprite].zvel >= kDudeBase && sprite[nSprite].zvel < kDudeMax) )
-		{
-			pXSprite.respawnPending = 3;
-			evPostCallback(nSprite, 3, pGameInfo.nMonsterRespawnTime, kCallbackRespawn);
-			return 1;
-		}
-
-		if ( state != pXSprite.restState && pXSprite.waitTime > 0 ) {
-			evPost(nSprite, SS_SPRITE, pXSprite.waitTime * kTimerRate / 10,
-				pXSprite.restState != 0 ? kCommandOn : kCommandOff );
-		}
-
-		if (pXSprite.txID != 0 && ((pXSprite.triggerOn && pXSprite.state == 1) || (pXSprite.triggerOff && pXSprite.state == 0))) {
-
-		   switch (sprite[nSprite].lotag) {
-			   case kGDXObjPropertiesChanger:
-			   case kGDXObjPicnumChanger:
-			   case kGDXObjSizeChanger:
-			   case kGDXSectorFXChanger:
-			   case kGDXObjDataChanger:
-			   case kGDXSpriteDamager:
-				   // by NoOne: Sending new command instead of link is *required*, because types above
-				   //are universal and can paste properties in different objects.
-				   switch (pXSprite.command) {
-				       case kCommandLink:
-				       case kGDXCommandPaste:
-				           evSend(nSprite, 3, pXSprite.txID, kGDXCommandPaste); // just send command to change properties
-				           return 1;
-					   case kCommandUnlock:
-					       evSend(nSprite, 3, pXSprite.txID, pXSprite.command); // send normal command first
-					       evSend(nSprite, 3, pXSprite.txID, kGDXCommandPaste); // then send command to change properties
-					       return 1;
-					   default:
-					       evSend(nSprite, 3, pXSprite.txID, kGDXCommandPaste); // send first command to change properties
-					       evSend(nSprite, 3, pXSprite.txID, pXSprite.command); // then send normal command
-					       return 1;
-				       }
-			   default:
-			       if (pXSprite.command != kCommandLink) evSend(nSprite, 3, pXSprite.txID, pXSprite.command);
-			       break;
-		   }
-		}
-
-		return 1;
-	}*/
-
-	public static int SetSpriteState( int nSprite, XSPRITE pXSprite, int state )
+    public static int SetSpriteState( int nSprite, XSPRITE pXSprite, int state )
 	{
 		if ( (pXSprite.busy & kFluxMask) == 0 && pXSprite.state == state )
 			return state ^ pXSprite.state;
@@ -2822,9 +2767,7 @@ public class Trigger {
 				int mDist = 3; if (isMeleeUnit(pSprite)) mDist = 2;
 				//int mDist = 2;
 				if (pXSprite.target >= 0 && getTargetDist(pSprite,pDudeInfo,sprite[pXSprite.target]) < mDist) {
-					//System.out.println("====> CONTINUING FIGHT WITH TARGET "+sprite[pXSprite.target].lotag);
-					//aiSetTarget(pXSprite,sprite[pXSprite.target].xvel);
-					if (!isActive(pSprite.xvel)) aiActivateDude(pSprite, pXSprite);
+                    if (!isActive(pSprite.xvel)) aiActivateDude(pSprite, pXSprite);
 					return;
 				// lets try to look for target that fits better by distance
 				} else if ((gFrameClock & 256) != 0 && (pXSprite.target < 0 || getTargetDist(pSprite,pDudeInfo,pTarget) >= mDist)) {

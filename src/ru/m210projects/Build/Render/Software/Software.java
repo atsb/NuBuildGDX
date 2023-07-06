@@ -3351,9 +3351,7 @@ public class Software implements Renderer {
 				a.slopevlin(ylookup[y2] + x + frameoffset, palookup[j], nptr2, y2 - y1 + 1, globalx1, globaly1,
 						globalx3, globaly3, slopalookup, mulscale(y2, globalzd, 16) + (globalzx >> 6));
 
-//				if ((x & 15) == 0)
-//					engine.faketimerhandler();
-			}
+            }
 			globalx2 += globalx;
 			globaly2 += globaly;
 			globalzx += globalz;

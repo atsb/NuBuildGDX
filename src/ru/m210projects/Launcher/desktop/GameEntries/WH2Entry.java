@@ -63,64 +63,7 @@ public abstract class WH2Entry extends GameEntry {
 		return resources;
 	}
 
-	/*@Override
-	public ResFile[] getResourceFiles() {
-		ResFile[] resources = { 
-			new ResFile("songs"), 
-			new ResFile("joesnd"), 
-			new ResFile("tiles000.art"),
-			new ResFile("tables.dat"), 
-			new ResFile("palette.dat"), 
-			new ResFile("lookup.dat"), 
-			new ResFile("level1.map"),
-		};
-		return resources;
-	}*/
-	
-	/*@Override
-	public boolean checkResources(String path, boolean errorMessage) {
-		File directory = new File(path);
-		
-		File[] fList = directory.listFiles();
-		if(fList == null)
-			return false;
-		
-		HashMap<String, File> filesMap = new HashMap<String, File>();
-		for (File file : fList) 
-			filesMap.put(toLowerCase(file.getName()), file);
-
-		isWH2 = false;
-		boolean found = true;
-		ResFile[] resources = getResourceFiles();
-		for (int i = 0; i < resources.length; i++) {
-			if (filesMap.get(resources[i].name) == null) {
-				found = false;
-				if(errorMessage) 
-					Console.Println(appname + " [WH res] error: " + resources[i].name + " is missing!");
-				break;
-			}
-		}
-		
-		if(found) return true;
-		
-		if(errorMessage) 
-			Console.Println(appname + ": trying to find WH2");
-
-		isWH2 = found = true;
-		resources = getWH2ResourceFiles();
-		for (int i = 0; i < resources.length; i++) {
-			if (filesMap.get(resources[i].name) == null) {
-				found = false;
-				if(errorMessage) 
-					Console.Println(appname + " [WH2 res] error: " + resources[i].name + " is missing!");
-				break;
-			}
-		}
-
-		return found;
-	}*/
-
-	@Override
+    @Override
 	public BuildConfig buildConfig(String path) {
 		return (currentConfig = new Config(path, appname + ".ini"));
 	}

@@ -51,16 +51,7 @@ public abstract class SeqInst {
 		if ( pSequence.getFrame(frameIndex).trigger && callback != null ) 
 		{
 			callback.run(index);
-//			if(callback == AIEnemyCallback) {
-//				if(xsprite[index].aiState != null) 
-//					xsprite[index].aiState.callback(index);
-//			}
-//			else {
-//				if(callback > seqCallback.length)
-//					callback = getCallback(callback);
-//				seqCallback[callback].run(index);
-//			}
-		}
+        }
 	}
 	
 	public int getSeqIndex()

@@ -92,15 +92,7 @@ public abstract class GameEntry {
 		for (File file : fList)
 			filesMap.put(toLowerCase(file.getName()), file);
 
-		/*ResFile[] resources = getResourceFiles();
-			for (int i = 0; i < resources.length; i++) {
-				if (filesMap.get(resources[i].name) == null) {
-					if(errorMessage) Console.Println(appname + " error: " + resources[i].name + " is missing!");
-					return new CheckFiles(false,resources[i].name.toUpperCase() + " is missing");
-				}
-			}*/
-
-		String missingFiles = "<html>";
+        String missingFiles = "<html>";
 		boolean filesFound = true;
 
 		ResFile[] resources = getResourceFiles();

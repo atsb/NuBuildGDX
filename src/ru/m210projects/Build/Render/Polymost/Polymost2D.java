@@ -1169,16 +1169,8 @@ public class Polymost2D extends OrphoRenderer {
 		parent.globalfog.apply();
 
 		int texunits = textureCache.getTextureUnits(), j;
-//		float hackscx = 1.0f, hackscy = 1.0f;
-//		if (pth != null && pth.isHighTile()) {
-//			hackscx = pth.getXScale();
-//			hackscy = pth.getYScale();
-//		}
-//
-//		float ox2 = hackscx / pth.getWidth();
-//		float oy2 = hackscy / pth.getHeight();
 
-		float ox2 = 0;
+        float ox2 = 0;
 		float oy2 = 0;
 		int xx, yy;
 		if (pth.isHighTile()) {
@@ -1417,7 +1409,7 @@ public class Polymost2D extends OrphoRenderer {
 	public void uninit() {
 	}
 
-	class raster {
+	static class raster {
 		float x, y, xi;
 		int i;
 

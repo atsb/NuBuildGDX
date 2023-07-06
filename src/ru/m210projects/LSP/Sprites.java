@@ -713,10 +713,8 @@ public class Sprites {
 
 									if (spr.picnum == 2096) {
 										// changepalette(palette2); XXX
-										// word_58784[target] = 1;
-										// dword_569DC[target] = totalclock;
 
-										gPlayer[p].nWeaponImpact = -72;
+                                        gPlayer[p].nWeaponImpact = -72;
 										gPlayer[p].nWeaponImpactAngle = (short) gPlayer[p].ang;
 										playsound(7);
 										changehealth(p, spr.lotag);
@@ -853,10 +851,7 @@ public class Sprites {
 								break;
 							}
 
-//							if (sprite[nHitObject].lotag <= 12)
-//								sprite[nHitObject].cstat &= 0xFD;
-//							sprite[nHitObject].ang = (short) ((sprite[gPlayer[target].nSprite].ang + 0x400) & 0x7FF);
-							engine.deletesprite(i);
+                            engine.deletesprite(i);
 							continue;
 						}
 

@@ -188,16 +188,7 @@ public class Player {
 				gPlayer[snum].nWeaponImpact = 0;
 			}
 
-//			if (gPlayer[snum].pInput.xvel != 0) {
-//				xvect += (int) (gPlayer[snum].pInput.xvel * 12 * BCosAngle(gPlayer[snum].ang)) / 16.0f;
-//				yvect += (int) (gPlayer[snum].pInput.xvel * 12 * BSinAngle(gPlayer[snum].ang)) / 16.0f;
-//			}
-//			if (gPlayer[snum].pInput.yvel != 0) {
-//				xvect += (int) (gPlayer[snum].pInput.yvel * 12 * BCosAngle(gPlayer[snum].ang + 1536)) / 16.0f;
-//				yvect += (int) (gPlayer[snum].pInput.yvel * 12 * BSinAngle(gPlayer[snum].ang + 1536)) / 16.0f;
-//			}
-
-			if (gPlayer[snum].noclip) {
+            if (gPlayer[snum].noclip) {
 				gPlayer[snum].x += xvect >> 14;
 				gPlayer[snum].y += yvect >> 14;
 				short sect = engine.updatesector(gPlayer[snum].x, gPlayer[snum].y, gPlayer[snum].sectnum);

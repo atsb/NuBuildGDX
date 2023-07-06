@@ -75,7 +75,7 @@ class Floor1 extends FuncFloor{
 
   Object unpack(Info vi, Buffer opb){
     int count=0, maxclass=-1, rangebits;
-    InfoFloor1 info=new InfoFloor1();
+    InfoFloor1 info= new InfoFloor1();
 
     /* read partitions */
     info.partitions=opb.read(5); /* only 0 to 31 legal */
@@ -478,7 +478,7 @@ class Floor1 extends FuncFloor{
     }
   }
 
-  class InfoFloor1{
+  static class InfoFloor1{
     static final int VIF_POSIT=63;
     static final int VIF_CLASS=16;
     static final int VIF_PARTS=31;
@@ -525,7 +525,7 @@ class Floor1 extends FuncFloor{
 
     Object copy_info(){
       InfoFloor1 info=this;
-      InfoFloor1 ret=new InfoFloor1();
+      InfoFloor1 ret= new InfoFloor1();
 
       ret.partitions=info.partitions;
       System
@@ -586,7 +586,7 @@ class Floor1 extends FuncFloor{
     }
   }
 
-  class Lsfit_acc{
+  static class Lsfit_acc{
     long x0;
     long x1;
 
@@ -602,7 +602,7 @@ class Floor1 extends FuncFloor{
     long edgey1;
   }
 
-  class EchstateFloor1{
+  static class EchstateFloor1{
     int[] codewords;
     float[] curve;
     long frameno;

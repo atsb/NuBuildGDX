@@ -539,10 +539,7 @@ public class Tekprep {
 
 		if (firsttimethru != 0) {
 			lockclock = 0;
-//		     ototalclock = 0;
-//		     gotlastpacketclock = 0;
-//		     masterslavetexttime = 0;
-		}
+        }
 
 		if (game.nNetMode == NetMode.Multiplayer) {
 			firsttimethru = 0;
@@ -559,15 +556,8 @@ public class Tekprep {
 		}
 
 		// put guns somewhere on map
-//	     if( option[4] > 0 ) {
-//	          placerandompic(3094L);
-//	          placerandompic(3093L);
-//	          placerandompic(3095L);
-//	          placerandompic(3091L);
-//	          placerandompic(3090L);
-//	     }
 
-		return true;
+        return true;
 	}
 
 }

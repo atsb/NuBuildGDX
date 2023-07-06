@@ -158,11 +158,7 @@ public class ResourceHandler {
 				BuildGdx.cache.add(res, removable);
 			}
 
-//			if(res.fileformat.equals("cue")) {
-//				Console.Println("Cd tracks found...");
-//				parserfs(removable?group:-1, res.filename, res.getBytes());
-//			}
-		}
+        }
 	}
 
 	private static void searchEpisodeResources(DirectoryEntry cache)

@@ -257,20 +257,9 @@ public class GDXRenderer implements GLRenderer {
 			orphoRen.end();
 
 		// Temporaly code (Tekwar issue)
-//		else if (!clearStatus) { // once at frame
-//			gl.glClearColor(0.0f, 0.5f, 0.5f, 1);
-//			gl.glClear(GL_COLOR_BUFFER_BIT);
-//			clearStatus = true;
-//		}
-		gl.glClear(GL_DEPTH_BUFFER_BIT);
+        gl.glClear(GL_DEPTH_BUFFER_BIT);
 
-//		if (shape == null) {
-//			shape = new ShapeRenderer();
-//			shape.setProjectionMatrix(shape.getProjectionMatrix().setToOrtho(0, xdim, ydim, 0, -1, 1));
-//		}
-//		shape.begin(ShapeType.Line);
-
-		gl.glDisable(GL_BLEND);
+        gl.glDisable(GL_BLEND);
 		gl.glEnable(GL_TEXTURE_2D);
 		gl.glEnable(GL_DEPTH_TEST);
 
@@ -325,27 +314,8 @@ public class GDXRenderer implements GLRenderer {
 
 	@Override
 	public void drawmasks() {
-//		for (int i = inpreparemirror ? 1 : 0; i < sectors.size(); i++) {
-//			VisibleSector sec = sectors.get(i);
-//
-//			// TODO: make stencil buffer
-//			int sectnum = sec.index;
-//			for(int s = 0; s < spritesortcnt; s++) {
-//				if (tsprite[s] != null && tsprite[s].sectnum == sectnum) {
-//					drawsprite(s);
-//				}
-//			}
-//
-//			drawSector(sec);
-//			// TODO: clear stencil buffer
-//		}
-//
-//		int[] maskwalls = scanner.getMaskwalls();
-//		int maskwallcnt = scanner.getMaskwallCount();
-//		while (maskwallcnt > 0)
-//			drawmaskwall(--maskwallcnt);
 
-		int[] maskwalls = scanner.getMaskwalls();
+        int[] maskwalls = scanner.getMaskwalls();
 		int maskwallcnt = scanner.getMaskwallCount();
 
 		sprR.sort(tsprite, spritesortcnt);
@@ -812,9 +782,7 @@ public class GDXRenderer implements GLRenderer {
 
 		beforedrawrooms = 1;
 
-//		if (shape != null)
-//			shape.end();
-	}
+    }
 
 	@Override
 	public void setview(int x1, int y1, int x2, int y2) {
@@ -1245,28 +1213,7 @@ public class GDXRenderer implements GLRenderer {
 			manager.textureTransform(texture_transform, 0);
 
 			if (GLInfo.multisample != 0 && GLSettings.useHighTile.get() && Rendering.Skybox.getIndex() == 0) {
-//				if (Console.Geti("r_detailmapping") != 0) {
-//					GLTile detail = textureCache.get(tile.getPixelFormat(), tilenum, DETAILPAL, 0, method);
-//					if (detail != null) {
-//						textureCache.bind(detail);
-//						//setupTextureDetail(detail); XXX
-//
-//						texture_transform.idt();
-//						if (detail.isHighTile() && (detail.getHiresXScale() != 1.0f)
-//								|| (detail.getHiresYScale() != 1.0f))
-//							texture_transform.scale(detail.getHiresXScale(), detail.getHiresYScale());
-//						manager.textureTransform(texture_transform, 1);
-//					}
-//				}
-//
-//				if (Console.Geti("r_glowmapping") != 0) {
-//					GLTile glow = textureCache.get(tile.getPixelFormat(), tilenum, GLOWPAL, 0, method);
-//					if (glow != null) {
-//						textureCache.bind(glow);
-//						//setupTextureGlow(glow); XXX
-//					}
-//				}
-			}
+            }
 
 			float r, b, g;
 			float fshade = min(max(shade * 1.04f, 0), numshades);
@@ -1406,10 +1353,8 @@ public class GDXRenderer implements GLRenderer {
 				tile.update(data, palnum, useMipMaps);
 			}
 		} else {
-//			if (tile != null)
-//				skycache.dispose(picnum); // old texture
 
-			TileData data = loadPic(fmt, picnum, palnum);
+            TileData data = loadPic(fmt, picnum, palnum);
 			if (data == null)
 				return null;
 
@@ -1447,67 +1392,5 @@ public class GDXRenderer implements GLRenderer {
 	}
 
 	// Debug 2.5D renderer
-
-//	private boolean WallFacingCheck(WALL wal) {
-//		float x1 = wal.x - globalposx;
-//		float y1 = wal.y - globalposy;
-//		float x2 = wall[wal.point2].x - globalposx;
-//		float y2 = wall[wal.point2].y - globalposy;
-//
-//		return (x1 * y2 - y1 * x2) >= 0;
-//	}
-//
-//	private boolean NearPlaneCheck(BuildCamera cam, ArrayList<? extends Vector3> points) {
-//		Plane near = cam.frustum.planes[0];
-//		for (int i = 0; i < points.size(); i++) {
-//			if (near.testPoint(points.get(i)) == PlaneSide.Back)
-//				return true;
-//		}
-//		return false;
-//	}
-//
-//	private void projectToScreen(BuildCamera cam, ArrayList<Vertex> points) {
-//		for (int i = 0; i < points.size(); i++)
-//			cam.project(points.get(i));
-//	}
-//
-//	private ArrayList<Vertex> project(BuildCamera cam, int z, int sectnum, Heinum h) {
-//		WALL wal = wall[z];
-//		if (!WallFacingCheck(wal))
-//			return null;
-//
-//		ArrayList<Vertex> vertex = world.getPoints(h, sectnum, z);
-//		if (!cam.polyInCamera(vertex))
-//			return null;
-//
-//		if (NearPlaneCheck(cam, vertex)) {
-//			PolygonClipper cl = new PolygonClipper();
-//			vertex = cl.ClipPolygon(cam.frustum, vertex);
-//			if (vertex.size() < 3)
-//				return null;
-//		}
-//
-//		projectToScreen(cam, vertex);
-//		return vertex;
-//	}
-//
-//	public ShapeRenderer shape;
-//
-//	private void draw2dSurface(int z, int sectnum, Heinum heinum) {
-//		ArrayList<Vertex> coords = project(cam, z, (short) sectnum, heinum);
-//		if (coords != null) {
-//			if (heinum == Heinum.MaxWall)
-//				shape.setColor(0.8f, 0.8f, 0.8f, 1);
-//			else if (heinum == Heinum.Upper || heinum == Heinum.Lower)
-//				shape.setColor(0.8f, 0.8f, 0.0f, 1);
-//			else if (heinum == Heinum.Portal)
-//				shape.setColor(0.8f, 0, 0, 1);
-//
-//			for (int i = 0; i < coords.size(); i++) {
-//				int next = (i + 1) % coords.size();
-//				shape.line(coords.get(i).x, coords.get(i).y, coords.get(next).x, coords.get(next).y);
-//			}
-//		}
-//	}
 
 }

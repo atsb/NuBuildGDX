@@ -32,7 +32,7 @@ public class MovieFile {
 	
 	private int width, height;
 
-	private class Frame {
+	private static class Frame {
 		public static final int sizeof = 16;
 
 		int size; /* whole frame size */

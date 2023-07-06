@@ -14,14 +14,7 @@ import ru.m210projects.Build.Render.Polymost.Polymost;
 
 public class WHPolymost extends Polymost {
 
-//	@Override
-//	public void drawrooms()
-//	{
-//		globalvisibility = scale(visibility<<2, xdimen, 2200);
-//		super.drawrooms();
-//	}
-
-	public WHPolymost(Engine engine) {
+    public WHPolymost(Engine engine) {
 		super(engine, new WHMapSettings());
 		globalfog.setFogScale(64);
 	}

@@ -37,12 +37,8 @@ public class MenuLastLoad extends BuildMenu {
 
 			@Override
 			public void negative(MenuHandler menu) {
-//				short bak = GlobInfoStringTime;
-//				GlobInfoStringTime = 999;
-//				PutStringInfo(Player[myconnectindex], "Press \"USE\" or SPACE to restart");
-//				GlobInfoStringTime = bak;
 
-				DoPlayerDeathRestart(Player[myconnectindex]);
+                DoPlayerDeathRestart(Player[myconnectindex]);
 				menu.mClose();
 			}
 		};

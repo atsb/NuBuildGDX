@@ -213,38 +213,14 @@ public class DemoScreen extends GameScreen {
 			
 				ProcessFrame(pNet);
 
-//				if(game.pInput.ctrlKeyStatusOnce(Keys.BACKSPACE))
-//				{
-//					System.err.println("rcnt " + demfile.rcnt + " clock " + lockclock);
-//					System.err.println(engine.getrand());	
-//				}
-			}
+            }
 		} else lockclock = totalclock;
 	}
 
 	public boolean showDemo()
 	{
-//		switch(cfg.gDemoSeq)
-//		{
-//		case 0: //OFF
-//			return false;
-//		case 1: //Consistently
-//			if (nDemonum < (demofiles.size() - 1))
-//				nDemonum++;
-//			else
-//				nDemonum = 0;
-//			break;
-//		case 2: //Accidentally
-//			int nextnum = nDemonum;
-//			if(demofiles.size() > 1) {
-//				while(nextnum == nDemonum) 
-//					nextnum = (int) (Math.random() * (demofiles.size()));
-//			}
-//			nDemonum = nextnum;
-//			break;
-//		}
-		
-		if (nDemonum < (demofiles.size() - 1))
+
+        if (nDemonum < (demofiles.size() - 1))
 			nDemonum++;
 		else
 			nDemonum = 0;

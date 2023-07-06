@@ -436,15 +436,8 @@ public class View {
 	public static void displayfragbar(int yoffset, boolean showpalette) {
 		int row = (ud.multimode - 1) / 4;
 		if (row >= 0) {
-//			int framesx = xdim / tilesizx[BIGHOLE];
-//			int framesy = mulscale(tilesizy[FRAGBAR] * (row + 1), divscale(ydim, 200, 16), 16);
-//			int x = 0;
-//			for(int i = 0; i <= framesx; i++) {
-//		    	engine.rotatesprite(x<<16, 0, 0x10000, 0, BIGHOLE, 0, 0, 8 | 16 | 256, 0, 0, xdim-1, framesy);
-//		    	x += tilesizx[BIGHOLE];
-//		    }
 
-			if (yoffset > 0)
+            if (yoffset > 0)
 				yoffset -= 9 * row;
 			for (int r = 0; r <= row; r++)
 				engine.rotatesprite(0, yoffset + (r * engine.getTile(FRAGBAR).getHeight()) << 16, 65600, 0, FRAGBAR, 0,
@@ -964,21 +957,8 @@ public class View {
 		PlayerStruct p = ps[snum];
 
 		gPlayerIndex = -1;
-//	    if(Gdx.input.isKeyPressed(Keys.E))
-//	    {
-//	    	int zvel = (int)(100-ps[0].horiz-ps[0].horizoff)<<5;
-//	    	engine.hitscan(ps[0].posx,ps[0].posy,ps[0].posz,ps[0].cursectnum,
-//	    			sintable[((int)ps[0].ang+512)&2047],
-//	    			sintable[(int)ps[0].ang&2047],zvel<<6,
-//	    			pHitInfo,CLIPMASK0);
-//
-//	    	if(pHitInfo.hitsprite != -1)
-//	    	{
-//	    		System.err.println(pHitInfo.hitsprite);
-//	    	}
-//	    }
 
-		if ((!game.menu.gShowMenu && ud.overhead_on == 2) || game.menu.isOpened(game.menu.mMenus[HELP])
+        if ((!game.menu.gShowMenu && ud.overhead_on == 2) || game.menu.isOpened(game.menu.mMenus[HELP])
 				|| p.cursectnum == -1)
 			return;
 
@@ -1204,16 +1184,7 @@ public class View {
 			if(!isValidSector(t.sectnum))
 				continue;
 
-//			if(engine.glrender() != null && ps[screenpeek].heat_on != 0) {
-//				if((t.picnum >= STARTALPHANUM && t.picnum <= ENDALPHANUM)
-//					|| (t.picnum >= (BIGALPHANUM - 10) && t.picnum < BIGAPPOS)
-//					|| (t.picnum >= MINIFONT && t.picnum <= MINIFONT + 63)) {
-//					t.pal = 6;
-//					t.shade -= 10;
-//				}
-//			} //Nightvision hack
-
-			switch (t.picnum) {
+            switch (t.picnum) {
 			case DEVELOPERCOMMENTARY:
 			case DEVELOPERCOMMENTARY + 1:
 				if (!cfg.bDevCommentry)

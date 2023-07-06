@@ -140,11 +140,11 @@ public abstract class Engine {
 	public static final byte CEIL = 0;
 	public static final byte FLOOR = 1;
 
-	protected class Line {
+	protected static class Line {
 		public int x1, y1, x2, y2;
 	}
 
-	protected class Clip {
+	protected static class Clip {
 		private int x, y, z;
 		private short num;
 
@@ -1886,10 +1886,7 @@ public abstract class Engine {
 				if ((z <= zofslope[CEIL]) || (z >= zofslope[FLOOR]))
 					return false;
 
-				// for(i=danum-1;i>=0;i--) if (clipsectorlist[i] == nexts) break;
-				// if (i < 0) clipsectorlist[danum++] = (short) nexts;
-
-				if ((sectbitmap[nexts >> 3] & (1 << (nexts & 7))) == 0) {
+                if ((sectbitmap[nexts >> 3] & (1 << (nexts & 7))) == 0) {
 					sectbitmap[nexts >> 3] |= (1 << (nexts & 7));
 					clipsectorlist[danum++] = nexts;
 				}

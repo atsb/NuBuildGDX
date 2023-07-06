@@ -490,10 +490,7 @@ public class Shotgun {
 			psp.over[SHOTGUN_AUTO_NUM].yoff = SHOTGUN_AUTO_YOFF;
 		}
 
-		// if(psp.PlayerP().WpnShotgunAuto == 0 && psp.PlayerP().WpnRocketType == 1)
-		// psp.PlayerP().WpnShotgunType--;
-
-		switch (psp.PlayerP().WpnShotgunType) {
+        switch (psp.PlayerP().WpnShotgunType) {
 		case 0:
 			psp.over[SHOTGUN_AUTO_NUM].pic = -1;
 			psp.over[SHOTGUN_AUTO_NUM].flags |= (psf_ShadeNone);

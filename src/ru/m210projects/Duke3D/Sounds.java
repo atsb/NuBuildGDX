@@ -122,9 +122,7 @@ public class Sounds {
 		@Override
 		public void run(Integer num) {
 			if (num < 0) {
-//	            if(lumplockbyte[-num] >= 200)
-//	                lumplockbyte[-num]--;
-				return;
+                return;
 			}
 
 			int tempk = Sound[num].num;
@@ -410,12 +408,8 @@ public class Sounds {
 		if (filename != null)
 			fp = BuildGdx.cache.open(filename, loadfromgrouponly);
 		if (fp == null) {
-//			int offs = buildString(currentGame.getCON().fta_quotes[113], 0, "Sound ", currentGame.getCON().sounds[num]);
-//			offs = buildString(currentGame.getCON().fta_quotes[113], offs, "(", num);
-//			offs = buildString(currentGame.getCON().fta_quotes[113], offs, ") not found.");
-//			FTA(113, ps[myconnectindex]);
 
-			Console.Println("Sound " + "(" + num + ") not found.");
+            Console.Println("Sound " + "(" + num + ") not found.");
 			return 0;
 		}
 
@@ -788,10 +782,7 @@ public class Sounds {
 			if (Sound[i].lock >= 200)
 				Sound[i].lock = 199;
 
-//	    for(int i=0;i<11;i++)
-//	        if(lumplockbyte[i] >= 200)
-//	            lumplockbyte[i] = 199;
-	}
+    }
 
 	private static final int[][] PitchTable = {
 			{ 0x10000, 0x10097, 0x1012f, 0x101c7, 0x10260, 0x102f9, 0x10392, 0x1042c, 0x104c6, 0x10561, 0x105fb,
@@ -944,18 +935,5 @@ public class Sounds {
 		fp.close();
 		return snd;
 	}
-	
-//	public static void PauseCommentary(Commentary commentary)
-//	{
-//		if(commentary != null && commentary.handle != null && commentary.handle.isPlaying()) {
-//			commentary.handle.pause();
-//		}
-//	}
-//	
-//	public static void ResumeCommentary(Commentary commentary)
-//	{
-//		if(commentary != null && commentary.handle != null && commentary.handle.isActive() && !commentary.handle.isPlaying()) {
-//			commentary.handle.resume();
-//		}
-//	}
+
 }

@@ -36,15 +36,10 @@ public class RFScript extends Scriptfile {
 	private final int T_RESOURCE = 1;
 	private final int T_AS = 2;
 	private final int T_SYMBOL = 3;
-//	private final int T_FILE = 4;
-//	private final int T_CDTRACK = 5;
-	private final int T_ERROR = 6;
+private final int T_ERROR = 6;
 	private final int T_EOF = 7;
-	
-//	public static final int MAXUSERTRACKS = 64;
-//	public static String usertrack[] = new String[MAXUSERTRACKS];
 
-	private final HashMap<String, Integer> fileids;
+    private final HashMap<String, Integer> fileids;
 
 	public RFScript(Group gr, String name, byte[] buf) {
 		super(name, buf);
@@ -287,12 +282,7 @@ public class RFScript extends Scriptfile {
 						textptr = optr;
 
 					if (textptr < eol) {
-//						String flag = getstring();
-//						if (flag.startsWith("preload"))
-//							fileflags.put(filename, 4);
-//						else if (flag.startsWith("prelock"))
-//							fileflags.put(filename, 8);
-					}
+                    }
 					nextLine(line);
 					break;
 				}

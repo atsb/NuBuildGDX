@@ -85,31 +85,7 @@ public class Frame {
 		return false;
 	}
 
-//	private boolean checkResources(HashMap<String, File> files, GameEntry entry) {
-//		ResFile[] resources = entry.getResourceFiles();
-//		for (int i = 0; i < resources.length; i++) {
-//			if (files.get(resources[i].name) == null)
-//				return false;
-//		}
-//
-//		return true;
-//	}
-//
-//	private HashMap<String, File> getFileList(String path) {
-//		File directory = new File(path);
-//
-//		File[] fList = directory.listFiles();
-//		if (fList == null)
-//			return null;
-//
-//		HashMap<String, File> filesMap = new HashMap<String, File>();
-//		for (File file : fList)
-//			filesMap.put(file.getName().toLowerCase(), file);
-//
-//		return filesMap;
-//	}
-
-	private boolean checkPortablePath(String path) {
+    private boolean checkPortablePath(String path) {
 		File directory = new File(path);
 		File[] fList = directory.listFiles();
 		if (fList != null) {

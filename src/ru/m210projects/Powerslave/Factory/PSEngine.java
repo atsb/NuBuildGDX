@@ -149,31 +149,7 @@ public class PSEngine extends BuildEngine {
 		super(game, 4);
 	}
 
-//	private boolean key = false;
-//	@Override
-//	public void sampletimer() {
-//		if (timerfreq == 0)
-//			return;
-//
-//		long n = (getticks() * timerticspersec / timerfreq) - timerlastsample;
-//		if (n > 0) {
-//			if(game.isCurrentScreen(gDemoScreen)) {
-////				totalclock += 8;
-//				if(BuildGdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.UP)) {
-//					if(!key) {
-//						totalclock += 4;
-//						if(BuildGdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.SHIFT_RIGHT)) {
-//							key = true;
-//						}
-//					}
-//				} else key = false;
-//			} else totalclock += n;
-//
-//			timerlastsample += n;
-//		}
-//	}
-
-	@Override
+    @Override
 	public boolean setrendermode(Renderer render) {
 		if(this.render != null && this.render != render)
 		{
@@ -234,24 +210,7 @@ public class PSEngine extends BuildEngine {
 		return (byte) match;
 	}
 
-//	@Override
-//	public short insertsprite(short sectnum, short statnum)
-//	{
-//		 short i = super.insertsprite(sectnum, statnum);
-//		 sprite[i].clipdist = 0;
-//		 sprite[i].xrepeat = 0;
-//		 sprite[i].yrepeat = 0;
-//		 sprite[i].extra = 0;
-//		 sprite[i].owner = 0;
-//		 return i;
-//	}
-
-//	@Override
-//	public void loadtables() throws Exception {
-//		super.loadtables();
-//	}
-
-	private int next = 1;
+    private int next = 1;
 
 	@Override
 	public int rand() {

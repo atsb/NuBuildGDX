@@ -231,7 +231,7 @@ public class QAV {
 		}
 	}
 
-	class FRAME {
+	static class FRAME {
 		int trigger_frameid;
 
 		int	sound_frameid;

@@ -837,8 +837,6 @@ public class LOADSAVE {
 						3);
 				BitHandler.bput(data, 10 + nXSector * XSECTOR.sizeof, xsector[sector[i].extra].busyTime[1], 4, 15);
 				BitHandler.bput(data, 12 + nXSector * XSECTOR.sizeof, xsector[sector[i].extra].waitTime[1], 0, 11);
-				// BitHandler.bput(data, 13 + nXSector * XSECTOR.sizeof,
-				// xsector[sector[i].extra].restState, 4, 4);
 				BitHandler.bput(data, 13 + nXSector * XSECTOR.sizeof, xsector[sector[i].extra].interruptable ? 1 : 0, 5,
 						5);
 				BitHandler.bput(data, 13 + nXSector * XSECTOR.sizeof, xsector[sector[i].extra].amplitude, 6, 13);
@@ -2184,21 +2182,12 @@ public class LOADSAVE {
 	}
 
 	public static void ActorsLoad() {
-//		for(int i = 0; i < kMaxXSprites; i++) {
-//			gSpriteHit[i].moveHit = loader.gSpriteHit[i].moveHit;
-//			gSpriteHit[i].ceilHit = loader.gSpriteHit[i].ceilHit;
-//			gSpriteHit[i].floorHit = loader.gSpriteHit[i].floorHit;
-//		}
 
 		if (kMaxSectors >= 0) System.arraycopy(loader.gSectorExp, 0, gSectorExp, 0, kMaxSectors);
 
 		System.arraycopy(loader.gWallExp, 0, gWallExp, 0, kMaxXWalls);
 
 		gPostCount = loader.gPostCount;
-//		for(int i = 0; i < kMaxSprites; i++) {
-//			gPost[i].nSprite = loader.gPost[i].nSprite;
-//			gPost[i].nStatus = loader.gPost[i].nStatus;
-//		}
 		actInit(true, IsOriginalDemo());
 		for (int p = 0; p < numplayers; p++) {
 			playerSetRace(gPlayer[p], gPlayer[p].nLifeMode);

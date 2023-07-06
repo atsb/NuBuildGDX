@@ -740,9 +740,7 @@ public class GDXOrtho extends OrphoRenderer {
 			if (i == viewindex || mapSettings.isShowAllPlayers()) {
 				int picnum = mapSettings.getPlayerPicnum(i);
 				if (picnum == -1) { // draw it with lines
-//					ox = (sintable[(pPlayer.ang + 512) & 2047] >> 7);
-//					oy = (sintable[(pPlayer.ang) & 2047] >> 7);
-					int x2 = 0;
+                    int x2 = 0;
 					int y2 = -(mapSettings.getPlayerZoom(i, czoom) << 1);
 
 					int col = mapSettings.getSpriteColor(spr);
@@ -783,12 +781,8 @@ public class GDXOrtho extends OrphoRenderer {
 //		switchShader(parent.getTexFormat() != PixelFormat.Pal8 ? Shader.RGBWorldShader : Shader.IndexedWorldShader);
 
 		Matrix4 tmpMat = parent.transform; // Projection matrix
-//		tmpMat.setToOrtho(xdim / 2, (-xdim / 2), -(ydim / 2), ydim / 2, 0, 1);
-//		tmpMat.scale(zoome / 32.0f, zoome / 32.0f, 0);
-//		manager.projection(tmpMat).view(parent.identity);
-//		setViewport(0, 0, 0, 0);
 
-		BuildCamera cam = parent.cam;
+        BuildCamera cam = parent.cam;
 		cam.projection.setToOrtho(xdim / 2, (-xdim / 2), -(ydim / 2), ydim / 2, 0, 1);
 		cam.projection.scale(zoome / 32.0f, zoome / 32.0f, 0);
 		cam.view.set(parent.identity);
@@ -1109,17 +1103,7 @@ public class GDXOrtho extends OrphoRenderer {
 		if(tex.isHighTile()) {
 			srcWidth = tex.getWidth();
 
-//			srcHeight = sizy;
-//			int yy = 1;
-//			for (; yy < sizy; yy += yy);
-//			invTexHeight = 1.0f / yy;
-
-//			srcWidth = tex.getWidth();
-//			for (sizy = 1; sizy < tex.getHeight(); sizy += sizy);
-//			srcHeight = sizy;
-//			invTexHeight = 1.0f / sizy;
-
-			for (sizy = 1; sizy < tex.getHeight(); sizy += sizy);
+            for (sizy = 1; sizy < tex.getHeight(); sizy += sizy);
 			float scaley = (float) sizy / tex.getHeight();
 			srcHeight = tex.getHeight() / scaley;
 		}

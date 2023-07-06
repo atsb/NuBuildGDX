@@ -52,7 +52,7 @@ public class MovieScreen extends SkippableAdapter {
 	private int nScale, nAngle;
 	private ByteBuffer audbuf = ByteBuffer.allocateDirect(4096);
 
-	private class Subtitle {
+	private static class Subtitle {
 		public String[] text;
 		public int from, to;
 
@@ -65,53 +65,53 @@ public class MovieScreen extends SkippableAdapter {
 
 	private int currSub;
 	private Subtitle[] subs = {
-			new Subtitle(new String[] { "During the time of the pharaohs, the city of Karnak",
-					"was a shining example of a civilization that all", "others nations could only hope to emulate" },
+			new Subtitle(new String[]{"During the time of the pharaohs, the city of Karnak",
+					"was a shining example of a civilization that all", "others nations could only hope to emulate"},
 					35, 132),
 
-			new Subtitle(new String[] { "Today Karnak lives on, surrounded by the spirits",
-					"of the past, however something has gone terribly wrong." }, 143, 228),
+			new Subtitle(new String[]{"Today Karnak lives on, surrounded by the spirits",
+					"of the past, however something has gone terribly wrong."}, 143, 228),
 
-			new Subtitle(new String[] { "Unknown forces have seized the city and great",
-					"turmoil is spreading into neighboring lands." }, 242, 302),
+			new Subtitle(new String[]{"Unknown forces have seized the city and great",
+					"turmoil is spreading into neighboring lands."}, 242, 302),
 
-			new Subtitle(new String[] { "World leaders from all parts of the globe have sent",
-					"forces into the Karnak Valley, but none have returned." }, 308, 384),
+			new Subtitle(new String[]{"World leaders from all parts of the globe have sent",
+					"forces into the Karnak Valley, but none have returned."}, 308, 384),
 
-			new Subtitle(new String[] { "The great power of this new empire is quickly crushing",
-					"the best forces the human world has to offer." }, 392, 456),
+			new Subtitle(new String[]{"The great power of this new empire is quickly crushing",
+					"the best forces the human world has to offer."}, 392, 456),
 
-			new Subtitle(new String[] { "The only known information about this crisis came from",
+			new Subtitle(new String[]{"The only known information about this crisis came from",
 					"a Karnak villager, found wandering through the desert",
-					"miles from his home, dazed, dehydrated and close to death." }, 477, 594),
+					"miles from his home, dazed, dehydrated and close to death."}, 477, 594),
 
-			new Subtitle(new String[] { "In his final moments among the living, the villager told",
+			new Subtitle(new String[]{"In his final moments among the living, the villager told",
 					"horrifying stories of fierce alien creatures that invaded",
-					"the city, devoured the women and children, and made slaves", "of the men." }, 610, 733),
+					"the city, devoured the women and children, and made slaves", "of the men."}, 610, 733),
 
 			new Subtitle(
-					new String[] { "Many of the unfortunate victims were", "skinned alive or brutally dismembered." },
+					new String[]{"Many of the unfortunate victims were", "skinned alive or brutally dismembered."},
 					741, 794),
 
-			new Subtitle(new String[] { "Others were subjected to unbearable tortures, ",
-					"injected with strange substances and ", "then mummified while still alive." }, 803, 886),
+			new Subtitle(new String[]{"Others were subjected to unbearable tortures, ",
+					"injected with strange substances and ", "then mummified while still alive."}, 803, 886),
 
-			new Subtitle(new String[] { "According to the villager, even the mummified body",
-					"of the great King Ramses was ", "unearthed and taken away." }, 893, 967),
+			new Subtitle(new String[]{"According to the villager, even the mummified body",
+					"of the great King Ramses was ", "unearthed and taken away."}, 893, 967),
 
-			new Subtitle(new String[] { "You have been chosen from a group of the best",
-					"operatives in the world to infiltrate Karnak and ", "destroy the threatening forces." }, 979, 1055),
+			new Subtitle(new String[]{"You have been chosen from a group of the best",
+					"operatives in the world to infiltrate Karnak and ", "destroy the threatening forces."}, 979, 1055),
 
-			new Subtitle(new String[] { "But as your helicopter nears the Karnak Valley, ",
-					"it is shot down. You barely escape with your life." }, 1059, 1128),
+			new Subtitle(new String[]{"But as your helicopter nears the Karnak Valley, ",
+					"it is shot down. You barely escape with your life."}, 1059, 1128),
 
-			new Subtitle(new String[] { "With no possible contact to the outside world,", }, 1134, 1164),
+			new Subtitle(new String[]{"With no possible contact to the outside world,",}, 1134, 1164),
 
-			new Subtitle(new String[] { "you begin your adventure,", }, 1168, 1185),
+			new Subtitle(new String[]{"you begin your adventure,",}, 1168, 1185),
 
-			new Subtitle(new String[] { "ready to accomplish your mission...", }, 1190, 1208),
+			new Subtitle(new String[]{"ready to accomplish your mission...",}, 1190, 1208),
 
-			new Subtitle(new String[] { "praying to return alive.", }, 1215, 1235), };
+			new Subtitle(new String[]{"praying to return alive.",}, 1215, 1235), };
 
 	private class LmfFile {
 

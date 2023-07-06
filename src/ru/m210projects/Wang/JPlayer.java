@@ -125,11 +125,7 @@ public class JPlayer {
 	public static int user_quote_time[] = new int[MAXUSERQUOTES];
 	public static String user_quote[] = new String[MAXUSERQUOTES];
 
-	//////////// Console Message Queue ////////////////////////////////////
-//	public static int conbot, conbotgoal;
-//	public static String[] con_quote = new String[MAXCONQUOTES];
-
-	public static int gametext(int x, int y, String t, int s, int dabits) {
+    public static int gametext(int x, int y, String t, int s, int dabits) {
 		boolean centre = (x == (320 >> 1));
 		return game.getFont(1).drawText(x, y, t, s, 0, centre ? TextAlign.Center : TextAlign.Left, dabits, false);
 	}
@@ -195,36 +191,7 @@ public class JPlayer {
 		}
 	}
 
-//	public static void addconquote(String daquote) {
-//		for (int i = MAXCONQUOTES - 1; i > 0; i--)
-//			con_quote[i] = con_quote[i - 1];
-//		con_quote[0] = daquote;
-//	}
-
-//	public static final int CON_ROT_FLAGS = (ROTATE_SPRITE_CORNER | ROTATE_SPRITE_SCREEN_CLIP | ROTATE_SPRITE_NON_MASK);
-
-//	public static void operateconfta() {
-//		int i, j;
-//		
-//		if(!ConPanel) return;
-//
-//		// Draw the background console pic
-//		engine.rotatesprite((0) << 16, (0) << 16, 65536, 0, 5119, 0, 0, CON_ROT_FLAGS, 0, 0, xdim - 1, ydim - 1);
-//
-//		j = 99; // Base line position on screen
-//		conbot = Math.min(conbot, j);
-//		conbotgoal = Math.min(conbotgoal, j);
-//		
-//		conbotgoal = j;
-//		j = conbot;
-//
-//		for (i = 0; i < MAXCONQUOTES; i++) {
-//			MNU_DrawSmallString(27, j, con_quote[i], 0, 17); // 17 = white
-//			j -= 6;
-//		}
-//	}
-
-	////////////////////////////////////////////////
+    ////////////////////////////////////////////////
 	//Draw a string using a small graphic font
 	////////////////////////////////////////////////
 	public static void MNU_DrawSmallString(int x, int y, String string, int shade, int pal) {

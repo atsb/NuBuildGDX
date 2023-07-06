@@ -31,16 +31,7 @@ public class CustomScript extends Scriptfile {
 			put("map", Token.CM_MAP);
 			put("level", Token.CM_MAP);
 			put("episode", Token.CM_EPISODE);
-//			put("skill", Token.CM_SKILL);
-//			put("cookie", Token.CM_COOKIE);
-//			put("fortune", Token.CM_COOKIE);
-//			put("gotkey", Token.CM_GOTKEY);
-//			put("inventory", Token.CM_INVENTORY);
-//			put("weapon", Token.CM_WEAPON);
-//			put("needkey", Token.CM_NEEDKEY);
-//			put("secret", Token.CM_SECRET);
-//			put("quit", Token.CM_QUIT);
-		}
+        }
 	};
 
 	private final Map<String, Token> cm_map_tokens = new HashMap<String, Token>() {
@@ -73,42 +64,7 @@ public class CustomScript extends Scriptfile {
 		}
 	};
 
-//	private final Map<String, Token> cm_skill_tokens = new HashMap<String, Token>() {
-//		private static final long serialVersionUID = 1L;
-//		{
-//			put("title", Token.CM_TITLE);
-//			put("name", Token.CM_TITLE);
-//			put("description", Token.CM_TITLE);
-//		}
-//	};
-//
-//	private final Map<String, Token> cm_inventory_tokens = new HashMap<String, Token>() {
-//		private static final long serialVersionUID = 1L;
-//		{
-//			put("title", Token.CM_TITLE);
-//			put("name", Token.CM_TITLE);
-//			put("description", Token.CM_TITLE);
-//			put("amount", Token.CM_AMOUNT);
-//		}
-//	};
-//
-//	private final Map<String, Token> cm_weapons_tokens = new HashMap<String, Token>() {
-//		private static final long serialVersionUID = 1L;
-//		{
-//
-//			put("title", Token.CM_TITLE);
-//			put("name", Token.CM_TITLE);
-//			put("description", Token.CM_TITLE);
-//			put("ammoname", Token.CM_AMMONAME);
-//			put("maxammo", Token.CM_MAXAMMO);
-//			put("mindamage", Token.CM_DAMAGEMIN);
-//			put("maxdamage", Token.CM_DAMAGEMAX);
-//			put("pickup", Token.CM_AMOUNT);
-//			put("weaponpickup", Token.CM_WEAPON);
-//		}
-//	};
-
-	public CustomScript(byte[] data) {
+    public CustomScript(byte[] data) {
 		super("", data);
 		parse();
 

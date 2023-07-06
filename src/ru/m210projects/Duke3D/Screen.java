@@ -83,19 +83,8 @@ public class Screen {
 
 		y1 = 4 * ss;
 		y2 = 200;
-//	     if ( size > 0 /*&& ud.coop != 1*/ && ud.multimode > 1)
-//		 {
-//	         j = 0;
-//	         for(i=connecthead;i>=0;i=connectpoint2[i])
-//	             if(i > j) j = i;
-//
-//	         if (j >= 1) y1 += 8;
-//	         if (j >= 4) y1 += 8;
-//	         if (j >= 8) y1 += 8;
-//	         if (j >= 12) y1 += 8;
-//		 }
 
-		if (size >= 3)
+        if (size >= 3)
 			y2 -= (3 * (ss) + 32);
 
 		y1 = scale(y1, ydim, 200);

@@ -35,8 +35,6 @@ public class BuildEngine extends Engine {
 	}
 
 	public int getsmoothratio() {
-//		return ((totalclock - game.pNet.ototalclock + ticks) << 16) / ticks;
-//		return (int) (((System.nanoTime() - timernexttick) * 65536.0f) / (timerskipticks * 1000000.0f));
 		return (int) ((frametime += BuildGdx.graphics.getDeltaTime() * 1000.0f * 65536.0f) / timerskipticks);
 	}
 
@@ -50,11 +48,6 @@ public class BuildEngine extends Engine {
 		if (!(current instanceof GameAdapter) && !(current instanceof LoadingAdapter)
 				&& !(current instanceof InitScreen))
 			handleevents();
-
-//		if (totalclock < net.ototalclock + ticks || !net.ready2send)
-//			return;
-//
-//		net.ototalclock = totalclock;
 
 		if (totalclock < net.ototalclock || !net.ready2send)
 			return;

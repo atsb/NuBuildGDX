@@ -285,28 +285,8 @@ public class Weapons {
 //	        if((engine.krand()&1) != 0)
 	            spawn(p.i,weapon_sprites[cw]);
 //	        else switch(cw)
-//	        {
-//	            case DYNAMITE_WEAPON:
-//	            case CROSSBOW_WEAPON:
-//	                spawn(p.i,EXPLOSION2);
-//	                break;
-//	        }
 
-//	        for(int i = 0; i < 5; i++)
-//	        {
-//	        	if ( p.gotkey[i] != 0 )
-//	            {
-//	            	int sp = spawn(p.i, DOORKEY);
-//	            	switch(i)
-//	            	{
-//	            		case 0: sprite[sp].lotag = 100; break;
-//	            		case 1: sprite[sp].lotag = 101; break;
-//	            		case 2: sprite[sp].lotag = 102; break;
-//	            		case 3: sprite[sp].lotag = 103; break;
-//	            	}
-//	            }
-//	        }
-	    }
+        }
 	}
 
 	public static void shoot(int i,int atwith)

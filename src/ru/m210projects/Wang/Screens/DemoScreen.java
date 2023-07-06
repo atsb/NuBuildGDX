@@ -104,11 +104,7 @@ public class DemoScreen extends GameScreen {
 
 		GodMode = false;
 
-//		GameInfo addon = levelGetEpisode(ini);
-//		if(demfile.addon != null)
-//			addon = demfile.addon;
-
-		gDemoScreen.newgame(gNet.FakeMultiplayer, null, demfile.Episode, demfile.Level - 1, demfile.Skill);
+        gDemoScreen.newgame(gNet.FakeMultiplayer, null, demfile.Episode, demfile.Level - 1, demfile.Skill);
 
 		Console.Println("Playing demo " + name);
 

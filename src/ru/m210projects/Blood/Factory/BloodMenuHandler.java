@@ -57,23 +57,7 @@ public class BloodMenuHandler extends MenuHandler {
 	public static final int USERCONTENT = 16;
 	public static final int CORRUPTLOAD = 17;
 
-//	public final int[] mCursorTile = {
-//		2332,
-//		904,
-//		1267,
-//		2319,
-//		2361,
-//	};
-
-//	public final int[][] mCursorSetings = {
-//		{65536, 0, 0, 768},
-//		{65536, 0, 7, 0},
-//		{65536, 8, 5, 1408},
-//		{65536, -1, 0, 0},
-//		{8192, 50, 45, 0},
-//	};
-
-	private MenuQav Bdrip;
+    private MenuQav Bdrip;
 
 	public BloodMenuHandler(BuildGame app) {
 		mMenus = new BuildMenu[19];
@@ -85,10 +69,8 @@ public class BloodMenuHandler extends MenuHandler {
 	public void mDrawMenu() {
 		if (!(app.getScreen() instanceof MenuScreen) && !(app.pMenu.getCurrentMenu() instanceof MenuRendererSettings)
 				&& !(app.pMenu.getCurrentMenu() instanceof MenuInterfaceSet)) {
-//			engine.setpalettefade(0, 0, 0, 32);
-//			engine.showfade();
 
-			int tile = 2046;
+            int tile = 2046;
 			Tile pic = engine.getTile(tile);
 			float kt = xdim / (float) ydim;
 			float kv = pic.getWidth() / (float) pic.getHeight();
@@ -143,18 +125,8 @@ public class BloodMenuHandler extends MenuHandler {
 
 	@Override
 	public void mDrawMouse(int x, int y) {
-//		if(!app.pCfg.menuMouse)
-//			return;
-//
-//		int zoom = (int) divscale(0x10000, (320 << 16) / xdim, 16);
-//		cfg.gMouseCursor = ClipRange(cfg.gMouseCursor, 0, mCursorTile.length - 1);
-//		int czoom = mulscale(mCursorSetings[cfg.gMouseCursor][0], mulscale(zoom, cfg.gMouseCursorSize, 16), 16);
-//		int xoffset = mulscale(mCursorSetings[cfg.gMouseCursor][1], czoom, 16);
-//		int yoffset = mulscale(mCursorSetings[cfg.gMouseCursor][2], czoom, 16);
-//		int ang = mCursorSetings[cfg.gMouseCursor][3];
-//		engine.rotatesprite((x + xoffset) << 16, (y + yoffset) << 16, czoom, ang, mCursorTile[cfg.gMouseCursor], 0, 0, 8, 0, 0, xdim-1, ydim-1);
 
-		if (!app.pCfg.menuMouse)
+        if (!app.pCfg.menuMouse)
 			return;
 
 		int zoom = scale(0x10000, ydim, 200);

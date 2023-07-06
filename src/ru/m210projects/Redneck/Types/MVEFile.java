@@ -35,7 +35,7 @@ public class MVEFile {
 	private byte[] signature = ("Interplay MVE File" + (char) 0x1A + (char) 0x00).getBytes();
 	private byte[] magic = { 0x1a, 0x00, 0x00, 0x01, 0x33, 0x11 };
 
-	public class FramePacket {
+	public static class FramePacket {
 
 		public int pts;
 //		public int stream_index;
@@ -313,9 +313,6 @@ public class MVEFile {
 				else
 					audio_type = AV_CODEC_ID_PCM_U8;
 
-//				System.err.println("audio: " + audio_bits + " bits, " + audio_sample_rate + " Hz, "
-//						+ ((audio_channels == 2) ? "stereo" : "mono") + ", "
-//						+ ((audio_type == AV_CODEC_ID_INTERPLAY_DPCM) ? "Interplay audio" : "PCM"));
 				break;
 			case OPCODE_START_STOP_AUDIO:
 //				System.err.println("start/stop audio");
@@ -462,9 +459,6 @@ public class MVEFile {
 			}
 		}
 
-//		if (s->avf->nb_streams == 1 && audio_type != 0)
-//	        init_audio(s->avf);
-
 		/* make a note of where the stream is sitting */
 		next_chunk_offset = bb.position();
 
@@ -590,9 +584,6 @@ public class MVEFile {
 		/* short y_size = */bb.getShort();
 		int flags = bb.getShort() & 0xFFFF;
 
-//		System.err.printf("video data hot:%d, cold:%d, xoff:%d, yoff:%d, w:%d, h:%d, flags:%x \n", cur_frame,
-//				last_frame, x_offset, y_offset, x_size, y_size, flags);
-
 		if ((flags & VIDEO_DELTA_FRAME) != 0) {
 			int temp = back_buf1;
 			back_buf1 = back_buf2;
@@ -609,23 +600,9 @@ public class MVEFile {
 			}
 			dec = decode_frame8(bb, pkt.video_chunk_size);
 		}
-//		if (dec == null) 
-//			return;
 
 		return dec;
 
-//		System.err.println(dec.position());
-//		dec.position(back_buf1);
-//
-//		byte[] data = new byte[buffer.capacity() / 2];
-//
-//		dec.get(data);
-//
-//		System.err.println(cur_frame + " " + last_frame + " " + CRC32.getChecksum(data));
-//
-//		FileResource fil = BuildGdx.compat.open("raw.raw", Path.Game, Mode.Write);
-//		fil.writeBytes(data, data.length);
-//		fil.close();
 	}
 
 	private boolean decode_frame8(ByteBuffer data, int len) {

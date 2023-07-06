@@ -54,83 +54,6 @@ public class ResourceHandler {
 	private static UserGroup usergroup;
 	public static boolean usecustomarts;
 
-//	public static final int[][] replace = {
-//		{ 3363, 9217, 0x7dbfeb81 },
-//		{ 3364, 9218, 0x2cc3f6c9 },
-//		{ 3415, 9219, 0xc1230767 },
-//		{ 3416, 9220, 0xacaaa49c },
-//		{ 3417, 9221, 0x237f9b83 },
-//		{ 3418, 9222, 0x7508a5b9 },
-//		{ 3453, 9223, 0x40870de8 },
-//		{ 3454, 9224, 0x5d46d512 },
-//		{ 3455, 9225, 0xdc2832ef },
-//		{ 3456, 9226, 0x92ee2add },
-//		{ 3457, 9227, 0x6ff18f18 },
-//		{ 3458, 9228, 0xd4a5ae9a },
-//
-//		{ 3483, 9231, 0x5f540506 }, //RA
-//		{ 3484, 9229, 0x5d46d512 },
-//		{ 3485, 9230, 0xdc2832ef },
-//		{ 3486, 9232, 0xdad4bf27 },
-//		{ 3487, 9233, 0xb4072cdd },
-//		{ 3488, 9234, 0x74adda9e },
-//		{ 3511, 9235, 0x7ecf8467 },
-//		{ 3515, 9236, 0x5c078007 },
-//		{ 7170, 9240, 0x3ec225f2 },
-//		{ 7171, 9241, 0xadd86032 },
-//		{ 7172, 9242, 0x48a62a19 },
-//		{ 7173, 9243, 0x9e6d81ef },
-//		{ 7174, 9244, 0x7533bf87 },
-//		{ 7175, 9245, 0x4839e578 },
-//		{ 7176, 9246, 0xc3361622 },
-//		{ 7177, 9247, 0xf2023e92 },
-//		{ 7178, 9248, 0x69ccdc8 },
-//		{ 7179, 9249, 0x4f858cef },
-//		{ 7180, 9250, 0xe2e2dcd7 },
-//		{ 7181, 9251, 0x70991197 },
-//		{ 7182, 9252, 0x507a5475 },
-//		{ 7183, 9253, 0xa91a2178 },
-//	};
-
-//	public static void LoadUserRes()
-//	{
-//		FileHandle fil = Gdx.files.internal("RedneckGDX.ART");
-//		if(fil != null)
-//		{
-//			ByteBuffer bb = ByteBuffer.wrap(fil.readBytes());
-//	    	bb.order( ByteOrder.LITTLE_ENDIAN);
-//
-//			int artversion = bb.getInt();
-//			if (artversion != 1)
-//				return;
-//
-//			numtiles = bb.getInt();
-//			int localtilestart = bb.getInt();
-//			int localtileend = bb.getInt();
-//			if(localtilestart >= MAXTILES || localtileend >= MAXTILES)
-//				return;
-//
-//			for (int i = localtilestart; i <= localtileend; i++)
-//				tilesizx[i] = bb.getShort();
-//			for (int i = localtilestart; i <= localtileend; i++)
-//				tilesizy[i] = bb.getShort();
-//			for (int i = localtilestart; i <= localtileend; i++)
-//				picanm[i] = bb.getInt();
-//
-//			for (int tilenume = localtilestart; tilenume <= localtileend; tilenume++) {
-//				if(bb.position() == bb.capacity())
-//					break;
-//				int dasiz = tilesizx[tilenume] * tilesizy[tilenume];
-//				waloff[tilenume] = new byte[dasiz];
-//				bb.get(waloff[tilenume]);
-//			}
-//			bb.clear();
-//			bb = null;
-//
-//			ReplaceUserTiles();
-//		}
-//	}
-
 	public static void resetEpisodeResources()
 	{
 		BuildGdx.cache.clearDynamicResources();
@@ -240,10 +163,6 @@ public class ResourceHandler {
 				BuildGdx.cache.add(res, removable);
 			}
 
-//			if(res.fileformat.equals("cue")) {
-//				Console.Println("Cd tracks found...");
-//				parserfs(removable?group:-1, res.filename, res.getBytes());
-//			}
 		}
 	}
 

@@ -512,19 +512,10 @@ public class RRInput extends BuildControls {
 	    	else
 	        {
 	    		turnheldtime = 0;
-//	    		if ( p.TiltStatus < 0 ) p.TiltStatus++;
-//	    		if ( p.TiltStatus > 0 ) p.TiltStatus--;
-	        }
+			}
 	    }
-//	    else if ( left )
-//	        p.TiltStatus = BClipLow(p.TiltStatus-1, -10);
-//	    else if ( right )
-//	    	p.TiltStatus = BClipHigh(p.TiltStatus+1, 10);
-	    
-//	    if ( p.CarVar1 != 0 )
-//	    	p.CarSpeed = 0;
-	    
-	    vel += p.CarSpeed;
+
+		vel += p.CarSpeed;
 	    if ( vel < -15 ) vel = -15;
 	    if ( vel > 120 ) vel = 120;
 	    if(angvel < -MAXANGVEL) angvel = -MAXANGVEL;
@@ -601,9 +592,7 @@ public class RRInput extends BuildControls {
 	    	if ( left || p.CarVar2 < 0 )
 	        {
 	    		turnheldtime += tics;
-//	    		if ( p.NotOnWater == 0)
-//	    			p.TiltStatus = BClipLow(p.TiltStatus-1, -10);
-	    		if ( turnheldtime >= 15 && p.CarSpeed != 0 )
+				if ( turnheldtime >= 15 && p.CarSpeed != 0 )
 	            {
 	    			if ( p.NotOnWater != 0)
 	    			{
@@ -632,9 +621,7 @@ public class RRInput extends BuildControls {
 	    	else if ( right || p.CarVar2 > 0 )
 	    	{
 	    		turnheldtime += tics;
-//	    		if ( p.NotOnWater == 0)
-//	    			p.TiltStatus = BClipHigh(p.TiltStatus+1, 10);
-	    		if ( turnheldtime >= 15 && p.CarSpeed != 0 )
+				if ( turnheldtime >= 15 && p.CarSpeed != 0 )
 	            {
 	    			if ( p.NotOnWater != 0)
 	    			{
@@ -663,18 +650,10 @@ public class RRInput extends BuildControls {
 	    	else if ( p.NotOnWater == 0)
 	        {
 	    		turnheldtime = 0;
-//	    		if ( p.TiltStatus < 0 ) p.TiltStatus++;
-//	    		if ( p.TiltStatus > 0 ) p.TiltStatus--;
-	        }
+			}
 	    }
-//	    else if ( p.NotOnWater == 0) {
-//	    	if ( left )
-//	    		p.TiltStatus = BClipLow(p.TiltStatus-1, -10);
-//	    	else if ( right )
-//	    		p.TiltStatus = BClipHigh(p.TiltStatus+1, 10);
-//	    }
 
-	    vel += p.CarSpeed;
+		vel += p.CarSpeed;
 	    if ( vel < -15 ) vel = -15;
 	    if ( vel > 120 ) vel = 120;
 	    if(angvel < -MAXANGVEL) angvel = -MAXANGVEL;

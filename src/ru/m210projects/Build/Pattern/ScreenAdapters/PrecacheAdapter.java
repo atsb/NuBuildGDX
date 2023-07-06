@@ -23,7 +23,7 @@ import ru.m210projects.Build.Types.Tile.AnimType;
 
 public abstract class PrecacheAdapter extends ScreenAdapter {
 
-	private class PrecacheQueue {
+	private static class PrecacheQueue {
 		private final String name;
 		private final Runnable runnable;
 

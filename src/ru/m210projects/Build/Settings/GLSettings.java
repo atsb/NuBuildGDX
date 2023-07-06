@@ -33,10 +33,8 @@ public class GLSettings extends BuildSettings {
 	public static BuildVariable<Boolean> usePaletteShader;
 
 	public static BuildVariable<Integer> gamma;
-//	public static BuildVariable<Integer> brightness;
-//	public static BuildVariable<Integer> contrast;
 
-	public static BuildVariable<Boolean> animSmoothing;
+    public static BuildVariable<Boolean> animSmoothing;
 
 	public static void init(final Engine engine, final BuildConfig cfg) {
 		textureFilter = new BuildVariable<GLFilter>(
@@ -205,41 +203,6 @@ public class GLSettings extends BuildSettings {
 			}
 		};
 
-//		brightness = new BuildVariable<Integer>((int) (cfg.fbrightness * 4096), "Global brightness") {
-//			@Override
-//			protected void execute(Integer value) {
-//				cfg.fbrightness = value / 4096.0f;
-//			}
-//
-//			@Override
-//			protected Integer check(Object value) {
-//				if (value instanceof Integer) {
-//					float brightness = (Integer) value / 4096.0f;
-//					if (engine.glrender() == null || (Boolean) BuildGdx.graphics.extra(Option.GLSetConfiguration,
-//							cfg.fgamma, brightness, cfg.fcontrast))
-//						return (Integer) value;
-//				}
-//				return null;
-//			}
-//		};
-//
-//		contrast = new BuildVariable<Integer>((int) (cfg.fcontrast * 4096), "Global contrast") {
-//			@Override
-//			protected void execute(Integer value) {
-//				cfg.fcontrast = value / 4096.0f;
-//			}
-//
-//			@Override
-//			protected Integer check(Object value) {
-//				if (value instanceof Integer) {
-//					float contrast = (Integer) value / 4096.0f;
-//					if (engine.glrender() == null || (Boolean) BuildGdx.graphics.extra(Option.GLSetConfiguration,
-//							cfg.fgamma, cfg.fbrightness, contrast))
-//						return (Integer) value;
-//				}
-//				return null;
-//			}
-//		};
-	}
+    }
 
 }

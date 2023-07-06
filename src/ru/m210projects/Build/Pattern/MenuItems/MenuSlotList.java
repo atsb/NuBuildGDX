@@ -161,8 +161,6 @@ public abstract class MenuSlotList extends MenuList
 		pal = helpPal;
 		if(deleteQuestion)
 		{
-//			draw.setpalettefade(0, 0, 0, 48);
-//			draw.showfade();
 
 			int tile = nBackground;
 			Tile pic = draw.getTile(tile);
@@ -330,9 +328,6 @@ public abstract class MenuSlotList extends MenuList
 			if(!checkFile(s.filename))
 				i.remove();
 
-//			File file = new File(Path.User.getPath() + s.filename);
-//			if(!file.exists())
-//				i.remove();
 		}
 
 		updateList();

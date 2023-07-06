@@ -35,16 +35,8 @@ public class MenuQuit extends BuildMenu {
 		MenuVariants QuitVariants = new MenuVariants(game.pEngine, "[Y/N]", game.getFont(0), 160, 115) {
 			@Override
 			public void positive(MenuHandler menu) {
-//				if (nGameType != kNetModeOff && numplayers > 1) {
-//					BuildGdx.app.postRunnable(new Runnable() {
-//						@Override
-//						public void run() {
-//							game.net.NetDisconnect(myconnectindex);
-//						}
-//					});
-//				}
-				
-				game.gExit = true;
+
+                game.gExit = true;
 				menu.mClose();
 			}
 		};

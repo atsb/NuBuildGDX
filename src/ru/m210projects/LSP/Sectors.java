@@ -236,10 +236,7 @@ public class Sectors {
 				engine.dragpoint(w, wall[w].x + dragxdir[i], wall[w].y + dragydir[i]);
 			}
 
-//			sector[dasector].floorxpanning -= dragxdir[i] >> 2;
-//			sector[dasector].floorypanning += dragydir[i] >> 2;
-
-			j = sector[dasector].floorz;
+            j = sector[dasector].floorz;
 			game.pInt.setfloorinterpolate(dasector, sector[dasector]);
 			sector[dasector].floorz = dragfloorz[i] + (sintable[(int) ((lockclock << 4) & 2047)] >> 3);
 			for (p = connecthead; p >= 0; p = connectpoint2[p]) {

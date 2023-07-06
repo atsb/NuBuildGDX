@@ -28,7 +28,7 @@ import ru.m210projects.Build.OnSceenDisplay.Console;
 
 public class Compat {
 
-	public class CacheList {
+	public static class CacheList {
 		private final DirectoryEntry entry;
 
 		public CacheList(String path, String userpath) {

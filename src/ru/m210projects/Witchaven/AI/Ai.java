@@ -230,20 +230,6 @@ public class Ai {
 
 		PLAYER plr = player[0];
 
-//		short daang = (short) plr.ang;
-//		int daz2 = (int) (100 - plr.horiz) * 2000;
-//		engine.hitscan(plr.x, plr.y, plr.z, plr.sector, // Start position
-//				sintable[(daang + 2560) & 2047], // X vector of 3D ang
-//				sintable[(daang + 2048) & 2047], // Y vector of 3D ang
-//				daz2, // Z vector of 3D ang
-//				pHitInfo, CLIPMASK0);
-//
-//		if(pHitInfo.hitsprite != -1)
-//		{
-//			int sprid = pHitInfo.hitsprite;
-//			System.err.println(sprite[sprid].statnum);
-//		}
-
 		judyOperate(plr);
 		gonzoProcess(plr);
 		goblinWarProcess(plr);
@@ -443,9 +429,6 @@ public class Ai {
 
 		if (((zr_florz - oz) >> 4) > engine.getTile(sprite[i].picnum).getHeight() + sprite[i].yrepeat << 2
 				|| (movestate & kHitTypeMask) == kHitWall) {
-//			engine.changespritesect(i, osect);
-//			engine.setsprite(i, ox + mulscale((sprite[i].clipdist) << 2, sintable[(sprite[i].ang + 1536) & 2047], 16),
-//					oy + mulscale((sprite[i].clipdist) << 2, sintable[(sprite[i].ang + 1024) & 2047], 16), oz);
 
 			engine.setsprite(i, ox, oy, oz);
 
@@ -484,11 +467,6 @@ public class Ai {
 	public static void aisearch(PLAYER plr, short i, boolean fly) {
 		SPRITE spr = sprite[i];
 		spr.lotag -= TICSPERFRAME;
-
-//		if (plr.invisibletime > 0) {
-//			newstatus(i, FACE);
-//			return;
-//		}
 
 		short osectnum = spr.sectnum;
 
@@ -681,9 +659,6 @@ public class Ai {
 
 		if (plr.treasure[TADAMANTINERING] == 1 && (engine.krand() & 1) != 0)
 			return;
-
-//		if ((engine.krand() & (15 < plr.armortype ? 11 : 10)) != 0)
-//			return;
 
 		if (!droptheshield && plr.shieldpoints > 0 && plr.selectedgun > 0 && plr.selectedgun < 5) {
 			short a = engine.getangle(sprite[i].x - plr.x, sprite[i].y - plr.y);

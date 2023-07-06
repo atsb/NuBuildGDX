@@ -410,32 +410,8 @@ public final class LayoutUtil
 		return o1 == o2 || (o1 != null && o2 != null && o1.equals(o2));
 	}
 
-//	static int getBaselineCorrect(Component comp)
-//	{
-//		Dimension pSize = comp.getPreferredSize();
-//		int baseline = comp.getBaseline(pSize.width, pSize.height);
-//		int nextBaseline = comp.getBaseline(pSize.width, pSize.height + 1);
-//
-//		// Amount to add to height when calculating where baseline
-//		// lands for a particular height:
-//		int padding = 0;
-//
-//		// Where the baseline is relative to the mid point
-//		int baselineOffset = baseline - pSize.height / 2;
-//		if (pSize.height % 2 == 0 && baseline != nextBaseline) {
-//			padding = 1;
-//		} else if (pSize.height % 2 == 1 && baseline == nextBaseline) {
-//			baselineOffset--;
-//			padding = 1;
-//		}
-//
-//		// The following calculates where the baseline lands for
-//		// the height z:
-//		return (pSize.height + padding) / 2 + baselineOffset;
-//	}
 
-
-	/** Returns the inset for the side.
+    /** Returns the inset for the side.
 	 * @param side top == 0, left == 1, bottom = 2, right = 3.
 	 * @param getDefault If <code>true</code> the default insets will get retrieved if <code>lc</code> has none set.
 	 * @return The inset for the side. Never <code>null</code>.

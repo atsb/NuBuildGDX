@@ -429,30 +429,8 @@ public class Game {
 				}
 			}
 		}).setRange(0, 3));
-		
-//		if(MAXPAKSIZ >= PlayerStr.sizeof) {
-//			Console.Println("Attention: Debug player comparing enable!", Console.OSDTEXT_RED);
-//			Console.RegisterCvar(new OSDCOMMAND("compareplr", "compareplr", new OSDCVARFUNC() {
-//				@Override
-//				public void execute() {
-//					if(numplayers > 1) {
-//						if (Console.osd_argc != 2) {
-//							Console.Println("compareplr: num");
-//							return;
-//						}
-//						try {
-//							String num = Console.osd_argv[1];
-//							int pnum = Integer.parseInt(num);
-//							PacketType.PlayerData.setData(pnum);
-//							int l = PacketType.PlayerData.Send(netbuf);
-//							game.net.sendtoall(netbuf, l);
-//						} catch (Exception e) {
-//						}
-//					} else Console.Println(Player[myconnectindex].toString());
-//				}
-//			}));
-//		}
-	}
+
+    }
 
 	public static int Distance(int x1, int y1, int x2, int y2) {
 		int min;

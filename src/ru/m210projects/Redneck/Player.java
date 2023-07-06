@@ -988,9 +988,6 @@ public class Player {
 				p.horiz = (p.VBumpNow) / 3 + 100;
 			}
 
-//	    	if (snum == myconnectindex && numplayers > 1)
-//	    		game.net.predict.horiz = p.horiz;
-
 			if (p.CarSpeed >= 20 && p.on_ground && (var4 != 0 || var5 != 0)) {
 				int angvel = (int) (p.ang - 510);
 				if (var4 != 0)
@@ -1213,9 +1210,6 @@ public class Player {
 					p.VBumpNow = p.VBumpTarget;
 				p.horiz = (p.VBumpNow) / 3 + 100;
 			}
-
-//	      if (snum == myconnectindex && numplayers > 1)
-//	    	  game.net.predict.horiz = p.horiz;
 
 			if (p.CarSpeed > 0 && p.on_ground && (var5 || var6)) {
 				int angvel = (int) (p.ang - 510);
@@ -2222,9 +2216,6 @@ public class Player {
 				i = (4 << 8);
 			else
 				i = (20 << 8);
-
-//	        if(sector[p.cursectnum].lotag == 2) k = 0;
-//	        else k = 1;
 
 			if (ud.clipping) {
 				j = 0;

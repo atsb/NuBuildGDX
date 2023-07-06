@@ -99,10 +99,7 @@ public class LEVELS {
 	public static final int kMaxMessages = 128;
 
 	//Statistics
-//	public static int gEndLevelFlag = 0;
-//	public static int gOldEndLevelFlag = 0;
-//	public static int gLeaveLevel = 0;
-	public static int foundSecret = 0;
+    public static int foundSecret = 0;
 	public static int totalSecrets = 0;
 	public static int autoTotalSecrets = 0;
 	public static int superSecrets = 0;
@@ -433,11 +430,7 @@ public class LEVELS {
 			}
 		}
 
-//		//Apply rfs script to files
-//		if(haveRFS && !removable)
-//			for(GroupResource res : list)
-//				res.setIdentification(rfsfileid(res.getFullName()));
-	}
+    }
 
 	private static UserGroup usergroup;
 	public static boolean usecustomarts;
@@ -572,11 +565,8 @@ public class LEVELS {
 	public static void InitGroupResources(BloodDef script, List<GroupResource> list)
 	{
 		for(GroupResource res : list) {
-//			Integer fileid;
-//			if((fileid = bldIDs.get(res.getFullName())) != null && res.getIdentification() <= 0)
-//				res.setIdentification(fileid);
 
-			if(res.getExtension().equals("art")) {
+            if(res.getExtension().equals("art")) {
 				engine.loadpic(res.getFullName());
 				usecustomarts = true;
 			} else if(res.getFullName().equals("voxel.dat"))
@@ -670,14 +660,7 @@ public class LEVELS {
 		pMap.Author = INI.GetKeyString("Author");
 		pMap.Song = INI.GetKeyString("Song");
 		String Song = INI.GetKeyString("Song");
-//		if(Song != null && midPath != null) {
-//			int hResource = kOpen(Song + "." + mid, 0);
-//			if(hResource == -1) {
-//				Song = midPath + File.separator + Song;
-//			} else
-//				kClose(hResource);
-//		}
-		pMap.Song = Song;
+        pMap.Song = Song;
 		pMap.Track = INI.GetKeyInt("Track");
 		pMap.EndingA = INI.GetKeyInt("EndingA");
 		pMap.EndingB = INI.GetKeyInt("EndingB");

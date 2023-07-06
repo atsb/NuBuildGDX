@@ -85,19 +85,8 @@ public class Screen {
 
 		y1 = 5 * ss;
 		y2 = 200;
-//	     if ( size > 0 && ud.coop != 1 && ud.multimode > 1)
-//		 {
-//	         j = 0;
-//	         for(i=connecthead;i>=0;i=connectpoint2[i])
-//	             if(i > j) j = i;
-//
-//	         if (j >= 1) y1 += 8;
-//	         if (j >= 4) y1 += 8;
-//	         if (j >= 8) y1 += 8;
-//	         if (j >= 12) y1 += 8;
-//		 }
 
-		if (size >= 5)
+        if (size >= 5)
 			y2 -= (5 * (ss) + 41);
 
 		y1 = scale(y1, ydim, 200);
@@ -198,11 +187,7 @@ public class Screen {
 		engine.rotatesprite(160 << 16, 183 << 16, 0x8000, 0, BOTTOMSTATUSBAR, 4, 0, 10 + 64, scale(x1, xdim, 320),
 				scale(y1, ydim, 200), scale(x2, xdim, 320) - 1, scale(y2, ydim, 200) - 1);
 
-//		engine.rotatesprite(0,166 << 16,0x8000,0,BOTTOMSTATUSBAR,4,0,10+16+64,
-//		        scale(x1,xdim,320),scale(y1,ydim,200),
-//		        scale(x2,xdim,320)-1,scale(y2,ydim,200)-1);
-
-		if(!isSquareResolution(xdim, ydim)) {
+        if(!isSquareResolution(xdim, ydim)) {
 			engine.rotatesprite(8 << 16, 183 << 16, 0x8000, 0, WIDEHUD_LEFTSHADOW, 0, 0, 10 | 256, 0, 0, xdim - 1,
 					ydim - 1);
 			engine.rotatesprite(311 << 16, 183 << 16, 0x8000, 0, WIDEHUD_RIGHTSHADOW, 0, 0, 10 | 512, 0, 0, xdim - 1,

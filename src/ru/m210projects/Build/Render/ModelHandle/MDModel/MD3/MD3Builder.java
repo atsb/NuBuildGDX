@@ -133,22 +133,7 @@ public class MD3Builder {
 		return out;
 	}
 
-//	private MD3Vertice[] loadVertices(MD3Surface surf, int offsetSurfaces, Resource bb) {
-//		bb.seek(offsetSurfaces + surf.ofsxyzn, Whence.Set);
-//		MD3Vertice[] out = new MD3Vertice[surf.numframes * surf.numverts];
-//		for (int i = 0; i < out.length; i++) {
-//			MD3Vertice xyzn = new MD3Vertice();
-//			xyzn.x = bb.readShort();
-//			xyzn.y = bb.readShort();
-//			xyzn.z = bb.readShort();
-//			xyzn.nlat = (short) (bb.readByte() & 0xFF);
-//			xyzn.nlng = (short) (bb.readByte() & 0xFF);
-//			out[i] = xyzn;
-//		}
-//		return out;
-//	}
-
-	private MD3Vertice[][] loadVertices(MD3Surface surf, int offsetSurfaces, Resource bb) {
+    private MD3Vertice[][] loadVertices(MD3Surface surf, int offsetSurfaces, Resource bb) {
 		bb.seek(offsetSurfaces + surf.ofsxyzn, Whence.Set);
 		MD3Vertice[][] out = new MD3Vertice[surf.numframes][surf.numverts];
 		for (int i = 0; i < surf.numframes; i++) {

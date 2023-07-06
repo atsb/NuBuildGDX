@@ -194,9 +194,6 @@ public class BloodPanel extends GamePanel {
 		});
 		add(launchButton, "cell 0 3 3 1,grow");
 
-//		JButton launchBloodCP = new JButton("Launch Cryptic Passage standalone");
-//		this.add(launchBloodCP, "cell 0 3 2 1,grow");
-
 		add(new SettingsButton(main, entry, null, "Settings"), "cell 3 3,alignx right,growy");
 	}
 

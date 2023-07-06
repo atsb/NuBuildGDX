@@ -19,7 +19,7 @@ public class VoxelBuilder {
 	// For loading / conversion only
 
 	public class Rectangle {
-		public Vertex[] v = { new Vertex(), new Vertex(), new Vertex(), new Vertex() };
+		public Vertex[] v = {new Vertex(), new Vertex(), new Vertex(), new Vertex()};
 
 		public int getX(int num) {
 			return v[num].x;
@@ -42,7 +42,7 @@ public class VoxelBuilder {
 		}
 	}
 
-	private class Vertex {
+	private static class Vertex {
 		private int x, y, z, u, v;
 	}
 

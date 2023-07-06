@@ -494,11 +494,7 @@ public class View {
 		else if (gView.Underwater) {
 			vPalette = gView.pXsprite.palette;
 			// Can be removed
-			// if (gView.pXsprite.palette == 1)
-			// vPalette = kPalWater;
-			// else if (gView.pXsprite.palette == 2)
-			// vPalette = kPalSewer;
-		} else if (gView.nLifeMode == 1)
+        } else if (gView.nLifeMode == 1)
 			vPalette = kPalBeast;
 
 		if (vPalette != PaletteView) {
@@ -666,24 +662,7 @@ public class View {
 				int hx = (int) (pHitInfo.hitx - x);
 				int hy = (int) (pHitInfo.hity - y);
 
-//				if( (klabs(hx) + klabs(hy)) < (klabs(dx) + klabs(dy)))
-//				{
-//					nSector = (short) pHitInfo.hitsect;
-//
-//					int wx = 1; if(dx < 0) wx = -1;
-//					int wy = 1; if(dy < 0) wy = -1;
-//
-//					hx -= wx << 6;
-//					hy -= wy << 6;
-//
-//					int dist;
-//					if(klabs(dx) <= klabs(dy))
-//						dist = ClipHigh((hy << 16) / dy, viewThirdDist);
-//					else dist = ClipHigh((hx << 16) / dx, viewThirdDist);
-//					viewThirdDist = dist;
-//				}
-
-				if ((klabs(hx) + klabs(hy)) - (Math.abs(dx) + Math.abs(dy)) < 1024) {
+                if ((klabs(hx) + klabs(hy)) - (Math.abs(dx) + Math.abs(dy)) < 1024) {
 					nSector = pHitInfo.hitsect;
 
 					int wx = 1;
@@ -1006,9 +985,7 @@ public class View {
 			}
 		}
 
-//		if( gForceMap && gViewMode == kView3D )
-//			DrawStatSprite(2048, 305, 15, 0, 0, 0);
-	}
+    }
 
 	public static void updateviewmap() {
 		int i;
@@ -1252,9 +1229,7 @@ public class View {
 				break;
 			case kSpriteViewVoxel:
 			case kSpriteViewSpinVoxel:
-//				if(BuildSettings.useVoxels.get())
-//					pTSprite.z -= (gPicAnm[nTile].ycenter * pTSprite.yrepeat) << 2;
-				if (cfg.gDetail >= 4 && (pTSprite.hitag & kAttrRespawn) == 0) {
+                if (cfg.gDetail >= 4 && (pTSprite.hitag & kAttrRespawn) == 0) {
 //		            pTSprite.picnum = gVoxelData[pTSprite.picnum];
 					if (pic.getView() == ViewType.kSpriteViewSpinVoxel)
 						pTSprite.ang = (short) ((8 * totalclock) & kAngleMask);
@@ -1452,15 +1427,7 @@ public class View {
 					if (pTSprite.lotag == kDudeBloatedButcherBurning)
 						pTSprite.xrepeat = 48; // make BloatedButcherBurning fatter
 
-//			        	if(pTSprite.lotag == kDudeHand)
-//			        	{
-//			        		if(pTXSprite.target >= 0 && IsPlayerSprite(sprite[pTXSprite.target])) {
-//			        			pTSprite.xrepeat = 0;
-//			        			break;
-//			        		}
-//			        	}
-
-					if (sector[pTSprite.sectnum].extra > 0 && xsector[sector[pTSprite.sectnum].extra].color) {
+                    if (sector[pTSprite.sectnum].extra > 0 && xsector[sector[pTSprite.sectnum].extra].color) {
 						switch (pTSprite.lotag) {
 						case kDudeTommyCultist:
 						case kDudeShotgunCultist:

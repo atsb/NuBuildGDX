@@ -74,9 +74,7 @@ public class GLFog {
 		color[2] = (palookupfog[pal][2] / 63.f);
 		color[3] = 1;
 
-//		if (manager.getShader() != null)
-//			manager.getShader().setFogParams(true, start, end, color);
-		BuildGdx.gl.glFogfv(GL_FOG_COLOR, color, 0);
+        BuildGdx.gl.glFogfv(GL_FOG_COLOR, color, 0);
 		BuildGdx.gl.glFogf(GL_FOG_START, start);
 		BuildGdx.gl.glFogf(GL_FOG_END, end);
 	}
@@ -99,7 +97,5 @@ public class GLFog {
 	public void disable() {
 		isEnabled = false;
 		BuildGdx.gl.glDisable(GL_FOG);
-//		if (manager.getShader() != null)
-//			manager.getShader().setFogParams(false, 0.0f, 0.0f, null);
-	}
+    }
 }

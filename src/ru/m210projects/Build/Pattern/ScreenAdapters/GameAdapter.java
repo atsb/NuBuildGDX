@@ -56,31 +56,7 @@ public abstract class GameAdapter extends ScreenAdapter {
 		this.pCfg = game.pCfg;
 		this.load = load;
 
-//		if(gameThread == null) {
-//		gameThread = new Thread(new Runnable() {
-//			@Override
-//			public void run() {
-//				while(!game.gExit) {
-//					if(!pNet.ready2send) continue;
-//
-//					int i;
-//					while (pNet.gNetFifoHead[myconnectindex] - pNet.gNetFifoTail > pNet.bufferJitter && !game.gExit) {
-//						for (i = connecthead; i >= 0; i = connectpoint2[i])
-//							if (pNet.gNetFifoTail == pNet.gNetFifoHead[i]) break;
-//						if (i >= 0) break;
-//
-//						synchronized(GameAdapter.this) {
-//							pEngine.faketimerhandler(); //game timer sync
-//							ProcessFrame(pNet);
-//						}
-//					}
-//				}
-//			}
-//		});
-//		gameThread.setName("BuildGDX Game Thread");
-//		gameThread.start();
-//		}
-	}
+    }
 
 	public void PreFrame(BuildNet net) {
 		/* nothing */ }

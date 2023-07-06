@@ -105,13 +105,7 @@ public class PrecacheScreen extends PrecacheAdapter {
 	private void cachespritenum(int i)
 	{
 		int maxc = 1;
-//		switch(sprite[i].picnum)
-//		{
-//			case RAT:
-//				maxc = 15;
-//				break;
-//		}
-		for(int j = sprite[i].picnum; j < (sprite[i].picnum+maxc); j++)
+        for(int j = sprite[i].picnum; j < (sprite[i].picnum+maxc); j++)
 			addTile(j);
 	}
 

@@ -1431,38 +1431,4 @@ public final class ConstraintParser
 		return s != null ? s.trim().toLowerCase() : "";
 	}
 
-//	/** Tests to serialize and deserialize the object with both XMLEncoder/Decoder and through Serializable
-//	 * @param o The object to serialize
-//	 * @return The same object after a tri through the process.
-//	 */
-//	public static final Object serializeTest(Object o)
-//	{
-//		try {
-//			ByteArrayOutputStream barr = new ByteArrayOutputStream();
-//			XMLEncoder enc = new XMLEncoder(barr);
-//			enc.writeObject(o);
-//			enc.close();
-//
-//			XMLDecoder dec = new XMLDecoder(new ByteArrayInputStream(barr.toByteArray()));
-//			o = dec.readObject();
-//			dec.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		try {
-//			ByteArrayOutputStream barr = new ByteArrayOutputStream();
-//			ObjectOutputStream oos = new ObjectOutputStream(barr);
-//			oos.writeObject(o);
-//			oos.close();
-//
-//			ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(barr.toByteArray()));
-//			o = ois.readObject();
-//			ois.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return o;
-//	}
 }

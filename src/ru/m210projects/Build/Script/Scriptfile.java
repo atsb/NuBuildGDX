@@ -83,9 +83,7 @@ public class Scriptfile {
 			return (int) Long.parseLong(textbuf.substring(t, textptr), 10);
 		} catch (Exception e) {
 			// looks like a string, so find it in the symbol table
-//	        if (scriptfile_getsymbolvalue(t, num)) return 0;
-//	        initprintf("Error on line %s:%d: expecting symbol, got \"%s\"\n",sf.filename,scriptfile_getlinum(sf,sf.ltextptr),t);
-			return null; // not found
+            return null; // not found
 		}
 	}
 

@@ -52,13 +52,7 @@ public class TextureHDInfo {
 		tinting[palnum].update(r, g, b, effect & 3);
 	}
 
-//	public int getPaletteEffect(int palnum)
-//	{
-//		if (palnum >= MAXPALOOKUPS) return 0;
-//	    return tinting[palnum].f & HICEFFECTMASK;
-//	}
-
-	public Palette getTints(int palnum) {
+    public Palette getTints(int palnum) {
 		return tinting[palnum];
 	}
 

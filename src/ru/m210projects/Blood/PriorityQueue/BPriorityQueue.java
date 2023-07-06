@@ -135,33 +135,8 @@ public class BPriorityQueue implements IPriorityQueue {
 	}
 
 	private int remove(int item) {
-		/*
-		PriorityItem heap = new PriorityItem(0, 0);
-		PriorityItem heapItem = heap;
-		PriorityItem pItem = qList[item];
-		while ( true )
-		{
-			heapItem.priority = pItem.priority;
-			heapItem.event = pItem.event;
-			if ( fNodeCount / 2 < item )
-		    	break;
-			
-		    int k = 2 * item;
-		    if ( k < fNodeCount && qList[k].priority > qList[k + 1].priority )
-		    	++k;
-		    pItem = qList[k];
-		    if ( heap.priority <= pItem.priority )
-		    	break;
-		    
-		    heapItem = qList[item];
-		    item = k;
-		}
-		qList[item].priority = heap.priority;
-		qList[item].event = heap.event;
-		return heapItem.event;
-		*/
-		
-		PriorityItem qItem = qList[item];
+
+        PriorityItem qItem = qList[item];
 		long priority = qItem.priority;
 		int event = qItem.event;
 		while ( true )

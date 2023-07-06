@@ -771,10 +771,7 @@ public class WorldMesh {
 			lastSurf = surf;
 			validateMesh = true;
 
-//			if (mesh != null)
-//				System.err.println("new meshOffset: " + (meshOffset * tess.getVertexSize()) + " "
-//						+ mesh.getVerticesBuffer().limit() + " size: " + mesh.getVerticesBuffer().capacity());
-			return surf;
+            return surf;
 		} else {
 			if (mesh == null) { // when initializing
 				Console.Println("Error: Unexpected behavior in mesh initialization, perhaps the map is corrupt",

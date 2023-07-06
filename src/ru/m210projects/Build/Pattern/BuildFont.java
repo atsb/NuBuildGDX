@@ -35,7 +35,7 @@ public class BuildFont {
 
 	public static final int nSpace = -2;
 
-	protected class BuildChar {
+	protected static class BuildChar {
 		public int nTile = -1;
 		public short nWidth;
 		public short xOffset, yOffset;

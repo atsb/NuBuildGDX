@@ -83,9 +83,7 @@ public class WallFrustum2d implements Poolable {
 	protected void setPlane(int num, float nx, float ny, float nz) {
 		planes[num].getNormal().set(-ny, nx, nz);
 
-//		Vector3 n = planes[num].getNormal().set(-ny, nx, nz).nor();
-//		planes[num].d = -(globalposx * n.x + globalposy * n.y + globalposz * n.z);
-	}
+    }
 
 	public boolean wallInFrustum(WALL wal) {
 		if (isFullAngle)
@@ -403,17 +401,7 @@ public class WallFrustum2d implements Poolable {
 		return rang - lang;
 	}
 
-//	public Vector3 getDirection(Vector3 n, int d) {
-//		Vector3 dir;
-//		if (d == 0)
-//			dir = new Vector3(n.x * World.cam.direction.x, -n.z * World.cam.direction.y, n.y);
-//		else
-//			dir = new Vector3(n.x * World.cam.direction.x, n.z * World.cam.direction.y, -n.y);
-//
-//		return dir;
-//	}
-
-	public Vector2 getDirection(boolean normalized) {
+    public Vector2 getDirection(boolean normalized) {
 		tmp.set(planes[0].normal.x, planes[0].normal.y);
 		tmp.add(planes[1].normal.x, planes[1].normal.y);
 		if (normalized)

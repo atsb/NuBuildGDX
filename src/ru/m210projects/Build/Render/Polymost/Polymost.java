@@ -354,11 +354,7 @@ public class Polymost implements GLRenderer {
 
 		ortho.uninit();
 
-		//
-		// Cachefile_Free();
-		// polymost_cachesync();
-
-		isInited = false;
+        isInited = false;
 	}
 
 	@Override
@@ -1332,16 +1328,8 @@ public class Polymost implements GLRenderer {
 				t *= (float) pic.getHeight() / i;
 			i = pic.getHeight();
 		}
-//		else if (dopancor && defs != null && defs.texInfo.isHighTile(globalpicnum)) {
-//			// Carry out panning "correction" to make it look like classic in some
-//	        // cases, but failing in the general case.
-//
-//	    	int yoffs = (int) ((i - tilesizy[globalpicnum]) * (255.0f / i));
-//			if (ypan > 256 - yoffs)
-//				ypan -= yoffs;
-//		}
 
-		float fy = ypan * i / 256.0f;
+        float fy = ypan * i / 256.0f;
 		gvx = (t0 - t1) * t;
 		gvy = (x1 - x0) * t;
 		gvo = -gvx * x0 - gvy * t0 + fy * gdo;
@@ -1849,17 +1837,13 @@ public class Polymost implements GLRenderer {
 
 	protected boolean inviewingrange(double xp1, double yp1, double xp2, double yp2) {
 		if (yp1 >= SCISDIST) {
-//			if ((xp1 > yp1) || (yp1 == 0)) //disabled, viewving range is 180degs
-//				return false;
-			dxb1[numscans] = xp1 * ghalfx / yp1 + ghalfx;
+            dxb1[numscans] = xp1 * ghalfx / yp1 + ghalfx;
 		} else
 			dxb1[numscans] = -1e32;
 
 		if (yp2 >= SCISDIST) {
-//			if ((xp2 < -yp2) || (yp2 == 0))
-//				return false;
 
-			dxb2[numscans] = xp2 * ghalfx / yp2 + ghalfx;
+            dxb2[numscans] = xp2 * ghalfx / yp2 + ghalfx;
 		} else
 			dxb2[numscans] = 1e32;
 
@@ -2293,9 +2277,7 @@ public class Polymost implements GLRenderer {
 
 		resizeglcheck();
 		gl.glClear(GL_DEPTH_BUFFER_BIT);
-		// gl.glClear(GL_COLOR_BUFFER_BIT);
-		// gl.glClearColor(0.0f, 0.5f, 0.5f, 1);
-		gl.glDisable(GL_BLEND);
+        gl.glDisable(GL_BLEND);
 		gl.glEnable(GL_TEXTURE_2D);
 		gl.glEnable(GL_DEPTH_TEST);
 
@@ -2778,10 +2760,7 @@ public class Polymost implements GLRenderer {
 		Spriteext sprext = defs.mapInfo.getSpriteInfo(tspr.owner);
 
 		if (sprext != null) {
-//			tspr.x += sprext.xoff;
-//			tspr.y += sprext.yoff;
-//			tspr.z += sprext.zoff;
-		}
+        }
 
 		int posx = tspr.x;
 		int posy = tspr.y;
@@ -2834,18 +2813,7 @@ public class Polymost implements GLRenderer {
 		rendering = Rendering.Sprite.setIndex(snum);
 		calc_and_apply_fog(shade, sector[tspr.sectnum].visibility, sector[tspr.sectnum].floorpal);
 
-//		if (sprext != null) {
-//			if ((sprext.flags & SPREXT_AWAY1) != 0) {
-//				posx += (sintable[(tspr.ang + 512) & 2047] >> 13);
-//				posy += (sintable[(tspr.ang) & 2047] >> 13);
-//
-//			} else if ((sprext.flags & SPREXT_AWAY2) != 0) {
-//				posx -= (sintable[(tspr.ang + 512) & 2047] >> 13);
-//				posy -= (sintable[(tspr.ang) & 2047] >> 13);
-//			}
-//		}
-
-		oldsizx = tsizx = pic.getWidth();
+        oldsizx = tsizx = pic.getWidth();
 		oldsizy = tsizy = pic.getHeight();
 
 		if (GLSettings.useHighTile.get() && h_xsize[globalpicnum] != 0) {
@@ -3151,12 +3119,7 @@ public class Polymost implements GLRenderer {
 			if ((globalorientation & 8) > 0)
 				yoff = -yoff;
 
-//			if (tspr.z < sector[tspr.sectnum].ceilingz)
-//				tspr.z += ((tspr.owner) & 31);
-//			if (tspr.z > sector[tspr.sectnum].floorz)
-//				tspr.z -= ((tspr.owner) & 31);
-
-			i = (tspr.ang & 2047);
+            i = (tspr.ang & 2047);
 			c = (float) (sintable[(i + 512) & 2047] / 65536.0);
 			s = (float) (sintable[i] / 65536.0);
 			x0 = (float) ((tsizx >> 1) - xoff) * tspr.xrepeat;

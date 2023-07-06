@@ -255,10 +255,7 @@ public class Cheats {
 				case 36: //END
 					levelEndLevel(0);
 					break;
-//				case 37: //JETPACK
-//	    			cheatAddJetpack(gMe);
-//	    			break;
-				case 11: //GATEKEEPER
+                    case 11: //GATEKEEPER
 				case 29: //CLARICE
 				case 31: //LIEBERMAN
 					break;

@@ -163,10 +163,7 @@ public class View {
 			engine.rotatesprite((x - ctx) << 16, (y - cty) << 16, scale, 0, tilenum, 0, 0, 8 + 16, x, y,
 					x + textsize - 1, y + textsize - 1);
 
-//			engine.rotatesprite((x - ctx) << 16,
-//					(y - cty) << 16, scale, 0, tilenum, 0, 0,
-//					2 + 8 + 16, coordsConvertXScaled(x), coordsConvertYScaled(y), coordsConvertXScaled(x+textsize-1), coordsConvertYScaled(y+textsize-1));
-			x += textsize;
+            x += textsize;
 		}
 	}
 
@@ -693,15 +690,7 @@ public class View {
 //			Bstrcpy(tempbuf, "Other");
 		}
 
-//		if (OUTOFSYNCMESSAGE) {
-////			if (syncstat != 0) {
-////				engine.printext256(68, 84, 31, 0, "OUT OF SYNC!\0".toCharArray(), 0);
-////			}
-//			if (syncstate != 0) {
-//				engine.printext256(68, 92, 31, 0, "Missed Network packet!\0".toCharArray(), 0);
-//			}
-//		}
-	}
+    }
 
 	public static void redrawbackfx() {
 		for (int i = 0; i < MAXTOGGLES; i++)

@@ -54,9 +54,7 @@ public class MovieScreen extends SkippableAdapter {
 		LastMS = engine.getticks();
 		gCutsClock = totalclock = 0;
 
-//		StopAllSounds();
-//		sndStopMusic();
-	}
+    }
 
 	@Override
 	public void hide() {

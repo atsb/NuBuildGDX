@@ -128,9 +128,7 @@ public class InitScreen extends ScreenAdapter {
 		for (int i = 0; i < factory.resources.length; i++) {
 			try {
 				BuildGdx.cache.add(factory.resources[i]);
-//				if(BuildGdx.cache.add(factory.resources[i]) == null)
-//					throw new Exception("Can't load package " + factory.resources[i]);
-			} catch (Exception e) {
+            } catch (Exception e) {
 				BuildGdx.message.show("Init error!", "Resource initialization error! \r\n" + e.getMessage(),
 						MessageType.Info);
 				System.exit(1);

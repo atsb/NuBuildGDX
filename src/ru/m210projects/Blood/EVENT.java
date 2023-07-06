@@ -1172,10 +1172,7 @@ public class EVENT {
                         mid = med3( p1, mid, p2 );
                     }
 
-//                  int pv = base;
-//    				swap( pv, mid );
-
-    				RXBUCKET pv = rxBucket[mid];
+                    RXBUCKET pv = rxBucket[mid];
 
                     int pa, pb, pc, comparison;
                     pa = pb = base;
@@ -1244,11 +1241,8 @@ public class EVENT {
 
 	private static int med3(int a, int b, int c)
 	{
-//		return CompareChannels(rxBucket[a], rxBucket[b]) < 0 ?
-//		       (CompareChannels(rxBucket[b], rxBucket[c]) < 0 ? b : (CompareChannels(rxBucket[a], rxBucket[c]) < 0 ? c : a ))
-//	              :(CompareChannels(rxBucket[b], rxBucket[c]) > 0 ? b : (CompareChannels(rxBucket[a], rxBucket[c]) < 0 ? a : c ));
 
-		if( CompareChannels( rxBucket[a], rxBucket[b] ) > 0 ) {
+        if( CompareChannels( rxBucket[a], rxBucket[b] ) > 0 ) {
 	        if( CompareChannels( rxBucket[a], rxBucket[c] ) > 0 ) {
 	            if( CompareChannels( rxBucket[b], rxBucket[c] ) > 0 )
 	                return( b );

@@ -4104,10 +4104,7 @@ public class Player {
 		}
 
 		if (found == 0) {
-//			game.dassert(
-//					"GetOverlapSector x = " + x + ", y = " + y + ", over = " + over.value + ", under = " + under.value);
-//			System.exit(0);
-			return 0;
+            return 0;
 		}
 
 		// the are overlaping - check the z coord
@@ -4176,9 +4173,7 @@ public class Player {
 		}
 
 		if (found == 0) {
-//			game.dassert(
-//					"GetOverlapSector x = " + x + ", y = " + y + ", over = " + over.value + ", under = " + under.value);
-			return 0;
+            return 0;
 		}
 
 		// the are overlaping - check the z coord
@@ -6555,17 +6550,7 @@ public class Player {
 		}
 	}
 
-//	public static void UpdateConMessages() {
-//		if (!ConInputMode)
-//			return;
-//
-//		if ((klabs(conbotgoal - conbot) <= 12))
-//			conbot += ksgn(conbotgoal - conbot);
-//		else
-//			conbot = conbotgoal;
-//	}
-
-	public static void MultiPlayLimits() {
+    public static void MultiPlayLimits() {
 		short pnum;
 		PlayerStr pp;
 		boolean Done = false;

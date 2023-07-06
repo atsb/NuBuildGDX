@@ -34,14 +34,8 @@ public class SwitchStruct {
 	public short nWall;
 	public short field_10;
 	public short field_12;
-//	public short field_14;
-//	public short field_16;
-//	public short field_18;
-//	public short field_1A;
-//	public short field_1C;
-//	public short field_1E;
-	
-	public void clear()
+
+    public void clear()
 	{
 		this.field_0 = 0;
 		this.nPause = 0;
@@ -53,13 +47,7 @@ public class SwitchStruct {
 		this.nWall = 0;
 		this.field_10 = 0;
 		this.field_12 = 0;
-//		this.field_14 = 0;
-//		this.field_16 = 0;
-//		this.field_18 = 0;
-//		this.field_1A = 0;
-//		this.field_1C = 0;
-//		this.field_1E = 0;
-	}
+    }
 	
 	public void save(ByteBuffer bb)
 	{
@@ -74,13 +62,7 @@ public class SwitchStruct {
 		
 		bb.putShort(field_10);
 		bb.putShort(field_12);
-//		bb.putShort(field_14);
-//		bb.putShort(field_16);
-//		bb.putShort(field_18);
-//		bb.putShort(field_1A);
-//		bb.putShort(field_1C);
-//		bb.putShort(field_1E);
-	}
+    }
 	
 	public void load(Resource bb)
 	{
@@ -95,13 +77,7 @@ public class SwitchStruct {
 		
 		field_10 = bb.readShort();
 		field_12 = bb.readShort();
-//		field_14 = bb.readShort();
-//		field_16 = bb.readShort();
-//		field_18 = bb.readShort();
-//		field_1A = bb.readShort();
-//		field_1C = bb.readShort();
-//		field_1E = bb.readShort();
-	}
+    }
 
 	public void copy(SwitchStruct src) {
 		field_0 = src.field_0;

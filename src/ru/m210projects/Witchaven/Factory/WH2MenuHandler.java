@@ -67,16 +67,6 @@ public class WH2MenuHandler extends WHMenuHandler {
 			    	int posx = (320>>1);
 			    	engine.rotatesprite(posx<<16,(py + yoff)<<16,scale,0,WH2FONTBACKGROUND,0,0,10,0,0,xdim-1,ydim-1);
 
-			    	//	    	engine.rotatesprite((px+xoff)<<16,(py + yoff)<<16,scale,0,9310,0,0,11,0,0,xdim-1,ydim-1);
-			    	//
-			    	//	    	int width = item.font.getWidth(item.text);
-			    	//	    	int x = 0;
-			    	//	    	while(x < width)
-			    	//	    	{
-			    	//	    		x += tilesizx[9311] / 4;
-			    	//	    		engine.rotatesprite((px+xoff+x)<<16,(py + yoff)<<16,scale,0,9311,0,0,11,0,0,xdim-1,ydim-1);
-			    	//	    	}
-			    	//	       	engine.rotatesprite((px+xoff+x)<<16,(py + yoff)<<16,scale,0,9312,0,0,11,0,0,xdim-1,ydim-1);
 				} else {
 					int scale = 0x2000;
 			    	int px = item.x;
@@ -251,9 +241,7 @@ public class WH2MenuHandler extends WHMenuHandler {
 		case LEFT:
 		case RIGHT:
 		case ENTER:
-//		case MWUP:
-//		case MWDW:
-		case MCHANGE:
+			case MCHANGE:
 			SND_Sound(59);
 			break;
 		default:

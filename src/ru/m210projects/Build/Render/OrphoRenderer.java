@@ -361,9 +361,7 @@ public abstract class OrphoRenderer {
 			if (i == viewindex || mapSettings.isShowAllPlayers()) {
 				int picnum = mapSettings.getPlayerPicnum(i);
 				if (picnum == -1) { // draw it with lines
-//					ox = (sintable[(pPlayer.ang + 512) & 2047] >> 7);
-//					oy = (sintable[(pPlayer.ang) & 2047] >> 7);
-					x2 = 0;
+                    x2 = 0;
 					y2 = -(mapSettings.getPlayerZoom(i, czoom) << 1);
 
 					int x3 = mulscale(x2, yxaspect, 16);

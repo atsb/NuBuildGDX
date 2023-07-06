@@ -2114,10 +2114,7 @@ public class Tektag {
 		return (rv);
 	}
 
-//	public static short neartagsector, neartagwall, neartagsprite;
-//	public static long neartagdist, neartaghitdist;
-
-	public static void tekswitchtrigger(int snum, int spr) {
+    public static void tekswitchtrigger(int snum, int spr) {
 		int i, j;
 		long nexti;
 

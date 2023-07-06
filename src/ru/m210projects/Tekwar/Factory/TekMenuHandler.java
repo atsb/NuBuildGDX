@@ -120,52 +120,7 @@ public class TekMenuHandler extends MenuHandler {
 
 	@Override
 	public void mPostDraw(MenuItem item) {
-		/*
-		if ( item.isFocused() ) {
-			if(item instanceof MenuButton)
-			{
-				int scale = 8192;
-
-		    	int px = item.x;
-		    	int py = item.y;
-
-		    	if(item.align == 1) {
-			    	int centre = 320>>2;
-				    engine.rotatesprite(((320>>1)+(centre>>1)+70)<<16,(py + 2)<<16,scale,0,772+(((totalclock>>3))%5),0,0,10,0,0,xdim-1,ydim-1);
-				    engine.rotatesprite(((320>>1)-(centre>>1)-70)<<16,(py + 2)<<16,scale,0,772+(((totalclock>>3))%5),0,0,10,0,0,xdim-1,ydim-1);
-		    	} else engine.rotatesprite(px-4<<16,py-4<<16,scale,0,772+(((totalclock>>3))%5),0,0,10,0,0,xdim-1,ydim-1);
-			}
-
-			if(item instanceof MenuJoyList)
-			{
-				MenuList list = (MenuList) item;
-
-				int px = list.x;
-
-				int focus = list.l_nFocus;
-				if(list.l_nMin < app.pCfg.joymap.length && focus >= app.pCfg.joymap.length)
-					focus++;
-
-				if(focus == -1 || focus < list.l_nMin || focus >= list.l_nMin + list.nListItems)
-					return;
-
-				int py = list.y + (focus - list.l_nMin) * (list.mFontOffset()) + 6;
-
-				engine.rotatesprite(px-4<<16,py-4<<16,4096,0,772+(((totalclock>>3))%5),0,0,10,0,0,xdim-1,ydim-1);
-			}
-			else if(item instanceof MenuList)
-			{
-				MenuList list = (MenuList) item;
-				if(list.l_nFocus == -1 || list.l_nFocus < list.l_nMin || list.l_nFocus >= list.l_nMin + list.nListItems) return;
-
-				int px = list.x;
-				int py = list.y + (list.l_nFocus - list.l_nMin) * (list.mFontOffset()) + 6;
-
-				engine.rotatesprite(px-4<<16,py-4<<16,4096,0,772+(((totalclock>>3))%5),0,0,10,0,0,xdim-1,ydim-1);
-			}
-	    }
-	    */
-	}
+    }
 
 	@Override
 	public void mSound(MenuItem item, MenuOpt opt) {

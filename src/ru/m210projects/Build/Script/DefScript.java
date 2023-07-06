@@ -551,7 +551,7 @@ public class DefScript {
 		}
 	}
 
-	protected class EchoToken implements Token {
+	protected static class EchoToken implements Token {
 		@Override
 		public BaseToken parse(Scriptfile script) {
 			String message = script.getstring();
@@ -972,11 +972,7 @@ public class DefScript {
 					if ((dvalue = script.getdouble()) != null)
 						mzadd = dvalue;
 					break;
-//				case YOFFSET:
-//					if ((dvalue = script.getdouble()) != null)
-//						myoffset = dvalue;
-//					break;
-				case FLAGS:
+                    case FLAGS:
 					if ((ivalue = script.getsymbol()) != null)
 						mdflags = ivalue;
 					break;

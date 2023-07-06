@@ -161,11 +161,11 @@ public class DemoScreen extends GameScreen {
 			makeScreenshot();
 
 		if(input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
-			viewResizeView(cfg.gViewSize + 1);
+			viewResizeView(cfg.gViewSize - 1);
 		}
 
 		if(input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
-			viewResizeView(cfg.gViewSize - 1);
+			viewResizeView(cfg.gViewSize + 1);
 		}
 	}
 
@@ -235,31 +235,7 @@ public class DemoScreen extends GameScreen {
 			ProcessFrame(pNet);
 		}
 
-//		if(game.pInput.ctrlKeyStatusOnce(Keys.BACKSPACE))
-//		{
-//			System.err.println("rcnt " + demfile.rcnt + " gGameClock " + totalclock);
-//			System.err.println(Gameutils.bseed);
-
-//			for(int id = 192; id <= 209; id++) {
-//				System.err.println(id + " coord " + sprite[id].x + " " + sprite[id].y + " " + sprite[id].z + " " + sprite[id].sectnum + " " + sprite[id].ang);
-//				System.err.println(id + " vel " + sprXVel[id] + " " + sprYVel[id] + " " + sprZVel[id]);
-//				System.err.println(id + " aistate " + xsprite[sprite[id].extra].aiState.name);
-//			}
-
-//			int id = 895;
-//			System.err.println(id + " coord " + sprite[id].x + " " + sprite[id].y + " " + sprite[id].z + " " + sprite[id].sectnum + " " + sprite[id].ang);
-//			System.err.println(sprite[id]);
-//			System.err.println(id + " vel " + sprXVel[id] + " " + sprYVel[id] + " " + sprZVel[id]);
-//			if(sprite[id].extra != -1)
-//				System.err.println(xsprite[sprite[id].extra].health + " " + xsprite[sprite[id].extra].aiState.name);
-
-//			BPriorityQueue a = (BPriorityQueue) EVENT.eventQ;
-//			System.out.println("fNodeCount " + a.fNodeCount + " " + Globals.gGameClock);
-//			for(int i = 0; i < a.fNodeCount; i++)
-//				System.out.println("qList[" + i + "] priority: " + a.qList[i].priority + "  event: " + a.qList[i].event);
-//			System.out.println();
-//		}
-	}
+    }
 
 	public boolean showDemo()
 	{

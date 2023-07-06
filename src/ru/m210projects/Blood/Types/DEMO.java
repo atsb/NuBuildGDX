@@ -195,9 +195,4 @@ public class DEMO {
 		return (pGameInfo.nGameType == kNetModeOff && cfg.gVanilla) || (game.isCurrentScreen(gDemoScreen) && demfile != null && demfile.nVersion == 277);
 	}
 
-//	public static void DemoReset() {
-//		engine.compatibleMode = false;
-//		nDemonum = 0;
-//		demfile = null;
-//	}
 }

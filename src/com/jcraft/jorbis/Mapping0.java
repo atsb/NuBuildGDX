@@ -123,7 +123,7 @@ class Mapping0 extends FuncMapping{
 
   // also responsible for range checking
   Object unpack(Info vi, Buffer opb){
-    InfoMapping0 info=new InfoMapping0();
+    InfoMapping0 info= new InfoMapping0();
 
     if(opb.read(1)!=0){
       info.submaps=opb.read(4)+1;
@@ -328,7 +328,7 @@ class Mapping0 extends FuncMapping{
     return (0);
   }
 
-  class InfoMapping0{
+  static class InfoMapping0{
     int submaps; // <= 16
     int[] chmuxlist=new int[256]; // up to 256 channels in a Vorbis stream
 

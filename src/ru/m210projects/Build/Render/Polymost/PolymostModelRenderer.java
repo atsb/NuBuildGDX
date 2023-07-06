@@ -133,10 +133,7 @@ public class PolymostModelRenderer {
 		f = (65536.0f * 512.0f) / (xdimen * viewingrange);
 		g = 32.0f / (float) (xdimen * parent.gxyaspect);
 
-		// x0 += xoff * (tspr.xrepeat >> 2);
-		// k0 -= yoff * (tspr.yrepeat << 2);
-
-		dvoxm0.y *= f;
+        dvoxm0.y *= f;
 		if ((sprite[tspr.owner].cstat & 48) == 32)
 			dvoxm0.y *= -1;
 		modela0.y = ((x0 - globalposx) / 1024.0f + modela0.y) * f;
@@ -268,9 +265,7 @@ public class PolymostModelRenderer {
 			nScale.scl(1, -1, 1);
 			modela0.y = -modela0.y;
 		}
-//		x0 += xoff * (tspr.xrepeat >> 2);
-//		k0 -= ((yoff * tspr.yrepeat) << 2);
-		posx += tspr.xrepeat >> 2;
+        posx += tspr.xrepeat >> 2;
 		posz -= (tspr.yrepeat << 2);
 
 		// yoffset differs from zadd in that it does not follow cstat&8 y-flipping

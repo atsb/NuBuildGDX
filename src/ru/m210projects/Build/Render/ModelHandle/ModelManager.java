@@ -141,10 +141,7 @@ public abstract class ModelManager {
 		try {
 //			long startticks = System.nanoTime();
 			GLModel out = allocateModel(model);
-//			long etime = System.nanoTime() - startticks;
-//			System.out
-//					.println("Load " + model.getType() + " model: " + tile + "... " + (etime / 1000000.0f) + " ms");
-			if (out != null) {
+            if (out != null) {
 				tile2model.put(model, out);
 				return out;
 			}
@@ -172,10 +169,8 @@ public abstract class ModelManager {
 
 //			long startticks = System.nanoTime();
 			GLModel out = allocateVoxel(model.getData(), 0, model.getFlags());
-//			long etime = System.nanoTime() - startticks;
-//			System.out.println("Load voxel model: " + tile + "... " + (etime / 1000000.0f) + " ms");
 
-			if (out != null) {
+            if (out != null) {
 				tile2model.put(model, out);
 				return models[tile] = out;
 			} else {

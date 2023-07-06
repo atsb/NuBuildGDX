@@ -149,16 +149,6 @@ public class BloodEngine extends BuildEngine {
 		if (n > 0) {
 			if (game.isCurrentScreen(gDemoScreen) && fastDemo.get() != 0) {
 				totalclock += fastDemo.get() * 4;
-//				if(BuildGdx.input.isKeyPressed(Keys.UP)) {
-//					if(!key) {
-//						totalclock += 4;
-//						if(totalclock < 45652)
-//							totalclock = 45652;
-//						if(BuildGdx.input.isKeyPressed(Keys.SHIFT_RIGHT)) {
-//							key = true;
-//						}
-//					}
-//				} else key = false;
 			} else
 				totalclock += n;
 

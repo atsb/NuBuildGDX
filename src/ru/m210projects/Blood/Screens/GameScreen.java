@@ -383,11 +383,7 @@ public class GameScreen extends GameAdapter {
 			if (pGameInfo.nGameType == kNetModeTeams)
 				y += 22;
 
-//			viewDrawInputText(cfg.MessageFont, getInput()
-//					.getMessageBuffer(), getInput().getMessageLength() + 1,
-//					x + 1, y, 65536, nShade, 0, 0, 256, false);
-
-			viewDrawInputText(0, getInput().getMessageBuffer(), getInput().getMessageLength() + 1, x + 1, y, 65536,
+            viewDrawInputText(0, getInput().getMessageBuffer(), getInput().getMessageLength() + 1, x + 1, y, 65536,
 					nShade, 0, 0, 256, false);
 		}
 
@@ -450,10 +446,7 @@ public class GameScreen extends GameAdapter {
 			}
 		}
 
-//		if (fInterpolateRangeError)
-//			viewDrawText(0, InterpolateRangeError, 160, 20, 65536, 0, 0, 1, 0, false);
-
-		if (game.net.bOutOfSync) {
+        if (game.net.bOutOfSync) {
 			game.getFont(3).drawText(160, 20, toCharArray("Out of sync!"), 0, 0, TextAlign.Center, 2, false);
 
 			switch (game.net.bOutOfSyncByte / 4) {
@@ -602,18 +595,18 @@ public class GameScreen extends GameAdapter {
 		}
 
 		if (gViewMode == kView3D) {
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true))
-				viewResizeView(cfg.gViewSize + 1);
 			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true))
+				viewResizeView(cfg.gViewSize + 1);
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true))
 				viewResizeView(cfg.gViewSize - 1);
 		} else {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
 
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
-				kMapZoom = ClipLow(kMapZoom - mulscale(j, Math.max(kMapZoom, 256), 6), 16);
 			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
-				kMapZoom = ClipHigh(kMapZoom + mulscale(j, Math.max(kMapZoom, 256), 6), 4096);
+				kMapZoom = ClipLow(kMapZoom + mulscale(j, Math.max(kMapZoom, 256), 6), 16);
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
+				kMapZoom = ClipHigh(kMapZoom - mulscale(j, Math.max(kMapZoom, 256), 6), 4096);
 		}
 	}
 
@@ -633,12 +626,8 @@ public class GameScreen extends GameAdapter {
 	}
 
 	protected void openGamma(BloodMenuHandler menu) {
-//		if (cfg.gGamma++ >= gGammaLevels - 1)
-//		cfg.gGamma = 0;
-//	viewSetMessage("Gamma correction level " + cfg.gGamma, gViewIndex);
-//	scrSetGamma(cfg.gGamma);
 
-		menu.mOpen(menu.mMenus[COLORCORR], -1);
+        menu.mOpen(menu.mMenus[COLORCORR], -1);
 	}
 
 	@Override

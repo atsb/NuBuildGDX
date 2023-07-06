@@ -653,11 +653,6 @@ public class PLAYER {
 				if (pPlayer.teamID == 0) pZone = gStartZoneTeam1[Random(kMaxPlayers / 2)];
 				else pZone = gStartZoneTeam2[Random(kMaxPlayers / 2)];
 
-				//System.err.println(pZone.x);
-				//System.err.println(pZone.y);
-				//System.err.println(pZone.z);
-				//System.err.println(pZone.sector);
-
 				if (maxRetries != 0) {
 					// check if there is no spawned player in selected zone
 					for (int i = headspritesect[pZone.sector]; i >= 0; i = nextspritesect[i]) {
@@ -1085,10 +1080,8 @@ public class PLAYER {
 			    	resetInventory(pPlayer);
 			    	if ( pGameInfo.nGameType == 0 && numplayers == 1 )
 			    	{
-//			        	if ( Demo.byte0 )
-//			            	recordDemoFunc(Demo);
 
-			    		pPlayer.pInput.Restart = true;
+						pPlayer.pInput.Restart = true;
 				        pPlayer.pInput.Use = false;
 				        pPlayer.hitEffect = 0;
 
@@ -1222,9 +1215,6 @@ public class PLAYER {
 		        	sprZVel[nSprite] = -1529173;
 		        else
 		        	sprZVel[nSprite] = -764586;
-
-//				if (isShrinked(pPlayer.pSprite)) sprZVel[nSprite]-= -200000;
-//				else if (isGrown(pPlayer.pSprite)) sprZVel[nSprite]+= -250000;
 
 				pPlayer.pJump = true;
 		    }
@@ -1654,20 +1644,6 @@ public class PLAYER {
 		{
 
 
-//		case kItemLtdInvisibility:
-//			if (isGrown(pPlayer.pSprite)) return false;
-//			case kItemShroomShrink:
-//			case kItemShroomGrow:
-//				switch (nItemType) {
-//					case kItemShroomShrink:
-//						if (isShrinked(pSprite)) return false;
-//						break;
-//					case kItemShroomGrow:
-//						if (isGrown(pSprite)) return false;
-//						break;
-//				}
-//				powerupActivate(pPlayer, nPowerUp);
-//				break;
 			case kItemKey1:
 			case kItemKey2:
 			case kItemKey3:
@@ -1890,14 +1866,6 @@ public class PLAYER {
 		return true;
 	}
 
-//	public static void deactivateSizeShrooms(PLAYER pPlayer) {
-//		powerupDeactivate(pPlayer,kItemShroomGrow - kItemBase);
-//		pPlayer.powerUpTimer[kItemShroomGrow - kItemBase] = 0;
-//
-//		powerupDeactivate(pPlayer,kItemShroomShrink - kItemBase);
-//		pPlayer.powerUpTimer[kItemShroomShrink - kItemBase] = 0;
-//	}
-
 	public static boolean powerupActivate( PLAYER pPlayer, int nPowerUp )
 	{
 		// skip the power-up if it is unique and already activated
@@ -1914,26 +1882,6 @@ public class PLAYER {
 
 		switch( nPowerUp + kItemBase ) {	// switch on of actual type
 
-			//case kGDXItemMapLevel:
-				//gFullMap = true;
-				//break;
-//			case kItemShroomShrink:
-//				if (isGrown(pPlayer.pSprite)) deactivateSizeShrooms(pPlayer);
-//				else shrinkPlayerSize(pPlayer,2);
-//				break;
-//			case kItemShroomGrow:
-//				if (isShrinked(pPlayer.pSprite)) deactivateSizeShrooms(pPlayer);
-//				else {
-//					growPlayerSize(pPlayer,2);
-//					if (powerupCheck(gPlayer[pPlayer.pSprite.lotag - kDudePlayer1],kItemLtdInvisibility - kItemBase) > 0) {
-//						powerupDeactivate(pPlayer, kItemLtdInvisibility - kItemBase);
-//						pPlayer.powerUpTimer[kItemLtdInvisibility - kItemBase] = 0;
-//					}
-//
-//					if (ru.m210projects.Blood.AI.AIUNICULT.ceilIsTooLow(pPlayer.pSprite))
-//						actDamageSprite(pPlayer.pSprite.xvel, pPlayer.pSprite,3,65535);
-//				}
-//				break;
 			case kItemGunsAkimbo:
 				if(IsOriginalDemo()
 					|| pPlayer.currentWeapon == 2
@@ -1994,14 +1942,6 @@ public class PLAYER {
 
 		switch( nPowerUp + kItemBase )	// switch off of actual type
 		{
-//			case kItemShroomShrink:
-//				resetPlayerSize(pPlayer);
-//				if (ru.m210projects.Blood.AI.AIUNICULT.ceilIsTooLow(pPlayer.pSprite))
-//					actDamageSprite(pPlayer.pSprite.xvel, pPlayer.pSprite,3,65535);
-//				break;
-//			case kItemShroomGrow:
-//				resetPlayerSize(pPlayer);
-//				break;
 			case kItemGunsAkimbo:
 				if(IsOriginalDemo()
 					|| pPlayer.currentWeapon == 2
@@ -2074,8 +2014,6 @@ public class PLAYER {
 			}
 		}
 
-		//System.err.println("GROW TIME: "+pPlayer.powerUpTimer[kItemShroomGrow - kItemBase]);
-		//System.err.println("SHRINK TIME: "+pPlayer.powerUpTimer[kItemShroomShrink - kItemBase]);
 		DeliriumProcess();
 	}
 
@@ -2133,14 +2071,6 @@ public class PLAYER {
 		return true;
 	}
 
-
-//	public static boolean isGrown(SPRITE pSprite) {
-//		return (powerupCheck(gPlayer[pSprite.lotag - kDudePlayer1],kItemShroomGrow - kItemBase) > 0);
-//	}
-//
-//	public static boolean isShrinked(SPRITE pSprite) {
-//		return (powerupCheck(gPlayer[pSprite.lotag - kDudePlayer1],kItemShroomShrink - kItemBase) > 0);
-//	}
 
 	public static int powerupCheck( PLAYER pPlayer, int nPowerUp )
 	{
@@ -2392,11 +2322,6 @@ public class PLAYER {
 		    }
 		}
 //		original method
-//		if(gPlayer.pSprite.statnum == kStatDude && gPlayer.handDamage) {
-//			gPlayer.handCount = ClipHigh(gPlayer.handCount + pGameInfo.nDifficulty + 2, 64);
-//			if(35 - 5 * pGameInfo.nDifficulty < gPlayer.handCount)
-//				gPlayer.blindEffect = ClipHigh(gPlayer.blindEffect + 4 * pGameInfo.nDifficulty, 128);
-//		}
 	}
 
 	public static void playerMove( PLAYER pPlayer )

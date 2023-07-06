@@ -275,10 +275,7 @@ public class View {
 	    int cr = 0, cg = 0, cb = 0, cf = 0;
 	    boolean dotint = false;
 
-//	    if(pp.newowner < 0)
-//			return;
-
-	    if( changepalette != 0 )
+        if( changepalette != 0 )
 	    {
 	    	setgamepalette(pp,pp.palette, GLInvalidateFlag.All);
 	        changepalette = 0;
@@ -577,16 +574,8 @@ public class View {
 		int row = (ud.multimode - 1) / 4;
 		if(row >= 0)
 		{
-//			int framesx = 2 * xdim / tilesizx[BACKGROUND];
-//			int framesy = mulscale(engine.getTile(FRAGBAR).getHeight() / 2 * (row + 1), divscale(ydim, 200, 16), 16);
-//
-//			int x = 0;
-//			for(int i = 0; i <= framesx; i++) {
-//		    	engine.rotatesprite(x<<16, 0, 32768, 0, BACKGROUND, 0, 0, 8 | 16 | 256, 0, 0, xdim-1, framesy);
-//		    	x += tilesizx[BACKGROUND] / 2;
-//		    }
 
-			if(yoffset > 0) yoffset -= 9 * row;
+            if(yoffset > 0) yoffset -= 9 * row;
 			for(int r = 0; r <= row; r++)
 				engine.rotatesprite(0,yoffset +(r * engine.getTile(FRAGBAR).getHeight()) << 16,34000,0,FRAGBAR,0,0,2+8+16+64,0,0,xdim-1,ydim-1);
 
@@ -2213,10 +2202,8 @@ public class View {
 
 		if(sprite[spnum].lotag==152) fofmode=150;
 		if(sprite[spnum].lotag==153) fofmode=151;
-		//if(sprite[spnum].lotag==154) fofmode=150;
-		//if(sprite[spnum].lotag==155) fofmode=151;
 
-		for( j = headspritestat[15]; j >= 0;  j = nextspritestat[j])
+        for( j = headspritestat[15]; j >= 0;  j = nextspritestat[j])
 		{
 			if(sprite[j].picnum==1 &&
 					sprite[j].lotag==fofmode &&
@@ -2302,71 +2289,7 @@ public class View {
 	        i = nextspritestat[i];
 	    }
 
-		/*
-		int rtype=0;
-		boolean drawror = false;
-		for(int i = 0; i < 16; i++)
-		{
-			if(rorsector[i] != -1) {
-				if( (  gotsector[rorsector[i]>>3]&(1<<(rorsector[i]&7))  ) != 0
-						&& ((rortype[i] == 1 && sprite[spnum].lotag == 151)
-						|| (rortype[i] == 2 && sprite[spnum].lotag == 150)))
-				{
-					drawror = true;
-					rtype=rortype[i];
-					break;
-				}
-			}
-		}
-		if (!drawror) return;
-
-		int nUpper = -1, nLower = -1;
-		if(rtype == 1) //ceiling
-			nLower = spnum;
-		if(rtype == 2) //floor
-			nUpper = spnum;
-
-		for( int i = headspritestat[15]; i >= 0;  i = nextspritestat[i])
-		{
-			if(i != spnum && sprite[i].picnum==1 && sprite[i].hitag==sprite[spnum].hitag)
-			{
-				if(rtype == 1 && sprite[i].lotag == 150) {
-					nUpper = i;
-					break;
-				}
-				if(rtype == 2 && sprite[i].lotag == 151) {
-					nLower = i;
-					break;
-				}
-			}
-		}
-
-		if(nUpper == -1 || nLower == -1)
-			return;
-
-		int rsect = -1, rx = 0, ry = 0, rz = 0;
-		if(rtype == 1) {
-			rsect = sprite[nUpper].sectnum;
-			rx = sprite[nUpper].x - sprite[nLower].x;
-			ry = sprite[nUpper].y - sprite[nLower].y;
-			rz = sector[sprite[nUpper].sectnum].floorz - sector[sprite[nLower].sectnum].ceilingz;
-		}
-
-		if(rtype == 2) {
-			rsect = sprite[nLower].sectnum;
-			rx = sprite[nLower].x - sprite[nUpper].x;
-			ry = sprite[nLower].y - sprite[nUpper].y;
-			rz = sector[sprite[nLower].sectnum].ceilingz - sector[sprite[nUpper].sectnum].floorz;
-		}
-
-		System.arraycopy(gotsector, 0, oldgotsector, 0, gotsector.length);
-		engine.drawrooms(x+rx,y+ry,z+rz,(short)a,h, (short) (rsect | MAXSECTORS));
-		animatesprites(x+rx,y+ry,z+rz,(short)a,smoothratio);
-		engine.drawmasks();
-
-		System.arraycopy(oldgotsector, 0, gotsector, 0, gotsector.length);
-		*/
-	}
+    }
 
 	public static void addmessage(String message) {
 		buildString(currentGame.getCON().fta_quotes[122], 0, message);
@@ -2618,13 +2541,8 @@ public class View {
 //	    else y = 178;
 
 //	    if(ud.screen_size == 1) GDX 17.04.2019 - disabled, because has a gutmeter
-//	    {
-//	        if(ud.multimode > 1)
-//	            xoff += 56;
-//	        else xoff += 65;
-//	    }
 
-	    if((p.gotkey[0]|p.gotkey[1]|p.gotkey[2]) != 0)
+        if((p.gotkey[0]|p.gotkey[1]|p.gotkey[2]) != 0)
 	        xoff += engine.getTile(KEYSIGN).getWidth() / 4;
 
 	    while( j <= 9 )

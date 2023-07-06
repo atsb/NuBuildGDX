@@ -2386,9 +2386,7 @@ public class Weapon {
 
 		if (nStabType == kVoodooStabSelf) {
 			actDamageSprite(nSelfSprite, pPlayer.pSprite, kDamageBullet, 16);
-			// if (pPlayer == gMe)
-			// viewSetMessage("Ouch!");
-			return;
+            return;
 		}
 
 		if(pPlayer.voodooTarget < 0)
@@ -2566,15 +2564,7 @@ public class Weapon {
 			pPlayer.fireEffect = 1;
 		}
 
-		/*
-		SPRITE pSprite = pPlayer.pSprite;
-		playerFireMissile(pPlayer, -120, (int) pPlayer.aim.x,(int) pPlayer.aim.y, (int) pPlayer.aim.z, 312);
-		playerFireMissile(pPlayer, 120, (int) pPlayer.aim.x,(int) pPlayer.aim.y, (int) pPlayer.aim.z, 312);
-		UseAmmo(pPlayer, 4, 2);
-		pPlayer.fireEffect = 1;
-		sfxStart3DSound(pSprite, 480, 1, 0);
-		*/
-	}
+    }
 
 	static void FireLeech(int nTrigger, PLAYER pPlayer) {
 		if (CheckAmmo(pPlayer, 8, 1)) {

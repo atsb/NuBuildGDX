@@ -18,42 +18,7 @@ public class PolygonClipper {
 	};
 	ArrayList<Vertex> list = new ArrayList<Vertex>();
 
-//	private Vector3[] dst = new Vector3[8];
-//	private Vector3[] swap = new Vector3[8];
-//	private int size;
-
-//	public PolygonClipper() {
-//		for (int i = 0; i < 8; i++) {
-//			dst[i] = new Vector3();
-//			swap[i] = new Vector3();
-//		}
-//	}
-
-//	private int ClipPlane(Vector3[] dst, Vector3[] src, int num_verts, final Plane p) {
-//		int num = 0;
-//		for (int i = 0; i < num_verts; i++) {
-//			int j = i + 1;
-//			if (j >= num_verts)
-//				j = 0;
-//
-//			Vector3 v1 = src[i];
-//			Vector3 v2 = src[j];
-//
-//			float t1 = p.distance(v1);
-//			float t2 = p.distance(v2);
-//
-//			if (t1 >= 0.0f)
-//				dst[num++].set(v1);
-//
-//			if ((t1 >= 0.0f) != (t2 >= 0.0f)) {
-//				float r = t1 / (t1 - t2);
-//				dst[num++].set(v2).sub(v1).scl(r).add(v1);
-//			}
-//		}
-//		return num;
-//	}
-
-	private void ClipPlane(final Plane p, ArrayList<Vertex> src, ArrayList<Vertex> dst) {
+    private void ClipPlane(final Plane p, ArrayList<Vertex> src, ArrayList<Vertex> dst) {
 		dst.clear();
 		for (int i = 0; i < src.size(); i++) {
 			int j = i + 1;
@@ -76,19 +41,7 @@ public class PolygonClipper {
 		}
 	}
 
-//	public Vector3[] ClipPolygon(Frustum frustum, Vector3[] src) {
-//		Plane[] planes = frustum.planes;
-//		size = ClipPlane(dst, src, src.length, planes[2]);
-//		for (int i = 3; i < 6; i++) {
-//			if ((i % 2) != 0) {
-//				size = ClipPlane(swap, dst, size, planes[i]);
-//			} else
-//				size = ClipPlane(dst, swap, size, planes[i]);
-//		}
-//		return swap;
-//	}
-
-	public ArrayList<Vertex> ClipPolygon(Frustum frustum, ArrayList<Vertex> src) {
+    public ArrayList<Vertex> ClipPolygon(Frustum frustum, ArrayList<Vertex> src) {
 		vecs.reset();
 		final Plane[] planes = frustum.planes;
 
@@ -101,21 +54,5 @@ public class PolygonClipper {
 		}
 		return src;
 	}
-
-//	public Vector3[] ClipPolygon(WallFrustum3d frustum, Vector3[] src, int len) {
-//		Plane[] planes = frustum.planes;
-//		size = ClipPlane(dst, src, len, planes[0]);
-//		for (int i = 1; i < planes.length; i++) {
-//			if ((i % 2) != 0) {
-//				size = ClipPlane(swap, dst, size, planes[i]);
-//			} else
-//				size = ClipPlane(dst, swap, size, planes[i]);
-//		}
-//		return swap;
-//	}
-//
-//	public int getSize() {
-//		return size;
-//	}
 
 }

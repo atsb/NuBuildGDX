@@ -67,24 +67,14 @@ public class DefaultMapSettings implements IOverheadMapSettings {
 	@Override
 	public int getWallColor(int w, int sec) {
 		WALL wal = wall[w];
-//		if (Gameutils.isValidSector(wal.nextsector)) // red wall
-//			return 31;
-		return 31; // white wall
+        return 31; // white wall
 	}
 
 	@Override
 	public int getSpriteColor(int s) {
 		SPRITE spr = sprite[s];
-//		switch (spr.cstat & 48) {
-//		case 0:
-//			return 31;
-//		case 16:
-//			return 31;
-//		case 32:
-//			return 31;
-//		}
 
-		return 31;
+        return 31;
 	}
 
 	@Override

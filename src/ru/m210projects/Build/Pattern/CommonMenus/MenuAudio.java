@@ -57,7 +57,7 @@ public abstract class MenuAudio extends BuildMenu {
 		void MusicOff();
 	}
 
-	public class AudioAdapter implements AudioListener {
+	public static class AudioAdapter implements AudioListener {
 
 		@Override
 		public void PreDrvChange(Driver drv) {

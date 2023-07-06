@@ -197,13 +197,7 @@ public class GameScreen extends GameAdapter {
 			} else gGameScreen.capture(160, 100);
 		}
 
-//		if(gAutosaveRequest)
-//		{
-//			savegame("[autosave]", "autosave.sav");
-//			gAutosaveRequest = false;
-//		}
-
-	}
+    }
 
 	@Override
 	public void ProcessFrame(BuildNet net) {
@@ -218,15 +212,7 @@ public class GameScreen extends GameAdapter {
 		for (int i = connecthead; i >= 0; i = connectpoint2[i])
 			gPlayer[i].ocursectnum = gPlayer[i].cursectnum;
 
-//		if (recstat) {
-//			for (i = connecthead; i >= 0; i = connectpoint2[i])
-//				pDemoInput[reccnt][i].copy(Player.input[i]);
-//			reccnt++;
-//			if (reccnt > 16383)
-//				reccnt = 16383;
-//		}
-
-		ozoom = zoom;
+        ozoom = zoom;
 		for (int i = connecthead; i >= 0; i = connectpoint2[i]) {
 			gPlayer[i].oposx = gPlayer[i].posx;
 			gPlayer[i].oposy = gPlayer[i].posy;
@@ -478,11 +464,7 @@ public class GameScreen extends GameAdapter {
 						// crash("game818: Invalid sector for player %d
 						// (%d)",snum,gPlayer[snum].cursectnum);
 						// }
-						// placerandompic(KLIPPIC);
-						// placerandompic(MEDICKITPIC);
-						// gPlayer[snum].posz = sector[gPlayer[snum].cursectnum].floorz-(1<<8);
-						// gPlayer[snum].ang = (krand_intercept("GAME 802")&2047);
-					} else {
+                    } else {
 						gPlayer[snum].posx = startx;
 						gPlayer[snum].posy = starty;
 						gPlayer[snum].posz = startz;

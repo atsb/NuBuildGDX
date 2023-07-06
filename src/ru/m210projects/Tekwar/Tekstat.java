@@ -1930,15 +1930,7 @@ public class Tekstat {
 				sprite[i].z = sector[sprite[i].sectnum].floorz;
 				sprite[i].z -= (pic.getHeight() / 2) << 6;
 
-//	               switch( sprite[i].picnum ) {
-//	               case KLIPPIC:
-//	                    sprite[i].z-=(tilesizy[sprite[i].picnum]/2)<<6;
-//	                    break;
-//	               default:
-//	            	    engine.changespritestat(i, FALL);
-//	                    break;
-//	               }
-				dropsiescontinue = true;
+                dropsiescontinue = true;
 			}
 			if (!dropsiescontinue) {
 				if (mulscale(krand_intercept("STAT2934"), dist, 30) == 0) {

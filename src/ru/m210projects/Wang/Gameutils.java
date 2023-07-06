@@ -55,9 +55,6 @@ public class Gameutils {
 	public static final int SK_TILT_LEFT = 23;
 	public static final int SK_TILT_RIGHT = 24;
 
-//	public static final int SK_QUIT_GAME = 23;
-//	public static final int SK_MULTI_VIEW = 24;
-
 	public static final int SK_TURN_180 = 25;
 
 	public static final int SK_INV_LEFT = 26;

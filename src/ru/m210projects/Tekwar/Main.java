@@ -272,11 +272,7 @@ public class Main extends BuildGame {
 		if(parallaxyscale != 65536)
 			parallaxyscale = 32768;
 
-//		pskymultilist[0] = 977;
-//		pskymultilist[1] = 1234;
-//		pskymultilist[2] = 1426;
-
-		pskyoff[0] = 0;
+        pskyoff[0] = 0;
 		pskyoff[1] = 1;
 		pskyoff[2] = 2;
 		pskyoff[3] = 3;

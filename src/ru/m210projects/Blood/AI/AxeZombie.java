@@ -234,9 +234,7 @@ public class AxeZombie extends GeneticDude {
 //			if (pXSprite.target == -1)  XXX
 //				aiNewState(burnSearch[ZOMBIE]);
 //			else 
-//				aiNewState(burnChase[ZOMBIE]);
-//			break;
-		}
+        }
 	}
 
 	@Override

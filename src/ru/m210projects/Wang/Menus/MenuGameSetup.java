@@ -149,7 +149,5 @@ public class MenuGameSetup extends BuildMenu {
 		addItem(sDisableHornets, false);
 		addItem(sStartup, false);
 		addItem(sCheckVersion, false);
-//		addItem(mPlayingDemo, false);
-//		addItem(sRecord, false);
-	}
+    }
 }

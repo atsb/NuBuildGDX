@@ -14,7 +14,7 @@ import static java.lang.Math.abs;
 
 public class PolyClipper {
 
-	class vsptyp {
+	static class vsptyp {
 		double x;
 		double[] cy = new double[2];
 		double[] fy = new double[2];

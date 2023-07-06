@@ -41,13 +41,13 @@ import ru.m210projects.Build.FileHandle.Compat.Path;
 
 public abstract class MenuFileBrowser extends MenuItem {
 
-	private class StringList extends LinkedList<String> {
+	private static class StringList extends LinkedList<String> {
 		private static final long serialVersionUID = 1L;
 	}
 
 	protected StringList[] list = new StringList[2];
 
-	private class ExtProp {
+	private static class ExtProp {
 		int pal;
 		int priority;
 
@@ -246,9 +246,7 @@ public abstract class MenuFileBrowser extends MenuItem {
 				pal = handler.getPal(font, m_pMenu.m_pItems[m_pMenu.m_nFocus]);
 
 			text = toCharArray(list[DIRECTORY].get(i));
-//			if(list[DIRECTORY].get(i).equals(back))
-//				pal = backPal;
-			brDrawText(font, text, px, py, shade, pal, 0, this.x + this.width / 2 - 4);
+            brDrawText(font, text, px, py, shade, pal, 0, this.x + this.width / 2 - 4);
 			py += mFontOffset();
 		}
 
@@ -260,10 +258,7 @@ public abstract class MenuFileBrowser extends MenuItem {
 			int shade = handler
 					.getShade(currColumn == FILE && i == l_nFocus[FILE] ? m_pMenu.m_pItems[m_pMenu.m_nFocus] : null);
 
-//			Object obj = list[FILE].get(i);
-//			text = toChars(fileUnit.get(obj));
-
-			String name = list[FILE].get(i);
+            String name = list[FILE].get(i);
 			text = toChars(name);
 			Object obj = fileUnit.get(name);
 			ExtProp p = getPropertie(obj);
@@ -331,17 +326,7 @@ public abstract class MenuFileBrowser extends MenuItem {
 		}
 		text.getChars(pos, pos + symbols + 1, buffer, 0);
 
-//		int symbols = 0;
-//		int pos = text.length();
-//		int len = Math.min(text.length(), buffer.length - 1);
-//		Arrays.fill(buffer, (char) 0); 
-//		while(pos-- >= 0 && ++symbols < len && text.charAt(pos) != File.separatorChar);
-//		if(text.charAt(pos) == File.separatorChar) { pos++; symbols--; }
-//		System.err.println(pos + " " + symbols);
-//		text.getChars(pos, pos + symbols, buffer, 0);
-//		System.err.println(new String(buffer));
-
-		return buffer;
+        return buffer;
 	}
 
 	@Override

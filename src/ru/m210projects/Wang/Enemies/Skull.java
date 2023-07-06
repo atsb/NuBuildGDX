@@ -442,10 +442,7 @@ public class Skull {
 
 		DoActorPickClosePlayer(SpriteNum);
 
-		// if (dist < u.active_range)
-		// return(0);
-
-		if ((u.WaitTics -= ACTORMOVETICS) <= 0) {
+        if ((u.WaitTics -= ACTORMOVETICS) <= 0) {
 			PlaySound(DIGI_AHSCREAM, sp, v3df_none);
 			u.WaitTics = (short) (SEC(3) + RANDOM_RANGE(360));
 		}
@@ -749,10 +746,7 @@ public class Skull {
 
 		DoActorPickClosePlayer(SpriteNum);
 
-		// if (dist < u.active_range)
-		// return(0);
-
-		if ((u.WaitTics -= ACTORMOVETICS) <= 0) {
+        if ((u.WaitTics -= ACTORMOVETICS) <= 0) {
 			PlaySound(DIGI_MINEBEEP, sp, v3df_none);
 			u.WaitTics = (short) SEC(3);
 		}

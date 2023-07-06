@@ -27,17 +27,7 @@ import static ru.m210projects.Build.Strhandler.toLowerCase;
 
 public class FileResource implements Resource {
 
-//	private static Unsafe unsafe;
-//	static {
-//		try {
-//			Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
-//			theUnsafe.setAccessible(true);
-//			unsafe = (Unsafe) theUnsafe.get(null);
-//		} catch (Exception e) {
-//		}
-//	}
-
-	private final byte[] tmpbuf = new byte[1024];
+    private final byte[] tmpbuf = new byte[1024];
 
 	public enum Mode {
 		Read, Write
@@ -91,15 +81,7 @@ public class FileResource implements Resource {
 		if (isClosed())
 			return null;
 
-//		try {
-//			Field path = raf.getClass().getDeclaredField("path");
-//			path.setAccessible(true);
-//			return (String) path.get(raf);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-
-		return path;
+        return path;
 	}
 
 	public Mode getMode() {
@@ -128,30 +110,7 @@ public class FileResource implements Resource {
 		}
 	}
 
-//	private void freeJRE8(MappedByteBuffer bb) throws Exception {
-//		Object cleaner = ((sun.nio.ch.DirectBuffer) bb).cleaner();
-//		Method invokeCleaner = cleaner.getClass().getDeclaredMethod("clean");
-//		invokeCleaner.setAccessible(true);
-//		invokeCleaner.invoke(cleaner);
-//	}
-//
-//	private void freeJRE9(MappedByteBuffer bb) throws Exception {
-//		Method invokeCleaner = Unsafe.class.getMethod("invokeCleaner", ByteBuffer.class);
-//		invokeCleaner.invoke(unsafe, bb);
-//	}
-//
-//	private void free(MappedByteBuffer bb) {
-//		try {
-//			if (BuildGdx.app.getPlatform() != Platform.Android && BuildGdx.app.getVersion() < 9) {
-//				freeJRE8(bb);
-//			} else {
-//				freeJRE9(bb);
-//			}
-//		} catch (Throwable ignored) {
-//		}
-//	}
-
-	@Override
+    @Override
 	public int seek(long offset, Whence whence) {
 		int var = -1;
 		if (isClosed())
@@ -309,26 +268,7 @@ public class FileResource implements Resource {
 		return null;
 	}
 
-//	protected ByteBuffer readBuffer(int len) {
-//		ByteBuffer out;
-//		if (isClosed())
-//			return null;
-//
-//		try {
-//			FileChannel ch = raf.getChannel();
-//			long pos = ch.position();
-//			out = ch.map(FileChannel.MapMode.READ_ONLY, pos, len);
-//			ch.position(pos + len);
-//		} catch (EOFException e) {
-//			return null;
-//		} catch (Exception e) {
-//			throw new RuntimeException("Couldn't read file \r\n" + e.getMessage());
-//		}
-//
-//		return out;
-//	}
-
-	public int writeBytes(Object array) {
+    public int writeBytes(Object array) {
 		int len;
 		if (array instanceof byte[])
 			len = ((byte[]) array).length;

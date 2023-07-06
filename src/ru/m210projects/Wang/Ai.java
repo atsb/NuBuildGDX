@@ -385,9 +385,6 @@ public class Ai {
 						continue;
 
 					// if co-op don't hurt teammate
-					// if (gNet.MultiGameType == MULTI_GAME_COOPERATIVE && !gNet.HurtTeammate &&
-					// u.spal == User[pp.PlayerSprite].spal)
-					// continue;
 				}
 
 				dist = DISTANCE(sp.x, sp.y, pp.posx, pp.posy);
@@ -413,15 +410,10 @@ public class Ai {
 						continue;
 
 					// if co-op don't hurt teammate
-					// if (gNet.MultiGameType == MULTI_GAME_COOPERATIVE && !gNet.HurtTeammate &&
-					// u.spal == User[pp.PlayerSprite].spal)
-					// continue;
 				}
 
 				dist = DISTANCE(sp.x, sp.y, pp.posx, pp.posy);
 
-				// ICanSee = FAFcansee(sp.x, sp.y, look_height, sp.sectnum, pp.SpriteP.x,
-				// pp.SpriteP.y, SPRITEp_UPPER(pp.SpriteP), pp.SpriteP.sectnum);
 				SPRITE psp = pp.getSprite();
 				if (dist < near_dist && FAFcansee(sp.x, sp.y, look_height, sp.sectnum, psp.x, psp.y,
 						SPRITEp_UPPER(psp), psp.sectnum)) {

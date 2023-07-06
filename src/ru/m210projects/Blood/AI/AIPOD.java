@@ -348,12 +348,8 @@ public class AIPOD {
 						sfxStart3DSound(pSprite, 2474, -1, 0);
 					else
 						sfxStart3DSound(pSprite, 2475, -1, 0);
-					
-					//if(gFrameClock == 131804) {
-						//System.err.println(pSprite.xvel);
-					//}
-					
-					pThing = actFireThing(pSprite.xvel, 0, -8000, nSlope, kThingPodGreen, velocity);
+
+                    pThing = actFireThing(pSprite.xvel, 0, -8000, nSlope, kThingPodGreen, velocity);
 					if(pThing != null)
 						seqSpawn(68, SS_SPRITE, pThing.extra, null);
 				break;

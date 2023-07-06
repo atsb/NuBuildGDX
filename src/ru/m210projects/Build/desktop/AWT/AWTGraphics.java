@@ -216,7 +216,7 @@ public class AWTGraphics extends BuildGraphics {
 		return new SoftDisplayMode(mode.getWidth(), mode.getHeight(), mode.getRefreshRate(), mode.getBitDepth(), mode);
 	}
 
-	private class SoftDisplayMode extends DisplayMode {
+	private static class SoftDisplayMode extends DisplayMode {
 		java.awt.DisplayMode mode;
 		
 		public SoftDisplayMode (int width, int height, int refreshRate, int bitsPerPixel, java.awt.DisplayMode mode) {

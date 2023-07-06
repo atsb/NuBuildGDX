@@ -138,10 +138,7 @@ public class HotHead {
 				if (FLAG_KEY_PRESSED(psp.PlayerP(), SK_SHOOT) || force) {
 					psp.flags &= ~(PANF_UNHIDE_SHOOT);
 
-					// if (TEST(psp.PlayerP().Flags,PF_DIVING))
-					// return;
-
-					if (!WeaponOK(psp.PlayerP()))
+                    if (!WeaponOK(psp.PlayerP()))
 						return;
 
 					if (psp.PlayerP().WpnAmmo[WPN_HOTHEAD] < 10) {

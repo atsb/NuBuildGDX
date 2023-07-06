@@ -76,9 +76,7 @@ public abstract class MDModel implements GLModel {
 			if (sk.palette == pal && sk.skinnum == skinnum && sk.surfnum == surfnum) {
 				skinfile = sk.fn;
 				texptr = sk.texid;
-//				Console.Println("Using exact match skin (pal=" + pal + ",skinnum=" + skinnum + ",surfnum=" + surfnum
-//						+ ") " + skinfile);
-				break;
+                break;
 			}
 			// If no match, give highest priority to skinnum, then pal.. (Parkar's request,
 			// 02/27/2005)

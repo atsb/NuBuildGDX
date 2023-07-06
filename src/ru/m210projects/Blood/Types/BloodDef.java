@@ -51,29 +51,7 @@ import ru.m210projects.Build.Types.Tile;
 
 public class BloodDef extends DefScript {
 
-//	public static class BloodMapHackInfo extends MapHackInfo {
-//
-//		public BloodMapHackInfo() {
-//			super();
-//		}
-//
-//		public BloodMapHackInfo(MapHackInfo src) {
-//			super(src);
-//		}
-//
-//		@Override
-//		public boolean load(String mapname) {
-//			unload();
-//			if(hasMaphack(mapname)) {
-//				if(load(mapname, pGameInfo.uMapCRC))
-//					return true;
-//			}
-//
-//			return false;
-//		}
-//	}
-
-	public byte[] surfType = new byte[kMaxTiles];
+    public byte[] surfType = new byte[kMaxTiles];
 
 	private final DefineIdToken rffid = new DefineIdToken();
 	private final NBloodDefineIdToken nbrffid = new NBloodDefineIdToken();
@@ -102,14 +80,7 @@ public class BloodDef extends DefScript {
 		System.arraycopy(src.surfType, 0, surfType, 0, src.surfType.length);
 	}
 
-//	@Override
-//	protected MapHackInfo createMapHackInfo(MapHackInfo src) {
-//		if(src != null)
-//			return new BloodMapHackInfo(src);
-//		return new BloodMapHackInfo();
-//	}
-
-	public void surfaceInit(String name) {
+    public void surfaceInit(String name) {
 		Resource data = BuildGdx.cache.open(name, 0);
 		if (data == null)
 			return;

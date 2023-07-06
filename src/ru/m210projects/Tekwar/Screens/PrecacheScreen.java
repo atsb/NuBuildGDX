@@ -43,12 +43,7 @@ public class PrecacheScreen extends PrecacheAdapter {
 				}
 				doprecache(0);
 
-//				for (int i = 0; i < numwalls; i++) {
-//					if (wall[i].overpicnum >= 0)
-//						addTile(wall[i].overpicnum);
-//				}
-//				doprecache(1);
-			}
+            }
 		});
 
 		addQueue("Preload sprite tiles...", new Runnable() {

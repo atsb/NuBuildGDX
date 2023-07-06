@@ -236,8 +236,6 @@ public class Sound {
 	}
 
 	public static void MusicStartup() {
-//		if (!BuildGdx.audio.getMusic().init())
-//			Console.Println(BuildGdx.audio.getName(Driver.Music) + " initialization failed", OSDTEXT_RED);
 		BuildGdx.audio.setDriver(Driver.Music, 0); // set it to DummyMusic
 
 		if (!gs.muteMusic)
@@ -1023,10 +1021,6 @@ public class Sound {
 		CDAudio_Stop();
 
 		BuildGdx.audio.setDriver(Driver.Music, 0);
-//		if (!BuildGdx.audio.getMusic().init()) {
-//			Console.Println(BuildGdx.audio.getName(Driver.Music) + " initialization failed", OSDTEXT_RED);
-//			return false;
-//		}
 
 		return true;
 	}

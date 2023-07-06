@@ -32,24 +32,6 @@ public class Whmap {
 
 	public static boolean nextlevel;
 
-//	public static void startnewgame(int skills) {
-//
-//		difficulty = skills;
-//
-//		mapon = 1;
-//		boardfilename = "level1.map";
-//		mUserFlag = UserFlag.None;
-//		sndStopMusic();
-//
-//		Console.Println("Starting new game " + boardfilename);
-//
-//		justteleported = false;
-//		nextlevel = false;
-//		gGameScreen.loadboard(boardfilename, null);
-//
-//		game.menu.mClose();
-//	}
-
 	public static void loadnewlevel(int mapon) {
 		MapInfo nextmap;
 		if (gCurrentEpisode != null && (nextmap = gCurrentEpisode.getMap(mapon)) != null) {
@@ -82,9 +64,6 @@ public class Whmap {
 						s.lotag = 62;
 				}
 			}
-
-//			if (sector[i].lotag == 100)
-//				spikesector[spikecnt++] = i;
 
 			if (sector[i].lotag == 70)
 				skypanlist[skypancnt++] = (short) i;
@@ -250,13 +229,6 @@ public class Whmap {
 			}
 		}
 
-//	    // Map starts out completed WH2 XXX
-//	    // for(i=0;i<(MAXSECTORS>>3);i++) show2dsector[i] = 0xff;
-//	    for(i=0;i<(MAXSECTORS>>3);i++) show2dsector[i] = 0x00;
-//	     // for(i=0;i<(MAXWALLS>>3);i++) show2dwall[i] = 0xff;
-//	    for(i=0;i<(MAXWALLS>>3);i++) show2dwall[i] = 0x00;
-//	    // for(i=0;i<(MAXSPRITES>>3);i++) show2dsprite[i] = 0xff;
-//	    for(i=0;i<(MAXSPRITES>>3);i++) show2dsprite[i] = 0x00;
 	}
 
 	public static boolean prepareboard(String fname) {
@@ -360,12 +332,6 @@ public class Whmap {
 
 			if ((spr.cstat & (16 + 32)) == (16 + 32))
 				spr.cstat &= ~(16 | 32);
-
-//			if (spr.picnum == RAT) {
-//				ratcnt++;
-//				if (ratcnt > 10)
-//					engine.deletesprite((short) i);
-//			}
 
 			if (spr.picnum == SPAWN) {
 				engine.deletesprite(i);

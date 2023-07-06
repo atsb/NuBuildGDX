@@ -137,12 +137,8 @@ public class FullHud extends HudRenderer {
 	}
 
 	protected void DrawVersion(int x, int y, String version) {
-//		x = (int) convertX(x, nScale, ConvertType.Normal);
-//		y = (int) convertY(y, nScale);
-//
-//		game.getFont(3).drawText(x, y, game.sversion, nScale, 32, 0, TextAlign.Center, 0, false);
 
-		game.getFont(3).drawText(x, y, game.sversion, 65536, 32, 0, TextAlign.Center, 10, false);
+        game.getFont(3).drawText(x, y, game.sversion, 65536, 32, 0, TextAlign.Center, 10, false);
 	}
 
 }

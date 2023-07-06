@@ -245,8 +245,6 @@ public class Whldsv {
 	}
 
 	public static void LoadGDXBlock() {
-//		boardfilename = loader.boardfilename;
-//		mUserFlag = loader.gUserMap ? UserFlag.UserMap : UserFlag.None;
 
 		if (loader.warp_on == 0) {
 			mUserFlag = UserFlag.None;

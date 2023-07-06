@@ -407,16 +407,7 @@ public class Main extends BuildGame {
 			}
 		}));
 
-//		Console.RegisterCvar(new OSDCOMMAND("net_nextmap",
-//				"net_nextmap", new OSDCVARFUNC() {
-//					@Override
-//					public void execute() {
-//						LeaveMap();
-//						ud.level_number++;
-//						game.net.sendtoall(new byte[] { kPacketLevelEnd }, 1);
-//					}
-//		}));
-	}
+    }
 
 	public void dassert(String msg) {
 		if (kGameCrash)

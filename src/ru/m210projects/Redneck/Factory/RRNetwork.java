@@ -74,9 +74,7 @@ public class RRNetwork extends BuildNet {
 	private char[] recbuf = new char[80];
 	public final int nNetVersion = 500;
 
-//	public static final byte kPacketMasterFrame	= 0;
-//	public static final byte kPacketSlaveFrame = 1;
-	public static final byte kPacketMessage = 4;
+public static final byte kPacketMessage = 4;
 	public static final byte kPacketSound = 5;
 	public static final byte kPacketProfile = 6;
 //	public static final byte kPacketDisconnect = 7;
@@ -264,9 +262,6 @@ public class RRNetwork extends BuildNet {
 
 		case kPacketProfile:
 			retransmit(nPlayer, packbuf, len);
-
-//			if (packbuf[2] != BYTEVERSION)
-//				gameexit("\nYou cannot play Duke with different versions.");
 
 			int nP = packbuf[1];
 

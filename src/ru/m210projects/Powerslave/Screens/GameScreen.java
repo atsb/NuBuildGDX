@@ -110,17 +110,7 @@ public class GameScreen extends GameAdapter {
 		UpdateInputs(net);
 		nonsharedtimer = totalclock;
 
-//		if (BuildGdx.input.isKeyPressed(Keys.H)) {
-//			SPRITE pSprite = sprite[PlayerList[0].spriteId];
-//			int dx = sintable[(pSprite.ang + 512) & 0x7FF];
-//			int dy = sintable[pSprite.ang];
-//			int dz = (nVertPan[0] - 92) << 8;
-//			engine.hitscan(pSprite.x, pSprite.y, pSprite.z, pSprite.sectnum, dx, dy, dz << 4, pHitInfo, 0xFFFF0030);
-//
-//			System.err.println(sector[pHitInfo.hitsect].floorpicnum);
-//		}
-
-		if (game.gPaused || (!game.isCurrentScreen(gGameScreen) && !game.isCurrentScreen(gDemoScreen)))
+        if (game.gPaused || (!game.isCurrentScreen(gGameScreen) && !game.isCurrentScreen(gDemoScreen)))
 			return;
 
 		if (game.isCurrentScreen(gGameScreen) && ((game.menu.gShowMenu || Console.IsShown())))
@@ -479,9 +469,9 @@ public class GameScreen extends GameAdapter {
 		if (nOverhead != 0) {
 			int j = totalclock - nonsharedtimer;
 			nonsharedtimer += j;
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
-				zoom += mulscale(j, Math.max(zoom, 256), 6);
 			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, false))
+				zoom += mulscale(j, Math.max(zoom, 256), 6);
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, false))
 				zoom -= mulscale(j, Math.max(zoom, 256), 6);
 
 			if ((zoom > 2048))
@@ -499,12 +489,12 @@ public class GameScreen extends GameAdapter {
 				StatusMessage(500, "Follow mode " + (followmode ? "ON" : "OFF"), nLocalPlayer);
 			}
 		} else {
-			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
 				if (cfg.nScreenSize > 0) {
 					cfg.nScreenSize = BClipLow(cfg.nScreenSize - 1, 0);
 				}
 			}
-			if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
+			if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
 				if (cfg.nScreenSize < 2) {
 					cfg.nScreenSize = BClipHigh(cfg.nScreenSize + 1, 2);
 				}

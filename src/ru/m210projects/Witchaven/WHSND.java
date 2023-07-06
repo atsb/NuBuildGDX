@@ -657,12 +657,6 @@ public class WHSND {
 
 		stopsound(which);
 
-//		for (int wIndex = 0; wIndex < MAX_ACTIVE_SAMPLES; wIndex++) {
-//			if (which == SampleRay[wIndex].sndnum) {
-//				stopsound(wIndex);
-//				return;
-//			}
-//		}
 	}
 
 	public static int SND_Sound(int sn) {

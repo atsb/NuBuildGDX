@@ -363,10 +363,6 @@ public class GameScreen extends GameAdapter {
 				}
 //	            }
 //	            else
-//	            {
-//	                game.show();
-//	                return;
-//	            }
 			} else {
 				BuildGdx.app.postRunnable(new Runnable() {
 					@Override

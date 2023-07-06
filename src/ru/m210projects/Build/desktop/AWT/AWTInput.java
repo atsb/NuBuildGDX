@@ -50,7 +50,7 @@ import ru.m210projects.Build.Architecture.BuildFrame;
 import ru.m210projects.Build.Architecture.BuildInput;
 
 public class AWTInput implements BuildInput, KeyListener {
-	class KeyEvent {
+	static class KeyEvent {
 		static final int KEY_DOWN = 0;
 		static final int KEY_UP = 1;
 		static final int KEY_TYPED = 2;
@@ -61,7 +61,7 @@ public class AWTInput implements BuildInput, KeyListener {
 		char keyChar;
 	}
 
-	class TouchEvent {
+	static class TouchEvent {
 		static final int TOUCH_DOWN = 0;
 		static final int TOUCH_UP = 1;
 		static final int TOUCH_DRAGGED = 2;

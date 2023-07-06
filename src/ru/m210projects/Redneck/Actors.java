@@ -2049,10 +2049,6 @@ public class Actors {
 								spawn(j, WATERSPLASH2);
 
 //							if (sectlotag == 1) GDX 2.10.2018
-//								for (l = 0; l < 9; l++) {
-//									q = spawn(ps[p].i, WATERBUBBLE);
-//									sprite[q].z += engine.krand() & 16383;
-//								}
 
 							ps[p].UpdatePlayerLoc();
 						} else if (k == 2) {
@@ -4655,10 +4651,6 @@ public class Actors {
 
 							sprite[j].ang += q;
 
-//							if (numplayers > 1) {
-//								hittype[j].bposx = sprite[j].x;
-//								hittype[j].bposy = sprite[j].y;
-//							}
 						}
 						j = nextspritesect[j];
 					}
@@ -4797,10 +4789,6 @@ public class Actors {
 							sprite[j].x += l;
 							sprite[j].y += x;
 
-//							if (numplayers > 1) {
-//								hittype[j].bposx = sprite[j].x;
-//								hittype[j].bposy = sprite[j].y;
-//							}
 						}
 						j = nextspritesect[j];
 					}
@@ -5773,9 +5761,6 @@ public class Actors {
 						if (ps[p].cursectnum == s.sectnum && ps[p].on_ground) {
 							ps[p].posx += x;
 							ps[p].posy += l;
-
-//							ps[p].oposx = ps[p].posx;
-//							ps[p].oposy = ps[p].posy;
 
 							engine.setsprite(ps[p].i, ps[p].posx, ps[p].posy, ps[p].posz + PHEIGHT);
 						}

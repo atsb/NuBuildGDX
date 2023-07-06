@@ -68,10 +68,6 @@ public class Globals {
 
 	//public static final int nEvent1 = 0x10000;
 	public static final int nEventProcess = 0x20000;
-	//public static final int nEvent2 = 0x30000;
-	//public static final int nEvent3 = 0x40000;
-	//public static final int nEvent4 = 0x50000;
-	//public static final int nEvent5 = 0x60000;
 	public static final int nEvent6 = 0x70000;
 	public static final int nEventDamage = 0x80000;
 	public static final int nEventView = 0x90000;

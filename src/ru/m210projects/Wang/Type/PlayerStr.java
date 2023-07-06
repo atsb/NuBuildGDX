@@ -598,10 +598,8 @@ public class PlayerStr {
 		buffer.putShort(fta);
 		buffer.putShort(ftq);
 		buffer.putShort(NumFootPrints);
-//		buffer.put(PlayerTalking ? (byte) 1 : 0);
-//		buffer.putInt(TalkVocnum);
 
-		buffer.put(WpnUziType);
+        buffer.put(WpnUziType);
 		buffer.put(WpnShotgunType);
 		buffer.put(WpnShotgunAuto);
 		buffer.put(WpnShotgunLastShell);
@@ -1527,9 +1525,7 @@ public class PlayerStr {
 		this.CurWpn = src.CurWpn;
 //		this.CurWpn.copy(src.CurWpn);
 		this.Wpn = src.Wpn;
-//		for (int ndx = 0; ndx < MAX_WEAPONS; ndx++)
-//			this.Wpn[ndx].copy(src.Wpn[ndx]);
-		this.Chops = src.Chops;
+        this.Chops = src.Chops;
 //		this.Chops.copy(src.Chops);
 		this.WpnRocketType = src.WpnRocketType;
 		this.WpnRocketHeat = src.WpnRocketHeat;
@@ -1543,11 +1539,8 @@ public class PlayerStr {
 
 		this.InventorySprite = src.InventorySprite;
 		this.InventorySelectionBox = src.InventorySelectionBox;
-//		for (int ndx = 0; ndx < MAX_INVENTORY; ndx++) 
-//			this.InventorySprite[ndx].copy(src.InventorySprite[ndx]);
-//		this.InventorySelectionBox.copy(src.InventorySelectionBox);
 
-		System.arraycopy(src.InventoryTics, 0, InventoryTics, 0, MAX_INVENTORY);
+        System.arraycopy(src.InventoryTics, 0, InventoryTics, 0, MAX_INVENTORY);
 		System.arraycopy(src.InventoryPercent, 0, InventoryPercent, 0, MAX_INVENTORY);
 		System.arraycopy(src.InventoryAmount, 0, InventoryAmount, 0, MAX_INVENTORY);
 		System.arraycopy(src.InventoryActive, 0, InventoryActive, 0, MAX_INVENTORY);

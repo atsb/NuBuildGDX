@@ -151,14 +151,8 @@ public class Vator {
 	public static void SetVatorInactive(int SpriteNum) {
 		USER u = pUser[SpriteNum];
 		SPRITE sp = u.getSprite();
-//		SECTOR sectp = sector[sp.sectnum];
-//
-//		if (TEST(sp.cstat, CSTAT_SPRITE_YFLIP))
-//			game.pInt.clearceilinterpolate(sp.sectnum, sectp);
-//		else
-//			game.pInt.clearfloorinterpolate(sp.sectnum, sectp);
 
-		InterpSectorSprites(sp.sectnum, false);
+        InterpSectorSprites(sp.sectnum, false);
 
 		// play inactivate sound
 		DoSoundSpotMatch(SP_TAG2(sp), 2, SoundType.SOUND_OBJECT_TYPE);
@@ -313,9 +307,7 @@ public class Vator {
 
 			if (state)
 				game.pInt.setsprinterpolate(i, sp);
-//			else
-//				game.pInt.clearspriteinterpolate(i);
-		}
+        }
 	}
 
 	public static void MoveSpritesWithSector(short sectnum, int z_amt, boolean type) {

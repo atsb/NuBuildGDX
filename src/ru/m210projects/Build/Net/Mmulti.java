@@ -37,12 +37,8 @@ public class Mmulti {
 	public static final int PAKRATE = 40;
 	
 	private static final byte[] pakbuf = new byte[MAXPAKSIZ];
-//	public static final int SIMMIS = 0;
-//	public static final int SIMLAG = 0;
-//	public static int[] simlagcnt = new int[MAXPLAYERS];
-//	public static byte[][][] simlagfif = new byte[MAXPLAYERS][SIMLAG+1][MAXPAKSIZ+2];
-	
-	//ENGINE CONTROLLED MULTIPLAYER VARIABLES:
+
+    //ENGINE CONTROLLED MULTIPLAYER VARIABLES:
 	public static short numplayers, myconnectindex;
 	public static short connecthead;
 	public static short[] connectpoint2 = new short[MAXPLAYERS];   //Player linked list variables (indeces, not connection numbers)
@@ -168,15 +164,8 @@ public class Mmulti {
 		Object recip;
 		if (mysock == null || (recip = mysock.recvfrom(dabuf,bufsiz)) == null) 
 			return -1;
-		
-//		if(SIMMIS > 0) {
-//			if ((Math.random() * 255) < SIMMIS) {
-//				System.err.println("Miss");
-//				return(0);
-//			}
-//		}
-			
-		snatsocket = recip;
+
+        snatsocket = recip;
 		int other = myconnectindex;
 		for(int i = 0; i < MAXPLAYERS; i++) {
 			if(snatsocket.equals(othersocket[i]) 
@@ -184,20 +173,8 @@ public class Mmulti {
 					== ((InetSocketAddress)othersocket[i]).getPort())
 				{ other = i; break; }
 		}
-		
-//		if(SIMLAG > 0) {
-//			int i = simlagcnt[other]%(SIMLAG+1);
-//			
-//			LittleEndian.putShort(simlagfif[other][i], 0, (short)bufsiz);
-//			System.arraycopy(dabuf, 0, simlagfif[other][i], 2, bufsiz);
-//			simlagcnt[other]++; 
-//			if (simlagcnt[other] < SIMLAG+1) return(0);
-//			i = simlagcnt[other]%(SIMLAG+1);
-//			bufsiz = LittleEndian.getShort(simlagfif[other][i]); 
-//			System.arraycopy(simlagfif[other][i], 2, dabuf, 0, bufsiz);
-//		}
-		
-		return other;
+
+        return other;
 	}
 
 	private static boolean isvalidipaddress(String st)
@@ -391,14 +368,8 @@ public class Mmulti {
 				if (isvalidipaddress(argv[i]))
 				{
 					if ((danetmode == 1) && (daindex == myconnectindex)) daindex++;
-//					for(int j = 0; j <  argv[i].length() && argv[i].charAt(j) != 0; j++)
-//						if (argv[i].charAt(j) == ':') { 
-//							String port = argv[i].substring(j+1).trim();
-//							portnum = Integer.parseInt(port); 
-//							break; 
-//						}
 
-					inet.serverip = argv[i];
+                    inet.serverip = argv[i];
 					inet.port = portnum;
 					othersocket[daindex] = new InetSocketAddress(argv[i], portnum);
 					Console.Println("mmulti: Player " + daindex + " at " + argv[i] + ":" + portnum);
@@ -408,16 +379,7 @@ public class Mmulti {
 				else
 				{
 					int pt = portnum;
-//					char[] st = argv[i].toCharArray();
-//					int pos;
-//					for(pos = 0; pos < argv[i].length() && st[pos] != 0; pos++) {
-//						if (argv[i].charAt(pos) == ':')
-//						{ 
-//							pt = Integer.parseInt(argv[i].substring(pos+1)); 
-//							break; 
-//						}
-//					}
-					try {
+                    try {
 //						InetAddress addr = InetAddress.getByName(argv[i].substring(0, pos));
 						InetAddress addr = InetAddress.getByName(argv[i]);
 						if ((danetmode == 1) && (daindex == myconnectindex)) daindex++;
@@ -556,10 +518,7 @@ public class Mmulti {
 			crc16ofs = LittleEndian.getUShort(pakbuf); k += 2;
 			if(crc16ofs == 0) return 0; //recieved part of lost packet
 
-//			if (crc16ofs+2 <= pakbuf.length)
-//			{	System.err.printf("Recv: "); for(int i=0;i<crc16ofs+2;i++) System.err.printf("%02x ",pakbuf[i]); System.err.printf("\n"); }
-
-			if ((crc16ofs+2 <= pakbuf.length) && (getcrc16(pakbuf,crc16ofs) == LittleEndian.getUShort(pakbuf, crc16ofs)))
+            if ((crc16ofs+2 <= pakbuf.length) && (getcrc16(pakbuf,crc16ofs) == LittleEndian.getUShort(pakbuf, crc16ofs)))
 			{
 				ic0 = LittleEndian.getInt(pakbuf, k); k += 4;
 				if (ic0 == -1)

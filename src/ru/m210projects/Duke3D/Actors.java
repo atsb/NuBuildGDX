@@ -879,9 +879,6 @@ public class Actors {
 					continue;
 				}
 
-//	            hittype[i].bposx = s.x;
-//	            hittype[i].bposy = s.y;
-//	            hittype[i].bposz = s.z;
 				game.pInt.setsprinterpolate(i, s);
 
 				s.cstat = 0;
@@ -2237,9 +2234,6 @@ public class Actors {
 								if (onfloorz != 0) {
 									if (sprite[j].statnum == 4 || (checkcursectnums(sect) == -1
 											&& checkcursectnums(sprite[sprite[i].owner].sectnum) == -1)) {
-//	                                            	hittype[j].bposx = sprite[j].x;
-//	                                                hittype[j].bposy = sprite[j].y;
-//	                                                hittype[j].bposz = sprite[j].z;
 
 										game.pInt.setsprinterpolate(j, sprite[j]);
 
@@ -2247,10 +2241,6 @@ public class Actors {
 										sprite[j].y += (sprite[sprite[i].owner].y - sprite[i].y);
 										sprite[j].z -= sprite[i].z - sector[sprite[sprite[i].owner].sectnum].floorz;
 										sprite[j].ang = sprite[sprite[i].owner].ang;
-
-//	                                                hittype[j].bposx = sprite[j].x;
-//	                                                hittype[j].bposy = sprite[j].y;
-//	                                                hittype[j].bposz = sprite[j].z;
 
 										if (sprite[i].pal == 0) {
 											k = (short) spawn(i, TRANSPORTERBEAM);
@@ -2268,9 +2258,6 @@ public class Actors {
 										engine.changespritesect(j, sprite[sprite[i].owner].sectnum);
 									}
 								} else {
-//	                                        	hittype[j].bposx = sprite[j].x;
-//	                                        	hittype[j].bposy = sprite[j].y;
-//	                                        	hittype[j].bposz = sprite[j].z;
 
 									game.pInt.setsprinterpolate(j, sprite[j]);
 
@@ -2278,17 +2265,10 @@ public class Actors {
 									sprite[j].y += (sprite[sprite[i].owner].y - sprite[i].y);
 									sprite[j].z = sprite[sprite[i].owner].z + 4096;
 
-//	                                            hittype[j].bposx = sprite[j].x;
-//	                                            hittype[j].bposy = sprite[j].y;
-//	                                            hittype[j].bposz = sprite[j].z;
-
 									engine.changespritesect(j, sprite[sprite[i].owner].sectnum);
 								}
 								break;
 							case 1:
-//	                                    	hittype[j].bposx = sprite[j].x;
-//	                                        hittype[j].bposy = sprite[j].y;
-//	                                        hittype[j].bposz = sprite[j].z;
 
 								game.pInt.setsprinterpolate(j, sprite[j]);
 
@@ -2296,27 +2276,16 @@ public class Actors {
 								sprite[j].y += (sprite[sprite[i].owner].y - sprite[i].y);
 								sprite[j].z = sector[sprite[sprite[i].owner].sectnum].ceilingz + ll;
 
-//	                                        hittype[j].bposx = sprite[j].x;
-//	                                        hittype[j].bposy = sprite[j].y;
-//	                                        hittype[j].bposz = sprite[j].z;
-
 								engine.changespritesect(j, sprite[sprite[i].owner].sectnum);
 
 								break;
 							case 2:
-//	                                    	hittype[j].bposx = sprite[j].x;
-//	                                        hittype[j].bposy = sprite[j].y;
-//	                                        hittype[j].bposz = sprite[j].z;
 
 								game.pInt.setsprinterpolate(j, sprite[j]);
 
 								sprite[j].x += (sprite[sprite[i].owner].x - sprite[i].x);
 								sprite[j].y += (sprite[sprite[i].owner].y - sprite[i].y);
 								sprite[j].z = sector[sprite[sprite[i].owner].sectnum].floorz - ll;
-
-//	                                        hittype[j].bposx = sprite[j].x;
-//	                                        hittype[j].bposy = sprite[j].y;
-//	                                        hittype[j].bposz = sprite[j].z;
 
 								engine.changespritesect(j, sprite[sprite[i].owner].sectnum);
 
@@ -3095,9 +3064,6 @@ public class Actors {
 					s.cstat &= 65535 - 8;
 					s.picnum = GREENSLIME + 4;
 
-//	                    if(s.yrepeat > 62)
-					// guts(s,JIBS6,5,myconnectindex);
-
 					if (s.xrepeat > 32)
 						s.xrepeat -= engine.krand() & 7;
 					if (s.yrepeat > 16)
@@ -3636,10 +3602,6 @@ public class Actors {
 				engine.deletesprite(i);
 				continue;
 			}
-
-//	        hittype[i].bposx = s.x;
-//	        hittype[i].bposy = s.y;
-//	        hittype[i].bposz = s.z;
 
 			game.pInt.setsprinterpolate(i, sprite[i]);
 
@@ -4368,10 +4330,6 @@ public class Actors {
 								sprite[p].ang += (l * q);
 								sprite[p].ang &= 2047;
 
-//	                            hittype[p].bposx = sprite[p].x;
-//	                            hittype[p].bposy = sprite[p].y;
-//	                            hittype[p].bposz = sprite[p].z;
-
 								sprite[p].z += zchange;
 
 								Point rp = engine.rotatepoint(sprite[j].x, sprite[j].y, sprite[p].x, sprite[p].y,
@@ -4635,8 +4593,6 @@ public class Actors {
 							j = headspritesect[s.sectnum];
 							while (j >= 0) {
 								if (sprite[j].picnum != SECTOREFFECTOR && sprite[j].picnum != LOCATORS) {
-//	                                    hittype[j].bposx = sprite[j].x;
-//	                                    hittype[j].bposy = sprite[j].y;
 
 									game.pInt.setsprinterpolate(j, sprite[j]);
 								}
@@ -4793,8 +4749,6 @@ public class Actors {
 						nextj = nextspritesect[j];
 
 						if (sprite[j].picnum != SECTOREFFECTOR) {
-//	                        	hittype[j].bposx = sprite[j].x;
-//                                hittype[j].bposy = sprite[j].y;
 
 							game.pInt.setsprinterpolate(j, sprite[j]);
 
@@ -5423,19 +5377,12 @@ public class Actors {
 
 							ps[p].UpdatePlayerLoc();
 						} else if (sprite[k].statnum != 3) {
-//	                        	hittype[k].bposx = sprite[k].x;
-//	                            hittype[k].bposy = sprite[k].y;
-//	                            hittype[k].bposz = sprite[k].z;
 
 							game.pInt.setsprinterpolate(k, sprite[k]);
 
 							sprite[k].x += sprite[j].x - s.x;
 							sprite[k].y += sprite[j].y - s.y;
 							sprite[k].z = sector[sprite[j].sectnum].floorz - (sc.floorz - sprite[k].z);
-
-//	                            hittype[k].bposx = sprite[k].x;
-//	                            hittype[k].bposy = sprite[k].y;
-//	                            hittype[k].bposz = sprite[k].z;
 
 							engine.changespritesect(k, sprite[j].sectnum);
 							engine.setsprite(k, sprite[k].x, sprite[k].y, sprite[k].z);
@@ -5634,8 +5581,6 @@ public class Actors {
 						nextj = nextspritesect[j];
 
 						if (sprite[j].statnum != 3 && sprite[j].zvel == 0) {
-//	                        	hittype[j].bposx = sprite[j].x;
-//                                hittype[j].bposy = sprite[j].y;
 
 							game.pInt.setsprinterpolate(j, sprite[j]);
 
@@ -5656,9 +5601,6 @@ public class Actors {
 						if (ps[p].cursectnum == s.sectnum && ps[p].on_ground) {
 							ps[p].posx += x;
 							ps[p].posy += l;
-
-//	                            ps[p].oposx = ps[p].posx;
-//	                            ps[p].oposy = ps[p].posy;
 
 							System.err.println("a7?");
 
@@ -5774,8 +5716,6 @@ public class Actors {
 
 							if (!(sprite[j].picnum >= CRANE && sprite[j].picnum <= (CRANE + 3))) {
 								if (sprite[j].z > (hittype[j].floorz - (16 << 8))) {
-//	                                    hittype[j].bposx = sprite[j].x;
-//	                                    hittype[j].bposy = sprite[j].y;
 
 									game.pInt.setsprinterpolate(j, sprite[j]);
 

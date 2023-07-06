@@ -40,14 +40,8 @@ public class BuildCamera extends PerspectiveCamera {
 					v.y = planePointsArray[j++] * xscale;
 					v.z = planePointsArray[j++] * yscale;
 				}
-//				planes[0].set(planePoints[1], planePoints[0], planePoints[2]);
-//				planes[1].set(planePoints[4], planePoints[5], planePoints[7]);
-//				planes[2].set(planePoints[0], planePoints[4], planePoints[3]);
-//				planes[3].set(planePoints[5], planePoints[1], planePoints[6]);
-//				planes[4].set(planePoints[2], planePoints[3], planePoints[6]);
-//				planes[5].set(planePoints[4], planePoints[0], planePoints[1]);
 
-				set(planes[0], planePoints[1], planePoints[0], planePoints[2]);
+                set(planes[0], planePoints[1], planePoints[0], planePoints[2]);
 				set(planes[1], planePoints[4], planePoints[5], planePoints[7]);
 				set(planes[2], planePoints[0], planePoints[4], planePoints[3]);
 				set(planes[3], planePoints[5], planePoints[1], planePoints[6]);

@@ -1415,13 +1415,6 @@ public class WHScreen {
 	}
 
 	public static void drawhud(PLAYER plr, int x, int y, int scale) {
-//		int frames = xdim / tilesizx[2278];
-//		int hx = 0;
-//		for (int i = 0; i <= (frames + 1); i++) {
-//			engine.rotatesprite(hx << 16, (windowy2 - engine.getTile(2278).getHeight() / 2 + 5) << 16, 0x10000, 0, 2278, 0, 0, 8 + 256, 0,
-//					0, xdim - 1, ydim - 1);
-//			hx += tilesizx[2278];
-//		}
 
 		engine.rotatesprite(x << 16, (y << 16) - engine.getTile(SSTATUSBAR).getHeight() * scale / 2, scale, 0, SSTATUSBAR, 0, 0, 8, 0, 0,
 				xdim, ydim - 1);

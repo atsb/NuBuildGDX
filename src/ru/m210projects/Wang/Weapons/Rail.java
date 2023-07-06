@@ -117,10 +117,7 @@ public class Rail {
 					if (!WeaponOK(psp.PlayerP()))
 						return;
 
-					// PlaySound(DIGI_RAILPWRUP, psp.PlayerP().posx, psp.PlayerP().posy,
-					// psp.PlayerP().posz, v3df_follow);
-
-					DoPlayerChooseYell(psp.PlayerP());
+                    DoPlayerChooseYell(psp.PlayerP());
 					if (psp.PlayerP().WpnRailType == 0)
 						pSetState(psp, ps_RailFire[0]);
 					else

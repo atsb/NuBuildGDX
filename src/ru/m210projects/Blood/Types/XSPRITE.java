@@ -36,7 +36,7 @@ public class XSPRITE {
 
 	/**
 	 * An index to {@link ru.m210projects.Build.Engine#sprite} array linking this
-	 * {@link XSPRITE} with its corresponding {@link SPRITE}.
+	 * {@link XSPRITE} with its corresponding {@link ru.m210projects.Build.Types.SPRITE}.
 	 */
 
 	public int reference;
@@ -156,8 +156,6 @@ public class XSPRITE {
 		Touch = BitHandler.buread(data, 14, 2, 2) != 0;
 		Sight = BitHandler.buread(data, 14, 3, 3) != 0;
 		Proximity = BitHandler.buread(data, 14, 4, 4) != 0;
-//			int breserved1 = BitReader.bread(data, 14, 5, 5);
-//			int breserved2 = BitReader.bread(data, 14, 6, 6);
 		l1 = BitHandler.buread(data, 14, 7, 7);
 		l2 = BitHandler.buread(data, 15, 0, 0);
 		l3 = BitHandler.buread(data, 15, 1, 1);
@@ -259,8 +257,6 @@ public class XSPRITE {
 		out += "height " + height + " \r\n";
 		out += "stateTimer " + stateTimer + " \r\n";
 		out += "aiState " + aiState + " \r\n";
-//		if (aiState != null)
-//			out += "aiState " + aiState.name + " \r\n";
 
 		return out;
 	}

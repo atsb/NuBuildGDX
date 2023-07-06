@@ -307,10 +307,6 @@ class StaticCodeBook{
     }
     // all set
     return (0);
-    //    _errout:
-    //    _eofout:
-    //    vorbis_staticbook_clear(s);
-    //    return(-1); 
   }
 
   // there might be a straightforward one-line way to do the below

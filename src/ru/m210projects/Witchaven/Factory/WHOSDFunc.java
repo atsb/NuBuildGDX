@@ -98,10 +98,6 @@ public class WHOSDFunc extends DEFOSDFUNC {
 						(daydim - ysiz) << 16, 32768, 0, BGCTILE,
 						SHADE - 32, PALETTE, BITSTL, 0, 0, xdim, daydim);
 
-//				if(game.WH2)
-//					engine.rotatesprite((xdim - 20) << 15,
-//						(daydim - 40) << 16, 2*65536, 0, 556,
-//						SHADE - 32, PALETTE, BITSTL, 0, 0, xdim, daydim);
 			}
 		}
 	}

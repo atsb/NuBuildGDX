@@ -63,10 +63,7 @@ public class PolymostModelManager extends ModelManager {
 					dst.unsafeSetFilter(TextureFilter.Nearest, TextureFilter.Nearest, true);
 					dst.unsafeSetAnisotropicFilter(1, true);
 					texid[pal] = dst;
-//					long etime = System.nanoTime() - startticks;
-//					System.out.println("Load voxskin: pal" + pal + " for tile " + getTile(this) + "... "
-//							+ (etime / 1000000.0f) + " ms");
-				}
+                }
 
 				return texid[pal];
 			}
@@ -145,11 +142,7 @@ public class PolymostModelManager extends ModelManager {
 		}
 		texidx.setupTextureWrap(TextureWrap.Repeat);
 
-//		long etime = System.currentTimeMillis() - startticks;
-//		System.out.println(
-//				"Load skin: p" + palnum + " \"" + skinfile + "\"... " + etime + " ms");
-
-		return texidx;
+        return texidx;
 	}
 
 	protected int bindMDSkin(MDModel m, int pal, int skinnum, int surfnum) {

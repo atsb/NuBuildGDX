@@ -60,14 +60,7 @@ public abstract class PSlaveEntry extends GameEntry {
 //			new ResFile("book.mov")
 		};
 
-//		ResFile[] resources = { 	 //beta
-//			new ResFile("palette.dat"),
-//			new ResFile("tables.dat"),
-//			new ResFile("tiles000.art"),
-//			new ResFile("lev1.map"),
-//			new ResFile("lev1.xmi")
-//		};
-		return resources;
+        return resources;
 	}
 
 	@Override

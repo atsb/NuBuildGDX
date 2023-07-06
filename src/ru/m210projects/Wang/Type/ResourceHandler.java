@@ -109,11 +109,7 @@ public class ResourceHandler {
 				BuildGdx.cache.add(res, removable);
 			}
 
-//			if(res.fileformat.equals("cue")) {
-//				Console.Println("Cd tracks found...");
-//				parserfs(removable?group:-1, res.filename, res.getBytes());
-//			}
-		}
+        }
 	}
 
 	private static void searchEpisodeResources(DirectoryEntry cache) {
@@ -158,17 +154,8 @@ public class ResourceHandler {
 				return;
 			}
 		} else if (addon.getDirectory() != BuildGdx.compat.getDirectory(Path.Game)) {
-//			for (Iterator<FileEntry> it = addon.getDirectory().getFiles().values().iterator(); it.hasNext(); ) { //adding grp at first
-//				FileEntry file = it.next();
-//				if(file.getExtension().equals("zip")
-//						|| file.getExtension().equals("grp")) {
-//					Group gr = BuildGdx.cache.isGroup(file.getPath());
-//					BuildGdx.cache.add(gr);
-//					gr.setFlags(true, true);
-//				}
-//		    }
 
-			searchEpisodeResources(addon.getDirectory());
+            searchEpisodeResources(addon.getDirectory());
 
 			if (addon.getDirectory() != null) {
 				FileEntry def = addon.getDirectory().checkFile(appdef);

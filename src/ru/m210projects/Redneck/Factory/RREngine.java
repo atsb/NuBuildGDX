@@ -70,19 +70,4 @@ public class RREngine extends BuildEngine {
 		return super.setrendermode(render);
 	}
 
-//	@Override
-//	public void sampletimer() {
-//		if (timerfreq == 0)
-//			return;
-//
-//		long n = (getticks() * timerticspersec / timerfreq) - timerlastsample;
-//		if (n > 0) {
-//			if(game.isCurrentScreen(gDemoScreen)) {
-//				totalclock += 4;
-//			} else totalclock += n;
-//
-//			timerlastsample += n;
-//		}
-//	}
-
 }

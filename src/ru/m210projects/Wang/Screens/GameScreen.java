@@ -286,13 +286,7 @@ public class GameScreen extends GameAdapter {
 			PutStringInfoLine(pp, "Crosshair " + (gs.Crosshair ? "ON" : "OFF"));
 		}
 
-//		if( input.ctrlGetInputKey(SwKeys.Show_Opp_Weapon, true)  )
-//	    {
-//			ud.showweapons ^= 1;
-//	        FTA(82-ud.showweapons,ps[myconnectindex]);
-//	    }
-
-		if (input.ctrlGetInputKey(SwKeys.Show_Sounds, true))
+        if (input.ctrlGetInputKey(SwKeys.Show_Sounds, true))
 			menu.mOpen(menu.mMenus[SOUNDSET], -1);
 
 		if (input.ctrlGetInputKey(SwKeys.Show_Options, true))

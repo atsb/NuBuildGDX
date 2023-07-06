@@ -198,9 +198,7 @@ public class GameServices {
 							if (pathToGame != null && new File(pathToGame).exists()) {
 								if (!pathToGame.endsWith(File.separator))
 									pathToGame = pathToGame + File.separator;
-//								if (pathToGame.contains("Witchaven II")) { pathToGame = pathToGame + "Enhanced\\GAME\\WHAVEN2\\"; }
-//								else if (pathToGame.contains("Witchaven")) { pathToGame = pathToGame + "Enhanced\\GAME\\WHAVEN\\"; }
-								result.add(new GameLabel(label, pathToGame));
+                                result.add(new GameLabel(label, pathToGame));
 							}
 						}
 					}

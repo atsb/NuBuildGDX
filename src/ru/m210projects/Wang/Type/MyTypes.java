@@ -228,11 +228,7 @@ public class MyTypes {
 		return (TRUNC256((x) + MOD256(x)));
 	}
 
-//	public static final int BOUND_POWER2_PIX(int x, int bound) {
-//		return POWER2_TRUNC(x, bound) + POWER2_MOD(x, bound);
-//	}
-
-	// A few muls with shifts and adds
+    // A few muls with shifts and adds
 	// probably not needed with good compiler
 	public static final int MUL2(int x) {
 		return ((x) * 2);

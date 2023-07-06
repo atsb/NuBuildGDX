@@ -23,7 +23,7 @@ public abstract class HuffmanTree {
 	public static class Node {
 		private Node b0;
 
-		private class Union {
+		private static class Union {
 			Node b1;
 			int value;
 			short escapecode;

@@ -77,11 +77,8 @@ public abstract class Group {
 		if (filename != null) {
 			Integer out = lookup.get(toLowerCase(filename));
             return out != null;
-			
-//			GroupResource res = filelist.get(toLowerCase(filename));
-//			if(res != null) 
-//				return true;
-		}
+
+        }
 
 		return false;
 	}
@@ -115,10 +112,7 @@ public abstract class Group {
 					return res;
 			}
 
-//			GroupResource res = filelist.get(toLowerCase(filename));
-//			if(res != null) 
-//				return res;
-		}
+        }
 		return null;
 	}
 

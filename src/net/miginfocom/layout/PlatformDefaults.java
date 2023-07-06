@@ -188,17 +188,7 @@ public final class PlatformDefaults
 				setDialogInsets(LPY14, LPX20, LPY20, LPX20);
 				setPanelInsets(LPY16, LPX16, LPY16, LPX16);
 
-//				setRelatedGap(LPX8, LPY8);
-//				setUnrelatedGap(LPX12, LPY12);
-//				setParagraphGap(LPX16, LPY16);
-//				setIndentGap(LPX10, LPY10);
-//				setGridCellGap(LPX8, LPY8);
-//
-//				setMinimumButtonWidth(new UnitValue(68, UnitValue.LPX, null));
-//				setButtonOrder("L_HE+U+NYBXCOA_R");
-//				setDialogInsets(LPY14, LPX20, LPY20, LPX20);
-//				setPanelInsets(LPY16, LPX16, LPY16, LPX16);
-				break;
+                break;
 			case GNOME:
 				setRelatedGap(LPX6, LPY6);                    // GNOME HIG 8.2.3
 				setUnrelatedGap(LPX12, LPY12);                // GNOME HIG 8.2.3
@@ -660,10 +650,7 @@ public final class PlatformDefaults
 		if (adjacentComp == null)
 			return null;
 
-//		if (adjacentComp == null || adjacentSide == SwingConstants.LEFT || adjacentSide == SwingConstants.TOP)
-//			return null;
-
-		return (adjacentSide == SwingConstants.LEFT || adjacentSide == SwingConstants.RIGHT) ? RELATED_X : RELATED_Y;
+        return (adjacentSide == SwingConstants.LEFT || adjacentSide == SwingConstants.RIGHT) ? RELATED_X : RELATED_Y;
 	}
 
 	/** Returns the current gap provider or <code>null</code> if none is set and "related" should always be used.

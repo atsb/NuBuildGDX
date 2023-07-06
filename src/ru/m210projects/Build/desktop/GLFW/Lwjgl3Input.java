@@ -536,15 +536,7 @@ public class Lwjgl3Input implements BuildInput {
 
 	protected int getGdxKeyCode (int lwjglKeyCode) {
 		switch (lwjglKeyCode) {
-//		case Keyboard.KEY_PAUSE:
-//			return KEY_PAUSE;
-//		case Keyboard.KEY_CAPITAL:
-//			return KEY_CAPSLOCK;
-//		case Keyboard.KEY_SCROLL:
-//			return KEY_SCROLLOCK;
-//		case Keyboard.KEY_DECIMAL:
-//			return KEY_NUMDECIMAL;
-		default:
+            default:
 			return com.badlogic.gdx.backends.lwjgl3.Lwjgl3Input.getGdxKeyCode(lwjglKeyCode);
 		}
 	}

@@ -54,21 +54,7 @@ public class WangEngine extends BuildEngine {
 		if (timerfreq == 0)
 			return;
 
-//		if (ru.m210projects.Build.Architecture.BuildGdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.O)) { // slow
-//																												// speed
-//			timerticspersec = synctics;
-//			timerlastsample = System.nanoTime() * timerticspersec / (timerfreq * 1000000);
-//			timerskipticks = (timerfreq / timerticspersec) * ticks;
-//		}
-//
-//		if (ru.m210projects.Build.Architecture.BuildGdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.P)) { // normal
-//																												// speed
-//			timerticspersec = 120;
-//			timerlastsample = System.nanoTime() * timerticspersec / (timerfreq * 1000000);
-//			timerskipticks = (timerfreq / timerticspersec) * ticks;
-//		}
-
-		long n = (System.nanoTime() * timerticspersec / (timerfreq * 1000000)) - timerlastsample;
+        long n = (System.nanoTime() * timerticspersec / (timerfreq * 1000000)) - timerlastsample;
 		if (n > 0) {
 			totalclock += n;
 			timerlastsample += n;

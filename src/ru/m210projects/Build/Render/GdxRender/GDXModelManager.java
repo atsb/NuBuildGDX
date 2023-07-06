@@ -159,11 +159,7 @@ public class GDXModelManager extends ModelManager {
 		}
 		texidx.setupTextureWrap(TextureWrap.Repeat);
 
-//		long etime = System.currentTimeMillis() - startticks;
-//		System.out.println(
-//				"Load skin: p" + palnum + " \"" + skinfile + "\"... " + etime + " ms");
-
-		return texidx;
+        return texidx;
 	}
 
 	protected int bindMDSkin(MDModel m, int pal, int skinnum, int surfnum) {
@@ -178,38 +174,7 @@ public class GDXModelManager extends ModelManager {
 			}
 
 			texunits = GL_TEXTURE0;
-//			if (Console.Geti("r_detailmapping") != 0) {
-//				if ((texid = m.getSkin(DETAILPAL, skinnum, surfnum)) != null) {
-//					if (!texid.isDetailTexture())
-//						System.err.println("Wtf detail!");
-//					BuildGdx.gl.glActiveTexture(++texunits);
-//					BuildGdx.gl.glEnable(GL_TEXTURE_2D);
-//					parent.bind(texid);
-//					parent.setupTextureDetail(texid);
-//
-//					for (MDSkinmap sk = m.skinmap; sk != null; sk = sk.next)
-//						if (sk.palette == DETAILPAL && skinnum == sk.skinnum && surfnum == sk.surfnum) {
-//							float f = sk.param;
-//							BuildGdx.gl.glMatrixMode(GL_TEXTURE);
-//							BuildGdx.gl.glLoadIdentity();
-//							BuildGdx.gl.glScalef(f, f, 1.0f);
-//							BuildGdx.gl.glMatrixMode(GL_MODELVIEW);
-//						}
-//				}
-//			}
-//
-//			if (Console.Geti("r_glowmapping") != 0) {
-//				if ((texid = m.getSkin(GLOWPAL, skinnum, surfnum)) != null) {
-//					if (!texid.isGlowTexture())
-//						System.err.println("Wtf glow! " + surfnum);
-//
-//					BuildGdx.gl.glActiveTexture(++texunits);
-//					BuildGdx.gl.glEnable(GL_TEXTURE_2D);
-//					parent.bind(texid);
-//					parent.setupTextureGlow(texid);
-//				}
-//			}
-		}
+        }
 
 		return texunits;
 	}

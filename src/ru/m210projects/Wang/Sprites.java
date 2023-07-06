@@ -4422,17 +4422,7 @@ public class Sprites {
 			KillSprite(SpriteNum);
 			break;
 
-//		case MULTI_GAME_COOPERATIVE:
-//			// don't kill weapons in coop
-//
-//			// unless told too :)
-//			if (TEST(u.Flags2, SPR2_NEVER_RESPAWN)) {
-//				KillSprite(SpriteNum);
-//				break;
-//			}
-//			break;
-
-		case MULTI_GAME_COMMBAT:
+			case MULTI_GAME_COMMBAT:
 		case MULTI_GAME_AI_BOTS:
 		case MULTI_GAME_COOPERATIVE:
 
@@ -4511,16 +4501,7 @@ public class Sprites {
 		case MULTI_GAME_NONE:
 			return (true);
 
-//		case MULTI_GAME_COOPERATIVE:
-//			if (TEST(u.Flags2, SPR2_NEVER_RESPAWN))
-//				return (true);
-//
-//			if (TEST(pp.WpnGotOnceFlags, BIT(WPN)))
-//				return (false);
-//
-//			return (true);
-
-		case MULTI_GAME_COMMBAT:
+			case MULTI_GAME_COMMBAT:
 		case MULTI_GAME_AI_BOTS:
 		case MULTI_GAME_COOPERATIVE:
 

@@ -225,20 +225,7 @@ public class View {
 		}
 	}
 
-//	private static ConvertType getConvertType(int nFlags)
-//	{
-//		ConvertType type = ConvertType.Normal;
-//		if((nFlags & 256) != 0)
-//			type = ConvertType.AlignLeft;
-//		if((nFlags & 512) != 0)
-//			type = ConvertType.AlignRight;
-//		if((nFlags & 1024) != 0)
-//			type = ConvertType.Stretch;
-//
-//		return type;
-//	}
-
-	public static void drawhealth(int snum, int x, int y, int scale, int nFlags) {
+    public static void drawhealth(int snum, int x, int y, int scale, int nFlags) {
 		String name = "health: ";
 		game.getFont(1).drawText(x, y, name, scale, 0, 175, TextAlign.Left, 8 | 256, true);
 		x += game.getFont(1).getWidth(name, scale);

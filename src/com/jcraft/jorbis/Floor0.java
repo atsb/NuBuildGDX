@@ -43,7 +43,7 @@ class Floor0 extends FuncFloor{
   }
 
   Object unpack(Info vi, Buffer opb){
-    InfoFloor0 info=new InfoFloor0();
+    InfoFloor0 info= new InfoFloor0();
     info.order=opb.read(8);
     info.rate=opb.read(16);
     info.barkmap=opb.read(16);
@@ -99,7 +99,7 @@ class Floor0 extends FuncFloor{
   }
 
   Object state(Object i){
-    EchstateFloor0 state=new EchstateFloor0();
+    EchstateFloor0 state= new EchstateFloor0();
     InfoFloor0 info=(InfoFloor0)i;
 
     // a safe size if usually too big (dim==1)
@@ -304,7 +304,7 @@ class Floor0 extends FuncFloor{
       curve[i]=lcurve[l.linearmap[i]];
   }
 
-  class InfoFloor0{
+  static class InfoFloor0{
     int order;
     int rate;
     int barkmap;
@@ -326,7 +326,7 @@ class Floor0 extends FuncFloor{
     Lpc lpclook=new Lpc();
   }
 
-  class EchstateFloor0{
+  static class EchstateFloor0{
     int[] codewords;
     float[] curve;
     long frameno;

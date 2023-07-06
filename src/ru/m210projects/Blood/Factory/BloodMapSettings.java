@@ -32,9 +32,7 @@ public class BloodMapSettings extends DefaultMapSettings {
 	@Override
 	public int getWallColor(int w, int s) {
 		WALL wal = wall[w];
-//		if (Gameutils.isValidSector(wal.nextsector)) // red wall
-//			return 24;
-		return 24; // white wall
+        return 24; // white wall
 	}
 
 	@Override

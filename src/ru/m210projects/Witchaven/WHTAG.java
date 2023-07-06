@@ -641,25 +641,17 @@ public class WHTAG {
 				daz = sector[s].ceilingz;
 				setanimation(s, daz, 64, 0, FLOORZ);
 				sector[s].lotag = 0;
-//				crushsectoranim[s]=0;
-//				crushsectordone[s]=0;
 				break;
 			case 2:
 				daz = sector[s].floorz;
 				setanimation(s, daz, 64, 0, CEILZ);
 				sector[s].lotag = 0;
-//				crushsectoranim[s]=0;
-//				crushsectordone[s]=0;
 				break;
 			case 3:
 				sector[s].lotag = 0;
-//				crushsectoranim[s]=1;
-//				crushsectordone[s]=1;
 				break;
 			case 4:
 				sector[s].lotag = 0;
-//				crushsectoranim[s]=2;
-//				crushsectordone[s]=1;
 				break;
 			case 5:
 				daz = (sector[s].ceilingz + sector[s].floorz) >> 1;
@@ -668,8 +660,6 @@ public class WHTAG {
 				break;
 			case 6:
 				sector[s].lotag = 0;
-//				crushsectoranim[s]=3;
-//				crushsectordone[s]=1;
 				break;
 			}
 		}

@@ -128,9 +128,7 @@ public class Ai {
 			}
 			
 			if (!BuildGdx.cache.contains(seqStartId + pState.seqId, seq)) {
-				//System.err.println("NO SEQ: fullSeq = "+ (seqStartId + pState.seqId)+" / "+pXSprite.data2+" / "+seqStartId);
-				//System.err.println("aiNewState : NULL sequence, dudeType = " + pSprite.lotag +", seqId = " + pState.seqId+ " data1: "+pXSprite.data1);
-				return;
+                return;
 			}
 			
 			seqSpawn(seqStartId + pState.seqId, SS_SPRITE, pSprite.extra, pState.callback);
@@ -1137,52 +1135,8 @@ public class Ai {
 					aiPlaySound(pSprite, Random(2) + 4013, 2, -1);
 				else aiPlaySound(pSprite, Random(2) + 1013, 2, -1);
 
-				/*
-				if ( chance || pXSprite.palette != 0 )
-		          {
-		            if ( !chance || pXSprite.palette != 0 )
-		            {
-		            	if ( pXSprite.palette == 1 || pXSprite.palette == 2 ) {
-							aiNewState(pSprite, pXSprite, cultistRecoil[WATER]);
-							aiTeslaHit[pXSprite.reference] = 0;
-							return;
-		            	}
-		            	
-		            	if ( aiTeslaHit[pXSprite.reference] != 0)
-						{
-							aiNewState(pSprite, pXSprite, cultistRTesla);
-							aiTeslaHit[pXSprite.reference] = 0;
-							return;
-						}
-		            }
-		            else
-		            {
-		            	if ( aiTeslaHit[pXSprite.reference] != 0)
-						{
-							aiNewState(pSprite, pXSprite, cultistRTesla);
-							aiTeslaHit[pXSprite.reference] = 0;
-							return;
-						}
-		            	if ( pGameInfo.nDifficulty > 0 )
-		            	{
-		            		aiNewState(pSprite, pXSprite, cultistRecoil[LAND]);
-		            		aiTeslaHit[pXSprite.reference] = 0;
-		            		return;
-		            	}
-		            }
-		          }
-		          else if ( aiTeslaHit[pXSprite.reference] != 0)
-					{
-						aiNewState(pSprite, pXSprite, cultistRTesla);
-						aiTeslaHit[pXSprite.reference] = 0;
-						return;
-					}
-				aiNewState(pSprite, pXSprite, cultistRecoil[DUCK]);
-				aiTeslaHit[pXSprite.reference] = 0;
-				*/
-		
-				
-				if ( pXSprite.palette == 0 && aiTeslaHit[pXSprite.reference] != 0)
+
+                if ( pXSprite.palette == 0 && aiTeslaHit[pXSprite.reference] != 0)
 				{
 					aiNewState(pSprite, pXSprite, cultistRTesla);
 					aiTeslaHit[pXSprite.reference] = 0;
@@ -1191,15 +1145,8 @@ public class Ai {
 				if ( pXSprite.palette == 1 || pXSprite.palette == 2 )
 					aiNewState(pSprite, pXSprite, cultistRecoil[WATER]);
 				else {
-//					if(!chance)
-//						aiNewState(pSprite, pXSprite, cultistRecoil[DUCK]);
-//					else 
-//						if(pGameInfo.nDifficulty > 0) 
-//							aiNewState(pSprite, pXSprite, cultistRecoil[LAND]);
-//					else 
-//						aiNewState(pSprite, pXSprite, cultistRecoil[DUCK]);
-					
-					if(!chance || ( chance && pGameInfo.nDifficulty == 0 )) 
+
+                    if(!chance || ( chance && pGameInfo.nDifficulty == 0 ))
 						aiNewState(pSprite, pXSprite, cultistRecoil[DUCK]);
 					else aiNewState(pSprite, pXSprite, cultistRecoil[LAND]);
 				}
@@ -1598,31 +1545,9 @@ public class Ai {
 	public static void aiInit(boolean isOriginal)
 	{
 		genIdle = new AISTATE(Type.idle, kSeqDudeIdle, null, 0, false, false, false, null); 
-		genRecoil = new AISTATE(Type.recoil, kSeqDudeRecoil, null, 20, false, false, false, genIdle); 
+		genRecoil = new AISTATE(Type.recoil, kSeqDudeRecoil, null, 20, false, false, false, genIdle);
 
-//		AIZOMBA.Init();
-//		AIRAT.Init();
-//		AIINNOCENT.Init();
-//		AIHAND.Init();
-//		AICULTIST.Init();
-//		AIZOMBF.Init();
-//		AIGILLBEAST.Init();
-//		AIBURN.Init();
-//		AIGARG.Init();
-//		AIBAT.Init();
-//		AISPID.Init();
-//		AIHOUND.Init();
-//		AIGHOST.Init();
-//		AIBONEEL.Init();
-//		AITCHERNOBOG.Init();
-//		AIPOD.Init();
-//		AIBEAST.Init();
-//		AICALEB.Init();
-//		AICERBERUS.Init();
-//		
-//		AIUNICULT.Init();
-		
-		Arrays.fill(aiThinkTime, 0);
+        Arrays.fill(aiThinkTime, 0);
 		Arrays.fill(aiActive, 0);
 		Arrays.fill(aiSoundOnce, 0);
 		Arrays.fill(aiTeslaHit, 0);
@@ -1635,17 +1560,8 @@ public class Ai {
 		for (short nSprite = headspritestat[kStatDude]; nSprite >= 0; nSprite = nextspritestat[nSprite])
 		{
 			SPRITE pDude = sprite[nSprite];
-			
-//			switch( pDude.lotag )
-//			{
-//			case kDudeAxeZombie:	
-//			case kDudeSleepZombie:
-//			case kDudeEarthZombie:
-//				pDudes[pDude.extra] = new AxeZombie(pDude);
-//				continue;
-//			}
-			
-			aiInit(pDude, isOriginal);
+
+            aiInit(pDude, isOriginal);
 		}
 	}
 

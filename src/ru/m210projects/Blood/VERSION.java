@@ -37,10 +37,7 @@ public class VERSION {
 	public static final int VER121 = 1;
 
 	public static boolean SHAREWARE = false;
-//	public static final int SHVER100 = 2;
-//	public static final int SHVER111 = 3;
-//	public static final int SHVER121 = 4;
-	public static boolean hasQFN = false;
+public static boolean hasQFN = false;
 
 	private static final int[][] DudeInfoSEQ =
 	{

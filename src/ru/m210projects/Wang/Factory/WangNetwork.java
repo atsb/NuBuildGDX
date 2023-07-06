@@ -300,9 +300,7 @@ public class WangNetwork extends BuildNet {
 				res.readByte(); // pack
 				PlayerSyncTrail = res.readInt();
 				PlayerSyncIndex = res.readInt();
-//				PlayerSync = new PlayerStr();
-//				PlayerSync.load(res);
-				PlayerSpriteSync = new SPRITE();
+                PlayerSpriteSync = new SPRITE();
 				PlayerSpriteSync.buildSprite(res);
 				return 0;
 			}
@@ -317,9 +315,7 @@ public class WangNetwork extends BuildNet {
 				bb.putInt(trail);
 				bb.putInt(Player[num].PlayerSprite);
 				bb.put(sprite[Player[num].PlayerSprite].getBytes());
-//				bb.putInt(num);
-//				bb.put(Player[num].getBytes());
-				return bb.position();
+                return bb.position();
 			}
 		},
 		ContentRequest {

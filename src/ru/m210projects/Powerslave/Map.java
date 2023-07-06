@@ -655,47 +655,7 @@ public class Map {
 			AddRunRec(channel[real_chan].head, BuildSlide(real_chan, wallnum, w1, w2, wall[wallnum].point2,
 					wall[wall[wallnum].point2].point2, wall[wall[wall[wallnum].point2].point2].point2));
 			return;
-//		case 14:
-//			w1 = 0;
-//			w2 = 0;
-//			for (int i = wall[wallnum].point2; i != wallnum; i = wall[i].point2) {
-//				w2 = w1;
-//				w1 = i;
-//			}
-//			AddRunRec(channel[real_chan].head, BuildSlide(real_chan, wallnum, w1, w2, wall[wallnum].point2,
-//					wall[wall[wallnum].point2].point2, wall[wall[wall[wallnum].point2].point2].point2));
-//			return;
-//		case 16:
-//			w1 = 0;
-//			w2 = 0;
-//			for (int i = wall[wallnum].point2; i != wallnum; i = wall[i].point2) {
-//				w2 = w1;
-//				w1 = i;
-//			}
-//			AddRunRec(channel[real_chan].head, BuildSlide(real_chan, wallnum, w1, w2, wall[wallnum].point2,
-//					wall[wall[wallnum].point2].point2, wall[wall[wall[wallnum].point2].point2].point2));
-//			return;
-//		case 19:
-//			w1 = 0;
-//			w2 = 0;
-//			for (int i = wall[wallnum].point2; i != wallnum; i = wall[i].point2) {
-//				w2 = w1;
-//				w1 = i;
-//			}
-//			AddRunRec(channel[real_chan].head, BuildSlide(real_chan, wallnum, w1, w2, wall[wallnum].point2,
-//					wall[wall[wallnum].point2].point2, wall[wall[wall[wallnum].point2].point2].point2));
-//			return;
-//		case 20:
-//			w1 = 0;
-//			w2 = 0;
-//			for (int i = wall[wallnum].point2; i != wallnum; i = wall[i].point2) {
-//				w2 = w1;
-//				w1 = i;
-//			}
-//			AddRunRec(channel[real_chan].head, BuildSlide(real_chan, wallnum, w1, w2, wall[wallnum].point2,
-//					wall[wall[wallnum].point2].point2, wall[wall[wall[wallnum].point2].point2].point2));
-//			return;
-		case 24:
+			case 24:
 			AddFlow(wallnum, 4 * nVelocity, 3);
 			return;
 		case 25:

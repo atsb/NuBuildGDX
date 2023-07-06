@@ -57,12 +57,6 @@ class Lpc{
     // Generate lpc coefficients from autocorr values
 
     error=aut[0];
-    /*
-    if(error==0){
-      for(int k=0; k<m; k++) lpc[k]=0.0f;
-      return 0;
-    }
-    */
 
     for(i=0; i<m; i++){
       float r=-aut[i+1];

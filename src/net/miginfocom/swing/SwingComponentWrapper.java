@@ -118,27 +118,6 @@ public class SwingComponentWrapper implements ComponentWrapper
 		}
 	}
 
-//	/** Cache.
-//	 */
-//	private final static IdentityHashMap<FontMetrics, Point.Float> FM_MAP2 = new IdentityHashMap<FontMetrics, Point.Float>(4);
-//	private final static Font SUBST_FONT2 = new Font("sansserif", Font.PLAIN, 11);
-//
-//	public float getDialogUnit(boolean isHor)
-//	{
-//		Font font = c.getFont();
-//		FontMetrics fm = c.getFontMetrics(font != null ? font : SUBST_FONT2);
-//		Point.Float dluP = FM_MAP2.get(fm);
-//		if (dluP == null) {
-//			float w = fm.charWidth('X') / 4f;
-//			int ascent = fm.getAscent();
-//			float h = (ascent > 14 ? ascent : ascent + (15 - ascent) / 3) / 8f;
-//
-//			dluP = new Point.Float(w, h);
-//			FM_MAP2.put(fm, dluP);
-//		}
-//		return isHor ? dluP.x : dluP.y;
-//	}
-
 	public final int getX()
 	{
 		return c.getX();
@@ -376,8 +355,6 @@ public class SwingComponentWrapper implements ComponentWrapper
 
 		// Since 2.3 will check the isValid instead everything that affects that can be removed from the layout hashcode.
 
-//		String id = getLinkId();
-//		return id != null ? id.hashCode() : 1;
 	}
 
 	private int checkType(boolean disregardScrollPane)

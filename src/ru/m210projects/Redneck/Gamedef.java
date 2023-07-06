@@ -1653,16 +1653,8 @@ public class Gamedef {
 
 	public static Script loadefs(String filenam)
 	{
-//	    if(cache.checkFile(filenam) == null && loadfromgrouponly == 0)
-//	    {
-//	    	if(game.GameMessage("Missing external con file(s). \n \"COPY INTERNAL DEFAULTS TO DIRECTORY?\"", true))
-//	    	{
-//	    		Console.Println(" Yes");
-//	            copydefaultcons();
-//	    	} else loadfromgrouponly = 1;
-//	    }
 
-	    Resource fp = BuildGdx.cache.open(filenam,loadfromgrouponly);
+        Resource fp = BuildGdx.cache.open(filenam,loadfromgrouponly);
 	    if( fp == null )
 	    {
 //	        if( loadfromgrouponly == 1 )
@@ -1711,20 +1703,7 @@ public class Gamedef {
 	            game.GameCrash("\nCompilation error in " + filenam + ".");
 	            System.exit(0);
 //	        else
-//	        {
-//	        	if(game.GameMessage("\nErrors found in " + filenam + " file.  You should backup the original copies \n"
-//    	    			+ "before attempting to modify them.\nDo you want to use the internal defaults?"
-//            			, true))
-//    	    	{
-//            		Console.Println(" Yes");
-//                    loadfromgrouponly = 1;
-//                    return null;
-//    	    	} else {
-//    	    		game.dispose();
-//    				System.exit(0);
-//    	    	}
-//	        }
-	    }
+        }
 	    else
 	    {
 	        Console.Println("Code Size:" + (((scriptptr)<<2)-4) + " bytes(" + labelcnt + " labels).");

@@ -14,11 +14,8 @@ public class QuickSort {
 	private static final int[] n_stack = new int[4 * 8];
 
 	private static <E> int med3(E[] elementData, Comparator<? super E> comp, int a, int b, int c) {
-//		return CompareChannels(rxBucket[a], rxBucket[b]) < 0 ?
-//		       (CompareChannels(rxBucket[b], rxBucket[c]) < 0 ? b : (CompareChannels(rxBucket[a], rxBucket[c]) < 0 ? c : a ))
-//	              :(CompareChannels(rxBucket[b], rxBucket[c]) > 0 ? b : (CompareChannels(rxBucket[a], rxBucket[c]) < 0 ? a : c ));
 
-		if (comp.compare(elementData[a], elementData[b]) > 0) {
+        if (comp.compare(elementData[a], elementData[b]) > 0) {
 			if (comp.compare(elementData[a], elementData[c]) > 0) {
 				if (comp.compare(elementData[b], elementData[c]) > 0)
 					return (b);

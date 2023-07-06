@@ -475,13 +475,8 @@ public class AIUNICULT {
 
 	private static void thinkSearch( SPRITE pSprite, XSPRITE pXSprite )
 	{
-		
-		/*if (ceilIsTooLow(pSprite))
-			aiNewState(pSprite,pXSprite,GDXGenDudeSearch[WATER]);
-		else
-			aiNewState(pSprite,pXSprite,GDXGenDudeIdle[LAND]);*/
-		
-		aiChooseDirection(pSprite, pXSprite, pXSprite.goalAng);
+
+        aiChooseDirection(pSprite, pXSprite, pXSprite.goalAng);
 		aiThinkTarget2(pSprite, pXSprite);
 	}
 
@@ -1033,15 +1028,8 @@ public class AIUNICULT {
 		} else {
 
 			return pXSprite.data1 >= kThingHiddenExploder && pXSprite.data1 < (kThingHiddenExploder + kExplodeMax) - 1;
-			
-			/*switch(pXSprite.data1){
-				case kMissileSprayFlame:
-				case kMissileHoundFire:
-					return true;
-				default:
-					return false;
-			}*/
-		}
+
+        }
 	}
 	
 	public static int getBaseChanceModifier(int baseChance) {
@@ -1143,13 +1131,7 @@ public class AIUNICULT {
 			int b = extents_zTop - extents_zBot;
 			///System.err.println(a +" / "+ b);
 			return a > b;
-			/*GetZRange(pSprite, pSprite.clipdist << 2, CLIPMASK0 | 0x3000);
-			GetSpriteExtents(pSprite);
-			int ceilzofslope = engine.getceilzofslope(pSprite.sectnum, pSprite.x, pSprite.y);
-			//System.err.println(zBot +" / "+ gz_floorZ);
-			if (extents_zBot > gz_floorZ || ceilzofslope >= extents_zTop)
-				return true;*/
-		}
+        }
 		
 		return false;
 	}
@@ -1258,10 +1240,5 @@ public class AIUNICULT {
 		
 		return seqStartId;
 	}
-	
-	//public static int getDispersionModifier(SPRITE pSprite) {
-		//return 1;
-		
-	//}
-	//////////
+
 }

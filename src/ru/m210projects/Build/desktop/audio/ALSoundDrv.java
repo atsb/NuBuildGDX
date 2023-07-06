@@ -451,13 +451,6 @@ public class ALSoundDrv implements Sound {
 		
 		protected Source obtainSource(int priority)
 		{
-//			System.out.println("obtainSource()");
-//			Iterator<Source> it = this.iterator();
-//		    while(it.hasNext()) {
-//		      Source obj = (Source)it.next();
-//		      System.out.println(obj.sourceId + " " + obj.free + " " + obj.priority + " " + obj.flags);
-//		    }
-//		    System.out.println();
 
 			if(size() > 0 && element().priority < priority || !element().isPlaying())
 			{

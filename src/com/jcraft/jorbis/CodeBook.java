@@ -402,7 +402,7 @@ class CodeBook{
   // build the decode helper tree from the codewords 
   DecodeAux make_decode_tree(){
     int top=0;
-    DecodeAux t=new DecodeAux();
+    DecodeAux t= new DecodeAux();
     int[] ptr0=t.ptr0=new int[entries*2];
     int[] ptr1=t.ptr1=new int[entries*2];
     int[] codelist=make_words(c.lengthlist, c.entries);
@@ -466,7 +466,7 @@ class CodeBook{
     return (t);
   }
 
-  class DecodeAux{
+  static class DecodeAux{
     int[] tab;
     int[] tabl;
     int tabn;

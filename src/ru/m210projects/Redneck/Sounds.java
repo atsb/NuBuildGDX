@@ -135,8 +135,6 @@ public class Sounds {
 		@Override
 		public void run(Integer num) {
 			if (num < 0) {
-//	            if(lumplockbyte[-num] >= 200)
-//	                lumplockbyte[-num]--;
 				return;
 			}
 
@@ -244,23 +242,6 @@ public class Sounds {
 			currTrack = (int) (Math.random() * (cdtracks.length - 1));
 		sndPlayTrack(currTrack);
 
-//		if (cfg.musicType == 1 && game.currentDef != null) { // music from def file
-//			String himus = game.currentDef.audInfo.getDigitalInfo(name);
-//			if (himus != null) {
-//				if (currMusic != null && currMusic.isPlaying() && currSong == himus)
-//					return;
-//
-//				sndStopMusic();
-//				if ((currMusic = BuildGdx.audio.newMusic(MusicType.Digital, himus)) != null) {
-//					currSong = himus;
-//					currMusic.play(true);
-//					return;
-//				}
-//			}
-//		}
-
-//		if (!sndPlayTrack(currTrack))
-//			playmusic(name);
 	}
 
 	public static void checkTrack() {
@@ -364,10 +345,6 @@ public class Sounds {
 		if (currentGame.getCON().sounds[num] != null)
 			fp = BuildGdx.cache.open(currentGame.getCON().sounds[num], loadfromgrouponly);
 		if (fp == null) {
-//			int offs = buildString(currentGame.getCON().fta_quotes[113], 0, "Sound ", currentGame.getCON().sounds[num]);
-//			offs = buildString(currentGame.getCON().fta_quotes[113], offs, "(", num);
-//			offs = buildString(currentGame.getCON().fta_quotes[113], offs, ") not found.");
-//			FTA(113, ps[myconnectindex]);
 
 			Console.Println("Sound " + "(" + num + ") not found.");
 			return 0;
@@ -735,9 +712,6 @@ public class Sounds {
 			if (Sound[i].lock >= 200)
 				Sound[i].lock = 199;
 
-//	    for(int i=0;i<11;i++)
-//	        if(lumplockbyte[i] >= 200)
-//	            lumplockbyte[i] = 199;
 	}
 
 	private static final int PitchTable[][] = {

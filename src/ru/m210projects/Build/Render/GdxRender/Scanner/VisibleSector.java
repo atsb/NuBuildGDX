@@ -41,39 +41,4 @@ public class VisibleSector implements Poolable {
 //		x1 = x2 = y1 = y2 = 0;
 	}
 
-//	public boolean expand(Vector3[] bounds) {
-//		float minx = this.x1;
-//		float maxx = this.x2;
-//		float miny = this.y1;
-//		float maxy = this.y2;
-//
-//		if (bounds[0].x < minx)
-//			minx = bounds[0].x;
-//		if (bounds[1].x > maxx)
-//			maxx = bounds[1].x;
-//		if (bounds[0].y < miny)
-//			miny = bounds[0].y;
-//		if (bounds[1].y > maxy)
-//			maxy = bounds[1].y;
-//
-//		if (minx < x1 || maxx > x2 || miny < y1 || maxy > y2) {
-//			this.x1 = minx;
-//			this.x2 = maxx;
-//			this.y1 = miny;
-//			this.y2 = maxy;
-//
-//			return true;
-//		}
-//
-//		return false;
-//	}
-
-//	public VisibleSector setBounds(Vector3[] bounds) {
-//		this.x1 = bounds[0].x;
-//		this.y1 = bounds[0].y;
-//		this.x2 = bounds[1].x;
-//		this.y2 = bounds[1].y;
-//
-//		return this;
-//	}
 }

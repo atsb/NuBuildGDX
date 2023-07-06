@@ -711,8 +711,6 @@ public class Bunny {
 		DoActorZrange(SpriteNum);
 
 		if (!TEST(u.Flags, SPR_JUMPING | SPR_FALLING)) {
-//	        if (DoBunnyQuickJump(SpriteNum))
-//	            return (0);
 
 			InitActorDecide(SpriteNum);
 		}

@@ -292,9 +292,6 @@ public class Settings extends FramePanel {
 		});
 		settingsBox.add(chckbxEnableAutoloadFolder);
 
-//		JCheckBox chckbxUseSteam = new JCheckBox("Use Steam or GOG installs by default");
-//		settingsBox.add(chckbxUseSteam);
-
 		chckbxCheckForUpdates = new JCheckBox("Check for updates on startup");
 		chckbxCheckForUpdates.addItemListener(new ItemListener() {
 			@Override
@@ -315,14 +312,6 @@ public class Settings extends FramePanel {
 
 		this.add(settingsBox, "cell 0 7 2 1");
 
-//		backButton = new JButton();
-//		backButton.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(this.getClass().getResource("/" + iconPath + "/iconback.png"))));
-//		backButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				main.showEntry(entry);
-//			}
-//		});
-//		this.add(backButton, "cell 1 7,alignx right,aligny bottom");
 	}
 
 	public void checkConfig(boolean userHome) {

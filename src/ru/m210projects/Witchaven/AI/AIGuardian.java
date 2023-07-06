@@ -258,8 +258,6 @@ public class AIGuardian {
 					newstatus(i, FLEE);
 				}
 
-//				aifly(i);
-//				engine.setsprite(i, spr.x, spr.y, spr.z);
 			}
 		};
 

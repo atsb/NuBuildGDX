@@ -115,13 +115,6 @@ public class AIRat {
 
 				processfluid(i, zr_florhit, false);
 
-//				switch (checkfluid(i, zr_florhit)) {
-//				case TYPELAVA:
-//				case TYPEWATER:
-//					spr.z += engine.getTile(spr.picnum).getHeight() << 5;
-//					break;
-//				}
-
 				if ((zr_florhit & kHitTypeMask) == kHitSector && (sector[spr.sectnum].floorpicnum == LAVA
 						|| sector[spr.sectnum].floorpicnum == LAVA2
 						|| sector[spr.sectnum].floorpicnum == LAVA1 || sector[spr.sectnum].floorpicnum == ANILAVA)) {

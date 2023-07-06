@@ -164,7 +164,7 @@ public class AnimFile implements MovieFile {
 		}
 	}
 	
-	private class Descriptor
+	private static class Descriptor
 	{
 		int baseRecord;	   		// Number of first record in this large page.
 		int nRecords;	        // Number of records in lp.
@@ -180,10 +180,8 @@ public class AnimFile implements MovieFile {
 		}
 	}
 	
-	private class Header
+	private static class Header
 	{
-		//int id;                 // 4 character ID == "LPF " */
-		//int maxLps;                  // max # largePages allowed. 256 FOR NOW.   */
 		int nLps;            // # largePages in this file. */
 		int nRecords;        // # records in this file.  65534 is current limit plus */
 		                        // one for last-to-first delta for looping the animation */
@@ -202,11 +200,7 @@ public class AnimFile implements MovieFile {
 		//byte lastDeltaValid; // 0==The last-to-first delta (if present) hasn't been
 		                                  // updated to match the current first&last frames,    so it
 		                                  // should be ignored. */
-		//byte pixelType;         //   /* 0==256 color. */
-		//byte CompressionType;//      /* 1==(RunSkipDump) Only one used FOR NOW. */
-		//byte otherRecsPerFrm;//      /* 0 FOR NOW. */
-		//byte bitmaptype;     //   /* 1==320x200, 256-color.  Only one implemented so far. */
-		byte[] recordTypes;//      /* Not yet implemented. */
+                                byte[] recordTypes;//      /* Not yet implemented. */
 		//int nFrames;         //   /* In case future version adds other records at end of
 		                                //      file, we still know how many actual frames.
 										//    NOTE: DOES include last-to-first delta when present. */

@@ -205,7 +205,7 @@ public class DirectoryBrowser extends JDialog {
 		n.isScan = true;
 	}
 
-	private class FileTreeNode extends DefaultMutableTreeNode {
+	private static class FileTreeNode extends DefaultMutableTreeNode {
 		private static final long serialVersionUID = 1L;
 		private File file;
 		private boolean isScan = false;

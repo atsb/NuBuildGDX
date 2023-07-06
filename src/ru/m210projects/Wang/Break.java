@@ -730,9 +730,7 @@ public class Break {
 				// Kill sound if one is attached
 				DeleteNoSoundOwner(BreakSprite);
 				KillBreakSprite(BreakSprite);
-				// KillSprite(BreakSprite);
-				// change_sprite_stat(BreakSprite, STAT_SUICIDE);
-				return (true);
+                return (true);
 			} else if (SP_TAG8(sp) == 2)
 			// leave it
 			{
@@ -805,9 +803,7 @@ public class Break {
 			// Kill sound if one is attached
 			DeleteNoSoundOwner(BreakSprite);
 			KillBreakSprite(BreakSprite);
-			// change_sprite_stat(BreakSprite, STAT_SUICIDE);
-			// KillSprite(BreakSprite);
-			return (true);
+            return (true);
 		} else {
 			bp.picnum = break_info.breaknum;
 			if (bp.picnum == 3683)

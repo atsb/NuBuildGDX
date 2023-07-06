@@ -83,7 +83,7 @@ public class TrackPlayerMenu extends BuildMenu {
 		}, false);
 	}
 
-	private class PowerSwitch extends MenuSwitch {
+	private static class PowerSwitch extends MenuSwitch {
 
 		public PowerSwitch(int x, int y) {
 			super(null, null, x, y, 320, cfg.muteMusic, null, null, null);
@@ -138,7 +138,7 @@ public class TrackPlayerMenu extends BuildMenu {
 
 	}
 
-	private class TrackItem extends MenuItem {
+	private static class TrackItem extends MenuItem {
 
 		final int x;
 		final int y;

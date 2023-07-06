@@ -46,10 +46,7 @@ public abstract class MenuRendererSettings extends BuildMenuList {
 	protected MenuConteiner fpsLimits;
 	protected DummyItem separator;
 	protected MenuSlider GLGamma;
-//	protected MenuSlider GLBrightness;
-//	protected MenuSlider GLContrast;
-//	protected MenuButton GLReset;
-	protected MenuConteiner GLTextureFilter;
+protected MenuConteiner GLTextureFilter;
 	protected MenuConteiner GLTextureAnisotropy;
 	protected MenuSwitch GLUseHighTile;
 	protected MenuSwitch GLUseModels;
@@ -107,13 +104,9 @@ public abstract class MenuRendererSettings extends BuildMenuList {
 			this.addItem(fovSlider, false);
 			this.addItem(vSync, false);
 			this.addItem(fpsLimits, false);
-//			this.addItem(GLTextureFilter, false);
-//			this.addItem(GLTextureAnisotropy, false);
-			this.addItem(useVoxels, false);
-//			this.addItem(GLUseHighTile, false);
-//			this.addItem(GLUseModels, false);
+            this.addItem(useVoxels, false);
 
-			this.addItem(separator, false);
+            this.addItem(separator, false);
 			this.addItem(GLPalette, false);
 			this.addItem(GLHires, false);
 		} else {
@@ -210,18 +203,7 @@ public abstract class MenuRendererSettings extends BuildMenuList {
 		else
 			GLSettings.gamma.set(ogamma);
 
-//		GLBrightness = BuildSlider("Brightness", GLSettings.brightness, -4096, 4096, 64, 4096);
-//		GLContrast = BuildSlider("Contrast", GLSettings.contrast, 0, 8192, 64, 4096);
-//		GLReset = BuildButton("Reset to default", new MenuProc() {
-//			@Override
-//			public void run(MenuHandler handler, MenuItem pItem) {
-//				GLSettings.gamma.set(0);
-//				GLSettings.brightness.set(0);
-//				GLSettings.contrast.set(4096);
-//			}
-//		});
-
-		GLHires = BuildButton("Hires settings", new MenuProc() {
+        GLHires = BuildButton("Hires settings", new MenuProc() {
 			@Override
 			public void run(MenuHandler handler, MenuItem pItem) {
 				handler.mOpen(GLHiresMenu, -1);

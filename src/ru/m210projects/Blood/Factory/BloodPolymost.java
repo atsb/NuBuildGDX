@@ -95,9 +95,7 @@ public class BloodPolymost extends Polymost {
 						end = 2;
 				}
 
-//				if (manager.getShader() != null)
-//					manager.getShader().setFogParams(true, start, end, color);
-				BuildGdx.gl.glFogfv(GL_FOG_COLOR, color, 0);
+                BuildGdx.gl.glFogfv(GL_FOG_COLOR, color, 0);
 				BuildGdx.gl.glFogf(GL_FOG_START, start);
 				BuildGdx.gl.glFogf(GL_FOG_END, end);
 			}

@@ -133,8 +133,6 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 		touchDown = false;
 		x = canvas.getWidth() / 2;
 		y = canvas.getHeight() / 2;
-//		deltaX = 0;
-//		deltaY = 0;
 		wheel = 0;
 		justTouched = false;
 		pressedButtons.clear();
@@ -189,8 +187,6 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 			}
 
 			if (touchEvents.isEmpty()) {
-//				deltaX = 0;
-//				deltaY = 0;
 				wheel = 0;
 			}
 

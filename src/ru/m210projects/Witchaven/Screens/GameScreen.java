@@ -207,9 +207,6 @@ public class GameScreen extends GameAdapter {
 		pEngine.updateFade("GREEN", greencount);
 		pEngine.updateFade("BLUE", 2 * bluecount);
 
-//		if(FileIndicator)
-//			game.getFont(1).drawText(270,5,  toCharArray("Caching"), 0, 7, TextAlign.Left, 2 | 512, false);
-
 		if ((redcount | whitecount | greencount | bluecount) != 0)
 			pEngine.showfade();
 	}
@@ -566,16 +563,6 @@ public class GameScreen extends GameAdapter {
 
 			xvect = plr.pInput.fvel;
 			yvect = plr.pInput.svel;
-
-//			xvect = yvect = 0;
-//			if (plr.pInput.fvel != 0) {
-//				xvect = (int) (plr.pInput.fvel * tics * BCosAngle(plr.ang));
-//				yvect = (int) (plr.pInput.fvel * tics * BSinAngle(plr.ang));
-//			}
-//			if (plr.pInput.svel != 0) {
-//				xvect += (plr.pInput.svel * tics * BSinAngle(plr.ang));
-//				yvect -= (plr.pInput.svel * tics * BCosAngle(plr.ang));
-//			}
 
 			oldposx = plr.x;
 			oldposy = plr.y;

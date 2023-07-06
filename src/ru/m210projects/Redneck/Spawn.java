@@ -1571,14 +1571,6 @@ public class Spawn {
                     case 152:
     	            case 153:
                         engine.changespritestat(i,(short)15);
-//                        if(rorcnt < 16) {
-//	                        if(sprite[i].lotag == 151)
-//	                        	rortype[rorcnt] = 1; //ceiling
-//	                        if(sprite[i].lotag == 150)
-//	                        	rortype[rorcnt] = 2; //floor
-//	                        rorsector[rorcnt++] = sprite[i].sectnum;
-//	                        System.err.println("ROR in " + rorsector[rorcnt-1] + " " + rortype[rorcnt-1]);
-//                        }
                         break;
                     default:
                         engine.changespritestat(i,(short)3);

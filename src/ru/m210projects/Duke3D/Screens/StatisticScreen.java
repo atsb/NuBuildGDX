@@ -165,9 +165,7 @@ public class StatisticScreen extends ScreenAdapter {
 					}
 
 					if (myconnectindex == connecthead) {
-//	                    sprintf(tempbuf,"stats %ld killed %ld %d\n",i+1,y+1,frags[i][y]);
-//	                    sendscore(tempbuf);
-					}
+                    }
 				}
 
 				Bitoa(xfragtotal, bonusbuf);

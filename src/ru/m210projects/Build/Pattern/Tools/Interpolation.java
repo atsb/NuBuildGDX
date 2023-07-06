@@ -34,14 +34,14 @@ public class Interpolation {
 		WallX, WallY, FloorZ, CeilZ, FloorH, CeilH
 	}
 
-	public class IData {
+	public static class IData {
 		public Object ptr;
 		public InterpolationType type;
 		public int oldpos;
 		public int bakpos;
 	}
 
-	public class ILoc {
+	public static class ILoc {
 		public int x, y, z;
 		public short ang;
 	}

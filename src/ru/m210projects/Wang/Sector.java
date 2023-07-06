@@ -859,8 +859,6 @@ public class Sector {
 
 				// look for the rest by distance
 				for (swf_ndx = 1, sector_cnt = 1; true; swf_ndx++) {
-					// near_sect = FindNextSectorByTag(base_sect,
-					// TAG_SINE_WAVE_FLOOR + swf_ndx);
 					near_sect = FindNextSectorByTag(base_sect, tag + swf_ndx);
 
 					if (near_sect >= 0) {
@@ -1424,10 +1422,6 @@ public class Sector {
 
 				if (TEST_BOOL7(sp)) {
 					PlayerStr pp = GlobPlayerStr;
-
-					//// DSPRINTF(ds,"PlayerSound %d",pp-Player);
-					// MONO_PRINT(ds);
-					// ASSERT(pp >= Player && pp <= Player+numplayers);
 
 					if (pp != null) {
 						if (pp == Player[myconnectindex])

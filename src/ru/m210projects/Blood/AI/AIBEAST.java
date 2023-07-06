@@ -558,30 +558,8 @@ public class AIBEAST {
 			pXSprite.target = -1;
 		}
 	}
-	
-	/*
-	private static void thinkAttack( SPRITE pSprite, XSPRITE pXSprite, XSECTOR pXSector, int dist, int nAngle, int hittype )
-	{
-		if ( dist < 921 )
-        {
-			if ( klabs(nAngle) < 28 )
-		    {
-				if(hittype != 3 || sprite[pHitInfo.hitsprite].type != pSprite.type) 
-				{
-					if(pXSector != null && pXSector.Underwater)
-						aiNewState(pSprite, pXSprite, beastHack[WATER]);
-					else aiNewState(pSprite, pXSprite, beastHack[LAND]);
-				} else { 
-					if(pXSector != null && pXSector.Underwater)
-						aiNewState(pSprite, pXSprite, beastDodge[WATER]);
-					else aiNewState(pSprite, pXSprite, beastDodge[LAND]);
-				}
-		    }
-		}
-	}
-	*/
-	
-	private static void thinkChase( SPRITE pSprite, XSPRITE pXSprite )
+
+    private static void thinkChase( SPRITE pSprite, XSPRITE pXSprite )
 	{
 		int nXSector = sector[pSprite.sectnum].extra;
 		
@@ -688,71 +666,7 @@ public class AIBEAST {
 						else aiNewState(pSprite, pXSprite, beastHack[LAND]);
 					}
 
-					/*
-					if ( dist >= 5120 || dist <= 2560 ) {
-						thinkAttack( pSprite, pXSprite, pXSector, dist, losAngle, hitType );
-						return;
-					}
-
-					if ( klabs(losAngle) >= kAngle15
-				        || (pTarget.flags & kAttrGravity) == 0
-				        || !IsPlayerSprite(pTarget)
-				        || (!Chance(0x4000))
-						|| pXTarget.health <= gPlayerTemplate[0].startHealth / 2)
-					{
-						thinkAttack( pSprite, pXSprite, pXSector, dist, losAngle, hitType );
-						return;
-					}
-					
-					if(hitType == -1)
-					{
-						if(pXSector == null || !pXSector.Underwater)
-							aiNewState(pSprite, pXSprite, beastStomps);
-						thinkAttack( pSprite, pXSprite, pXSector, dist, losAngle, hitType );
-						return;
-					}
-					  
-					if(hitType == SS_SPRITE)
-					{
-						if(sprite[pHitInfo.hitsprite].type == pSprite.type) {
-							if(pXSector != null && pXSector.Underwater)
-								aiNewState(pSprite, pXSprite, beastDodge[WATER]);
-							else aiNewState(pSprite, pXSprite, beastDodge[LAND]);
-						} else if(pXSector == null || !pXSector.Underwater)
-							aiNewState(pSprite, pXSprite, beastStomps);
-						thinkAttack( pSprite, pXSprite, pXSector, dist, losAngle, hitType );
-						return;
-					} 
-					if(pXSector == null || !pXSector.Underwater)
-						aiNewState(pSprite, pXSprite, beastStomps);
-					thinkAttack( pSprite, pXSprite, pXSector, dist, losAngle, hitType );
-					*/
-					
-					/*
-					if ( hitType == SS_SPRITE && sprite[pHitInfo.hitsprite].type == pSprite.type) {
-						if(pXSector != null && pXSector.Underwater)
-							aiNewState(pSprite, pXSprite, beastDodge[WATER]);
-						else aiNewState(pSprite, pXSprite, beastDodge[LAND]);
-						return;
-					}
-						
-					if ( dist > 2560 && dist < 5120 && klabs(losAngle) < kAngle15
-						&& (pTarget.flags & kAttrGravity) != 0
-						&& IsPlayerSprite(pTarget)
-						&& pXTarget.health > gPlayerTemplate[0].startHealth / 2
-						&& Chance(0x4000) )
-					{
-						if(pXSector == null || !pXSector.Underwater)
-							aiNewState(pSprite, pXSprite, beastStomps);
-					}
-					
-					if(dist < 921 && klabs(losAngle) < kAngle5) {
-						if(pXSector != null && pXSector.Underwater)
-							aiNewState(pSprite, pXSprite, beastHack[WATER]);
-						else aiNewState(pSprite, pXSprite, beastHack[LAND]);
-					}
-					*/
-				}
+                }
 				return;
 			}
 		}

@@ -17,23 +17,6 @@ public class WH2MUS {
 	private static int oldsong;
 
 	public static boolean loadlevelsongs(int which) {
-//		int index = (which * SONGSPERLEVEL);
-//		for (int i = 0; i < SONGSPERLEVEL; i++) {
-//			songptr.offset = songlist[(index + i) * 3] * 4096;
-//			songptr.length = songlist[(index + i) * 3 + 1];
-//
-//			// read data from file
-//			if (songptr.buffer == null) {
-//				fhsongs.seek(songptr.offset, Whence.Set);
-//				byte[] buffer = new byte[songptr.length];
-//				int rv = fhsongs.read(buffer);
-//
-//				songptr.buffer = hmpinit(buffer);
-//
-//				if (songptr.buffer == null || rv != songptr.length)
-//					return false;
-//			}
-//		}
 
 		oldsong = which;
 		return true;

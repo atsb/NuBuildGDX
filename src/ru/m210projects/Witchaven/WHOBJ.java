@@ -1648,11 +1648,6 @@ public class WHOBJ {
 			if (sprite[i].owner != j) {
 
 //				public static final int DEMONTYPE = 1; XXX
-//				public static final int DRAGONTYPE = 3;
-//				public static final int FISHTYPE = 5;
-//				public static final int JUDYTYPE = 12;
-//				public static final int RATTYPE = 18;
-//				public static final int SKULLYTYPE = 20;
 
 				switch (sprite[j].detail) {
 				case NEWGUYTYPE:

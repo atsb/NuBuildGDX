@@ -1375,20 +1375,7 @@ public class Draw {
 		f.drawText(statx += (alignx + 2) * viewzoom, staty, txt_buffer, zoom, 0, PAL_XLAT_BROWN, TextAlign.Left,
 				10 | 256, shadows);
 
-//		if (CommEnabled || numplayers > 1)
-//			return;
-//
-//		if (gs.Stats) {
-//			int pos = buildString(txt_buffer, 0, "Kills ", Player[connecthead].Kills);
-//			buildString(txt_buffer, pos, "/", TotalKillable);
-//			DisplayMiniBarSmString(pp, x, y, PAL_XLAT_BROWN, txt_buffer, 256);
-//
-//			pos = buildString(txt_buffer, 0, "Secrets ", Player[connecthead].SecretsFound);
-//			buildString(txt_buffer, pos, "/", LevelSecrets);
-//
-//			DisplayMiniBarSmString(pp, x, y + 10, PAL_XLAT_BROWN, txt_buffer, 256);
-//		}
-	}
+    }
 
 	public static void SpriteSortList2D(int tx, int ty) {
 		spritesortcnt = 0;
@@ -1812,20 +1799,7 @@ public class Draw {
 		pp.siz = tz - pp.posz;
 		pp.siang = (short) tang;
 
-//		if (pp.sop_riding != null || pp.sop_control != null) {
-//			tx = pp.posx;
-//			ty = pp.posy;
-//			tz = pp.posz;
-//			tang = pp.pang;
-//			tsectnum = engine.updatesectorz(tx, ty, tz, pp.cursectnum);
-//
-//			pp.six = tx;
-//			pp.siy = ty;
-//			pp.siz = tz - pp.posz;
-//			pp.siang = tang;
-//		}
-
-		QuakeViewChange(camerapp, tmp_ptr[0], tmp_ptr[1], tmp_ptr[2], tmp_ptr[3]);
+        QuakeViewChange(camerapp, tmp_ptr[0], tmp_ptr[1], tmp_ptr[2], tmp_ptr[3]);
 		int quake_z = tmp_ptr[0].value;
 		int quake_x = tmp_ptr[1].value;
 		int quake_y = tmp_ptr[2].value;

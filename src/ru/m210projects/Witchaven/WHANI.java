@@ -1062,11 +1062,6 @@ public class WHANI {
 				if (hitdamage)
 					continue;
 
-//				if (sprite[i].owner != hitobject) {
-//					hitdamage = damageactor(plr, hitobject, i);
-//					continue;
-//				}
-
 				if (!hitdamage)
 					if (isBlades(sprite[j].picnum)) {
 						engine.deletesprite(i);
@@ -1219,9 +1214,6 @@ public class WHANI {
 
 			sprite[i].lotag -= TICSPERFRAME;
 
-//			game.pInt.setsprinterpolate(i, sprite[i]);
-//			sprite[i].z -= (TICSPERFRAME << 6);
-
 			if (sprite[i].xrepeat > 1)
 				sprite[i].xrepeat = sprite[i].yrepeat -= TICSPERFRAME;
 
@@ -1300,8 +1292,6 @@ public class WHANI {
 					int dh = engine.getTile(tspr.picnum).getHeight() >> 1; // height of sprite
 					if (dx + dy < PICKDISTANCE && dz - dh <= getPickHeight()) {
 						if (tspr.owner == 4096) {
-							// strcpy(displaybuf,"hit player");
-							// displaytime=120;
 						} else {
 							switch (tspr.detail) {
 							case SKELETONTYPE:

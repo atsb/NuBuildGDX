@@ -63,7 +63,7 @@ class Residue0 extends FuncResidue{
 
   Object unpack(Info vi, Buffer opb){
     int acc=0;
-    InfoResidue0 info=new InfoResidue0();
+    InfoResidue0 info= new InfoResidue0();
     info.begin=opb.read(24);
     info.end=opb.read(24);
     info.grouping=opb.read(24)+1;
@@ -308,7 +308,7 @@ class Residue0 extends FuncResidue{
     int frames;
   }
 
-  class InfoResidue0{
+  static class InfoResidue0{
     // block-partitioned VQ coded straight residue
     int begin;
     int end;

@@ -63,12 +63,7 @@ public class MenuNewGame extends BuildMenu {
 		if (wt != null || td != null) {
 			addItem(new MenuButton("Official addons", app.getFont(2), 35, posy += 32, 320, 0, 0,
 					new AddonMenu(app, td, wt), -1, null, -1) {
-//				@Override
-//				public void draw(MenuHandler handler) {
-//					super.draw(handler);
-//					app.getFont(1).drawText(x, y + 17, "Description", 0, 4, TextAlign.Left, 2, false);
-//				}
-			}, false);
+            }, false);
 		} else {
 			addItem(new MenuButton("Official addons", app.getFont(2), 35, posy += 32, 320, 0, 0, null, -1, null, 0) {
 				@Override

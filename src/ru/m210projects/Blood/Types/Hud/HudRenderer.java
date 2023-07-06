@@ -166,13 +166,9 @@ public abstract class HudRenderer {
 				int yoffset = 8;
 				DrawStatMaskedSprite(2568, (x + xoffset), y - yoffset, 0, 0, nFlags);
 				yoffset = 6;
-//				if (nScale != 65536)
-//					yoffset = mulscale(yoffset, nScale, 16);
-				DrawStatMaskedSprite(2568, x + xoffset, y - yoffset, 0, 0, nFlags);
+                DrawStatMaskedSprite(2568, x + xoffset, y - yoffset, 0, 0, nFlags);
 				yoffset = 1;
-//				if (nScale != 65536)
-//					yoffset = mulscale(yoffset, nScale, 16);
-				DrawStatMaskedSprite(viewInventoryTile[avaibleInventory[i]], x + xoffset, y + yoffset, 0, 0, nFlags);
+                DrawStatMaskedSprite(viewInventoryTile[avaibleInventory[i]], x + xoffset, y + yoffset, 0, 0, nFlags);
 				if (avaibleInventory[i] == gView.choosedInven)
 					DrawStatMaskedSprite(2559, x + xoffset, y + yoffset, 0, 0, nFlags);// ramka inventory
 

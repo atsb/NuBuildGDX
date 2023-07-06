@@ -84,10 +84,6 @@ public class View {
 
 	public static void UpdateScreenSize() {
 
-//		int v0 = ydim * screensize / xdim;
-//		int v1 = ((ydim >> 1) - (v0 >> 1));
-//		engine.setview(((xdim >> 1) - (screensize >> 1)), v1, ((xdim >> 1) - (screensize >> 1) + screensize - 1), (v1 + v0 - 1));
-
 		engine.setview(0, 0, xdim - 1, ydim - 1);
 		RefreshStatus();
 	}
@@ -342,19 +338,6 @@ public class View {
 		if (nNetPlayerCount != 0) {
 
 		}
-
-//		if ( bCoordinates )
-//	    {
-//	      v1 = itoa(255, v23, v24);
-//	      printext(nScreenWidth - 20, nViewTop, (int)v1, v2, v3);
-//	    }
-
-//		if (bCoordinates) {
-//			SPRITE v17 = sprite[PlayerList[nLocalPlayer].spriteId];
-//			int v18 = ((windowx1 + windowx2) >> 1);
-//			printext(v18, nViewTop + 1, "X " + v17.x, 159, -1);
-//			printext(v18, nViewTop + 10, "Y " + v17.x, 159, -1);
-//		}
 
 		if (cfg.gShowMessages) {
 			if (nSnakeCam < 0) {

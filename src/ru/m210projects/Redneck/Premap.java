@@ -505,24 +505,7 @@ public class Premap {
 		p.moonshine_amount = 0;
 		p.inven_icon = 0;
 
-//	    if ( ud.multimode <= 1 || ud.coop == 1 ) //v0.751
-//	    {
-//	    	p.gotkey[0] = 0;
-//	    	p.gotkey[1] = 0;
-//	    	p.gotkey[2] = 0;
-//	    	p.gotkey[3] = 0;
-//	    	p.gotkey[4] = 0;
-//	    }
-//	    else
-//	    {
-//	    	p.gotkey[0] = 1;
-//	    	p.gotkey[1] = 1;
-//	    	p.gotkey[2] = 1;
-//	    	p.gotkey[3] = 1;
-//	    	p.gotkey[4] = 1;
-//	    }
-
-		p.alcohol_meter = 1647;
+        p.alcohol_meter = 1647;
 		p.gut_meter = 1647;
 		p.alcohol_amount = 0;
 		p.gut_amount = 0;
@@ -600,24 +583,8 @@ public class Premap {
 		p.field_Y = 0x20000;
 		p.field_28E = 0;
 		p.field_290 = 0;
-//	    if ( ud.multimode <= 1 || ud.coop == 1 ) //v0.751
-//	    {
-//	    	p.gotkey[0] = 0;
-//	    	p.gotkey[1] = 0;
-//	    	p.gotkey[2] = 0;
-//	    	p.gotkey[3] = 0;
-//	    	p.gotkey[4] = 0;
-//	    }
-//	    else
-//	    {
-//	    	p.gotkey[0] = 1;
-//	    	p.gotkey[1] = 1;
-//	    	p.gotkey[2] = 1;
-//	    	p.gotkey[3] = 1;
-//	    	p.gotkey[4] = 1;
-//	    }
 
-		p.alcohol_meter = 1647;
+        p.alcohol_meter = 1647;
 		p.gut_meter = 1647;
 		p.alcohol_amount = 0;
 		p.gut_amount = 0;

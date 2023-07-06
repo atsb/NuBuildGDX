@@ -1464,22 +1464,7 @@ public class Actor {
 					pXSprite.burnSource = pMissile.owner;
 				}
 				// Deleted since v1.10
-				// if (hit != 0) {
-				// if (pDudeInfo != null) {
-				// int nSource = actGetBurnSource(pMissile.owner);
-				// if (nSource >= 0) {
-				// SPRITE pSource = sprite[nSource];
-				// XSPRITE pXSource = null;
-				// if (pSource.extra > 0)
-				// pXSource = xsprite[pSource.extra];
-				// if (pSource.statnum == kStatDude && pXSource != null
-				// && pXSource.health != 0)
-				// actHealDude(pXSource, hit / 4, dudeInfo[pSource.lotag -
-				// kDudeBase].startHealth);
-				// }
-				// }
-				// }
-			}
+            }
 
 			if (pMissile.extra <= 0) {
 				actPostSprite(pMissile.xvel, kStatFree);
@@ -2254,10 +2239,7 @@ public class Actor {
 				pXSprite.isTriggered = false;
 				pXSprite.DudeLockout = false;
 
-//				if (pSprite.owner >= 0 && sprite[pSprite.owner].lotag == kGDXDudeUniversalCultist){
-//					sprite[pSprite.owner].owner = 32666; // indicates if custom dude had life leech.
-//				}
-			} else if ((pSprite.hitag & kAttrRespawn) == 0)
+            } else if ((pSprite.hitag & kAttrRespawn) == 0)
 				actSetOwner(pSprite, sprite[nSource]);
 
 			trTriggerSprite(pSprite.xvel, pXSprite, kCommandOff);
@@ -3722,46 +3704,7 @@ public class Actor {
 							sprXVel[pHit.xvel] += mulscale(4, pHit.x - pSprite.x, 2);
 							sprYVel[pHit.xvel] += mulscale(4, pHit.y - pSprite.y, 2);
 
-//							if (!IsOriginalDemo() && ((IsPlayerSprite(pSprite) && isShrinked(pSprite)) || (IsPlayerSprite(pHit) && isGrown(pHit)))) {
-//
-//								int mass1 = dudeInfo[pHit.lotag - kDudeBase].mass;
-//								int mass2 = dudeInfo[pSprite.lotag - kDudeBase].mass;
-//								switch(pSprite.lotag) {
-//									case kGDXDudeUniversalCultist:
-//									case kGDXGenDudeBurning:
-//										mass2 = getDudeMassBySpriteSize(pSprite);
-//										break;
-//								}
-//
-//								if (mass1 > mass2) {
-//									int dmg = Math.abs((mass1 - mass2)*(pHit.clipdist - pSprite.clipdist));
-//									if (dmg > 0)
-//										actDamageSprite(pHit.xvel, pSprite, (Chance(0x1000)) ? kDamageFall : (Chance(0x2000)) ? kDamageExplode : kDamageBullet, dmg);
-//
-//									if (Chance(0x0200))
-//										actKickObject(pHit,pSprite);
-//								}
-//							}
-//
-//							if (!IsPlayerSprite(pSprite) || !gPlayer[pSprite.lotag - kDudePlayer1].godMode) {
-//								switch(pHit.lotag) {
-//									case kDudeTchernobog:
-//										actDamageSprite(pHit.xvel, pSprite, kDamageExplode, 4 * pXSprite.health);
-//										break;
-//									case kGDXDudeUniversalCultist:
-//									case kGDXGenDudeBurning:
-//										int dmg = (getDudeMassBySpriteSize(pHit) - getDudeMassBySpriteSize(pSprite))+pHit.clipdist;
-//										if (dmg > 0) {
-//											if (IsPlayerSprite(pSprite) && powerupCheck(gPlayer[pSprite.lotag - kDudePlayer1], kItemJumpBoots - kItemBase ) > 0)
-//												actDamageSprite(pHit.xvel, pSprite, kDamageExplode, dmg);
-//											else
-//												actDamageSprite(pHit.xvel, pSprite, kDamageFall, dmg);
-//										}
-//										break;
-//								}
-//							}
-
-							if (pHit.lotag == kDudeTchernobog) {
+                            if (pHit.lotag == kDudeTchernobog) {
 								if (!IsPlayerSprite(pSprite) || !gPlayer[pSprite.lotag - kDudePlayer1].godMode) {
 									actDamageSprite(pHit.xvel, pSprite, kDamageExplode, 4 * pXSprite.health);
 								}
@@ -3794,47 +3737,8 @@ public class Actor {
 		case kHitSprite:
 			SPRITE pHitObject = sprite[nHitObject];
 			if (pHitObject.extra > 0) {
-//				if (!IsOriginalDemo()) {
-//					if ((IsPlayerSprite(pHitObject) && isShrinked(pHitObject)) || (IsPlayerSprite(pSprite) && isGrown(pSprite))) {
-//						if (sprXVel[pSprite.xvel] != 0 && IsDudeSprite(pSprite) && IsDudeSprite(pHitObject)) {
-//							int mass1 = dudeInfo[pSprite.lotag - kDudeBase].mass;
-//							int mass2 = dudeInfo[pHitObject.lotag - kDudeBase].mass;
-//							switch(pHitObject.lotag) {
-//								case kGDXDudeUniversalCultist:
-//								case kGDXGenDudeBurning:
-//									mass2 = getDudeMassBySpriteSize(pHitObject);
-//									break;
-//							}
-//
-//							if (mass1 > mass2) {
-//								actKickObject(pSprite,pHitObject);
-//								sfxStart3DSound(pSprite, 357, -1, 1);
-//								int dmg = (int) ((mass1-mass2) + Math.abs(sprXVel[pSprite.xvel] >> 16));
-//								if (dmg > 0)
-//									actDamageSprite(nSprite, pHitObject, (Chance(0x1000)) ? kDamageFall : kDamageBullet, dmg);
-//							}
-//						}
-//					}
-//
-//		            switch (pSprite.lotag) {
-//		                case kGDXDudeUniversalCultist:
-//		                case kGDXGenDudeBurning:
-//		                    if (IsDudeSprite(pHitObject) && !IsPlayerSprite(pHitObject)) {
-//		                        int mass1 = getDudeMassBySpriteSize(pSprite);
-//		                        int mass2 = getDudeMassBySpriteSize(pHitObject);
-//
-//		                        if ((mass1 - mass2) >= mass2) {
-//		                            if ((pXSprite.target == pHitObject.xvel && !dudeIsMelee(pXSprite) && Chance(0x0500)) || pXSprite.target != pHitObject.xvel)
-//		                                actKickObject(pSprite, pHitObject);
-//		                            if (pHitObject.extra >= 0 && !isActive(pHitObject.xvel))
-//		                                aiActivateDude(pHitObject, xsprite[pHitObject.extra]);
-//		                        }
-//		                    }
-//		                    break;
-//		            }
-//				}
 
-				switch (pHitObject.lotag) {
+                switch (pHitObject.lotag) {
 				case kDudeBurning:
 				case kDudeCultistBurning:
 				case kDudeAxeZombieBurning:
@@ -3870,59 +3774,8 @@ public class Actor {
 				SPRITE pHitObject = sprite[nHitObject];
 				XSPRITE pXHit = xsprite[pHitObject.extra];
 				if (IsDudeSprite(pHitObject)) {
-//					if (!IsOriginalDemo()) {
-//						if ((IsPlayerSprite(pHitObject) && isShrinked(pHitObject)) || (IsPlayerSprite(pSprite) && isGrown(pSprite))) {
-//
-//							if (IsDudeSprite(pSprite) && IsDudeSprite(pHitObject)) {
-//								int mass1 = dudeInfo[pSprite.lotag - kDudeBase].mass;
-//								int mass2 = dudeInfo[pHitObject.lotag - kDudeBase].mass;
-//								switch(pHitObject.lotag) {
-//									case kGDXDudeUniversalCultist:
-//									case kGDXGenDudeBurning:
-//										mass2 = getDudeMassBySpriteSize(pHitObject);
-//										break;
-//								}
-//
-//
-//								if (mass1 > mass2) {
-//									if ((IsPlayerSprite(pHitObject) && Chance(0x500)) || !IsPlayerSprite(pHitObject))
-//										actKickObject(pSprite,pHitObject);
-//
-//									int dmg = (mass1 - mass2) + pSprite.clipdist;
-//									if (dmg > 0)
-//										actDamageSprite(nSprite, pHitObject, (Chance(0x1000)) ? kDamageFall : kDamageBullet, dmg);
-//								}
-//							}
-//						}
-//
-//			            switch (pSprite.lotag) {
-//			                case kGDXDudeUniversalCultist:
-//			                case kGDXGenDudeBurning:
-//			                {
-//			                    if (IsDudeSprite(pHitObject) && !IsPlayerSprite(pHitObject)) {
-//			                        int mass1 = getDudeMassBySpriteSize(pSprite);
-//			                        int mass2 = getDudeMassBySpriteSize(pHitObject);
-//
-//			                        if ((mass1 - mass2) >= mass2) {
-//			                            if (Chance((pXSprite.target == pHitObject.xvel) ? 0x0500 : 0x1000)) actKickObject(pSprite, pHitObject);
-//			                            if (pHitObject.extra >= 0 && !isActive(pHitObject.xvel))
-//			                                aiActivateDude(pHitObject, xsprite[pHitObject.extra]);
-//			                        }
-//			                    }
-//			                    break;
-//			                }
-//			            }
-//					}
 
-//					if (pHitObject.lotag <= kDudePlayer8 && pHitObject.lotag != kDudeFleshStatue && pHitObject.lotag != kDudeStoneStatue
-//							&& pHitObject.lotag != kDudeMotherSpider && pHitObject.lotag != kDudeEel && pHitObject.lotag != kDudeFanaticProne) {
-//								if (IsPlayerSprite(pSprite) && (IsOriginalDemo() || !isShrinked(pSprite))) {
-//									actDamageSprite(nSprite, pHitObject, kDamageBullet, 8);
-//									return;
-//						}
-//					}
-
-					if (pHitObject.lotag <= kDudePlayer8
+                    if (pHitObject.lotag <= kDudePlayer8
 							&& pHitObject.lotag != kDudeFleshStatue
 							&& pHitObject.lotag != kDudeStoneStatue
 							&& pHitObject.lotag != kDudeMotherSpider
@@ -3973,36 +3826,7 @@ public class Actor {
 			break;
 		}
 
-//		// by NoOne: add more trigger statements for Touch flag
-//		if (!IsOriginalDemo()) {
-//
-//			// Touch sprites
-//			int nHSprite = -1;
-//			if ((gSpriteHit[nXSprite].moveHit & kHitTypeMask) == kHitSprite)
-//				nHSprite = gSpriteHit[nXSprite].moveHit & kHitIndexMask;
-//			else if ((gSpriteHit[nXSprite].floorHit & kHitTypeMask) == kHitSprite)
-//				nHSprite = gSpriteHit[nXSprite].floorHit & kHitIndexMask;
-//			else if ((gSpriteHit[nXSprite].ceilHit & kHitTypeMask) == kHitSprite)
-//				nHSprite = gSpriteHit[nXSprite].ceilHit & kHitIndexMask;
-//
-//			if (nHSprite >= 0 && sprite[nHSprite].extra >= 0) {
-//				XSPRITE pXHSprite = xsprite[sprite[nHSprite].extra];
-//				if (pXHSprite.Touch && !pXHSprite.isTriggered && (!pXHSprite.DudeLockout || IsPlayerSprite(pSprite)))
-//					trTriggerSprite(nHSprite, pXHSprite, kCommandSpriteTouch);
-//			}
-//
-//			// Touch walls
-//			int nHWall = -1;
-//			if ((gSpriteHit[nXSprite].moveHit & kHitTypeMask) == kHitWall) {
-//				if ((nHWall = gSpriteHit[nXSprite].moveHit & kHitIndexMask) >= 0 && wall[nHWall].extra >= 0) {
-//					XWALL pXHWall = xwall[wall[nHWall].extra];
-//					if (pXHWall.triggerReserved && !pXHWall.isTriggered && (!pXHWall.dudeLockout || IsPlayerSprite(pSprite)))
-//						trTriggerWall(nHWall, pXHWall, kCommandWallTouch);
-//				}
-//			}
-//		}
-
-	}
+    }
 
 	public static void processTouchFloor(SPRITE pSprite, int nSector) {
 		if (pSprite == null)
@@ -4253,94 +4077,7 @@ public class Actor {
 
 		gTNTCount = 0;
 
-		/*
-		if (!IsOriginalDemo()) {
-
-			// by NoOne: process additional proximity sprites
-			if (gProxySpritesCount > 0) {
-				//System.out.println("PROX COUNT: "+gProxySpritesCount+" / "+gMaxBadProxySprites);
-				for (int i = 0; i < gProxySpritesCount; i++) {
-					//System.out.println("P SPRITE "+i+" INDEX "+gProxySpritesList[i]);
-
-					if (gBadProxSprites >= gMaxBadProxySprites) {
-						//System.out.println("PROX REBUILD REQUESTED");
-						rebuildGlobalArray(1); gBadProxSprites = 0;
-						if (i >= gProxySpritesCount) { i = 0; continue; }
-					}
-
-					if (sprite[gProxySpritesList[i]].extra >= 0)  {
-
-						SPRITE pSpr = sprite[gProxySpritesList[i]]; XSPRITE pXSpr = xsprite[pSpr.extra];
-						if (pXSpr.isTriggered || !pXSpr.Proximity) { gBadProxSprites++; continue; }
-						else if ((!pXSpr.Interrutable && pXSpr.state != pXSpr.restState) || pXSpr.Locked == 1)
-							continue; // don't process locked, busy (unless interruptable) or triggered sprites
-
-						if (!pXSpr.DudeLockout) {
-
-							for (int nAffected = headspritestat[kStatDude]; nAffected >= 0; nAffected = nextspritestat[nAffected]) {
-								if ((sprite[nAffected].hitag & kAttrFree) != 0 || xsprite[sprite[nAffected].extra].health <= 0) continue;
-								else if (CheckProximity(sprite[nAffected], pSpr.x, pSpr.y, pSpr.z, pSpr.sectnum, 96)) {
-									trTriggerSprite(pSpr.xvel, pXSpr, kCommandSpriteProximity);
-									break;
-								}
-							}
-
-						} else {
-
-							for (int a = connecthead; a >= 0; a = connectpoint2[a]) {
-								if (CheckProximity(gPlayer[a].pSprite, pSpr.x, pSpr.y, pSpr.z, pSpr.sectnum, 96)) {
-									trTriggerSprite(pSpr.xvel, pXSpr, kCommandSpriteProximity);
-									break;
-								}
-							}
-
-						}
-
-						continue;
-
-					}
-
-					gBadProxSprites++;
-
-				}
-			}
-
-			// by NoOne: process sight sprites (for players only)
-			if (gSightSpritesCount > 0) {
-				//System.out.println("SIGHT COUNT: "+gSightSpritesCount+" / "+gMaxBadSightSprites);
-				for (int i = 0; i < gSightSpritesCount; i++) {
-					//System.out.println("S SPRITE "+i+" INDEX "+gSightSpritesList[i]);
-					if (gBadSightSprites >= gMaxBadSightSprites) {
-						//System.out.println("SIGHT REBUILD REQUESTED");
-						rebuildGlobalArray(2); gBadSightSprites = 0;
-						if (i >= gSightSpritesCount) { i = 0; continue; }
-					}
-
-					if (sprite[gSightSpritesList[i]].extra >= 0) {
-
-						SPRITE pSpr = sprite[gSightSpritesList[i]]; XSPRITE pXSpr = xsprite[pSpr.extra];
-						if (pXSpr.isTriggered || !pXSpr.Sight) { gBadSightSprites++; continue; }
-						else if ((!pXSpr.Interrutable && pXSpr.state != pXSpr.restState) || pXSpr.Locked == 1)
-							continue; // don't process locked, busy (unless interruptable) or triggered sprites
-
-						for (int a = connecthead; a >= 0; a = connectpoint2[a]) {
-							SPRITE pPlayer = gPlayer[a].pSprite;
-							if (engine.cansee(pSpr.x, pSpr.y, pSpr.z, pSpr.sectnum, pPlayer.x, pPlayer.y, pPlayer.z, pPlayer.sectnum)) {
-								trTriggerSprite(pSpr.xvel, pXSpr, kCommandSpriteSight);
-								break;
-							}
-						}
-
-						continue;
-					}
-
-					gBadSightSprites++;
-				}
-			}
-		}
-		*/
-
-		// process things for effects
+        // process things for effects
 		for (nSprite = headspritestat[kStatThing]; nSprite >= 0; nSprite = nextspritestat[nSprite]) {
 			SPRITE pThink = sprite[nSprite];
 			if ((pThink.hitag & kAttrFree) != 0)
@@ -4372,30 +4109,8 @@ public class Actor {
 				}
 
 									 // don't process sight flag for things which is locked or triggered
-				/*if (!IsOriginalDemo() && pXThink.Sight && pXThink.Locked != 1 && !pXThink.isTriggered) {
-					for (int i = connecthead; i >= 0; i = connectpoint2[i]) {
-						SPRITE pSprite = gPlayer[i].pSprite;
-						if (engine.cansee(pThink.x, pThink.y, pThink.z, pThink.sectnum, pSprite.x, pSprite.y, pSprite.z, pSprite.sectnum)) {
-							trTriggerSprite(nSprite, pXThink, kCommandSpriteSight);
-							break;
-						}
-					}
-				}
 
-				// RESERVED FOR FUTURE AIM FLAG
-				if (pXThink.Aim && pXThink.Locked != 1 && pXThink.isTriggered != true) {
-					for (int i = connecthead; i >= 0; i = connectpoint2[i]) {
-						PLAYER pPlayer = gPlayer[i]; SPRITE pSprite = pPlayer.pSprite;
-							int z = pPlayer.weaponAboveZ - pSprite.z;
-							int hitCode = VectorScan(pPlayer.pSprite, 0, z, (int) pPlayer.aim.x, (int) pPlayer.aim.y, (int) pPlayer.aim.z, Weapon.kAimMaxDist, 0);
-							if (hitCode != SS_SPRITE || pHitInfo.hitsprite != pThink.xvel) continue;
-							trTriggerSprite(nSprite, pXThink, kCommandSpriteAim);
-							pXThink.Locked = 1;
-							break;
-					}
-				}*/
-
-				if (pXThink.Proximity) {
+                if (pXThink.Proximity) {
 					boolean isOriginal = IsOriginalDemo();
 					// don't process locked or 1-shot things for proximity (if not demo)
 					if(!isOriginal && (pXThink.Locked == 1 || pXThink.isTriggered))
@@ -5967,9 +5682,7 @@ public class Actor {
 			pXDude.dudeFlag4 = pXSource.dudeFlag4;
 
 			// the enemy can be available via rx command send.
-			//if (pXDude.rxID > 0)
-				//ru.m210projects.Blood.EVENT.evPut();
-		}
+        }
 
 		aiInit(pDude, IsOriginalDemo());
 		return pDude;
@@ -6094,16 +5807,7 @@ public class Actor {
 			pXThing.isTriggered = false;
 			pXThing.triggerOnce = false;
 			break;
-		/*case kGDXThingCalebHat:
-			pXThing.state = 1;
-			pXThing.data1 = 0;
-			pXThing.data2 = 0;
-			pXThing.data3 = 0;
-			pXThing.data4 = 0;
-			pXThing.isTriggered = false;
-			pXThing.triggerOnce = true;
-			break;*/
-		case kThingZombieHead:
+            case kThingZombieHead:
 			pXThing.data1 = 8;
 			pXThing.data4 = 318;
 			pXThing.targetX |= gFrameClock + 180;

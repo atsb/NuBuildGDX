@@ -1806,32 +1806,7 @@ public class Weapon {
 			new State(FIREBALL + 1, 12, DoFireball), new State(FIREBALL + 2, 12, DoFireball),
 			new State(FIREBALL + 3, 12, DoFireball) };
 
-//	public static final int GORO_FIREBALL = FIREBALL_R0;
-//	public static final int FIREBALL_RATE = 6;
-//
-//	public static final State s_Fireball[][] = {
-//			{ new State( FIREBALL_R0 + 0, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R0 + 1, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R0 + 2, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R0 + 3, FIREBALL_RATE, DoFireball), },
-//			{ new State( FIREBALL_R1 + 0, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R1 + 1, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R1 + 2, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R1 + 3, FIREBALL_RATE, DoFireball), },
-//			{ new State( FIREBALL_R2 + 0, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R2 + 1, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R2 + 2, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R2 + 3, FIREBALL_RATE, DoFireball), },
-//			{ new State( FIREBALL_R3 + 0, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R3 + 1, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R3 + 2, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R3 + 3, FIREBALL_RATE, DoFireball), },
-//			{ new State( FIREBALL_R4 + 0, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R4 + 1, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R4 + 2, FIREBALL_RATE, DoFireball),
-//					new State( FIREBALL_R4 + 3, FIREBALL_RATE, DoFireball), } };
-
-	public static final Animator DoRing = new Animator() {
+    public static final Animator DoRing = new Animator() {
 		@Override
 		public boolean invoke(int Weapon) {
 			return DoRing(Weapon);
@@ -3138,9 +3113,7 @@ public class Weapon {
 					if (sprite[u.lo_sp].lotag == TAG_SPRITE_HIT_MATCH) {
 						if (MissileHitMatch(SpriteNum, -1, u.lo_sp))
 							return (true);
-						// DoMatchEverything(NULL, u.lo_sp.hitag, -1);
-						// return(true);
-					}
+                    }
 
 					return (true);
 				}
@@ -3237,9 +3210,7 @@ public class Weapon {
 			if (hsp.lotag == TAG_SPRITE_HIT_MATCH) {
 				if (MissileHitMatch(SpriteNum, -1, hitsprite))
 					return (true);
-				// DoMatchEverything(NULL, hsp.hitag, -1);
-				// return(true);
-			}
+            }
 
 			if (TEST(hsp.cstat, CSTAT_SPRITE_WALL)) {
 				if (hsp.lotag != 0 || hsp.hitag != 0) {
@@ -3356,14 +3327,10 @@ public class Weapon {
 			if (TEST(u.Flags, SPR_JUMPING)) {
 				DoJump(SpriteNum);
 				jumping = true;
-				// u.ret = move_missile(SpriteNum, dax, day, daz, Z(16), Z(16),
-				// CLIPMASK_MISSILE, MISSILEMOVETICS);
-			} else if (TEST(u.Flags, SPR_FALLING)) {
+            } else if (TEST(u.Flags, SPR_FALLING)) {
 				DoFall(SpriteNum);
 				jumping = true;
-				// u.ret = move_missile(SpriteNum, dax, day, daz, Z(16), Z(16),
-				// CLIPMASK_MISSILE, MISSILEMOVETICS);
-			} else {
+            } else {
 				if (SectUser[sp.sectnum] != null && SectUser[sp.sectnum].depth > 0) {
 					if (klabs(sector[sp.sectnum].floorz - sp.z) <= Z(4)) {
 						KillSprite(SpriteNum);
@@ -4990,10 +4957,7 @@ public class Weapon {
 			}
 
 			SpawnBunnyExp(Weapon);
-			// InitBloodSpray(Weapon,true,-1);
-			// InitBloodSpray(Weapon,true,-1);
-			// InitBloodSpray(Weapon,true,-1);
-			SetSuicide(Weapon);
+            SetSuicide(Weapon);
 			break;
 
 		case SUMO_RUN_R0:
@@ -5946,9 +5910,7 @@ public class Weapon {
 			if (sp == wp)
 				continue;
 
-			// if (!TEST(sp.cstat, CSTAT_SPRITE_BLOCK))
-			// continue;
-			if (!TEST(sp.cstat, CSTAT_SPRITE_BLOCK_HITSCAN))
+            if (!TEST(sp.cstat, CSTAT_SPRITE_BLOCK_HITSCAN))
 				continue;
 
 			// Explosions are spherical, not planes, so let's check that way, well
@@ -6038,9 +6000,7 @@ public class Weapon {
 					sp.xrepeat -= 16;
 					sp.yrepeat -= 16;
 					sp.cstat &= ~(CSTAT_SPRITE_BLOCK | CSTAT_SPRITE_BLOCK_HITSCAN);
-					// RESET(sp.cstat, CSTAT_SPRITE_BLOCK_HITSCAN);
-					// SET(sp.cstat, CSTAT_SPRITE_BLOCK);
-					sp.clipdist = 16 >> 2;
+                    sp.clipdist = 16 >> 2;
 					u.ceiling_dist = (short) Z(2);
 					u.floor_dist = (short) Z(2);
 					// treat this just like a KillSprite but don't kill
@@ -6294,13 +6254,7 @@ public class Weapon {
 		return (0);
 	}
 
-//	// combination of vector manipulation
-//	public static int ComboMissileSeek(int Weapon, int delay_tics, int aware_range, int dang_shift, int turn_limit,
-//			int z_limit) {
-//		return 0;
-//	}
-
-	// completely vector manipulation
+    // completely vector manipulation
 	public static int VectorMissileSeek(int Weapon, int delay_tics, int turn_speed, int aware_range1,
 			int aware_range2) {
 		SPRITE sp = sprite[Weapon];
@@ -6378,12 +6332,7 @@ public class Weapon {
 		return (0);
 	}
 
-//	// completely vector manipulation
-//	public static int VectorWormSeek(int Weapon, int delay_tics, int aware_range1, int aware_range2) {
-//		return 0;
-//	}
-
-	public static int DoBlurExtend(int Weapon, int interval, int blur_num) {
+    public static int DoBlurExtend(int Weapon, int interval, int blur_num) {
 		USER u = pUser[Weapon];
 
 		if (u.motion_blur_num >= blur_num)
@@ -6698,11 +6647,7 @@ public class Weapon {
 		if (TEST(u.Flags, SPR_UNDERWATER) && (RANDOM_P2(1024 << 4) >> 4) < 256)
 			SpawnBubble(Weapon);
 
-		//// DSPRINTF(ds, "dist %d, u.ret %d", FindDistance3D(u.xchange, u.ychange,
-		//// u.zchange>>4), u.ret);
-		// MONO_PRINT(ds);
-
-		if (u.ret != 0) {
+        if (u.ret != 0) {
 			switch (DTEST(u.ret, HIT_MASK)) {
 			case HIT_PLAX_WALL:
 				KillSprite(Weapon);
@@ -8882,10 +8827,8 @@ public class Weapon {
 		sop.sp_num[sn] = explosion;
 
 		// Place sprite exactly where shoot point is
-		// exp.x = eu.ox = sop.xmid - u.sx;
-		// exp.y = eu.oy = sop.ymid - u.sy;
 
-		eu.Flags |= (DTEST(u.Flags, SPR_ON_SO_SECTOR | SPR_SO_ATTACHED));
+        eu.Flags |= (DTEST(u.Flags, SPR_ON_SO_SECTOR | SPR_SO_ATTACHED));
 
 		if (TEST(u.Flags, SPR_ON_SO_SECTOR)) {
 			// move with sector its on
@@ -9934,10 +9877,7 @@ public class Weapon {
 		if (pUser[sp.owner].PlayerP != -1)
 			sp.z += (u.Dist * ((100 - pp.getHorizi()) * HORIZ_MULT)) >> 9;
 
-		// sp.ang = NORM_ANGLE(sp.ang + 512);
-		// updatesector(sp.x, sp.y);
-
-		engine.setsprite(Weapon, sp.x, sp.y, sp.z);
+        engine.setsprite(Weapon, sp.x, sp.y, sp.z);
 
 		engine.getzsofslope(sp.sectnum, sp.x, sp.y, zofslope);
 
@@ -10611,9 +10551,7 @@ public class Weapon {
 				nexti = nextspritestat[i];
 				sp = sprite[i];
 
-				// if (pp.SpriteP == sp) // UnderSprite was getting hit
-				// break;
-				if (pUser[i].PlayerP == pp.pnum)
+                if (pUser[i].PlayerP == pp.pnum)
 					break;
 
 				if (!TEST(sp.extra, SPRX_PLAYER_OR_ENEMY))
@@ -11482,9 +11420,7 @@ public class Weapon {
 			hitz = pHitInfo.hitz;
 
 			if (hitsect < 0) {
-				//// DSPRINTF(ds,"PROBLEM! - FAFhitscan returned a bad hitsect");
-				// MONO_PRINT(ds);
-				continue;
+                continue;
 			}
 
 			if (hitsprite < 0 && hitwall < 0) {
@@ -12233,10 +12169,7 @@ public class Weapon {
 		short oclipdist;
 		short i, ang;
 
-		// DoPlayerBeginRecoil(pp, MICRO_RECOIL_AMT);
-		// PlayerUpdateAmmo(pp, u.WeaponNum, -1);
-
-		nx = pp.posx;
+        nx = pp.posx;
 		ny = pp.posy;
 
 		DoPickTarget(pp.PlayerSprite, 256, 0);
@@ -15264,10 +15197,7 @@ public class Weapon {
 
 		psp.clipdist = oclipdist;
 
-		// dist = FindDistance2D(pp.xvect, pp.yvect)>>12;
-		// dist = dist - (dist/2);
-
-		zvel = wp.zvel;
+        zvel = wp.zvel;
 		if (WeaponAutoAim(pp.PlayerSprite, w, 32, 0) >= 0) {
 			auto_aim = true;
 		}
@@ -15486,9 +15416,7 @@ public class Weapon {
 
 		sp.clipdist = 32 >> 2;
 
-		// u.ret = move_missile(Weapon, xchange, ychange, 0, Z(16), Z(16),
-		// CLIPMASK_MISSILE, 1);
-		u.ret = move_missile(Weapon, xchange, ychange, 0, Z(16), Z(16), 0, 1);
+        u.ret = move_missile(Weapon, xchange, ychange, 0, Z(16), Z(16), 0, 1);
 
 		sp.xvel = old_xvel;
 		sp.clipdist = old_clipdist;
@@ -15640,9 +15568,7 @@ public class Weapon {
 				// dist = Distance(wp.x, wp.y, tsp.x, tsp.y);
 
 				// Determine target Z value
-				// targ_z = tsp.z - Z(SPRITEp_SIZE_Y(sp)) + Z(DIV2(SPRITEp_SIZE_Y(sp)));
-				// targ_z = tsp.z;
-				targ_z = tsp.z - DIV2(Z(SPRITEp_SIZE_Y(sp)));
+                targ_z = tsp.z - DIV2(Z(SPRITEp_SIZE_Y(sp)));
 
 				// (velocity * difference between the target and the throwing star) /
 				// distance
@@ -16006,36 +15932,7 @@ public class Weapon {
 	public static int SpawnUnderSplash(int SpriteNum) {
 		return (0);
 
-//		USER u = pUser[SpriteNum], wu;
-//		SPRITE sp = pUser[SpriteNum].getSprite(), wp;
-//		short w;
-//
-//		Sect_User sectu = SectUser[sp.sectnum];
-//		SECTOR sectp = sector[sp.sectnum];
-//
-//		if (Prediction)
-//			return (0);
-//
-//		if (sectu != null && (DTEST(sectp.extra, SECTFX_LIQUID_MASK) == SECTFX_LIQUID_NONE))
-//			return (0);
-//
-//		DoActorZrange(SpriteNum);
-//		MissileWaterAdjust(SpriteNum);
-//
-//		w = (short) SpawnSprite(STAT_MISSILE, SPLASH, s_Splash[0], sp.sectnum, sp.x, sp.y, u.hiz, sp.ang, 0);
-//		wp = sprite[w];
-//		wu = pUser[w];
-//
-//		if (sectu != null && DTEST(sectp.extra, SECTFX_LIQUID_MASK) == SECTFX_LIQUID_LAVA)
-//			wu.spal = (byte) (wp.pal = PALETTE_RED_LIGHTING);
-//
-//		wp.xrepeat = 72;
-//		wp.yrepeat = 90;
-//		wp.shade = (byte) (sector[sp.sectnum].floorshade - 10);
-//		wp.cstat |= (CSTAT_SPRITE_YFLIP);
-//
-//		return (0);
-	}
+    }
 
 	public static boolean MissileHitDiveArea(int SpriteNum) {
 		USER u = pUser[SpriteNum];

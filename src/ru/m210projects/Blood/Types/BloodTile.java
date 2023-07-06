@@ -46,11 +46,7 @@ public class BloodTile extends Tile {
 			return ViewType.kSpriteView8Full;
 		case 3:
 			return ViewType.kSpriteView5Half;
-//		case 4:
-//			return ViewType.kSpriteView3Flat;
-//		case 5:
-//			return ViewType.kSpriteView4Flat;
-		case 6:
+            case 6:
 			return ViewType.kSpriteViewVoxel;
 		case 7:
 			return ViewType.kSpriteViewSpinVoxel;

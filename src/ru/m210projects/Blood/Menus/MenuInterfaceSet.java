@@ -125,16 +125,7 @@ public class MenuInterfaceSet extends BuildMenu {
 					}
 				}, true);
 		sStatSize.digitalMax = 65536.0f;
-//		MenuSlider sHUDSize = new MenuSlider(app.pSlider,"Hud size:", app.getFont(3), 47, pos += 10, 240, cfg.gHudSize, 16384,
-//				2*65536, 4096, new MenuProc() {
-//					@Override
-//					public void run( MenuHandler handler, MenuItem pItem ) {
-//						MenuSlider slider = (MenuSlider) pItem;
-//						cfg.gHudSize = slider.value;
-//					}
-//				}, true);
-//		sHUDSize.digitalMax = 65536.0f;
-		pos += 5;
+        pos += 5;
 		
 		MenuConteiner sShowMapName = new MenuConteiner("Info at level startup:", app.getFont(3), 46, pos += 10, 240, null, 0,
 				new MenuProc() {

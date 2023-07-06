@@ -236,17 +236,7 @@ public class BloodInput extends BuildControls {
 					while ( index != gViewIndex );
 				}
 
-//				do
-//				{
-//					gViewIndex++;
-//					if (gViewIndex >= gNetPlayers) 
-//						gViewIndex = 0;
-//					if(pGameInfo.nGameType == kNetModeCoop 
-//							|| gPlayer[gViewIndex].teamID == gMe.teamID)
-//						break;
-//				}
-//				while(true);
-			}
+            }
 		}
 		
 		gInput.UseBeastVision = ctrlGetInputKey(BloodKeys.BeastVision, true); 

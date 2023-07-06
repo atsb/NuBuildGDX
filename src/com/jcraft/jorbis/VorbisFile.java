@@ -91,7 +91,7 @@ public class VorbisFile{
     super();
     InputStream is=null;
     try{
-      is=new SeekableInputStream(file);
+      is= new SeekableInputStream(file);
       int ret=open(is, null, 0);
       if(ret==-1){
         throw new JOrbisException("VorbisFile: open return -1");
@@ -905,9 +905,6 @@ public class VorbisFile{
 
     // seek_error:
     // dump the machine so we're in a known state
-    //pcm_offset=-1;
-    //decode_clear();
-    //return -1;
   }
 
   // seek to a sample offset relative to the decompressed pcm stream 
@@ -1018,9 +1015,6 @@ public class VorbisFile{
 
     // seek_error:
     // dump machine so we're in a known state
-    //pcm_offset=-1;
-    //decode_clear();
-    //return -1;
   }
 
   // seek to a playback time relative to the decompressed pcm stream 
@@ -1057,9 +1051,6 @@ public class VorbisFile{
 
     //seek_error:
     // dump machine so we're in a known state
-    //pcm_offset=-1;
-    //decode_clear();
-    //return -1;
   }
 
   // tell the current stream offset cursor.  Note that seek followed by
@@ -1167,9 +1158,6 @@ public class VorbisFile{
     return 1;
     //    short pattern = 0xbabe;
     //    unsigned char *bytewise = (unsigned char *)&pattern;
-    //    if (bytewise[0] == 0xba) return 1;
-    //    assert(bytewise[0] == 0xbe);
-    //    return 0;
   }
 
   // up to this point, everything could more or less hide the multiple
@@ -1339,7 +1327,7 @@ public class VorbisFile{
     datasource.close();
   }
 
-  class SeekableInputStream extends InputStream{
+  static class SeekableInputStream extends InputStream{
     java.io.RandomAccessFile raf=null;
     final String mode="r";
 

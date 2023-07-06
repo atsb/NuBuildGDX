@@ -302,15 +302,7 @@ public class Warp {
 				    checkWz = z;
 				    checkWs = (short) nSector;
 
-//				    int nMirror = sector[nSector].floorpicnum;
-//				    if ( (gotpic[nMirror >> 3] & pow2char[nMirror & 7]) == 0 )
-//				    {
-//				    	gotpic[Mirror.MIRRORLABEL >> 3] = 0;
-//				    	gotpic[(Mirror.MIRRORLABEL >> 3) + 1] = 0;
-//				    	engine.setgotpic(nMirror);
-//				    }
-
-					return sprite[nLower].lotag;
+                    return sprite[nLower].lotag;
 				}
 			}
 		}
@@ -320,16 +312,6 @@ public class Warp {
 	    checkWz = z;
 	    checkWs = (short) nSector;
 
-//	    if(nSector != -1 && gLowerLink[nSector] != -1) { // 12.12.2018 I forgot why I need this tweak. Maybe just an old code?
-//		    int nMirror1 = sector[nSector].ceilingpicnum;
-//		    if ( (gotpic[nMirror1 >> 3] & pow2char[nMirror1 & 7]) == 0 )
-//		    {
-//		    	gotpic[Mirror.MIRRORLABEL >> 3] = 0;
-//		    	gotpic[(Mirror.MIRRORLABEL >> 3) + 1] = 0;
-//		    	engine.setgotpic(nMirror1);
-//		    }
-//	    }
-
-		return 0;
+        return 0;
 	}
 }

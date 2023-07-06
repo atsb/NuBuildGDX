@@ -60,33 +60,7 @@ public class LSPEngine extends BuildEngine {
 		fpscol = 4;
 	}
 
-//	private boolean key = false;
-//	@Override
-//	public void sampletimer() {
-//		if (timerfreq == 0)
-//			return;
-//
-//		long n = (getticks() * timerticspersec / timerfreq) - timerlastsample;
-//		if (n > 0) {
-//			if(game.isCurrentScreen(gDemoScreen)) {
-////				totalclock += 8;
-//				if(BuildGdx.input.isKeyPressed(Keys.UP)) {
-//					if(!key) {
-//						totalclock += 4;
-//						if(totalclock < 18860)
-//							totalclock = 18860;
-//						if(BuildGdx.input.isKeyPressed(Keys.SHIFT_RIGHT)) {
-//							key = true;
-//						}
-//					}
-//				} else key = false;
-//			} else totalclock += n;
-//
-//			timerlastsample += n;
-//		}
-//	}
-
-	@Override
+    @Override
 	public boolean setrendermode(Renderer render) {
 		if(this.render != null && this.render != render)
 		{
@@ -370,10 +344,7 @@ public class LSPEngine extends BuildEngine {
 
 		initfastcolorlookup(30, 59, 11);
 
-//		palette1 = BuildGdx.cache.getBytes(2, ""); //game palette
-//		palette2 = BuildGdx.cache.getBytes(1, ""); //damage palette
-
-		paletteloaded = 1;
+        paletteloaded = 1;
 
 		byte[] remapbuf = new byte[256];
 		remapbuf[56] = remapbuf[57] = remapbuf[58] = 96;

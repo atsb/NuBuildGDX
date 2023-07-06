@@ -33,10 +33,6 @@ public class WinReg {
 		}
 	}
 
-	// public static Boolean checkRegKey(String path) {
-
-	// }
-
 	static class StreamReader extends Thread {
 		private InputStream is;
 		private StringWriter sw;

@@ -259,9 +259,7 @@ public class Tesselator {
 			SECTOR sec = sector[num];
 			surf.picnum = type == Type.Floor ? sec.floorpicnum : sec.ceilingpicnum;
 			surf.obj = sec;
-//			surf.shade = type == Type.Floor ? sec.floorshade : sec.ceilingshade;
-//			surf.pal = type == Type.Floor ? sec.floorpal : sec.ceilingpal;
-			Tile pic = engine.getTile(surf.picnum);
+            Tile pic = engine.getTile(surf.picnum);
 
 			int n = 0, j = 0;
 			for (int i = 0; i < zoids.size(); i++) {

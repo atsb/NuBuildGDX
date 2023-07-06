@@ -117,10 +117,8 @@ public class TextureManager {
 				tile.update(data, fmt == PixelFormat.Pal8 ? 0 : dapalnum, useMipMaps);
 			}
 		} else {
-//			if (tile != null)
-//				cache.dispose(dapicnum); // old texture
 
-			if (si != null && dapalnum != 0 && info.findTexture(dapicnum, 0, skybox) == si
+            if (si != null && dapalnum != 0 && info.findTexture(dapicnum, 0, skybox) == si
 					&& (tile = cache.get(dapicnum, 0, clamping, skybox)) != null)
 				return tile;
 
@@ -169,9 +167,7 @@ public class TextureManager {
 	protected TileData loadPic(PixelFormat fmt, Hicreplctyp hicr, int dapicnum, int dapalnum, boolean clamping,
 			boolean alpha, int skybox) {
 
-		// System.err.println("loadPic " + dapicnum + " " + dapalnum + " clamping: " +
-		// clamping);
-		if (hicr != null) {
+        if (hicr != null) {
 			String fn = checkResource(hicr, dapicnum, skybox);
 			byte[] data = BuildGdx.cache.getBytes(fn, 0);
 			if (data != null) {
@@ -363,7 +359,7 @@ public class TextureManager {
 
 	// Indexed texture params and methods
 
-	private abstract class ShaderData extends DummyTileData {
+	private abstract static class ShaderData extends DummyTileData {
 
 		public ShaderData(byte[] buf, int w, int h, int bytes) {
 			super(bytes != 1 ? PixelFormat.Rgb : PixelFormat.Pal8, w, h);

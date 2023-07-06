@@ -736,9 +736,6 @@ public class Weapons {
 			}
 			break;
 		case 8:
-//			if (enchantedsoundhandle == -1 && plr.weapon[plr.selectedgun] == 3) {
-//				enchantedsoundhandle = playsound(S_FIREWEAPONLOOP, 0, 0, -1);
-//			}
 			weapondropgoal = 40;
 			weapondrop = 0;
 			break;
@@ -2822,9 +2819,6 @@ public class Weapons {
 			sprite[j].lotag = 256;
 			sprite[j].hitag = 0;
 			sprite[j].clipdist = 64;
-
-			// dax=(sintable[(sprite[j].ang+512)&2047]>>6);
-			// day=(sintable[sprite[j].ang]>>6);
 
 			movesprite(j, ((sintable[(sprite[j].ang + 512) & 2047]) * TICSPERFRAME) << 3,
 					((sintable[sprite[j].ang & 2047]) * TICSPERFRAME) << 3, 0, 4 << 8, 4 << 8, 0);

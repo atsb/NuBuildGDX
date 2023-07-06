@@ -746,9 +746,6 @@ public class LoadSave {
 		UFO_SpawnTime = bb.UFO_SpawnTime;
 		UFO_SpawnHulk = bb.UFO_SpawnHulk;
 
-		// gEndFirstEpisode = bb.gEndFirstEpisode;
-		// gEndGame = bb.gEndGame;
-
 		InitSpecialTextures();
 
 		BowlReset();

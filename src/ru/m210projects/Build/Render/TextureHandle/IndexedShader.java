@@ -91,16 +91,8 @@ public abstract class IndexedShader extends ShaderProgram {
 	protected int shadeloc;
 	protected int alphaloc;
 	protected int draw255loc;
-//	private int fogenableloc;
-//	private int fogstartloc;
-//	private int fogendloc;
-//	private int fogcolourloc;
-//	private int cx1loc;
-//	private int cy1loc;
-//	private int cx2loc;
-//	private int cy2loc;
 
-	protected boolean isBinded;
+    protected boolean isBinded;
 //	private boolean glfog = false; //
 
 	protected int lastPal, lastShade, lastVisibility;
@@ -128,19 +120,8 @@ public abstract class IndexedShader extends ShaderProgram {
 		this.shadeloc = getUniformLocation("u_shade");
 		this.alphaloc = getUniformLocation("u_alpha");
 		this.draw255loc = getUniformLocation("u_draw255");
-//		this.fogenableloc = getUniformLocation("u_fogenable");
-//		this.fogstartloc = getUniformLocation("u_fogstart");
-//		this.fogendloc = getUniformLocation("u_fogend");
-//		this.fogcolourloc = getUniformLocation("u_fogcolour");
-//		this.cx1loc = getUniformLocation("u_cx1");
-//		this.cy1loc = getUniformLocation("u_cy1");
-//		this.cx2loc = getUniformLocation("u_cx2");
-//		this.cy2loc = getUniformLocation("u_cy2");
 
-//		begin();
-//		setClip(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-//		end();
-	}
+    }
 
 	public abstract void bindPalette(int unit);
 
@@ -162,14 +143,7 @@ public abstract class IndexedShader extends ShaderProgram {
 		return isBinded;
 	}
 
-//	public void setClip(float x1, float y1, float x2, float y2) {
-//		setUniformf(cx1loc, x1);
-//		setUniformf(cy1loc, ydim - y1);
-//		setUniformf(cx2loc, x2);
-//		setUniformf(cy2loc, ydim - y2);
-//	}
-
-	public void setTextureParams(int pal, int shade) {
+    public void setTextureParams(int pal, int shade) {
 		setUniformi(numshadesloc, numshades);
 
 		bindPalette(GL20.GL_TEXTURE1);
@@ -218,24 +192,5 @@ public abstract class IndexedShader extends ShaderProgram {
 	public boolean getDrawLastIndex() {
 		return drawLastIndex;
 	}
-
-//	public void setFogParams(boolean enable, float start, float end, float[] fogcolor) {
-//		boolean binded = isBinded();
-//		if (!binded)
-//			begin();
-//
-//		if (!glfog) {
-//			setUniformi(fogenableloc, -1);
-//		} else {
-//			setUniformi(fogenableloc, enable ? 1 : 0);
-//			if (enable) {
-//				setUniformf(fogstartloc, start);
-//				setUniformf(fogendloc, end);
-//				setUniform4fv(fogcolourloc, fogcolor, 0, 4);
-//			}
-//		}
-//		if (!binded)
-//			end();
-//	}
 
 }

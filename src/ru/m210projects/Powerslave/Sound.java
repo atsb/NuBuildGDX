@@ -309,17 +309,6 @@ public class Sound {
 		if(MusicPlaying() && currTrack == nTrack)
 			return true;
 
-//		if (game.currentDef != null) { // music from def file
-//			String CD = game.currentDef.audInfo.getDigitalInfo(track[nTrack]);
-//			if (CD != null && !CD.isEmpty()
-//					&& (currMusic = BuildGdx.audio.newMusic(MusicType.Digital, CD)) != null) {
-//				StopMusic();
-//				currTrack = nTrack;
-//				currMusic.play(true);
-//				return true;
-//			}
-//		}
-
 		MusicSource mus = null;
 		if(cdtracks != null && nTrack > 0 && nTrack <= cdtracks.length && cdtracks[nTrack - 1] != null && (mus = BuildGdx.audio.newMusic(MusicType.Digital, cdtracks[nTrack - 1])) != null) {
 			StopMusic();
@@ -337,22 +326,6 @@ public class Sound {
 		if(!cfg.muteMusic)
 			BuildGdx.audio.setVolume(Driver.Music, cfg.musicVolume);
 		else BuildGdx.audio.setVolume(Driver.Music, 0);
-
-//		if ( cfg.musicType == 1 && game.currentDef != null) { //music from def file
-//			String himus = game.currentDef.audInfo.getDigitalInfo(pGameInfo.zLevelSong);
-//			if(himus != null)
-//			{
-//				if(currMusic != null && currMusic.isPlaying() && currSong == himus)
-//					return;
-//
-//				StopMusic();
-//				if((currMusic = BuildGdx.audio.newMusic(MusicType.Digital, himus)) != null) {
-//					currSong = himus;
-//					currMusic.play(true);
-//					return;
-//				}
-//			}
-//		}
 
 		if (mUserFlag != UserFlag.UserMap)
 		{

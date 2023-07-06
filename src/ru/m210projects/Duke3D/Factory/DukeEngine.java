@@ -38,13 +38,7 @@ public class DukeEngine extends BuildEngine {
 	@Override
 	public void sampletimer() {
 
-//		if (Gdx.input.isKeyJustPressed(Keys.UP)) {
-//			timerticspersec = 1;
-//			timerlastsample = System.nanoTime() * timerticspersec / (timerfreq * 1000000);
-//			timerskipticks = (timerfreq / timerticspersec) * ticks;
-//		}
-
-		super.sampletimer();
+        super.sampletimer();
 	}
 
 	@Override

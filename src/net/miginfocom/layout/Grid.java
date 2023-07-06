@@ -835,10 +835,8 @@ public final class Grid
 
 	private Float[] getDefaultPushWeights(boolean isRows)
 	{
-//		if (hasPush == false && (isRows ? lc.isFillY() : lc.isFillX()) == false)
-//			return null;
 
-		ArrayList<LinkedDimGroup>[] groupLists = isRows ? rowGroupLists : colGroupLists;
+        ArrayList<LinkedDimGroup>[] groupLists = isRows ? rowGroupLists : colGroupLists;
 
 		Float[] pushWeightArr = GROW_100;   // Only create specific if any of the components have grow.
 		for (int i = 0, ix = 1; i < groupLists.length; i++, ix += 2) {

@@ -1742,9 +1742,7 @@ public class Weapons {
 					sprite[spr].owner = (short) (plr + 4096);
 					sprite[spr].lotag = 63;
 
-					// engine.movesprite(spr, -(sintable[(ang + 512) & 0x7FF] >> 7), -(sintable[ang]
-					// >> 7), 0, 128, 1024, 1024, CLIPMASK1, 4);
-				}
+                }
 			} else if (pHitInfo.hitsprite >= 0) {
 				if (Math.abs(pHitInfo.hitx - x) + Math.abs(pHitInfo.hity - y) < 600) {
 					SPRITE en = sprite[pHitInfo.hitsprite];

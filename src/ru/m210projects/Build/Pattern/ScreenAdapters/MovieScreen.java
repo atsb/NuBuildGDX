@@ -113,26 +113,7 @@ public abstract class MovieScreen extends SkippableAdapter {
 		}
 		nScale = (int) (scale * 65536);
 
-//        if(3 * xdim / 4 <= ydim)
-//        	nScale = divscale(310, tilesizy[TILE_MOVIE], 16);
-//        else
-//        	nScale = divscale(190, tilesizx[TILE_MOVIE], 16);
-//        nPosX = 160;
-//        nPosY = 100;
-
-//        float kt = tilesizy[TILE_MOVIE] / (float) tilesizx[TILE_MOVIE];
-//        float kv = xdim / (float) ydim;
-//
-//        float scale = 1.0f;
-//        if(kv >= kt)
-//        	scale = (ydim / (float) tilesizx[TILE_MOVIE]);
-//        else scale = (xdim / (float) tilesizy[TILE_MOVIE]);
-//
-//        nScale = (int) (scale * 65536.0f);
-//        nPosX = (xdim / 2) - (int) (tilesizy[TILE_MOVIE] / 2.0f * scale);
-//        nPosY = (ydim / 2) - (int) (tilesizx[TILE_MOVIE] / 2.0f * scale);
-
-		for (int i = 0; i < MAXPALOOKUPS; i++)
+        for (int i = 0; i < MAXPALOOKUPS; i++)
 			palookup[0][i] = (byte) i;
 
 		changepalette(mvfil.getPalette());

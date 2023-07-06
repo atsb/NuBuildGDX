@@ -6,8 +6,6 @@ public class Songtype {
 	public MusicSource handle;
 //	public int       handle;
 	public int       offset;
-//	public int       playing;
-//	public int       pending;
-	public  byte[]   buffer;
+public  byte[]   buffer;
 	public int       length;
 }
