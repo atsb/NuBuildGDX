@@ -197,16 +197,16 @@ public class DemoScreen extends GameScreen {
             }
         }
 
-        if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
+        if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
             if (ud.screen_size > 0) {
                 sound(THUD);
-                enlargeScreen();
+                shrinkScreen();
             }
         }
-        if (input.ctrlGetInputKey(GameKeys.Shrink_Hud, true)) {
+        else if (input.ctrlGetInputKey(GameKeys.Enlarge_Hud, true)) {
             if (ud.screen_size < 3) {
                 sound(THUD);
-                shrinkScreen();
+                enlargeScreen();
             }
         }
     }
