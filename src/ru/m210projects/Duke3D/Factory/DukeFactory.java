@@ -61,8 +61,6 @@ public class DukeFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new DukeSoftware(app.pEngine);
-		else if (type == RenderType.PolyGDX)
-			return new DukePolygdx(app.pEngine);
 		else
 			return new DukePolymost(app.pEngine);
 	}

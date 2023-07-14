@@ -72,8 +72,6 @@ public class LSPFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new LSPSoftware(app.pEngine);
-		if (type == RenderType.PolyGDX)
-			return new LSPPolygdx(app.pEngine);
 		else
 			return new LSPPolymost(app.pEngine);
 	}

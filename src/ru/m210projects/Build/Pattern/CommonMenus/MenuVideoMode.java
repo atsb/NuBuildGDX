@@ -239,7 +239,6 @@ public abstract class MenuVideoMode extends BuildMenu {
 						switch(item.num) {
 							case 0: choosedRender = RenderType.Software; break;
 							case 1: choosedRender = RenderType.Polymost; break;
-							case 2: choosedRender = RenderType.PolyGDX; break;
 						}
 					}
 				});
@@ -248,8 +247,7 @@ public abstract class MenuVideoMode extends BuildMenu {
 
 		String[] renderers = new String[] {
 			RenderType.Software.getName(),
-			RenderType.Polymost.getName(),
-			RenderType.PolyGDX.getName()
+			RenderType.Polymost.getName()
 		};
 		mRenderer = new MenuConteiner("Renderer", style, posx, posy += itemHeight, width, renderers, 0, renderCallback) {
 			@Override
@@ -258,7 +256,6 @@ public abstract class MenuVideoMode extends BuildMenu {
 				switch(currentRender) {
 					case Software: num = 0; break;
 					case Polymost: num = 1; break;
-					case PolyGDX: num = 2; break;
 				}
 			}
 		};

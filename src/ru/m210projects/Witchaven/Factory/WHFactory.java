@@ -17,7 +17,6 @@ import ru.m210projects.Build.Pattern.MenuItems.MenuHandler;
 import ru.m210projects.Build.Pattern.MenuItems.SliderDrawable;
 import ru.m210projects.Build.Render.Renderer;
 import ru.m210projects.Build.Render.Renderer.RenderType;
-import ru.m210projects.Build.Render.GdxRender.GDXRenderer;
 import ru.m210projects.Build.Script.DefScript;
 import ru.m210projects.Witchaven.Main;
 import ru.m210projects.Witchaven.Fonts.HealthFont;
@@ -51,8 +50,6 @@ public class WHFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new WHSoftware(app.pEngine);
-		else if (type == RenderType.PolyGDX)
-			return new GDXRenderer(app.pEngine, new WHMapSettings());
 		else
 			return new WHPolymost(app.pEngine);
 	}

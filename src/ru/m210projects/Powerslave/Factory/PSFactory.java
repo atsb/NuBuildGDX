@@ -62,8 +62,6 @@ public class PSFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new PSSoftware(app.pEngine);
-		else if (type == RenderType.PolyGDX)
-			return new PSPolygdx(app.pEngine);
 		else
 			return new PSPolymost(app.pEngine);
 	}

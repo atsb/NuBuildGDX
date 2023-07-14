@@ -20,7 +20,6 @@ import ru.m210projects.Build.Pattern.MenuItems.MenuHandler;
 import ru.m210projects.Build.Pattern.MenuItems.SliderDrawable;
 import ru.m210projects.Build.Render.Renderer;
 import ru.m210projects.Build.Render.Renderer.RenderType;
-import ru.m210projects.Build.Render.GdxRender.GDXRenderer;
 import ru.m210projects.Build.Script.DefScript;
 import ru.m210projects.Wang.Main;
 import ru.m210projects.Wang.Fonts.GameFont;
@@ -46,15 +45,6 @@ public class WangFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new WangSoftware(app.pEngine);
-		else if (type == RenderType.PolyGDX) {
-			return new GDXRenderer(app.pEngine, new WangMapSettings()) {
-				@Override
-				protected int[] getMirrorTextures() {
-					return new int[] { MIRROR, FAF_PLACE_MIRROR_PIC, FAF_MIRROR_PIC, MIRRORLABEL + 0, MIRRORLABEL + 1, MIRRORLABEL + 2, MIRRORLABEL + 3, MIRRORLABEL + 4,
-							MIRRORLABEL + 5, MIRRORLABEL + 6, MIRRORLABEL + 7 };
-				}
-			};
-		}
 		else
 			return new WangPolymost(app.pEngine);
 	}

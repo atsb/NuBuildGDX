@@ -60,7 +60,6 @@ import ru.m210projects.Build.Render.GLRenderer;
 import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
 import ru.m210projects.Build.Render.Renderer;
 import ru.m210projects.Build.Render.Renderer.RenderType;
-import ru.m210projects.Build.Render.GdxRender.GDXRenderer;
 import ru.m210projects.Build.Render.Software.Software;
 import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
 import ru.m210projects.Build.Render.Types.FadeEffect;
@@ -3448,15 +3447,6 @@ public abstract class Engine {
 		xyaspect = divscale(1, yxaspect, 32);
 		xdimenscale = scale(xdimen, yxaspect, 320);
 		xdimscale = scale(320, xyaspect, xdimen);
-
-		if (render.getType() == RenderType.PolyGDX) {
-			int w = 320;
-			if((4 * xdim / 5) == ydim)
-				w = 300;
-			float k = daxrange / (float) divscale(xdim * 240, ydim * w, 16);
-			((GDXRenderer) render)
-					.setFieldOfView(offscreenrendering ? 110 : (float) Math.toDegrees(2 * Math.atan(k * fovFactor)));
-		}
 	}
 
 	public void setFov(int fov) {

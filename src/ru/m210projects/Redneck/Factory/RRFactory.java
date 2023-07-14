@@ -62,8 +62,6 @@ public class RRFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new RRSoftware(app.pEngine);
-		else if (type == RenderType.PolyGDX)
-			return new RRPolygdx(app.pEngine);
 		else
 			return new RRPolymost(app.pEngine);
 	}

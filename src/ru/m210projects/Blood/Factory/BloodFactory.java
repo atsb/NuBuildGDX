@@ -64,8 +64,6 @@ public class BloodFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new BloodSoftware(app.pEngine);
-		if (type == RenderType.PolyGDX)
-			return new BloodPolygdx(app.pEngine);
 		else
 			return new BloodPolymost(app.pEngine);
 	}

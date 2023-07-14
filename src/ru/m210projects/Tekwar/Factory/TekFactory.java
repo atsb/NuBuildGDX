@@ -46,8 +46,6 @@ public class TekFactory extends BuildFactory {
 	public Renderer renderer(RenderType type) {
 		if (type == RenderType.Software)
 			return new TekSoftware(app.pEngine);
-		else if (type == RenderType.PolyGDX)
-			return new TekPolygdx(app.pEngine);
 		else
 			return new TekPolymost(app.pEngine);
 	}
