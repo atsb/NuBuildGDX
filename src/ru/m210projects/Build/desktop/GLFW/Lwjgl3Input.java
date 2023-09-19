@@ -149,19 +149,10 @@ public class Lwjgl3Input implements BuildInput {
 
 		@Override
 		public void invoke(long windowHandle, double x, double y) {
-			deltaX = (int)x - logicalMouseX;
-			deltaY = (int)y - logicalMouseY;
-			mouseX = logicalMouseX = (int)x;
-			mouseY = logicalMouseY = (int)y;
-
-			if(frame.getConfig().hdpiMode == HdpiMode.Pixels) {
-				float xScale = frame.getGraphics().getBackBufferWidth() / (float)frame.getGraphics().getLogicalWidth();
-				float yScale = frame.getGraphics().getBackBufferHeight() / (float)frame.getGraphics().getLogicalHeight();
-				deltaX = (int)(deltaX * xScale);
-				deltaY = (int)(deltaY * yScale);
-				mouseX = (int)(mouseX * xScale);
-				mouseY = (int)(mouseY * yScale);
-			}
+			deltaX = (int) x - logicalMouseX;
+			deltaY = (int) y - logicalMouseY;
+			mouseX = logicalMouseX = (int) x;
+			mouseY = logicalMouseY = (int) y;
 
 			frame.getGraphics().requestRendering();
 			if (mousePressed > 0) {
