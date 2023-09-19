@@ -288,15 +288,6 @@ public class Settings extends FramePanel {
 		});
 		settingsBox.add(chckbxEnableAutoloadFolder);
 
-		chckbxCheckForUpdates = new JCheckBox("Check for updates on startup");
-		chckbxCheckForUpdates.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				entry.getConfig().checkVersion = e.getStateChange() == 1;
-			}
-		});
-		settingsBox.add(chckbxCheckForUpdates);
-
 		chckbxAlwaysShowThis = new JCheckBox("Always show this window at startup");
 		chckbxAlwaysShowThis.addItemListener(new ItemListener() {
 			@Override

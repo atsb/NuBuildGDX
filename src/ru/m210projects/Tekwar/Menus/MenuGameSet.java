@@ -42,16 +42,6 @@ public class MenuGameSet extends BuildMenu {
 					}
 				}, null, null);
 		sShowCutscenes.pal = 2;
-
-		MenuSwitch sCheckVersion = new MenuSwitch("Check for updates:", app.getFont(0), x,
-				pos += 10, width, cfg.checkVersion, new MenuProc() {
-				
-					public void run(MenuHandler handler, MenuItem pItem) {
-						MenuSwitch sw = (MenuSwitch) pItem;
-						cfg.checkVersion = sw.value;
-					}
-				}, null, null);
-		sCheckVersion.pal = 2;
 		
 		MenuSwitch mHead = new MenuSwitch("Head bob:", app.getFont(0), x, pos += 10, width, cfg.gHeadBob, new MenuProc() {
 			public void run(MenuHandler handler, MenuItem pItem) {
@@ -96,7 +86,6 @@ public class MenuGameSet extends BuildMenu {
 	
 		addItem(sStartup, true);
 		addItem(sShowCutscenes, false);
-		addItem(sCheckVersion, false);
 		addItem(mHead, false);
 		addItem(sOverlay, false);
 		addItem(saveguns, false);

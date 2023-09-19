@@ -113,15 +113,6 @@ public class MenuGameSet extends BuildMenu {
 					}
 				}, null, null);
 
-		MenuSwitch sCheckVersion = new MenuSwitch("Check for updates:", app.getFont(3), 46, pos += 10, 240, cfg.checkVersion,
-				new MenuProc() {
-					@Override
-					public void run( MenuHandler handler, MenuItem pItem ) {
-						MenuSwitch sw = (MenuSwitch) pItem;
-						cfg.checkVersion = sw.value;
-					}
-				}, null, null);
-
 		MenuConteiner mPlayingDemo = new MenuConteiner("Demos playback:", app.getFont(3), 46, pos += 10, 240, null, 0,
 				new MenuProc() {
 					@Override
@@ -178,7 +169,6 @@ public class MenuGameSet extends BuildMenu {
 		addItem(sSecretCount, false);
 		addItem(sStartup, false);
 		addItem(sShowCutscenes, false);
-		addItem(sCheckVersion, false);
 		addItem(mPlayingDemo, false);
 		addItem(sOverlay, false);
 		addItem(mVanilla, false);

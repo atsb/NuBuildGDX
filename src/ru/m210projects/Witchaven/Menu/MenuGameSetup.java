@@ -47,21 +47,9 @@ public class MenuGameSetup extends BuildMenu {
 		if(!app.WH2)
 		sStartup.switchFont = app.getFont(1);
 
-		MenuSwitch sCheckVersion = new MenuSwitch("Check for updates:", app.getFont(0), 46, pos += 15, 240, whcfg.checkVersion,
-				new MenuProc() {
-					@Override
-					public void run( MenuHandler handler, MenuItem pItem ) {
-						MenuSwitch sw = (MenuSwitch) pItem;
-						whcfg.checkVersion = sw.value;
-					}
-				}, null, null);
-		if(!app.WH2)
-		sCheckVersion.switchFont = app.getFont(1);
-
 		addItem(mLogo, false);
 		addItem(sGore, true);
 		addItem(sShowCutscenes, false);
 		addItem(sStartup, false);
-		addItem(sCheckVersion, false);
 	}
 }

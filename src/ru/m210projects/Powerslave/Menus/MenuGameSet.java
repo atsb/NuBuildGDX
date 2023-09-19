@@ -51,16 +51,6 @@ public class MenuGameSet extends BuildMenu {
 			}
 		}, null, null);
 		sStartup.fontShadow = true;
-
-		MenuSwitch sCheckVersion = new MenuSwitch("Check for updates:", app.getFont(0), 25, pos += 12, 280, cfg.checkVersion,
-				new MenuProc() {
-					@Override
-					public void run( MenuHandler handler, MenuItem pItem ) {
-						MenuSwitch sw = (MenuSwitch) pItem;
-						cfg.checkVersion = sw.value;
-					}
-				}, null, null);
-		sCheckVersion.fontShadow = true;
 		
 		MenuSwitch sShadows = new MenuSwitch("Object shadows:", app.getFont(0), 25, pos += 12, 280, cfg.bNewShadows,
 				new MenuProc() {
@@ -149,7 +139,6 @@ public class MenuGameSet extends BuildMenu {
 		addItem(mTitle, false);
 		addItem(sAutoAim, true);
 		addItem(sStartup, false);
-		addItem(sCheckVersion, false);
 		addItem(sShadows, false);
 		addItem(sSubtitles, false);
 		addItem(sGrenade, false);
