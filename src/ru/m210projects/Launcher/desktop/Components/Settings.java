@@ -70,7 +70,6 @@ public class Settings extends FramePanel {
 	public JCheckBox chckbxFullscreen;
 	public JCheckBox chckbxBorderless;
 	public JCheckBox chckbxEnableAutoloadFolder;
-	public JCheckBox chckbxCheckForUpdates;
 	public JCheckBox chckbxUseHomeFolder;
 	public JCheckBox chckbxAlwaysShowThis;
 	public JButton btnOpenFolder;
@@ -363,7 +362,6 @@ public class Settings extends FramePanel {
 			comboMidi.setSelectedIndex(0);
 
 		chckbxEnableAutoloadFolder.setSelected(cfg.autoloadFolder);
-		chckbxCheckForUpdates.setSelected(cfg.checkVersion);
 
 		boolean canUseHomeFolder = portableEntry != null && portableEntry == entry;
 
