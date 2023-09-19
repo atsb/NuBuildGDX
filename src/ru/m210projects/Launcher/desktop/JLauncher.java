@@ -84,8 +84,7 @@ public class JLauncher extends JFrame {
 		setResizable(false);
 		setLayout(new MigLayout("", "[][grow 1]", "[::100px,fill][grow,top][bottom]"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setIconImage(
-				Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/" + iconPath + "/build32.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/" + iconPath + "/build32.png")));
 
 		this.entries = entry;
 		buttonLinker = new HashMap<GameEntry, GameButton>(entry.length);

@@ -127,8 +127,7 @@ public class GameServices {
 				input.close();
 			} catch (Exception e) {
 				e.printStackTrace();
-				return;
-			}
+            }
 		} else {
 			System.out.println("Steam folder not found");
 		}
