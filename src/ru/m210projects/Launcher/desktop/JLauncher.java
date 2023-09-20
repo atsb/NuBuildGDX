@@ -189,7 +189,6 @@ public class JLauncher extends JFrame {
 	}
 
 	public void showPanel(FrameButton button) {
-		button.requestFocus();
 		if (button.panelName != null)
 			cl_RightPanel.show(RightPanel, button.panelName);
 		if (button.logoName != null)
