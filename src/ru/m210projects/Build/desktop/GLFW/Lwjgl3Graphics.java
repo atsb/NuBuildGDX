@@ -164,34 +164,6 @@ public class Lwjgl3Graphics extends BuildGraphics {
 			}
 		}
 
-		Array<String> iconPaths = config.getIconPaths();
-		if (iconPaths.size > 0) {
-			GLFWImage.Buffer buffer = GLFWImage.malloc(iconPaths.size);
-
-			for (int i = 0, n = iconPaths.size; i < n; i++) {
-				Pixmap pixmap = new Pixmap(
-						BuildGdx.files.getFileHandle(iconPaths.get(i), config.getIconFileTypes().get(i)));
-				if (pixmap.getFormat() != Format.RGBA8888) {
-					Pixmap rgba = new Pixmap(pixmap.getWidth(), pixmap.getHeight(), Format.RGBA8888);
-					rgba.setBlending(Pixmap.Blending.None);
-					rgba.drawPixmap(pixmap, 0, 0);
-					pixmap.dispose();
-					pixmap = rgba;
-				}
-
-				GLFWImage icon = GLFWImage.malloc();
-				icon.set(pixmap.getWidth(), pixmap.getHeight(), pixmap.getPixels());
-				buffer.put(icon);
-
-				icon.free();
-				pixmap.dispose();
-			}
-
-			buffer.position(0);
-			GLFW.glfwSetWindowIcon(windowHandle, buffer);
-			buffer.free();
-		}
-
 		GLFW.glfwSetWindowFocusCallback(windowHandle, focusCallback);
 		GLFW.glfwSetFramebufferSizeCallback(windowHandle, resizeCallback);
 
