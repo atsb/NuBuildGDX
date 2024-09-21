@@ -1,0 +1,38 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NuBuildGDX:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NuBuildGDX_jar</output-path>
+    <root id="archive" name="NuBuildGDX.jar">
+      <element id="module-output" name="NuBuildGDX2" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-glfw-3.2.3-natives-windows.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx-backend-lwjgl3-1.9.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-opengl-3.2.3-natives-windows.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jna-5.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jna-openal-natives-windows.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-opengl-3.2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-3.2.3-natives-windows.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-3.2.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx-platform-1.9.10-natives-desktop.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jinput-2.0.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/annotations-24.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx-1.9.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jinput-platform-2.0.7-natives-all.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-glfw-3.2.3.jar" path-in-jar="/" />
+      <element id="directory" name="Games">
+        <element id="dir-copy" path="$PROJECT_DIR$/Games" />
+      </element>
+      <element id="directory" name="Headers">
+        <element id="dir-copy" path="$PROJECT_DIR$/Headers" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/bloodgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/dukegdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/lspgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/psgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/rrgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/swgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/twgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/whgdx.dat" />
+      <element id="file-copy" path="$PROJECT_DIR$/gpl3.txt" />
+      <element id="file-copy" path="$PROJECT_DIR$/buildlic.txt" />
+    </root>
+  </artifact>
+</component>

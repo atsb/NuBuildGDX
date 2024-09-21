@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jna-openal-natives-windows">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/jna-openal-natives-windows.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
