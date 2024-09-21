@@ -43,7 +43,6 @@ public abstract class MenuRendererSettings extends BuildMenuList {
 	protected MenuSlider fovSlider;
 	protected MenuSwitch vSync;
 	protected MenuSwitch useVoxels;
-	protected MenuConteiner fpsLimits;
 	protected DummyItem separator;
 	protected MenuSlider GLGamma;
 protected MenuConteiner GLTextureFilter;
@@ -103,7 +102,6 @@ protected MenuConteiner GLTextureFilter;
 
 			this.addItem(fovSlider, false);
 			this.addItem(vSync, false);
-			this.addItem(fpsLimits, false);
             this.addItem(useVoxels, false);
 
             this.addItem(separator, false);
@@ -115,7 +113,6 @@ protected MenuConteiner GLTextureFilter;
 			this.addItem(separator, false);
 			this.addItem(fovSlider, false);
 			this.addItem(vSync, false);
-			this.addItem(fpsLimits, false);
 			this.addItem(useVoxels, false);
 		}
 	}
@@ -260,7 +257,6 @@ protected MenuConteiner GLTextureFilter;
 		String[] limits = new String[BuildSettings.fpslimits.length];
 		for (int i = 0; i < limits.length; i++)
 			limits[i] = i == 0 ? "None" : BuildSettings.fpslimits[i] + " fps";
-		fpsLimits = BuildConteiner("Framerate limit", BuildSettings.fpsLimit, limits, BuildSettings.fpslimits);
 		useVoxels = BuildSwitch("Voxels", BuildSettings.useVoxels);
 
 		RenderParamBuilt = true;
