@@ -2,7 +2,7 @@
   <artifact type="jar" name="NuBuildGDX:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/NuBuildGDX_jar</output-path>
     <root id="archive" name="NuBuildGDX.jar">
-      <element id="module-output" name="NuBuildGDX2" />
+      <element id="module-output" name="NuBuildGDX" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-glfw-3.2.3-natives-windows.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/gdx-backend-lwjgl3-1.9.10.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-opengl-3.2.3-natives-windows.jar" path-in-jar="/" />

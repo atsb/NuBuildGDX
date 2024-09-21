@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NuBuildGDX2.iml" filepath="$PROJECT_DIR$/NuBuildGDX2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NuBuildGDX.iml" filepath="$PROJECT_DIR$/NuBuildGDX.iml" />
     </modules>
   </component>
 </project>
