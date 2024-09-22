@@ -7,3 +7,6 @@ For renderer's, the PolyGDX will be removed.  There is nothing wrong with Polymo
 
 # Summary
 Reduce the bloat, increase the stability..  basically.
+
+# Icon
+The icon is taken from: https://www.flaticon.com/free-icon/nuclear_9708569

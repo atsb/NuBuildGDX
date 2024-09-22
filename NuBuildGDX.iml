@@ -11,7 +11,6 @@
     <orderEntry type="library" name="gdx-1.9.10" level="project" />
     <orderEntry type="library" name="gdx-backend-lwjgl3-1.9.10" level="project" />
     <orderEntry type="library" name="gdx-platform-1.9.10-natives-desktop" level="project" />
-    <orderEntry type="library" name="jinput-2.0.9" level="project" />
     <orderEntry type="library" name="jinput-platform-2.0.7-natives-all" level="project" />
     <orderEntry type="library" name="jna-5.4.0" level="project" />
     <orderEntry type="library" name="jna-openal-natives-windows" level="project" />
@@ -21,5 +20,6 @@
     <orderEntry type="library" name="lwjgl-glfw-3.2.3" level="project" />
     <orderEntry type="library" name="lwjgl-opengl-3.2.3-natives-windows" level="project" />
     <orderEntry type="library" name="lwjgl-opengl-3.2.3" level="project" />
+    <orderEntry type="library" name="jinput-2.6" level="project" />
   </component>
 </module>

@@ -106,10 +106,12 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 	@Override
 	public void setWindowHandle() { /* nothing */ }
 
-	private void setMousePosition(int x, int y)
-	{
-		if(robot != null)
-			robot.mouseMove(x, y);
+	private void setMousePosition(int x, int y) {
+		if (Math.abs(this.x - x) > 1 || Math.abs(this.y - y) > 1) {
+			if (robot != null) robot.mouseMove(x, y);
+		}
+		this.x = x;
+		this.y = y;
 	}
 
 	@Override
@@ -140,60 +142,46 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 	}
 
 	@Override
-	public long processEvents (InputProcessor processor) {
+	public long processEvents(InputProcessor processor) {
+		List<TouchEvent> eventsCopy;
 		synchronized (this) {
-			if (justTouched) {
-				justTouched = false;
-				Arrays.fill(justPressedButtons, false);
-			}
+			eventsCopy = new ArrayList<>(touchEvents);
+			touchEvents.clear();
+			justTouched = false;
+			Arrays.fill(justPressedButtons, false);
+		}
 
-			long currentEventTimeStamp = -1;
-			if (processor != null) {
-				int len = touchEvents.size();
-				for (int i = 0; i < len; i++) {
-					TouchEvent e = touchEvents.get(i);
-					currentEventTimeStamp = e.timeStamp;
-					switch (e.type) {
-						case TouchEvent.TOUCH_DOWN:
-							processor.touchDown(e.x, e.y, e.pointer, e.button);
-							justPressedButtons[e.button] = true;
-							justTouched = true;
-							break;
-						case TouchEvent.TOUCH_UP:
-							processor.touchUp(e.x, e.y, e.pointer, e.button);
-							break;
-						case TouchEvent.TOUCH_DRAGGED:
-							processor.touchDragged(e.x, e.y, e.pointer);
-							break;
-						case TouchEvent.TOUCH_MOVED:
-							processor.mouseMoved(e.x, e.y);
-							break;
-						case TouchEvent.TOUCH_SCROLLED:
-							processor.scrolled(e.scrollAmount);
-							break;
-					}
-					usedTouchEvents.free(e);
-				}
-			}  else {
-				int len = touchEvents.size();
-				for (int i = 0; i < len; i++) {
-					TouchEvent event = touchEvents.get(i);
-					if (event.type == TouchEvent.TOUCH_DOWN && event.button != -1) {
-						justPressedButtons[event.button] = true;
+		long currentEventTimeStamp = -1;
+		if (processor != null) {
+			for (TouchEvent e : eventsCopy) {
+				currentEventTimeStamp = e.timeStamp;
+				switch (e.type) {
+					case TouchEvent.TOUCH_DOWN:
+						processor.touchDown(e.x, e.y, e.pointer, e.button);
+						justPressedButtons[e.button] = true;
 						justTouched = true;
-					}
-					usedTouchEvents.free(event);
+						break;
+					case TouchEvent.TOUCH_UP:
+						processor.touchUp(e.x, e.y, e.pointer, e.button);
+						break;
+					case TouchEvent.TOUCH_DRAGGED:
+						processor.touchDragged(e.x, e.y, e.pointer);
+						break;
+					case TouchEvent.TOUCH_MOVED:
+						processor.mouseMoved(e.x, e.y);
+						break;
+					case TouchEvent.TOUCH_SCROLLED:
+						processor.scrolled(e.scrollAmount);
+						break;
 				}
+				usedTouchEvents.free(e);
 			}
-
 			if (touchEvents.isEmpty()) {
 				wheel = 0;
 			}
-
-			touchEvents.clear();
-
-			return currentEventTimeStamp;
 		}
+
+		return currentEventTimeStamp;
 	}
 
 	@Override
@@ -253,14 +241,16 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 		checkCatched(e);
 	}
 
-	private void checkCatched (MouseEvent e) {
-		if(!display.isActive())
-			return;
+	private void checkCatched(MouseEvent e) {
+		if (!display.isActive()) return;
 
 		Canvas canvas = display.getCanvas();
 		if (catched && canvas.isShowing()) {
-			if (e.getX() < 0 || e.getX() >= canvas.getWidth() || e.getY() < 0 || e.getY() >= canvas.getHeight()) {
-				setCursorPosition(canvas.getWidth() / 2, canvas.getHeight() / 2);
+			int canvasWidth = canvas.getWidth();
+			int canvasHeight = canvas.getHeight();
+
+			if (e.getX() < 10 || e.getX() >= canvasWidth - 10 || e.getY() < 10 || e.getY() >= canvasHeight - 10) {
+				setCursorPosition(canvasWidth / 2, canvasHeight / 2);
 				showCursor(false);
 			}
 		}
