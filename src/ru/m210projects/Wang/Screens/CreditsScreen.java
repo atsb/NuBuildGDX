@@ -13,7 +13,7 @@ import static ru.m210projects.Wang.Main.gs;
 import static ru.m210projects.Wang.Sound.*;
 
 import ru.m210projects.Build.Pattern.ScreenAdapters.SkippableAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Wang.Main;
 import ru.m210projects.Wang.Type.VOC3D;
 
@@ -34,7 +34,7 @@ public class CreditsScreen extends SkippableAdapter {
 
 	@Override
 	public void show() {
-		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+		engine.setbrightness(gs.brightness, palette, true);
 
 		COVER_SetReverb(0);
 		StopSound();

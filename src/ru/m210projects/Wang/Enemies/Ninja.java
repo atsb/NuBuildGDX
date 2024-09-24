@@ -167,7 +167,7 @@ import static ru.m210projects.Wang.Weapon.UpdateSinglePlayKills;
 
 import java.util.Arrays;
 
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Types.SPRITE;
 import ru.m210projects.Wang.Player.PlayerStateGroup;
 import ru.m210projects.Wang.Sprites.StateGroup;
@@ -1703,7 +1703,7 @@ public class Ninja {
 		pp.Killer = -1;
 
 		if (pp == Player[screenpeek]) {
-			engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+			engine.setbrightness(gs.brightness, palette, true);
 			System.arraycopy(palette, 0, pp.temp_pal, 0, 768);
 		}
 		pp.NightVision = false;
@@ -1788,7 +1788,7 @@ public class Ninja {
 
 		Arrays.fill(pp.InventoryTics, (short) 0);
 		if (pnum == screenpeek) {
-			engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+			engine.setbrightness(gs.brightness, palette, true);
 			System.arraycopy(palette, 0, pp.temp_pal, 0, 768);
 		}
 

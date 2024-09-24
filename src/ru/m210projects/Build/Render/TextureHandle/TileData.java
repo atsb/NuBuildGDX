@@ -11,7 +11,7 @@ import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.FileHandle.Compat.Path;
 import ru.m210projects.Build.FileHandle.FileResource;
 import ru.m210projects.Build.FileHandle.FileResource.Mode;
-import ru.m210projects.Build.Render.GLInfo;
+
 
 public abstract class TileData {
 
@@ -94,12 +94,6 @@ public abstract class TileData {
 	}
 
 	protected int calcSize(int size) {
-		int nsize = 1;
-		if (GLInfo.texnpot == 0) {
-			for (; nsize < size; nsize *= 2)
-				;
-			return nsize;
-		}
 		return size == 0 ? 1 : size;
 	}
 }

@@ -43,7 +43,7 @@ public class StandartFont extends BuildFont {
 	
 	public void reinit()
 	{
-		font.atlas = null; //force to init again
+
 	}
 	
 	public int getWidth(char[] text) {

@@ -16,8 +16,7 @@ import ru.m210projects.Build.Architecture.BuildGraphics.Option;
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.BuildNet;
 import ru.m210projects.Build.Pattern.MenuItems.MenuHandler;
-import ru.m210projects.Build.Render.GLRenderer;
-import ru.m210projects.Build.Render.GLRenderer.GLPreloadFlag;
+
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Build.Types.Tile.AnimType;
 
@@ -100,9 +99,6 @@ public abstract class PrecacheAdapter extends ScreenAdapter {
 	protected Runnable glpreload = new Runnable() {
 		@Override
 		public void run() {
-			GLRenderer gl = engine.glrender();
-			if (gl != null)
-				gl.preload(GLPreloadFlag.Other);
 
 			BuildGdx.app.postRunnable(toLoad);
 			toLoad = null;
@@ -112,9 +108,6 @@ public abstract class PrecacheAdapter extends ScreenAdapter {
 	protected Runnable glmodels = new Runnable() {
 		@Override
 		public void run() {
-			GLRenderer gl = engine.glrender();
-			if (gl != null)
-				gl.preload(GLPreloadFlag.Models);
 		}
 	};
 
@@ -138,7 +131,6 @@ public abstract class PrecacheAdapter extends ScreenAdapter {
 	}
 
 	protected void doprecache(int method) {
-		GLRenderer gl = engine.glrender();
 		for (int i = 0; i < MAXTILES; i++) {
 			if (tiles[i >> 3] == 0) {
 				i += 7;
@@ -152,8 +144,6 @@ public abstract class PrecacheAdapter extends ScreenAdapter {
 
 				if (pic.data == null)
 					engine.loadtile(i);
-				if (gl != null)
-					gl.precache(i, 0, method);
 			}
 		}
 		Arrays.fill(tiles, (byte) 0);
@@ -161,8 +151,6 @@ public abstract class PrecacheAdapter extends ScreenAdapter {
 
 	@Override
 	public void pause() {
-		if (BuildGdx.graphics.getFrameType() == FrameType.GL)
-			BuildGdx.graphics.extra(Option.GLDefConfiguration);
 	}
 
 	@Override

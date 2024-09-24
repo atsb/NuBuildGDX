@@ -24,7 +24,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 public abstract class BuildFrame {
 
 	public enum FrameType {
-		Canvas, GL
+		Canvas
 	}
 
 	public enum FrameStatus {
@@ -59,7 +59,6 @@ public abstract class BuildFrame {
 			init();
 			graphics.setVSync(getConfig().vsync);
 
-			Gdx.gl = BuildGdx.gl = graphics.getGL10();
 			Gdx.gl20 = BuildGdx.gl20 = graphics.getGL20();
 			Gdx.gl30 = BuildGdx.gl30 = graphics.getGL30();
 
@@ -158,7 +157,6 @@ public abstract class BuildFrame {
 		if(graphics != null) {
 			graphics.dispose();
 
-			Gdx.gl = BuildGdx.gl = null;
 			Gdx.gl20 = BuildGdx.gl20 = null;
 			Gdx.gl30 = BuildGdx.gl30 = null;
 		}

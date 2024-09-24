@@ -48,7 +48,7 @@ import ru.m210projects.Build.OnSceenDisplay.OSDCOMMAND;
 import ru.m210projects.Build.OnSceenDisplay.OSDCVARFUNC;
 import ru.m210projects.Build.Pattern.BuildFactory;
 import ru.m210projects.Build.Pattern.BuildGame;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildConfig;
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.MemLog;
@@ -275,7 +275,7 @@ public class Main extends BuildGame {
 		public void run() {
 			resetState();
 
-			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, GLInvalidateFlag.All);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, true);
 
 			if (numplayers > 1 || gDemoScreen.demofiles.size() == 0 || cfg.gDemoSeq == 0 || !gDemoScreen.showDemo())
 				changeScreen(gMenuScreen);

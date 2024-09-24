@@ -5,8 +5,8 @@ import static ru.m210projects.Build.Gameutils.*;
 
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.FileHandle.Resource;
-import ru.m210projects.Build.Render.ModelHandle.VoxelInfo;
-import ru.m210projects.Build.Render.ModelHandle.Voxel.VoxelData;
+
+
 import ru.m210projects.Build.Script.DefScript;
 import ru.m210projects.Build.Script.Scriptfile;
 
@@ -35,15 +35,6 @@ public class VoxelScript extends Scriptfile {
 		for(int i = 0; i < MAXTILES; i++) {
 			if(aVoxelArray[i] != null) {
 				Resource buffer = BuildGdx.cache.open(aVoxelArray[i], 0);
-				if(buffer != null) {
-					try {
-						VoxelData vox = new VoxelData(buffer);
-						def.mdInfo.addVoxelInfo(new VoxelInfo(vox), i);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-					buffer.close();
-				}
 			}
 		}
 	}

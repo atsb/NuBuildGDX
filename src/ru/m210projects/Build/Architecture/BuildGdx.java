@@ -24,7 +24,7 @@ import ru.m210projects.Build.Audio.BuildAudio;
 import ru.m210projects.Build.FileHandle.Cache1D;
 import ru.m210projects.Build.FileHandle.Compat;
 import ru.m210projects.Build.Input.BuildControllers;
-import ru.m210projects.Build.Render.Types.GL10;
+
 
 public class BuildGdx {
 
@@ -36,7 +36,6 @@ public class BuildGdx {
 	public static BuildControllers controllers;
 	public static Files files;
 
-	public static GL10 gl;
 	public static GL20 gl20;
 	public static GL30 gl30;
 	

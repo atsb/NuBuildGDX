@@ -70,8 +70,6 @@ public class LoadingScreen extends LoadingAdapter {
 	
 	@Override
 	public void pause () {
-		if (BuildGdx.graphics.getFrameType() == FrameType.GL) 
-			BuildGdx.graphics.extra(Option.GLDefConfiguration);
 	}
 
 	@Override

@@ -30,7 +30,7 @@ import static ru.m210projects.Powerslave.Sound.*;
 import static ru.m210projects.Build.Engine.*;
 
 import ru.m210projects.Build.FileHandle.Resource;
-import ru.m210projects.Build.Render.GLRenderer;
+
 import ru.m210projects.Build.Types.SECTOR;
 import ru.m210projects.Build.Types.SPRITE;
 import ru.m210projects.Build.Types.WALL;
@@ -595,14 +595,6 @@ public class Light {
 				if (bTorch != 0)
 					PlayLocalSound(12, 0);
 
-				final GLRenderer gl = engine.glrender();
-				if (gl != null && gl.getTextureManager() != null) {
-					gl.getTextureManager().invalidatepalookup(2);
-					gl.getTextureManager().invalidatepalookup(3);
-					gl.getTextureManager().invalidatepalookup(9);
-					gl.getTextureManager().invalidatepalookup(10);
-				}
-
 				StatusMessage(150, "TORCH IS " + ((bTorch != 0) ? "LIT" : "OUT"), nPlayer);
 			}
 		}
@@ -617,14 +609,6 @@ public class Light {
 		if (nTorch != 0) {
 			SwapPalookup(palookup, 2, 3);
 			SwapPalookup(palookup, 9, 10);
-		}
-
-		final GLRenderer gl = engine.glrender();
-		if (gl != null && gl.getTextureManager() != null) {
-			gl.getTextureManager().invalidatepalookup(2);
-			gl.getTextureManager().invalidatepalookup(3);
-			gl.getTextureManager().invalidatepalookup(9);
-			gl.getTextureManager().invalidatepalookup(10);
 		}
 	}
 

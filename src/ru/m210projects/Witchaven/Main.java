@@ -23,7 +23,6 @@ import static ru.m210projects.Witchaven.Globals.gOriginalEpisode;
 import static ru.m210projects.Witchaven.Globals.tempbuf;
 import static ru.m210projects.Witchaven.Potions.MAXPOTIONS;
 import static ru.m210projects.Witchaven.WH2Names.FLOORMIRROR;
-import static ru.m210projects.Witchaven.WHFX.FadeInit;
 import static ru.m210projects.Witchaven.WHFX.initlava;
 import static ru.m210projects.Witchaven.WHFX.initwater;
 import static ru.m210projects.Witchaven.WHFX.weaponpowerup;
@@ -147,8 +146,6 @@ public class Main extends BuildGame {
 
 	    for(int i = 0; i < MAXSECTORS; i++)
 	    	delayitem[i] = new Delayitem();
-
-	    FadeInit();
 
 		sndInit();
 

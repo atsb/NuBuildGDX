@@ -22,7 +22,7 @@ import ru.m210projects.Build.Pattern.BuildFont;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.MovieScreen;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.BuildSmacker.SMKAudio;
 import ru.m210projects.BuildSmacker.SMKFile;
@@ -141,7 +141,7 @@ public class CutsceneScreen extends MovieScreen {
 
 	@Override
 	public void hide () {
-		engine.setbrightness(BuildSettings.paletteGamma.get(), palette, GLInvalidateFlag.All);
+		engine.setbrightness(BuildSettings.paletteGamma.get(), palette, true);
 	}
 	
 	@Override

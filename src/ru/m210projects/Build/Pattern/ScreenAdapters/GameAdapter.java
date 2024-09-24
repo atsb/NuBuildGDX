@@ -217,9 +217,6 @@ public abstract class GameAdapter extends ScreenAdapter {
 			game.gPaused = true;
 			sndHandlePause(game.gPaused);
 		}
-
-		if (BuildGdx.graphics.getFrameType() == FrameType.GL)
-			BuildGdx.graphics.extra(Option.GLDefConfiguration);
 	}
 
 	@Override

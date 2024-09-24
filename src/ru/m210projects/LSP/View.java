@@ -35,7 +35,7 @@ import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildFont;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.Tools.Interpolation.ILoc;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.SPRITE;
 import ru.m210projects.Build.Types.Tile;
@@ -326,20 +326,18 @@ public class View {
 			nDiff = b;
 		nPalDiff += nDiff;
 
-		if (engine.glrender() == null) {
 			for (int i = 0; i < 256; i++) {
 				curpal[3 * i + 0] = (byte) BClipHigh((curpal[3 * i + 0] & 0xFF) + r, 63);
 				curpal[3 * i + 1] = (byte) BClipHigh((curpal[3 * i + 1] & 0xFF) + g, 63);
 				curpal[3 * i + 2] = (byte) BClipHigh((curpal[3 * i + 2] & 0xFF) + b, 63);
 			}
-		}
 
 		nPalDelay = 0;
 	}
 
 	public static void GrabPalette() {
 		System.arraycopy(palette, 0, curpal, 0, 768);
-		engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, GLInvalidateFlag.All);
+		engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, true);
 
 		nPalDiff = 0;
 		nPalDelay = 0;
@@ -356,7 +354,6 @@ public class View {
 			return;
 
 		nPalDelay = 1;
-		if (engine.glrender() == null) {
 			for (int i = 0; i < 768; i++) {
 				int dP = (curpal[i] & 0xFF) - (palette[i] & 0xFF);
 				if (dP > 0) {
@@ -365,10 +362,7 @@ public class View {
 					else
 						curpal[i] -= 3;
 				}
-			}
-			engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, GLInvalidateFlag.All);
-		} else {
-			engine.setpalettefade(rtint, gtint, btint, 0);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, true);
 		}
 
 		nPalDiff = BClipLow(nPalDiff - 3, 0);

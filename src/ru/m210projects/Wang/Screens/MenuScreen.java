@@ -19,7 +19,7 @@ import static ru.m210projects.Wang.Text.DrawFragBar;
 import ru.m210projects.Build.Engine;
 import ru.m210projects.Build.Gameutils.ConvertType;
 import ru.m210projects.Build.Pattern.ScreenAdapters.MenuAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Wang.Main;
 import ru.m210projects.Wang.Factory.WangMenuHandler;
 
@@ -33,7 +33,7 @@ public class MenuScreen extends MenuAdapter {
 
 	@Override
 	public void show() {
-		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+		engine.setbrightness(gs.brightness, palette, true);
 		if(!menu.gShowMenu)
 			menu.mOpen(menu.mMenus[MAIN], -1);
 		CDAudio_Play(2, true);

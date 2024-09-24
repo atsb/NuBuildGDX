@@ -130,8 +130,6 @@ public abstract class ConnectAdapter extends ScreenAdapter {
 	
 	@Override
 	public void pause () {
-		if (BuildGdx.graphics.getFrameType() == FrameType.GL) 
-			BuildGdx.graphics.extra(Option.GLDefConfiguration);
 	}
 
 	@Override

@@ -61,7 +61,7 @@ import static ru.m210projects.Tekwar.Tektag.mapsndfx;
 import static ru.m210projects.Tekwar.Tektag.sectoreffect;
 import static ru.m210projects.Tekwar.Tektag.sectorvehicle;
 import static ru.m210projects.Tekwar.Tektag.spriteelev;
-import static ru.m210projects.Tekwar.View.FadeInit;
+
 import static ru.m210projects.Tekwar.View.hcpos;
 import static ru.m210projects.Tekwar.View.rvpos;
 import static ru.m210projects.Tekwar.View.wppos;
@@ -163,7 +163,6 @@ public class Main extends BuildGame {
 	@Override
 	public boolean init() throws Exception {
 		engine.inittimer(CLKIPS);
-		FadeInit();
 		Console.Println("tekpreinit");
 		tekpreinit();
 		Console.Println("tekgamestarted");

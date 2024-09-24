@@ -198,7 +198,7 @@ public float gFpsScale = 1.0f;
 	public String mAddress = "localhost";
 	public int mPort = NETPORT;
 
-	public RenderType renderType = RenderType.Polymost;
+	public RenderType renderType = RenderType.Software;
 	public boolean gPrecache = true;
 
 	public BuildConfig(String path, String name) {
@@ -348,15 +348,6 @@ public float gFpsScale = 1.0f;
 			value = GetKeyInt("UseVoxels");
 			if (value != -1)
 				BuildSettings.useVoxels.set(value == 1);
-			value = GetKeyInt("UseModels");
-			if (value != -1)
-				GLSettings.useModels.set(value == 1);
-			value = GetKeyInt("UseHightiles");
-			if (value != -1)
-				GLSettings.useHighTile.set(value == 1);
-			value = GetKeyInt("UsePrecache");
-			if (value != -1)
-				gPrecache = (value == 1);
 
 			String name = GetKeyString("Player_name");
 			if (name != null)
@@ -376,9 +367,6 @@ public float gFpsScale = 1.0f;
 			if (value != -1)
 				gFpsScale = value / 65536.0f;
 
-			int gm = GetKeyInt("GLGamma");
-			if (gm != -1)
-				GLSettings.gamma.set(gm);
 			value = GetKeyInt("PaletteGamma");
 			if (value != -1)
 				BuildSettings.paletteGamma.set(value);
@@ -600,9 +588,6 @@ public float gFpsScale = 1.0f;
 			saveString(fil, "\r\nSoundBank = \r\n");
 		saveInteger(fil, "OSDTextScale", Console.getTextScale());
 		saveBoolean(fil, "UseVoxels", BuildSettings.useVoxels.get());
-		saveBoolean(fil, "UseModels", GLSettings.useModels.get());
-		saveBoolean(fil, "UseHightiles", GLSettings.useHighTile.get());
-		saveBoolean(fil, "UsePrecache", gPrecache);
 		saveString(fil, "Player_name", pName);
 		saveString(fil, "IP_Address", mAddress);
 		saveInteger(fil, "Port", mPort);
@@ -623,7 +608,6 @@ public float gFpsScale = 1.0f;
 		saveInteger(fil, "FpsScale", (int) (gFpsScale * 65536.0f));
 		saveBoolean(fil, "Palette_Emulation", paletteEmulation);
 
-		saveInteger(fil, "GLGamma", GLSettings.gamma.get());
 		saveInteger(fil, "PaletteGamma", BuildSettings.paletteGamma.get());
 		saveBoolean(fil, "ShowFPS", gShowFPS);
 		saveString(fil, ";\r\n;\r\n");

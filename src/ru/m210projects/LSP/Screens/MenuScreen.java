@@ -54,8 +54,6 @@ public class MenuScreen extends MenuAdapter {
 	@Override
 	public void pause () {
 		stopmusic();
-		if (BuildGdx.graphics.getFrameType() == FrameType.GL) 
-			BuildGdx.graphics.extra(Option.GLDefConfiguration);
 	}
 
 	@Override

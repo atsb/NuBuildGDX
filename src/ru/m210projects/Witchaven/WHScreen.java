@@ -29,7 +29,7 @@ import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildFont;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.Tools.Interpolation.ILoc;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.SPRITE;
 import ru.m210projects.Witchaven.Factory.WHSoftware;
@@ -137,21 +137,7 @@ public class WHScreen {
 	}
 
 	public static void updatepaletteshifts() {
-		if (engine.glrender() != null) {
-			if (whitecount != 0)
-				whitecount = BClipLow(whitecount - TICSPERFRAME, 0);
-
-			if (redcount != 0)
-				redcount = BClipLow(redcount - TICSPERFRAME, 0);
-
-			if (bluecount != 0)
-				bluecount = BClipLow(bluecount - TICSPERFRAME, 0);
-
-			if (greencount != 0)
-				greencount = BClipLow(greencount - TICSPERFRAME, 0);
-		} else {
-
-			int red = 0, white = 0, green = 0, blue = 0;
+		int red = 0, white = 0, green = 0, blue = 0;
 
 			if (whitecount != 0) {
 				white = BClipHigh(whitecount / WHITETICS + 1, NUMWHITESHIFTS);
@@ -187,10 +173,10 @@ public class WHScreen {
 				palshifted = true;
 			} else if (palshifted) {
 				int brightness = BuildSettings.paletteGamma.get();
-				engine.setbrightness(brightness, palette, GLInvalidateFlag.All);
+				engine.setbrightness(brightness, palette, true);
 				palshifted = false;
 			}
-		}
+
 	}
 
 	public static void startredflash(int damage) {
@@ -296,15 +282,6 @@ public class WHScreen {
                    }
               }
 
-              if(engine.glrender() != null) {
-            	  drawfloormirror = inpreparemirror = true;
-            	  engine.glrender().settiltang(1024);
-            	  engine.drawrooms(plr.x, plr.y,  plr.z, plr.ang, 201 - plr.horiz, floormirrorsector[i]);
-            	  analizesprites(plr, dasmoothratio);
-            	  engine.drawmasks();
-            	  engine.glrender().settiltang(0);
-            	  drawfloormirror = inpreparemirror = false;
-              } else {
             	  engine.drawrooms(plr.x, plr.y, (sector[floormirrorsector[i]].floorz << 1) - plr.z, plr.ang, 201 - plr.horiz, floormirrorsector[i]);
                   analizesprites(plr, dasmoothratio);
                   engine.drawmasks();
@@ -312,7 +289,7 @@ public class WHScreen {
                   // Temp horizon
                   WHSoftware rend = (WHSoftware) engine.getrender();
                   rend.TempHorizon((int) plr.horiz);
-              }
+
 
               gotpic[FLOORMIRROR >> 3] &= ~(1 << (FLOORMIRROR & 7));
         }

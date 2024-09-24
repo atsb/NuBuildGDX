@@ -83,7 +83,7 @@ import ru.m210projects.Build.Architecture.BuildFrame.FrameType;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.Tools.Interpolation.ILoc;
-import ru.m210projects.Build.Render.GLRenderer;
+
 import ru.m210projects.Build.Render.Renderer.RenderType;
 import ru.m210projects.Build.Types.LittleEndian;
 import ru.m210projects.Build.Types.SECTOR;
@@ -502,10 +502,7 @@ public class View {
 			PaletteView = vPalette;
 		}
 
-		if (engine.getrender().getType().getFrameType() == FrameType.GL)
-			scrGLSetDac(totalclock - lastDacUpdate);
-		else
-			scrSetDac(totalclock - lastDacUpdate);
+		scrSetDac(totalclock - lastDacUpdate);
 		lastDacUpdate = totalclock;
 	}
 
@@ -704,13 +701,9 @@ public class View {
 			z = checkWz;
 			nSector = checkWs;
 
-			GLRenderer gl = engine.glrender();
 			boolean bDelirious = (powerupCheck(gView, kItemShroomDelirium - kItemBase) > 0);
 			if (deliriumTilt != 0 || bDelirious) {
-				if (gl != null)
-					gl.setdrunk(deliriumTilt);
-				else {
-					Tile pic = engine.getTile(TILTBUFFER);
+				Tile pic = engine.getTile(TILTBUFFER);
 
 					if (pic.data == null || pic.getWidth() == 0 || pic.getHeight() == 0)
 						engine.allocatepermanenttile(TILTBUFFER, 320, 320);
@@ -720,10 +713,7 @@ public class View {
 					if (tilt > 256)
 						tilt = 512 - tilt;
 					engine.setaspect(dmulscale(256000, Cos(tilt), 160000, Sin(tilt), 32), yxaspect);
-				}
 			} else {
-				if (gl != null)
-					gl.setdrunk(0);
 				if ((powerupCheck(gView, kItemCrystalBall - kItemBase) > 0) && (numplayers > 1
 						|| (game.isCurrentScreen(gGameScreen) && kFakeMultiplayer && nFakePlayers > 1))) {
 					int nP = numplayers;
@@ -887,23 +877,8 @@ public class View {
 			int lz = 4 << 8;
 			long crossDz = 0;
 			if (z < zofslope[CEIL] + lz) {
-				if (nLower == -1 || (engine.getrender().getType().equals(RenderType.Polymost) // Polymost zNear Plane
-																								// tweak
-						&& sector[nSector].ceilingpicnum < MIRRORLABEL
-						|| sector[nSector].ceilingpicnum >= MIRRORLABEL + MAXMIRRORS)) {
-					crossDz = z;
-					z = zofslope[CEIL] + lz;
-					crossDz -= z;
-				}
 			}
 			if (z > zofslope[FLOOR] - lz) {
-				if (nUpper == -1 || (engine.getrender().getType().equals(RenderType.Polymost)
-						&& sector[nSector].floorpicnum < MIRRORLABEL
-						|| sector[nSector].floorpicnum >= MIRRORLABEL + MAXMIRRORS)) {
-					crossDz = z;
-					z = zofslope[FLOOR] - lz;
-					crossDz -= z;
-				}
 			}
 
 			nHoriz = BClipRange(nHoriz, -200, 200);
@@ -930,7 +905,6 @@ public class View {
 			gView.pSprite.cstat = (short) oldcstat;
 
 			if (deliriumTilt != 0 || bDelirious) {
-				if (gl == null) {
 					if (engine.getTile(TILTBUFFER).data == null)
 						game.dassert("waloff[ TILTBUFFER ] != null");
 
@@ -940,16 +914,14 @@ public class View {
 					if (bDelirious)
 						nFlags |= kRotateTranslucent | kRotateTranslucentR;
 
-					if(engine.glrender() == null)
-						nFlags |= kRotateYFlip;
+					nFlags |= kRotateYFlip;
 
 					int tilt = (deliriumTilt & 511);
 					if (tilt > 256)
 						tilt = 512 - tilt;
 
 					engine.rotatesprite(160 << 16, 100 << 16, dmulscale(256000, Cos(tilt), 160000, Sin(tilt), 32),
-							deliriumTilt + (engine.glrender() != null ? 0 : 512), TILTBUFFER, 0, kPLUNormal, nFlags, gViewX0, gViewY0, gViewX1, gViewY1);
-				}
+							deliriumTilt, TILTBUFFER, 0, kPLUNormal, nFlags, gViewX0, gViewY0, gViewX1, gViewY1);
 			}
 
 			if (!bDelirious) {

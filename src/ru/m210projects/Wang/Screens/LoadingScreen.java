@@ -10,7 +10,7 @@ import static ru.m210projects.Wang.Screens.MenuScreen.DrawBackground;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.LoadingAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Wang.Main.UserFlag;
 
 public class LoadingScreen extends LoadingAdapter {
@@ -23,7 +23,7 @@ public class LoadingScreen extends LoadingAdapter {
 	public void show()
 	{
 		super.show();
-		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+		engine.setbrightness(gs.brightness, palette, true);
 	}
 
 	@Override

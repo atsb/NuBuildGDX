@@ -22,8 +22,8 @@ import static ru.m210projects.Powerslave.Globals.*;
 import static ru.m210projects.Powerslave.Main.*;
 
 import ru.m210projects.Build.Architecture.BuildGdx;
-import ru.m210projects.Build.Render.GLRenderer;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
+
 import ru.m210projects.Build.Settings.BuildSettings;
 
 public class Palette {
@@ -60,16 +60,13 @@ public class Palette {
 		if (nDiff <= b) 
 			nDiff = b;
 		nPalDiff += nDiff;
-		
-		if(engine.glrender() == null)
-		{
+
 			for(int i = 0; i < 256; i++)
 			{
 				curpal[3 * i + 0] = (byte) BClipHigh((curpal[3 * i + 0] & 0xFF) + r, 63);
 				curpal[3 * i + 1] = (byte) BClipHigh((curpal[3 * i + 1] & 0xFF) + g, 63);
 				curpal[3 * i + 2] = (byte) BClipHigh((curpal[3 * i + 2] & 0xFF) + b, 63);
 			}
-		}
 		
 		nPalDelay = 0;
 	}
@@ -89,9 +86,7 @@ public class Palette {
 			return;
 
 		nPalDelay = 5;
-		
-		if(engine.glrender() == null)
-		{
+
 			for (int i = 0; i < 768; i++) {
 				int dP = (curpal[i] & 0xFF) - (palette[i] & 0xFF);
 				if (dP > 0) {
@@ -99,11 +94,7 @@ public class Palette {
 						curpal[i] = palette[i];
 					else curpal[i] -= 5;
 				}
-			}
-			engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, GLInvalidateFlag.All);
-		} else {
-			
-			engine.setpalettefade(rtint <= 5 ? 0 : rtint, gtint <= 5 ? 0 : gtint, btint <= 5 ? 0 : btint, 0);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, true);
 		}
 		
 		nPalDiff = BClipLow(nPalDiff - 5, 0);
@@ -120,10 +111,6 @@ public class Palette {
 		for (int i = 0; i < 12; i++)
 			palookup[i] = palookup[6];
 		palookup[5] = origpalookup[5];
-		
-		GLRenderer gl = engine.glrender();
-		if(gl != null)
-			gl.gltexinvalidateall(GLInvalidateFlag.All);
 		bGreenPalette = true;
 		
 		System.err.println("SetGreen");
@@ -135,9 +122,6 @@ public class Palette {
 		
 		for (int i = 0; i < 12; i++)
 			palookup[i] = origpalookup[i];
-		GLRenderer gl = engine.glrender();
-		if(gl != null)
-			gl.gltexinvalidateall(GLInvalidateFlag.All);
 		bGreenPalette = false;
 		
 		System.err.println("RestoreGreenPal");
@@ -145,7 +129,7 @@ public class Palette {
 
 	public static void GrabPalette() {
 		System.arraycopy(palette, 0, curpal, 0, 768);
-		engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, GLInvalidateFlag.All);
+		engine.setbrightness(BuildSettings.paletteGamma.get(), curpal, true);
 
 		nPalDiff = 0;
 		nPalDelay = 0;

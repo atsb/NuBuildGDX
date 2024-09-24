@@ -174,9 +174,6 @@ public class GameScreen extends GameAdapter {
 
 		game.pIntSkip2.restoreinterpolations();
 		game.pIntSkip4.restoreinterpolations();
-
-		if (Player[screenpeek].FadeAmt != 0 && engine.glrender() != null)
-			engine.showfade();
 	}
 
 	@Override

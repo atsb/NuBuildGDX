@@ -44,13 +44,13 @@ import ru.m210projects.Build.FileHandle.Resource;
 import ru.m210projects.Build.FileHandle.Resource.Whence;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildEngine;
-import ru.m210projects.Build.Render.ModelHandle.MDInfo;
-import ru.m210projects.Build.Render.ModelHandle.VoxelInfo;
-import ru.m210projects.Build.Render.ModelHandle.ModelInfo;
-import ru.m210projects.Build.Render.ModelHandle.ModelInfo.Type;
-import ru.m210projects.Build.Render.ModelHandle.MDModel.MD2.MD2Info;
-import ru.m210projects.Build.Render.ModelHandle.MDModel.MD3.MD3Info;
-import ru.m210projects.Build.Render.ModelHandle.Voxel.VoxelData;
+
+
+
+
+
+
+
 import ru.m210projects.Build.Types.Tile;
 
 public class DefScript {
@@ -912,33 +912,7 @@ public class DefScript {
 				script.textptr = modelend + 1;
 				return BaseToken.Warning;
 			}
-
-			ModelInfo m = null;
-			try {
-				int sign = res.readInt();
-				res.seek(0, Whence.Set);
-				switch (sign) {
-				case 0x32504449: // IDP2
-					m = new MD2Info(res, modelfn);
-					break;
-				case 0x33504449: // IDP3
-					m = new MD3Info(res, modelfn);
-					break;
-				default:
-					if (res.getExtension().equals("kvx"))
-						m = new ModelInfo(modelfn, Type.Voxel);
-					break;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			res.close();
-
-			if (m == null) {
-				Console.Println("Warning: Failed loading model " + modelfn, OSDTEXT_YELLOW);
-				script.textptr = modelend + 1;
-				return BaseToken.Warning;
-			}
 
 			while (script.textptr < modelend) {
 				tk = gettoken(script, modeltokens);
@@ -1036,29 +1010,6 @@ public class DefScript {
 						break;
 					}
 
-					for (tilex = ftilenume; tilex <= ltilenume && happy != 0; tilex++) {
-						switch (mdInfo.addModelInfo(m, tilex, framename, Math.max(0, modelskin), (float) smoothduration,
-								mdpal)) {
-						case -1:
-							happy = 0;
-							break; // invalid model id!?
-						case -2:
-							Console.Println("Invalid tile number on line " + script.filename + ":"
-									+ script.getlinum(frametokptr), OSDTEXT_RED);
-							happy = 0;
-							break;
-						case -3:
-							Console.Println("Invalid frame name on line " + script.filename + ":"
-									+ script.getlinum(frametokptr), OSDTEXT_RED);
-							happy = 0;
-							break;
-						default:
-							break;
-						}
-
-						model_ok &= happy;
-					}
-
 					seenframe = 1;
 				}
 					break;
@@ -1115,22 +1066,6 @@ public class DefScript {
 						Console.Println("Error: missing 'end frame' for anim definition near line " + script.filename
 								+ ":" + script.getlinum(animtokptr), OSDTEXT_RED);
 						happy = 0;
-					}
-					model_ok &= happy;
-					if (happy == 0 || m.getType() == Type.Voxel)
-						break;
-
-					switch (((MDInfo) m).setAnimation(startframe, endframe, (int) (dfps * (65536.0 * .001)), flags)) {
-					case -2:
-						Console.Println("Invalid starting frame name on line " + script.filename + ":"
-								+ script.getlinum(animtokptr), OSDTEXT_RED);
-						model_ok = 0;
-						break;
-					case -3:
-						Console.Println("Invalid ending frame name on line " + script.filename + ":"
-								+ script.getlinum(animtokptr), OSDTEXT_RED);
-						model_ok = 0;
-						break;
 					}
 				}
 					break;
@@ -1224,25 +1159,6 @@ public class DefScript {
 						break;
 					case NORMAL:
 						palnum = NORMALPAL;
-						break;
-					}
-
-					if (!BuildGdx.cache.contains(skinfn, 0) || m.getType() == Type.Voxel)
-						break;
-
-					switch (((MDInfo) m).setSkin(skinfn, palnum, Math.max(0, modelskin), surfnum, param, specpower,
-							specfactor)) {
-					case -2:
-						Console.Println(
-								"Invalid skin filename on line " + script.filename + ":" + script.getlinum(skintokptr),
-								OSDTEXT_RED);
-						model_ok = 0;
-						break;
-					case -3:
-						Console.Println(
-								"Invalid palette number on line " + script.filename + ":" + script.getlinum(skintokptr),
-								OSDTEXT_RED);
-						model_ok = 0;
 						break;
 					}
 
@@ -1342,16 +1258,6 @@ public class DefScript {
 				}
 			}
 			script.skipbrace(modelend); // close bracke
-
-			if (model_ok == 0) {
-				if (m != null) {
-					Console.Println("Removing model " + modelfn + " due to errors.", OSDTEXT_YELLOW);
-					mdInfo.removeModelInfo(m);
-				}
-				return BaseToken.Error;
-			}
-
-			m.setMisc((float) mdscale, (float) mzadd, (float) myoffset, mdflags);
 
 			modelskin = lastmodelskin = 0;
 			seenframe = 0;
@@ -1598,21 +1504,7 @@ public class DefScript {
 				script.textptr = vmodelend + 1;
 				return BaseToken.Warning;
 			}
-
-			VoxelInfo vox = null;
-			try {
-				vox = new VoxelInfo(new VoxelData(res));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			res.close();
-
-			if (vox == null) {
-				Console.Println("Warning: Failed loading voxel model " + fn, OSDTEXT_YELLOW);
-				script.textptr = vmodelend + 1;
-
-				return BaseToken.Warning;
-			}
 
 			while (script.textptr < vmodelend) {
 				Object tk = gettoken(script, voxeltokens);
@@ -1634,7 +1526,6 @@ public class DefScript {
 					if (check_tile("voxel", tilex, script, script.ltextptr))
 						break;
 
-					mdInfo.addVoxelInfo(vox, tilex);
 					break;
 				case TILE0:
 					if ((ivalue = script.getsymbol()) != null)
@@ -1647,9 +1538,6 @@ public class DefScript {
 
 					if (check_tile_range("voxel", tile0, tile1, script, script.ltextptr))
 						break;
-					for (tilex = tile0; tilex <= tile1; tilex++) {
-						mdInfo.addVoxelInfo(vox, tilex);
-					}
 					break; // last tile number (inclusive)
 				case SCALE:
 					if ((dvalue = script.getdouble()) != null)
@@ -1664,7 +1552,6 @@ public class DefScript {
 			}
 			script.skipbrace(vmodelend); // close bracke
 
-			vox.setMisc((float) vscale * 65536, 0, 0, vrotate ? ModelInfo.MD_ROTATE : 0);
 			return BaseToken.Ok;
 		}
 	}

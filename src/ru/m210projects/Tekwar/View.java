@@ -73,8 +73,8 @@ import java.util.Arrays;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.BuildGame.NetMode;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
-import ru.m210projects.Build.Render.Types.FadeEffect;
+
+
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Tekwar.Main.UserFlag;
@@ -165,101 +165,6 @@ public class View {
 
             x += textsize;
 		}
-	}
-
-	public static void FadeInit() {
-		Console.Println("Initializing fade effects", 0);
-
-		initpaletteshifts();
-
-		engine.registerFade("DAMAGE", new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-				if (intensive > 0) {
-					r = 3 * (intensive + 32);
-					a = 2 * (intensive + 32);
-				} else
-					r = a = 0;
-				if (r > 255)
-					r = 255;
-				if (a > 255)
-					a = 255;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, r, 0, 0, a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				int multiple = intensive / 2;
-				if (multiple > 170)
-					multiple = 170;
-				FadeEffect.setParams(shader, r > 0 ? multiple : 0, 0, 0, 0, GL_ONE_MINUS_SRC_ALPHA,
-						GL_ONE_MINUS_SRC_ALPHA);
-				FadeEffect.render(shader);
-			}
-		});
-
-		engine.registerFade("PICKUP", new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-				if (intensive > 0) {
-					g = r = 4 * intensive;
-					a = (intensive + 32);
-				} else
-					g = r = a = 0;
-
-				if (r > 255)
-					r = 255;
-				if (g > 255)
-					g = 255;
-				if (a > 255)
-					a = 255;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, r, g, b, a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				if (intensive > 0) {
-					int multiple = intensive;
-					if (multiple > 255)
-						multiple = 255;
-
-					FadeEffect.setParams(shader, multiple, multiple, 0, 0, GL_ONE_MINUS_SRC_ALPHA,
-							GL_ONE_MINUS_SRC_ALPHA);
-					FadeEffect.render(shader);
-				}
-			}
-		});
-
-		engine.registerFade("FADE", new FadeEffect(GL_DST_COLOR, GL_DST_COLOR) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				if (intensive > 0) {
-					int multiple = intensive;
-					if (multiple > 255)
-						multiple = 255;
-
-					FadeEffect.setParams(shader, 0, 0, 0, multiple, GL_ONE_MINUS_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-					FadeEffect.render(shader);
-				}
-			}
-		});
 	}
 
 	public static void resetEffects() {
@@ -773,13 +678,6 @@ public class View {
 	}
 
 	public static void updatepaletteshifts() {
-		if (engine.glrender() != null) {
-			if (whitecount != 0)
-				whitecount = BClipLow(whitecount - TICSPERFRAME, 0);
-
-			if (redcount != 0)
-				redcount = BClipLow(redcount - 2 * TICSPERFRAME, 0);
-		} else {
 			int red = 0, white = 0;
 
 			if (whitecount != 0) {
@@ -800,10 +698,9 @@ public class View {
 				palshifted = true;
 			} else if (palshifted) {
 				int brightness = BuildSettings.paletteGamma.get();
-				engine.setbrightness(brightness, palette, GLInvalidateFlag.All);
+				engine.setbrightness(brightness, palette, true);
 				palshifted = false;
 			}
-		}
 	}
 
 	public static void showinv(int snum) {

@@ -20,9 +20,9 @@ import static ru.m210projects.Build.Engine.MAXSPRITES;
 import static ru.m210projects.Build.Engine.MAXTILES;
 import static ru.m210projects.Build.Engine.MAXUNIQHUDID;
 
-import ru.m210projects.Build.Render.ModelHandle.MDInfo;
-import ru.m210projects.Build.Render.ModelHandle.VoxelInfo;
-import ru.m210projects.Build.Render.ModelHandle.ModelInfo;
+
+
+
 import ru.m210projects.Build.Render.Types.Hudtyp;
 import ru.m210projects.Build.Render.Types.Tile2model;
 
@@ -79,33 +79,6 @@ public class ModelsInfo {
 		return spriteanim[i];
 	}
 
-	public ModelInfo getModelInfo(int picnum) {
-		if (cache[picnum] != null)
-			return cache[picnum].model;
-
-		return null;
-	}
-
-	public VoxelInfo getVoxelInfo(int picnum) {
-		if (cache[picnum] != null)
-			return cache[picnum].voxel;
-
-		return null;
-	}
-
-	public int getTile(ModelInfo model) {
-		for (int i = MAXTILES - 1; i >= 0; i--) {
-			if (cache[i] == null)
-				continue;
-
-			if (cache[i].model == model) {
-				return i;
-			}
-		}
-
-		return -1;
-	}
-
 	public Tile2model getParams(int picnum) {
 		if (cache[picnum] != null)
 			return cache[picnum];
@@ -139,59 +112,6 @@ public class ModelsInfo {
 				Tile2model current = n.next = new Tile2model();
 				current.palette = pal;
 				return current;
-			}
-		}
-	}
-
-	public int addModelInfo(ModelInfo md, int picnum, String framename, int skinnum, float smooth, int pal) {
-		if (picnum >= MAXTILES)
-			return (-2);
-		if (md == null)
-			return -1;
-
-		int i = -3;
-		switch (md.getType()) {
-		case Voxel:
-			smooth = skinnum = i = 0;
-			break;
-		case Md2:
-		case Md3:
-			if (framename == null)
-				return (-3);
-
-			i = ((MDInfo) md).getFrameIndex(framename);
-			break;
-		}
-
-		Tile2model current = getCache(picnum, pal);
-		current.model = md;
-		current.framenum = i;
-		current.skinnum = skinnum;
-		current.smoothduration = smooth;
-
-		return i;
-	}
-
-	public int addVoxelInfo(VoxelInfo md, int picnum) {
-		if (picnum >= MAXTILES)
-			return (-2);
-		if (md == null)
-			return -1;
-
-		if (cache[picnum] == null)
-			cache[picnum] = new Tile2model();
-
-		cache[picnum].voxel = md;
-		return 0;
-	}
-
-	public void removeModelInfo(ModelInfo md) {
-		for (int i = MAXTILES - 1; i >= 0; i--) {
-			if (cache[i] == null)
-				continue;
-
-			if (cache[i].model == md) {
-				cache[i].model = null;
 			}
 		}
 	}

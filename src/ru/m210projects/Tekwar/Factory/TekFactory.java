@@ -44,10 +44,7 @@ public class TekFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new TekSoftware(app.pEngine);
-		else
-			return new TekPolymost(app.pEngine);
+		return new TekSoftware(app.pEngine);
 	}
 
 	@Override

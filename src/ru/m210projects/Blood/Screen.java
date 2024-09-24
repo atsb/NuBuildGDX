@@ -29,7 +29,7 @@ import ru.m210projects.Build.Engine;
 import ru.m210projects.Build.Architecture.BuildGdx;
 
 import ru.m210projects.Build.OnSceenDisplay.Console;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Script.TextureHDInfo;
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.Palette;
@@ -221,7 +221,7 @@ public class Screen {
 
 		System.err.println("Palette has been changed to " + nPalette);
 		curPalette = nPalette;
-		engine.setbrightness(BuildSettings.paletteGamma.get(), palTable[curPalette], GLInvalidateFlag.All); // reset baseline colors
+		engine.setbrightness(BuildSettings.paletteGamma.get(), palTable[curPalette], true); // reset baseline colors
 
 		if(game.currentDef != null) {
 			TextureHDInfo hdInfo = game.currentDef.texInfo;

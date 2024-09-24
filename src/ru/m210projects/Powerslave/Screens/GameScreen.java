@@ -329,9 +329,6 @@ public class GameScreen extends GameAdapter {
 							TextAlign.Left, 2 | 256, true);
 			}
 		}
-
-		if (nPalDiff != 0 && engine.glrender() != null)
-			engine.showfade();
 	}
 
 	@Override

@@ -31,7 +31,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.Pattern.BuildFont;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildConfig.GameKeys;
 import ru.m210projects.Duke3D.Main;
 
@@ -66,8 +66,8 @@ public class EndScreen extends ScreenAdapter {
 	@Override
 	public void show() {
 		if(ud.volume_number == 0) {
-			 engine.setbrightness(ud.brightness>>2, endingpal, GLInvalidateFlag.All);
-		} else engine.setbrightness(ud.brightness>>2, palette, GLInvalidateFlag.All);
+			 engine.setbrightness(ud.brightness>>2, endingpal, true);
+		} else engine.setbrightness(ud.brightness>>2, palette, true);
 		bonuscnt = 0;
 		gCutsClock = totalclock = 0;
 	}
@@ -115,7 +115,7 @@ public class EndScreen extends ScreenAdapter {
                 if(isSkipped())
                 {
                 	bonuscnt = 4;
-                	engine.setbrightness(ud.brightness>>2, palette, GLInvalidateFlag.All);
+                	engine.setbrightness(ud.brightness>>2, palette, true);
                 	StopAllSounds();
                 	game.pInput.ctrlResetKeyStatus();
                 }
@@ -124,7 +124,7 @@ public class EndScreen extends ScreenAdapter {
 
                 if(isSkipped())
                 {
-                	engine.setbrightness(ud.brightness>>2, palette, GLInvalidateFlag.All);
+                	engine.setbrightness(ud.brightness>>2, palette, true);
                 	sound(PIPEBOMB_EXPLODE);
                 	game.pInput.ctrlResetKeyStatus();
                 	game.changeScreen(gStatisticScreen);
@@ -136,7 +136,7 @@ public class EndScreen extends ScreenAdapter {
 
 			if(isSkipped())
             {
-            	engine.setbrightness(ud.brightness>>2, palette, GLInvalidateFlag.All);
+            	engine.setbrightness(ud.brightness>>2, palette, true);
             	sound(PIPEBOMB_EXPLODE);
             	game.pInput.ctrlResetKeyStatus();
             	game.changeScreen(gStatisticScreen);
@@ -168,7 +168,7 @@ public class EndScreen extends ScreenAdapter {
 			engine.rotatesprite(0,0,65536,0,5367,0,0,2+8+16+64, 0,0,xdim-1,ydim-1);
 			if(isSkipped())
             {
-            	engine.setbrightness(ud.brightness>>2, palette, GLInvalidateFlag.All);
+            	engine.setbrightness(ud.brightness>>2, palette, true);
             	sound(PIPEBOMB_EXPLODE);
             	game.pInput.ctrlResetKeyStatus();
             	game.changeScreen(gStatisticScreen);

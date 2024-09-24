@@ -32,13 +32,12 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.glutils.GLVersion;
 
 import ru.m210projects.Build.Architecture.BuildFrame.FrameType;
-import ru.m210projects.Build.Render.Types.GL10;
+
 
 public abstract class BuildGraphics implements Graphics {
 	
 	public enum Option { SWChangePalette, SWGetFrame, GLSetConfiguration, GLDefConfiguration }
 
-    protected GL10 gl10;
 	protected GL20 gl20;
 	protected GL30 gl30;
 	
@@ -149,15 +148,6 @@ public abstract class BuildGraphics implements Graphics {
 	protected abstract void dispose();
 	
 	protected abstract boolean isActive();
-
-	public boolean isGL10Available() {
-		return gl10 != null;
-	}
-
-	/** @return the {@link GL10} instance */
-	public GL10 getGL10 () {
-		return gl10;
-	}
 
 	/** @return the {@link GL20} instance */
 	public GL20 getGL20() {

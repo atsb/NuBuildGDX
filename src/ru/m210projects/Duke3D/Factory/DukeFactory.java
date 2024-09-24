@@ -59,10 +59,7 @@ public class DukeFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new DukeSoftware(app.pEngine);
-		else
-			return new DukePolymost(app.pEngine);
+		return new DukeSoftware(app.pEngine);
 	}
 
 	@Override

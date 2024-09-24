@@ -10,7 +10,7 @@ import static ru.m210projects.Build.Engine.palookup;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import ru.m210projects.Build.Settings.GLSettings;
+
 import ru.m210projects.Build.Types.Tile;
 
 public class RGBTileData extends TileData {
@@ -90,7 +90,7 @@ public class RGBTileData extends TileData {
 				}
 			}
 
-			if (data != null && hasalpha && !GLSettings.textureFilter.get().retro)
+			if (data != null && hasalpha)
 				fixtransparency(buffer, tsizx, tsizy, xsiz, ysiz, clamped);
 		}
 

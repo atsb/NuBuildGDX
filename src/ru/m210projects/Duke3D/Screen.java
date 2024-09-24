@@ -57,7 +57,7 @@ import static ru.m210projects.Duke3D.Player.slimepal;
 import static ru.m210projects.Duke3D.Player.waterpal;
 
 import ru.m210projects.Build.Architecture.BuildGdx;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Script.TextureHDInfo;
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Duke3D.Types.PlayerStruct;
@@ -101,10 +101,10 @@ public class Screen {
 		cfg.ScreenWidth = BuildGdx.graphics.getWidth();
 		cfg.ScreenHeight = BuildGdx.graphics.getHeight();
 
-		engine.setbrightness(ud.brightness >> 2, ps[myconnectindex].palette, GLInvalidateFlag.All);
+		engine.setbrightness(ud.brightness >> 2, ps[myconnectindex].palette, true);
 	}
 
-	public static void setgamepalette(PlayerStruct player, byte[] pal, GLInvalidateFlag set) {
+	public static void setgamepalette(PlayerStruct player, byte[] pal, boolean set) {
 		if (player != ps[screenpeek]) {
 			// another head
 			player.palette = pal;
@@ -112,7 +112,6 @@ public class Screen {
 		}
 		player.palette = pal;
 		engine.setbrightness(ud.brightness >> 2, pal, set);
-		engine.setpalettefade(0, 0, 0, 0);
 
 		if (game.currentDef != null) {
 			TextureHDInfo hdInfo = game.currentDef.texInfo;
@@ -126,26 +125,10 @@ public class Screen {
 	}
 
 	public static void palto(int r, int g, int b, int count) {
-		if (engine.glrender() != null) {
-			if (count > 0) {
-				int fr = 0, fg = 0, fb = 0;
-				if (r > 0)
-					fr = Math.min(count - 128, r / 2);
-				if (g > 0)
-					fg = Math.min(count - 128, g / 2);
-				if (b > 0)
-					fb = Math.min(count - 128, b / 2);
-
-				engine.setpalettefade(fr, fg, fb, 1);
-				engine.showfade();
-			}
-		} else
-			engine.setpalettefade(r, g, b, count & 127);
 	}
 
 	public static void scrReset() {
-		engine.setpalettefade(0, 0, 0, 1);
-		setgamepalette(ps[myconnectindex], palette, GLInvalidateFlag.All);
+		setgamepalette(ps[myconnectindex], palette, true);
 	}
 
 	public static void myospal(int x, int y, int tilenum, int shade, int orientation, int p) {

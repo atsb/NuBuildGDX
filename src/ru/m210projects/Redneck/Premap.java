@@ -156,7 +156,7 @@ import java.util.Arrays;
 import ru.m210projects.Build.Architecture.BuildFrame.FrameType;
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.FileHandle.Resource;
-import ru.m210projects.Build.Render.GLRenderer;
+
 import ru.m210projects.Build.Types.SPRITE;
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Build.Types.WALL;
@@ -1299,14 +1299,6 @@ public class Premap {
 			palookup[33] = palookup[51];
 			palookup[23] = palookup[51];
 			palookup[8] = palookup[54];
-
-			if (BuildGdx.graphics.getFrameType() == FrameType.GL) {
-				palookupfog[0] = palookupfog[50];
-				palookupfog[30] = palookupfog[51];
-				palookupfog[33] = palookupfog[51];
-				palookupfog[23] = palookupfog[51];
-				palookupfog[8] = palookupfog[54];
-			}
 		}
 
 		if (type == 0) {
@@ -1315,23 +1307,6 @@ public class Premap {
 			palookup[33] = opalookup[4];
 			palookup[23] = opalookup[2];
 			palookup[8] = opalookup[1];
-
-			if (BuildGdx.graphics.getFrameType() == FrameType.GL) {
-				palookupfog[0] = opalookupfog[0];
-				palookupfog[30] = opalookupfog[3];
-				palookupfog[33] = opalookupfog[4];
-				palookupfog[23] = opalookupfog[2];
-				palookupfog[8] = opalookupfog[1];
-			}
-		}
-
-		final GLRenderer gl = engine.glrender();
-		if (gl != null && gl.getTextureManager() != null) {
-			gl.getTextureManager().invalidatepalookup(0);
-			gl.getTextureManager().invalidatepalookup(30);
-			gl.getTextureManager().invalidatepalookup(33);
-			gl.getTextureManager().invalidatepalookup(23);
-			gl.getTextureManager().invalidatepalookup(8);
 		}
 	}
 }

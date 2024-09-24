@@ -27,7 +27,7 @@ import static ru.m210projects.Duke3D.Names.FRAGBAR;
 import static ru.m210projects.Duke3D.View.displayfragbar;
 
 import ru.m210projects.Build.Pattern.ScreenAdapters.MenuAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Duke3D.Main;
 import ru.m210projects.Duke3D.Factory.DukeMenuHandler;
@@ -42,7 +42,7 @@ public class MenuScreen extends MenuAdapter {
 
 	@Override
 	public void show() {
-		engine.setbrightness(ud.brightness>>2, palette, GLInvalidateFlag.All);
+		engine.setbrightness(ud.brightness>>2, palette, true);
 		if(!menu.gShowMenu)
 			menu.mOpen(menu.mMenus[MAIN], -1);
 	}

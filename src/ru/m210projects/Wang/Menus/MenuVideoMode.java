@@ -18,7 +18,7 @@ import ru.m210projects.Build.Pattern.MenuItems.MenuItem;
 import ru.m210projects.Build.Pattern.MenuItems.MenuProc;
 import ru.m210projects.Build.Pattern.MenuItems.MenuSwitch;
 import ru.m210projects.Build.Pattern.MenuItems.MenuTitle;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildConfig;
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.BuildVariable;
@@ -63,7 +63,7 @@ public class MenuVideoMode extends ru.m210projects.Build.Pattern.CommonMenus.Men
 		cfg.ScreenWidth = BuildGdx.graphics.getWidth();
 		cfg.ScreenHeight = BuildGdx.graphics.getHeight();
 
-		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+		engine.setbrightness(gs.brightness, palette, true);
 		DoPlayerDivePalette(Player[myconnectindex]);
 	    DoPlayerNightVisionPalette(Player[myconnectindex]);
 	}

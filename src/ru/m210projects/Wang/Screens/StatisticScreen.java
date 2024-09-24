@@ -38,7 +38,7 @@ import static ru.m210projects.Wang.Type.MyTypes.TEST;
 import ru.m210projects.Build.Pattern.BuildFont;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.ScreenAdapters.SkippableAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Wang.Main;
 import ru.m210projects.Wang.Main.UserFlag;
 import ru.m210projects.Wang.Type.Animator;
@@ -224,7 +224,7 @@ public class StatisticScreen extends SkippableAdapter {
 	@Override
 	public void show() {
 		super.show();
-		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
+		engine.setbrightness(gs.brightness, palette, true);
 		
 		StopSound();
 		COVER_SetReverb(0);

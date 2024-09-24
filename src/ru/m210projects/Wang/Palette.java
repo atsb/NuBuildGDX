@@ -3,7 +3,6 @@ package ru.m210projects.Wang;
 import static com.badlogic.gdx.graphics.GL20.GL_DST_COLOR;
 import static com.badlogic.gdx.graphics.GL20.GL_ONE_MINUS_SRC_ALPHA;
 import static ru.m210projects.Build.Engine.*;
-import static ru.m210projects.Build.Engine.palfadergb;
 import static ru.m210projects.Build.Gameutils.BClipRange;
 import static ru.m210projects.Build.Pragmas.klabs;
 import static ru.m210projects.Wang.Game.*;
@@ -17,8 +16,8 @@ import static ru.m210projects.Wang.Main.engine;
 import static ru.m210projects.Wang.Main.*;
 import static ru.m210projects.Wang.Type.MyTypes.TEST;
 
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
-import ru.m210projects.Build.Render.Types.FadeEffect;
+
+
 import ru.m210projects.Build.Script.TextureHDInfo;
 import ru.m210projects.Wang.Type.PlayerStr;
 
@@ -318,30 +317,10 @@ public class Palette {
 		for (int i = 0; i < 32; i++)
 			tempbuf[LT_BROWN + i] = (byte) ((LT_BROWN + 32) - i);
 		engine.makepalookup(PALETTE_SLUDGE, tempbuf, 0, 0, 0, 1);
-
-		palfadergb = new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			@Override
-			public void update(int intensive) {
-				if (intensive > 0)
-					a = BClipRange(intensive, 0, 255);
-				else
-					a = 0;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, BClipRange(2 * r, 0, 255), BClipRange(2 * g, 0, 255),
-						BClipRange(2 * b, 0, 255), a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				FadeEffect.setParams(shader, r, g, b, 0, dfactor, dfactor);
-				FadeEffect.render(shader);
-			}
-		};
 	}
 
 	private static boolean CheckGLPalette(int color) {
-		if (engine.glrender() == null || (color == 210 || color == 148 || color == FORCERESET)) // dive, night palette
+		if ((color == 210 || color == 148 || color == FORCERESET)) // dive, night palette
 																								// or forcereset palette
 			return true;
 		return false;
@@ -443,8 +422,7 @@ public class Palette {
 
 		// Do initial palette set
 		if (pp == Player[screenpeek]) {
-			if (engine.glrender() == null || CheckGLPalette(startcolor)) {
-				engine.setbrightness(gs.brightness, pp.temp_pal, GLInvalidateFlag.All);
+			engine.setbrightness(gs.brightness, pp.temp_pal, true);
 
 				if (game.currentDef != null) {
 					TextureHDInfo hdInfo = game.currentDef.texInfo;
@@ -456,8 +434,6 @@ public class Palette {
 					else
 						hdInfo.setPaletteTint(MAXPALOOKUPS - 1, 255, 255, 255, 0);
 				}
-			} else
-				setpalettefade(red, green, blue, pp.FadeAmt);
 
 			if (damage < -1000)
 				pp.FadeAmt = 1000; // Don't call DoPaletteFlash for underwater stuff
@@ -524,27 +500,9 @@ public class Palette {
 
 			// Only hard set the palette if this is currently the player's view
 			if (pp == Player[screenpeek]) {
-				if (engine.glrender() == null || CheckGLPalette(pp.StartColor & 0xFF))
-					engine.setbrightness(gs.brightness, pp.temp_pal, GLInvalidateFlag.All);
-				else {
-					setpalettefade(pp.temp_pal[3 * (pp.StartColor & 0xFF) + 0],
-							pp.temp_pal[3 * (pp.StartColor & 0xFF) + 1], pp.temp_pal[3 * (pp.StartColor & 0xFF) + 2],
-							pp.FadeAmt);
-				}
+				engine.setbrightness(gs.brightness, pp.temp_pal, true);
 			}
 		}
-	}
-
-	public static void setpalettefade(int r, int g, int b, int fade) {
-		fade = faderamp[Math.min(31, Math.max(0, 32 - klabs(fade)))];
-
-		float k = fade / 48.0f;
-		r *= k;
-		g *= k;
-		b *= k;
-
-		engine.setpalettefade(r, g, b, fade);
-		palfadergb.update(fade);
 	}
 
 	public static void DoPlayerDivePalette(PlayerStr pp) {
@@ -590,8 +548,7 @@ public class Palette {
 		if (!CheckGLPalette(color))
 			return;
 
-		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
-		setpalettefade(0, 0, 0, 0);
+		engine.setbrightness(gs.brightness, palette, true);
 	}
 
 }

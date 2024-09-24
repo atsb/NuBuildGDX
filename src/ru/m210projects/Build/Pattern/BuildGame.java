@@ -45,7 +45,7 @@ import ru.m210projects.Build.Pattern.Tools.SaveManager;
 import ru.m210projects.Build.Render.Renderer.RenderType;
 import ru.m210projects.Build.Script.DefScript;
 import ru.m210projects.Build.Settings.BuildConfig;
-import ru.m210projects.Build.Settings.GLSettings;
+
 import ru.m210projects.Build.Types.LittleEndian;
 import ru.m210projects.Build.Types.MemLog;
 
@@ -150,10 +150,6 @@ public abstract class BuildGame extends Game {
 	}
 
 	public void updateColorCorrection() {
-		if (BuildGdx.graphics.getFrameType() == FrameType.GL) {
-//			BuildGdx.graphics.extra(Option.GLSetConfiguration, 1 - (GLSettings.gamma.get() / 4096.0f), GLSettings.brightness.get() / 4096.0f, GLSettings.contrast.get() / 4096.0f);
-			BuildGdx.graphics.extra(Option.GLSetConfiguration, 1 - (GLSettings.gamma.get() / 4096.0f), 0.0f, 1.0f);
-		}
 	}
 
 	private String exceptionHandler(Throwable e) {

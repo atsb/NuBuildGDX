@@ -19,7 +19,7 @@ import ru.m210projects.Build.FileHandle.Resource;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.SkippableAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Redneck.Types.MVEFile;
 
@@ -50,7 +50,7 @@ public class MVEScreen extends SkippableAdapter {
 
 	@Override
 	public void hide() {
-		engine.setbrightness(ud.brightness >> 2, palette, GLInvalidateFlag.All);
+		engine.setbrightness(ud.brightness >> 2, palette, true);
 	}
 
 	@Override

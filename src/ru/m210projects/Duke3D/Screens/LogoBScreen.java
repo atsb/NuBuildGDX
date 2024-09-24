@@ -25,7 +25,7 @@ import static ru.m210projects.Duke3D.Player.*;
 
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.LogoScreen;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 
 public class LogoBScreen extends LogoScreen {
 
@@ -41,7 +41,7 @@ public class LogoBScreen extends LogoScreen {
 		super.show();
 		soundanm = 0;
 		totalclock = 0;
-		engine.setbrightness(ud.brightness>>2, titlepal, GLInvalidateFlag.All);
+		engine.setbrightness(ud.brightness>>2, titlepal, true);
 	}
 	
 	@Override

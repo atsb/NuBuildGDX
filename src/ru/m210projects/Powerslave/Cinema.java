@@ -24,7 +24,7 @@ import static ru.m210projects.Powerslave.Sound.*;
 
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildSettings;
 
 public class Cinema {
@@ -125,7 +125,7 @@ public class Cinema {
 			public void run() {
 				LoadCinemaPalette(16);
 				PlayGameOverSound();
-				engine.setbrightness(BuildSettings.paletteGamma.get(), cinemapal, GLInvalidateFlag.All);
+				engine.setbrightness(BuildSettings.paletteGamma.get(), cinemapal, true);
 				game.changeScreen(gLogoScreen.setTime(10.0f).setTile(3591).setCallback(game.rMenu).setSkipping(game.rMenu));
 			}
 		});

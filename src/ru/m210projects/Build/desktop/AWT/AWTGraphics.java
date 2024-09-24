@@ -36,7 +36,7 @@ import ru.m210projects.Build.Architecture.BuildConfiguration;
 import ru.m210projects.Build.Architecture.BuildFrame.FrameType;
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.Architecture.BuildGraphics;
-import ru.m210projects.Build.Render.Types.GL10;
+
 
 public class AWTGraphics extends BuildGraphics {
 
@@ -346,11 +346,6 @@ public class AWTGraphics extends BuildGraphics {
 	@Override
 	public boolean supportsExtension(String extension) {
 		return false;
-	}
-
-	@Override
-	public GL10 getGL10() {
-		return null;
 	}
 	
 	@Override

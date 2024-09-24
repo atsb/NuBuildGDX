@@ -561,8 +561,7 @@ public class JSector {
 
 		engine.setviewback();
 
-		if (engine.glrender() == null)
-			engine.squarerotatetile(tilenume);
+		engine.squarerotatetile(tilenume);
 
 		engine.getrender().invalidatetile(tilenume, -1, -1);
 	}

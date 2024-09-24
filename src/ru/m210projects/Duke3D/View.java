@@ -51,7 +51,7 @@ import ru.m210projects.Build.FileHandle.Compat.Path;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.Tools.Interpolation.ILoc;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Types.SPRITE;
 import ru.m210projects.Build.Types.Tile;
 import ru.m210projects.Build.Types.WALL;
@@ -117,7 +117,7 @@ public class View {
 		PlayerStruct pp = ps[screenpeek];
 
 		if (changepalette != 0) {
-			setgamepalette(pp, pp.palette, GLInvalidateFlag.All);
+			setgamepalette(pp, pp.palette, true);
 			changepalette = 0;
 		}
 
@@ -128,10 +128,9 @@ public class View {
 			cb = pp.pals[2];
 			cf = pp.pals_time;
 
-			if (engine.glrender() == null) // software render
-				restorepalette = true;
+			restorepalette = true;
 		} else if (restorepalette) {
-			setgamepalette(pp, pp.palette, GLInvalidateFlag.All);
+			setgamepalette(pp, pp.palette, true);
 
 			dotint = true;
 			cr = cg = cb = 0;

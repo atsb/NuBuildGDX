@@ -51,8 +51,8 @@ import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Pattern.BuildEngine;
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.GameAdapter;
-import ru.m210projects.Build.Render.GLRenderer;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
+
 import ru.m210projects.Build.Render.Renderer;
 import ru.m210projects.Build.Render.Renderer.RenderType;
 import ru.m210projects.Build.Settings.BuildSettings.IntVar;
@@ -84,22 +84,15 @@ public class BloodEngine extends BuildEngine {
 	}
 
 	@Override
-	public void setbrightness(int nGamma, byte[] dapal, GLInvalidateFlag flags) {
-		GLRenderer gl = glrender();
+	public void setbrightness(int nGamma, byte[] dapal, boolean flags) {
 		curbrightness = BClipRange(nGamma, 0, gGammaLevels);
 
-		if ((gl == null || gl.getType().getFrameType() != FrameType.GL) && curbrightness != 0) {
+		if (curbrightness != 0) {
 			for (int i = 0; i < dapal.length; i++)
 				temppal[i] = gammaTable[nGamma][dapal[i] & 0xFF];
 			changepalette(temppal);
 		} else
 			changepalette(dapal);
-
-		if (gl != null)
-			gl.gltexinvalidateall(flags);
-
-		palfadergb.r = palfadergb.g = palfadergb.b = 0;
-		palfadergb.a = 0;
 	}
 
 	@Override
@@ -202,9 +195,6 @@ public class BloodEngine extends BuildEngine {
 
 	@Override
 	public short deletesprite(int spritenum) {
-		GLRenderer gl = glrender();
-		if (gl != null)
-			gl.removeSpriteCorr(spritenum);
 		DB.deletesprite((short) spritenum);
 		return 0;
 	}

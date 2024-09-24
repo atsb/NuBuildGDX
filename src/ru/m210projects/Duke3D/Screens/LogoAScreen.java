@@ -23,7 +23,7 @@ import static ru.m210projects.Duke3D.Player.*;
 
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.LogoScreen;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 
 public class LogoAScreen extends LogoScreen {
 	public LogoAScreen(BuildGame game, float gShowTime)
@@ -39,6 +39,6 @@ public class LogoAScreen extends LogoScreen {
 
 		StopAllSounds();
 		sndPlayMusic(currentGame.getCON().env_music_fn[0]);
-		engine.setbrightness(ud.brightness>>2, drealms, GLInvalidateFlag.All);
+		engine.setbrightness(ud.brightness>>2, drealms, true);
 	}
 }

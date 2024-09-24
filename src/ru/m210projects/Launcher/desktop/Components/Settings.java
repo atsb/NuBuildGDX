@@ -116,7 +116,6 @@ public class Settings extends FramePanel {
 
 		comboRenderer = new JComboBox<String>();
 		comboRenderer.addItem(RenderType.Software.getName());
-		comboRenderer.addItem(RenderType.Polymost.getName());
 		comboRenderer.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
@@ -124,9 +123,6 @@ public class Settings extends FramePanel {
 					switch (comboRenderer.getSelectedIndex()) {
 					case 0:
 						entry.getConfig().renderType = RenderType.Software;
-						break;
-					case 1:
-						entry.getConfig().renderType = RenderType.Polymost;
 						break;
 					}
 				}
@@ -339,8 +335,6 @@ public class Settings extends FramePanel {
 
 		if (cfg.renderType == RenderType.Software)
 			comboRenderer.setSelectedIndex(0);
-		else if (cfg.renderType == RenderType.Polymost)
-			comboRenderer.setSelectedIndex(1);
 		else {
 			// unknown renderer
 			cfg.renderType = RenderType.Software;

@@ -27,8 +27,8 @@ import ru.m210projects.Blood.Types.BloodTile;
 import ru.m210projects.Blood.Types.BloodTile.ViewType;
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.FileHandle.Resource;
-import ru.m210projects.Build.Render.ModelHandle.VoxelInfo;
-import ru.m210projects.Build.Render.ModelHandle.Voxel.VoxelData;
+
+
 import ru.m210projects.Build.Types.Tile.AnimType;
 
 public class Tile {
@@ -112,21 +112,6 @@ public class Tile {
 		BloodTile pic;
 		if(nTile < 0 || ( (pic = engine.getTile(nTile)).getView() != ViewType.kSpriteViewVoxel && pic.getView() != ViewType.kSpriteViewSpinVoxel)) return;
 		int nVoxel = gVoxelData[nTile];
-
-		if(game.currentDef.mdInfo.getVoxelInfo(nTile) == null && nVoxel >= 0 && nVoxel < 512) {
-			Resource buffer = BuildGdx.cache.open(nVoxel, "KVX");
-			if(buffer != null) {
-				try {
-					VoxelData vox = new VoxelData(buffer);
-					for(int i = 0; i < vox.zpiv.length; i++)
-						vox.zpiv[i] += (pic.getOffsetY() << 8) / (1 << i);
-
-					game.currentDef.mdInfo.addVoxelInfo(new VoxelInfo(vox), nTile);
-				} catch (Exception ignored) {}
-
-				buffer.close();
-			}
-		}
 	}
 
 	public static void shadeInit(String name)

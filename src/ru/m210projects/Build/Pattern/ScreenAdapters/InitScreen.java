@@ -42,7 +42,7 @@ import ru.m210projects.Build.Pattern.Tools.SaveManager;
 import ru.m210projects.Build.Render.Renderer.RenderType;
 import ru.m210projects.Build.Settings.BuildConfig;
 import ru.m210projects.Build.Settings.BuildSettings;
-import ru.m210projects.Build.Settings.GLSettings;
+
 import ru.m210projects.Build.Settings.BuildConfig.GameKeys;
 import ru.m210projects.Build.Types.MemLog;
 import ru.m210projects.Build.Pattern.BuildFactory;
@@ -163,7 +163,6 @@ public class InitScreen extends ScreenAdapter {
 		game.pFonts = factory.fonts();
 
 		BuildSettings.init(engine, cfg);
-		GLSettings.init(engine, cfg);
 
 		if(!engine.setrendermode(factory.renderer(cfg.renderType))) {
 			engine.setrendermode(factory.renderer(RenderType.Software));

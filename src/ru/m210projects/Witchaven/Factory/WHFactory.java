@@ -48,10 +48,7 @@ public class WHFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new WHSoftware(app.pEngine);
-		else
-			return new WHPolymost(app.pEngine);
+		return new WHSoftware(app.pEngine);
 	}
 
 	@Override

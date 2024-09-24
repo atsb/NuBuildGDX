@@ -9,7 +9,7 @@ import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.FileHandle.Resource;
 import ru.m210projects.Build.Pattern.BuildGame;
 import ru.m210projects.Build.Pattern.ScreenAdapters.LogoScreen;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 
 public class LogoAScreen extends LogoScreen {
 	
@@ -32,7 +32,7 @@ public class LogoAScreen extends LogoScreen {
 			byte[] pal = new byte[768];
 			fil.read(pal);
 			fil.close();
-			engine.setbrightness(gs.brightness, pal, GLInvalidateFlag.All);
+			engine.setbrightness(gs.brightness, pal, true);
 		}
 	}
 }

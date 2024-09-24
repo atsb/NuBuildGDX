@@ -109,8 +109,8 @@ import ru.m210projects.Build.Engine.Point;
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.Audio.BuildAudio.Driver;
 import ru.m210projects.Build.OnSceenDisplay.Console;
-import ru.m210projects.Build.Render.GLRenderer;
-import ru.m210projects.Build.Render.Types.FadeEffect;
+
+
 import ru.m210projects.Witchaven.Main.UserFlag;
 import ru.m210projects.Witchaven.Types.PLAYER;
 
@@ -531,16 +531,6 @@ public class WHFX {
 			if (sector[plr.sector].lotag == 50 && sector[plr.sector].hitag > 0)
 				weaponpowerup(plr);
 		}
-
-		GLRenderer gl = engine.glrender();
-		if (gl != null) {
-			if (player[pyrn].poisoned != 0) {
-				int tilt = mulscale(sintable[(3 * totalclock) & 2047], 20, 16);
-				if (tilt != 0)
-					gl.setdrunk(tilt);
-			} else
-				gl.setdrunk(0);
-		}
 	}
 
 	static int thunderflash;
@@ -901,148 +891,6 @@ public class WHFX {
 
 		movesprite((short) j, ((sintable[(daang + 512) & 2047]) * TICSPERFRAME) << 3,
 				((sintable[daang & 2047]) * TICSPERFRAME) << 3, daz, 4 << 8, 4 << 8, 1);
-	}
-
-	public static void FadeInit() {
-		Console.Println("Initializing fade effects", 0);
-		engine.registerFade("RED", new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-				if (intensive > 0) {
-					r = 3 * (intensive + 32);
-					a = 2 * (intensive + 32);
-				} else
-					r = a = 0;
-				if (r > 255)
-					r = 255;
-				if (a > 255)
-					a = 255;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, r, 0, 0, a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				int multiple = intensive / 2;
-				if (multiple > 170)
-					multiple = 170;
-
-				FadeEffect.setParams(shader, r > 0 ? multiple : 0, 0, 0, 0, GL_ONE_MINUS_SRC_ALPHA,
-						GL_ONE_MINUS_SRC_ALPHA);
-				FadeEffect.render(shader);
-			}
-		});
-
-		engine.registerFade("WHITE", new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-				if (intensive > 0) {
-					g = r = 10 * intensive;
-					a = (intensive + 32);
-				} else
-					g = r = a = 0;
-
-				if (r > 255)
-					r = 255;
-				if (g > 255)
-					g = 255;
-				if (a > 255)
-					a = 255;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, r, g, 0, a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				if (intensive > 0) {
-					int multiple = intensive;
-					if (multiple > 255)
-						multiple = 255;
-
-					FadeEffect.setParams(shader, r > 0 ? multiple : 0, g > 0 ? multiple : 0, 0, 0,
-							GL_ONE_MINUS_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-					FadeEffect.render(shader);
-				}
-			}
-		});
-
-		engine.registerFade("GREEN", new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-				if (intensive > 0) {
-					g = 4 * intensive;
-					a = (intensive + 32);
-				} else
-					g = a = 0;
-
-				if (g > 255)
-					g = 255;
-				if (a > 255)
-					a = 255;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, 0, g, 0, a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				if (intensive > 0) {
-					int multiple = intensive;
-					if (multiple > 255)
-						multiple = 255;
-
-					FadeEffect.setParams(shader, 0, g > 0 ? multiple : 0, 0, 0, GL_ONE_MINUS_SRC_ALPHA,
-							GL_ONE_MINUS_SRC_ALPHA);
-					FadeEffect.render(shader);
-				}
-			}
-		});
-
-		engine.registerFade("BLUE", new FadeEffect(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA) {
-			private int intensive;
-
-			@Override
-			public void update(int intensive) {
-				this.intensive = intensive;
-				if (intensive > 0) {
-					b = 4 * intensive;
-					a = (intensive + 32);
-				} else
-					b = a = 0;
-
-				if (b > 255)
-					b = 255;
-				if (a > 255)
-					a = 255;
-			}
-
-			@Override
-			public void draw(FadeShader shader) {
-				FadeEffect.setParams(shader, 0, 0, b, a, sfactor, dfactor);
-				FadeEffect.render(shader);
-
-				if (intensive > 0) {
-					int multiple = intensive;
-					if (multiple > 255)
-						multiple = 255;
-
-					FadeEffect.setParams(shader, 0, 0, b > 0 ? multiple : 0, 0, GL_ONE_MINUS_SRC_ALPHA,
-							GL_ONE_MINUS_SRC_ALPHA);
-					FadeEffect.render(shader);
-				}
-			}
-		});
 	}
 
 	public static void resetEffects() {

@@ -166,9 +166,6 @@ public class GameScreen extends GameAdapter {
 		if (game.gPaused && !game.menu.gShowMenu) {
 			game.getFont(2).drawText(160, 100, "GAME PAUSED", 0, 0, TextAlign.Center, 2 + 8 + 16, false);
 		}
-
-		if (nPalDiff != 0 && engine.glrender() != null)
-			engine.showfade();
 	}
 
 	@Override

@@ -22,7 +22,7 @@ import static ru.m210projects.LSP.Main.*;
 import ru.m210projects.Build.Pattern.MenuItems.BuildMenu;
 import ru.m210projects.Build.Pattern.MenuItems.MenuHandler;
 import ru.m210projects.Build.Pattern.MenuItems.MenuHandler.MenuOpt;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildSettings;
 
 public class AdvertisingMenu extends BuildMenu {
@@ -54,7 +54,7 @@ public class AdvertisingMenu extends BuildMenu {
 		boolean out = super.mLoadRes(handler, opt);
 
 		if (opt == MenuOpt.Close)
-			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, GLInvalidateFlag.All);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, true);
 		else if (opt != MenuOpt.ANY)
 			((ItemPCX) m_pItems[m_nFocus]).show();
 

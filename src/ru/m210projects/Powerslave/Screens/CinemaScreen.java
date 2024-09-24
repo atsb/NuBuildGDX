@@ -28,7 +28,7 @@ import static ru.m210projects.Powerslave.Globals.*;
 
 import ru.m210projects.Build.Pattern.BuildFont.TextAlign;
 import ru.m210projects.Build.Pattern.ScreenAdapters.SkippableAdapter;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Powerslave.Main;
 
@@ -96,12 +96,12 @@ public class CinemaScreen extends SkippableAdapter {
 			break;
 		case 8:
 			lastScene = 1;
-			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, GLInvalidateFlag.All);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, true);
 			backgroundCol = 96;
 			break;
 		case 9:
 			lastScene = 2;
-			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, GLInvalidateFlag.All);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), palette, true);
 			backgroundCol = 96;
 			break;
 		}
@@ -111,7 +111,7 @@ public class CinemaScreen extends SkippableAdapter {
 			if (cinematext != -1)
 				playCDtrack(cinematext + 2, false);
 			LoadCinemaPalette(num);
-			engine.setbrightness(BuildSettings.paletteGamma.get(), cinemapal, GLInvalidateFlag.All);
+			engine.setbrightness(BuildSettings.paletteGamma.get(), cinemapal, true);
 
 			backgroundCol = 0;
 			int k = 255;
@@ -152,7 +152,7 @@ public class CinemaScreen extends SkippableAdapter {
 	public void hide() {
 		StopAllSounds();
 		StopMusic();
-		engine.setbrightness(BuildSettings.paletteGamma.get(), palette, GLInvalidateFlag.All);
+		engine.setbrightness(BuildSettings.paletteGamma.get(), palette, true);
 	}
 
 	public CinemaScreen setNum(int num) {

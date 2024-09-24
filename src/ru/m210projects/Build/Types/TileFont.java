@@ -20,7 +20,7 @@ import java.nio.ByteBuffer;
 import java.util.HashSet;
 
 import ru.m210projects.Build.Render.TextureHandle.DummyTileData;
-import ru.m210projects.Build.Render.TextureHandle.GLTile;
+
 import ru.m210projects.Build.Render.TextureHandle.TextureManager;
 import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
 
@@ -41,8 +41,6 @@ public class TileFont {
 	public enum FontType {
 		Tilemap, Bitmap
 	}
-
-	public GLTile atlas;
 
 	public Object ptr;
 	public FontType type;
@@ -65,25 +63,7 @@ public class TileFont {
 		managedFont.add(this);
 	}
 
-	public GLTile getGL(TextureManager textureCache, PixelFormat fmt, int col) {
-		GLTile tile = textureCache.get(fmt, (Integer) ptr, col, 0, 0);
-		if (tile != null) {
-			textureCache.bind(tile);
-			return tile;
-		}
-
-		return null;
-	}
-
-	public void uninit() {
-		if (atlas != null) {
-			atlas.delete();
-			atlas = null;
-		}
-	}
-
 	public void dispose() {
-		uninit();
 		managedFont.remove(this);
 	}
 

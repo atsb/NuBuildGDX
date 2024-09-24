@@ -101,8 +101,8 @@ import ru.m210projects.Build.Architecture.BuildGraphics.Option;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.Render.IOverheadMapSettings;
 import ru.m210projects.Build.Render.Renderer;
-import ru.m210projects.Build.Render.ModelHandle.VoxelInfo;
-import ru.m210projects.Build.Render.ModelHandle.Voxel.VoxelData;
+
+
 import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
 import ru.m210projects.Build.Render.Types.Spriteext;
 import ru.m210projects.Build.Render.Types.Tile2model;
@@ -1046,7 +1046,6 @@ public class Software implements Renderer {
 			return;
 
 		int tilenum = tspr.picnum;
-		VoxelInfo vtilenum = null;
 		short spritenum = tspr.owner;
 		short cstat = tspr.cstat;
 
@@ -1060,16 +1059,6 @@ public class Software implements Renderer {
 
 		if ((tspr.xrepeat <= 0) || (tspr.yrepeat <= 0))
 			return;
-
-		if (BuildSettings.useVoxels.get()) {
-			Tile2model entry = defs != null ? defs.mdInfo.getParams(tilenum) : null;
-			if (entry != null && entry.voxel != null) {
-				if ((sprite[tspr.owner].cstat & 48) != 32) {
-					vtilenum = entry.voxel;
-					cstat |= 48;
-				}
-			}
-		}
 
 		short sectnum = tspr.sectnum;
 		SECTOR sec = sector[sectnum];
@@ -1959,36 +1948,12 @@ public class Software implements Renderer {
 					return;
 			}
 
-			if (vtilenum == null)
-				break;
-
-			if (vtilenum.getScale() == 65536)
-				nyrepeat = ((tspr.yrepeat) << 16);
-			else
-				nyrepeat = (long) (tspr.yrepeat * vtilenum.getScale());
-			xv = (int) ((tspr.xrepeat * sintable[(tspr.ang + 2560 + 1536) & 2047]) * (vtilenum.getScale() / 65536.0f));
-			yv = (int) ((tspr.xrepeat * sintable[(tspr.ang + 2048 + 1536) & 2047]) * (vtilenum.getScale() / 65536.0f));
-
-			tspr.x -= mulscale(xoff, xv, 16) / 1.25f;
-			tspr.y -= mulscale(xoff, yv, 16) / 1.25f;
-			tspr.z -= mulscale(yoff, nyrepeat, 14);
-
-			if ((cstat & 128) == 0)
-				// tspr.z -= mulscale(tilesizy[tspr.picnum], nyrepeat, 15); // GDX this more
-				// correct, but disabled for compatible with eduke
-				tspr.z -= mulscale(vtilenum.getData().zpiv[0], nyrepeat, 22);
-
-			if ((cstat & 8) != 0 && (cstat & 16) != 0)
-				tspr.z += mulscale((pic.getHeight() / 2) - vtilenum.getData().zpiv[0], nyrepeat, 36);
-
 			globvis = globalvisibility;
 			globalorientation = cstat;
 			if (sec.visibility != 0)
 				globvis = mulscale(globvis, (sec.visibility + 16) & 0xFF, 4);
 
 			i = tspr.ang + 1536;
-			if (vtilenum.isRotating())
-				i -= (5 * totalclock) & 2047;
 
 			Spriteext sprext = defs.mapInfo.getSpriteInfo(tspr.owner);
 			if (sprext != null)
@@ -1997,8 +1962,6 @@ public class Software implements Renderer {
 			float f = 1.0f;
 			if ((sprite[tspr.owner].cstat & 48) == 16 || (sprite[tspr.owner].cstat & 48) == 32)
 				f *= 1.25f;
-
-			voxdraw(tspr, i, (int) (tspr.xrepeat * f), tspr.yrepeat, vtilenum, lwall, swall);
 			break;
 		}
 		if (automapping == 1)
@@ -2007,388 +1970,6 @@ public class Software implements Renderer {
 
 	protected void kloadvoxel(int voxindex) {
 
-	}
-
-	private void voxdraw(SPRITE daspr, int dasprang, int daxscale, int dayscale, VoxelInfo daindex, int[] daumost,
-			int[] dadmost) {
-		int i, j, k, x, y, syoff, ggxstart, ggystart, nxoff;
-		int cosang, sinang, sprcosang, sprsinang, backx, backy, gxinc, gyinc;
-		int daxsiz, daysiz, daxpivot, daypivot, dazpivot;
-		int daxscalerecip, dayscalerecip, cnt, gxstart, gystart;
-		int l1, l2, slabxoffs;
-		int lx, rx, nx, ny, x1 = 0, y1 = 0, z1, x2 = 0, y2 = 0, z2, yplc, yinc = 0;
-		int yoff, xs = 0, ys = 0, xe, ye, xi = 0, yi = 0, cbackx, cbacky, dagxinc, dagyinc;
-		int voxptr, voxend, zleng, mip;
-
-		int dasprx = daspr.x;
-		int daspry = daspr.y;
-		int dasprz = daspr.z;
-		int dashade = daspr.shade;
-		int dapal = daspr.pal;
-		SECTOR sec = sector[daspr.sectnum];
-
-		cosang = sintable[(int) (globalang + 512) & 2047];
-		sinang = sintable[(int) globalang & 2047];
-		sprcosang = sintable[(dasprang + 512) & 2047];
-		sprsinang = sintable[dasprang & 2047];
-
-		mip = klabs(dmulscale(dasprx - globalposx, cosang, daspry - globalposy, sinang, 6));
-		j = engine.getpalookup(mulscale(globvis, mip, 21), dashade) << 8;
-
-		int trans = 0;
-		if ((globalorientation & 2) != 0) {
-			if ((globalorientation & 512) != 0)
-				trans = 2;
-			else
-				trans = 1;
-		}
-		a.setupdrawslab(ylookup[1], palookup[dapal], j, trans);
-
-		if (!novoxmips) {
-			j = 1310720;
-			j *= Math.min(daxscale, dayscale);
-			j >>= 6; // New hacks (for sized-down voxels)
-			for (k = 0; k < MAXVOXMIPS; k++) {
-				if (mip < j) {
-					mip = k;
-					break;
-				}
-				j <<= 1;
-			}
-			if (k >= MAXVOXMIPS)
-				mip = MAXVOXMIPS - 1;
-		} else
-			mip = 0;
-
-		VoxelData davox = daindex.getData();
-		int scale = (int) daindex.getScale();
-		if (davox == null)
-			return;
-
-		if (davox.data[mip] == null && mip > 0)
-			mip = 0;
-
-		if (scale == 65536) {
-			daxscale <<= (mip + 8);
-			dayscale <<= (mip + 8);
-		} else {
-			daxscale = mulscale(daxscale << mip, scale, 8);
-			dayscale = mulscale(dayscale << mip, scale, 8);
-		}
-
-		int odayscale = dayscale; // tspr.yrepeat
-		daxscale = mulscale(daxscale, xyaspect, 16);
-		daxscale = scale(daxscale, xdimenscale, xdimen << 8);
-		dayscale = scale(dayscale, mulscale(xdimenscale, viewingrangerecip, 16), xdimen << 8);
-
-		if(daxscale == 0 || dayscale == 0)
-			return;
-
-		daxscalerecip = (1 << 30) / daxscale;
-		dayscalerecip = (1 << 30) / dayscale;
-
-		daxsiz = davox.xsiz[mip];
-		daysiz = davox.ysiz[mip];
-
-		daxpivot = davox.xpiv[mip];
-		daypivot = davox.ypiv[mip];
-		dazpivot = davox.zpiv[mip];
-
-		x = mulscale(globalposx - dasprx, daxscalerecip, 16);
-		y = mulscale(globalposy - daspry, daxscalerecip, 16);
-		backx = ((dmulscale(x, sprcosang, y, sprsinang, 10) + daxpivot) >> 8);
-		backy = ((dmulscale(y, sprcosang, x, -sprsinang, 10) + daypivot) >> 8);
-		cbackx = Math.min(Math.max(backx, 0), daxsiz - 1);
-		cbacky = Math.min(Math.max(backy, 0), daysiz - 1);
-
-		sprcosang = mulscale(daxscale, sprcosang, 14);
-		sprsinang = mulscale(daxscale, sprsinang, 14);
-
-		x = (dasprx - globalposx) - dmulscale(daxpivot, sprcosang, daypivot, -sprsinang, 18);
-		y = (daspry - globalposy) - dmulscale(daypivot, sprcosang, daxpivot, sprsinang, 18);
-
-		cosang = mulscale(cosang, dayscalerecip, 16);
-		sinang = mulscale(sinang, dayscalerecip, 16);
-
-		gxstart = y * cosang - x * sinang;
-		gystart = x * cosang + y * sinang;
-		gxinc = dmulscale(sprsinang, cosang, sprcosang, -sinang, 10);
-		gyinc = dmulscale(sprcosang, cosang, sprsinang, sinang, 10);
-
-		x = 0;
-		y = 0;
-		j = Math.max(daxsiz, daysiz);
-		for (i = 0; i <= j; i++) {
-			ggxinc[i] = x;
-			x += gxinc;
-			ggyinc[i] = y;
-			y += gyinc;
-		}
-
-		if ((klabs(globalposz - dasprz) >> 10) >= klabs(odayscale))
-			return;
-
-		syoff = divscale(globalposz - dasprz, odayscale, 21) + (dazpivot << 7);
-		yoff = ((klabs(gxinc) + klabs(gyinc)) >> 1);
-
-		boolean xflip = (globalorientation & 4) != 0;
-		boolean yflip = (globalorientation & 8) != 0;
-		int xptr, dazsiz = davox.zsiz[mip];
-		short[] shortptr;
-
-		int dm = divscale(sec.floorz - globalposz, odayscale, 21);
-		int um = divscale(sec.ceilingz - globalposz, odayscale, 21);
-		for (cnt = 0; cnt < 8; cnt++) {
-			switch (cnt) {
-			case 0:
-				xs = 0;
-				ys = 0;
-				xi = 1;
-				yi = 1;
-				break;
-			case 1:
-				xs = daxsiz - 1;
-				ys = 0;
-				xi = -1;
-				yi = 1;
-				break;
-			case 2:
-				xs = 0;
-				ys = daysiz - 1;
-				xi = 1;
-				yi = -1;
-				break;
-			case 3:
-				xs = daxsiz - 1;
-				ys = daysiz - 1;
-				xi = -1;
-				yi = -1;
-				break;
-			case 4:
-				xs = 0;
-				ys = cbacky;
-				xi = 1;
-				yi = 2;
-				break;
-			case 5:
-				xs = daxsiz - 1;
-				ys = cbacky;
-				xi = -1;
-				yi = 2;
-				break;
-			case 6:
-				xs = cbackx;
-				ys = 0;
-				xi = 2;
-				yi = 1;
-				break;
-			case 7:
-				xs = cbackx;
-				ys = daysiz - 1;
-				xi = 2;
-				yi = -1;
-				break;
-			}
-			xe = cbackx;
-			ye = cbacky;
-			if (cnt < 4) {
-				if ((xi < 0) && (xe >= xs))
-					continue;
-				if ((xi > 0) && (xe <= xs))
-					continue;
-				if ((yi < 0) && (ye >= ys))
-					continue;
-				if ((yi > 0) && (ye <= ys))
-					continue;
-			} else {
-				if ((xi < 0) && (xe > xs))
-					continue;
-				if ((xi > 0) && (xe < xs))
-					continue;
-				if ((yi < 0) && (ye > ys))
-					continue;
-				if ((yi > 0) && (ye < ys))
-					continue;
-				xe += xi;
-				ye += yi;
-			}
-
-			i = ksgn(ys - backy) + ksgn(xs - backx) * 3 + 4;
-			switch (i) {
-			case 6:
-			case 7:
-				x1 = 0;
-				y1 = 0;
-				break;
-			case 8:
-			case 5:
-				x1 = gxinc;
-				y1 = gyinc;
-				break;
-			case 0:
-			case 3:
-				x1 = gyinc;
-				y1 = -gxinc;
-				break;
-			case 2:
-			case 1:
-				x1 = gxinc + gyinc;
-				y1 = gyinc - gxinc;
-				break;
-			}
-			switch (i) {
-			case 2:
-			case 5:
-				x2 = 0;
-				y2 = 0;
-				break;
-			case 0:
-			case 1:
-				x2 = gxinc;
-				y2 = gyinc;
-				break;
-			case 8:
-			case 7:
-				x2 = gyinc;
-				y2 = -gxinc;
-				break;
-			case 6:
-			case 3:
-				x2 = gxinc + gyinc;
-				y2 = gyinc - gxinc;
-				break;
-			}
-			short oand = (short) (pow2char[((xs < backx) ? 1 : 0) + 0] + pow2char[((ys < backy) ? 1 : 0) + 2]);
-			if (xflip)
-				oand ^= 3;
-
-			short oand16 = (short) (oand + 16);
-			short oand32 = (short) (oand + 32);
-
-			if (yflip) {
-				oand16 = (short) (oand + 32);
-				oand32 = (short) (oand + 16);
-			}
-
-			if (yi > 0) {
-				dagxinc = gxinc;
-				dagyinc = mulscale(gyinc, viewingrangerecip, 16);
-			} else {
-				dagxinc = -gxinc;
-				dagyinc = -mulscale(gyinc, viewingrangerecip, 16);
-			}
-
-			// Fix for non 90 degree viewing ranges
-			nxoff = mulscale(x2 - x1, viewingrangerecip, 16);
-			x1 = mulscale(x1, viewingrangerecip, 16);
-
-			ggxstart = gxstart + ggyinc[ys];
-			ggystart = gystart - ggxinc[ys];
-
-			for (x = xs; x != xe; x += xi) {
-				xptr = xflip ? daxsiz - 1 - x : x;
-				slabxoffs = davox.slabxoffs[mip][xptr];
-				shortptr = davox.xyoffs[mip][xptr];
-
-				nx = mulscale(ggxstart + ggxinc[x], viewingrangerecip, 16) + x1;
-				ny = ggystart + ggyinc[x];
-				for (y = ys; y != ye; y += yi, nx += dagyinc, ny -= dagxinc) {
-					if ((ny <= nytooclose) || (ny >= nytoofar))
-						continue;
-
-					voxptr = slabxoffs + shortptr[y];
-					voxend = slabxoffs + shortptr[y + 1];
-
-					if (voxptr == voxend)
-						continue;
-
-					if ((ny + y1) < 0 || (ny + y2) < 0)
-						continue;
-
-					lx = mulscale(nx >> 3, distrecip[(ny + y1) >> 14], 32) + halfxdimen;
-					if (lx < 0)
-						lx = 0;
-					rx = mulscale((nx + nxoff) >> 3, distrecip[(ny + y2) >> 14], 32) + halfxdimen;
-					if (rx > xdimen)
-						rx = xdimen;
-					if (rx <= lx)
-						continue;
-					rx -= lx;
-
-					l1 = distrecip[(ny - yoff) >> 14];
-					l2 = distrecip[(ny + yoff) >> 14];
-
-					int umz = 0;
-					if ((sec.ceilingstat & 3) == 0)
-						umz = mulscale((um < 0) ? l1 : l2, um, 32) + (int) globalhoriz;
-
-					int dmz = 0x7fffffff;
-					if ((sec.floorstat & 3) == 0)
-						dmz = mulscale((dm < 0) ? l2 : l1, dm, 32) + (int) globalhoriz;
-
-					for (; voxptr < voxend; voxptr += zleng + 3) {
-						zleng = davox.data[mip][voxptr + 1] & 0xFF;
-
-						if (yflip)
-							j = ((dazsiz - (davox.data[mip][voxptr] & 0xFF) - zleng) << 15) - syoff;
-						else
-							j = ((davox.data[mip][voxptr] & 0xFF) << 15) - syoff;
-
-						if (j < 0) {
-							k = j + (zleng << 15);
-							if (k < 0) {
-								if ((davox.data[mip][voxptr + 2] & oand32) == 0)
-									continue;
-								z2 = mulscale(l2, k, 32) + (int) globalhoriz; // Below slab
-							} else {
-								if ((davox.data[mip][voxptr + 2] & oand) == 0)
-									continue; // Middle of slab
-								z2 = mulscale(l1, k, 32) + (int) globalhoriz;
-							}
-							z1 = mulscale(l1, j, 32) + (int) globalhoriz;
-						} else {
-							if ((davox.data[mip][voxptr + 2] & oand16) == 0)
-								continue;
-							z1 = mulscale(l2, j, 32) + (int) globalhoriz; // Above slab
-							z2 = mulscale(l1, j + (zleng << 15), 32) + (int) globalhoriz;
-
-						}
-
-						int umost = Math.max(daumost[lx], umz);
-						int dmost = Math.min(dadmost[lx], dmz);
-
-						if (zleng == 1) {
-							yplc = 0;
-							yinc = 0;
-							if (z1 < umost)
-								z1 = umost;
-						} else {
-							if (z2 - z1 >= 1024)
-								yinc = divscale(zleng, z2 - z1, 16);
-							else if (z2 > z1)
-								yinc = (lowrecip[z2 - z1] * zleng >> 8);
-							if (z1 < umost) {
-								yplc = yinc * (umost - z1);
-								z1 = umost;
-							} else
-								yplc = 0;
-
-							if (yflip) {
-								yinc = -yinc;
-								yplc = (zleng << 16) - yplc + yinc;
-							}
-						}
-						if (z2 > dmost)
-							z2 = dmost;
-
-						z2 -= z1;
-						if (z2 <= 0)
-							continue;
-						a.drawslab(rx, yplc, z2, yinc, davox.data[mip], voxptr + 3, ylookup[z1] + lx + frameoffset);
-					}
-				}
-			}
-		}
 	}
 
 	private void drawmaskwall(int damaskwallcnt) {

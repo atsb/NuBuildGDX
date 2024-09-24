@@ -56,14 +56,14 @@ import ru.m210projects.Build.FileHandle.Resource.Whence;
 import ru.m210projects.Build.Input.KeyInput;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.OnSceenDisplay.DEFOSDFUNC;
-import ru.m210projects.Build.Render.GLRenderer;
-import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
+
+
 import ru.m210projects.Build.Render.Renderer;
 import ru.m210projects.Build.Render.Renderer.RenderType;
 import ru.m210projects.Build.Render.Software.Software;
 import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
-import ru.m210projects.Build.Render.Types.FadeEffect;
-import ru.m210projects.Build.Render.Types.GL10;
+
+
 import ru.m210projects.Build.Script.DefScript;
 import ru.m210projects.Build.Settings.BuildSettings;
 import ru.m210projects.Build.Types.BuildPos;
@@ -334,7 +334,6 @@ public abstract class Engine {
 			268435456, 536870912, 1073741824, 2147483647, };
 
 	public static Palette curpalette;
-	public static FadeEffect palfadergb;
 
 	public static int clipmoveboxtracenum = 3;
 	public static int hitscangoalx = (1 << 29) - 1, hitscangoaly = (1 << 29) - 1;
@@ -723,9 +722,6 @@ public abstract class Engine {
 
 	public short deletesprite(int spritenum) // jfBuild
 	{
-		GLRenderer gl = glrender();
-		if (gl != null)
-			gl.removeSpriteCorr(spritenum);
 		deletespritestat(spritenum);
 		return (deletespritesect(spritenum));
 	}
@@ -1016,12 +1012,6 @@ public abstract class Engine {
 		bakwindowy1 = new int[4];
 		bakwindowx2 = new int[4];
 		bakwindowy2 = new int[4];
-
-		palfadergb = new FadeEffect(GL10.GL_ONE_MINUS_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA) {
-			@Override
-			public void update(int intensive) {
-			}
-		};
 	}
 
 	public Engine() throws Exception { // gdxBuild
@@ -1376,7 +1366,7 @@ public abstract class Engine {
 		ydim = daydim;
 
 		setview(0, 0, xdim - 1, ydim - 1);
-		setbrightness(curbrightness, palette, GLInvalidateFlag.All);
+		setbrightness(curbrightness, palette, true);
 
 		Console.ResizeDisplay(daxdim, daydim);
 
@@ -1432,25 +1422,12 @@ public abstract class Engine {
 		return System.currentTimeMillis();
 	}
 
-	HashMap<String, FadeEffect> fades;
-
-	public void registerFade(String fadename, FadeEffect effect) { // gdxBuild
-		if (fades == null)
-			fades = new HashMap<String, FadeEffect>();
-		fades.put(fadename, effect);
-	}
-
 	public void updateFade(String fadename, int intensive) // gdxBuild
 	{
-		FadeEffect effect = fades.get(fadename);
-		if (effect != null)
-			effect.update(intensive);
+
 	}
 
 	public void showfade() { // gdxBuild
-		GLRenderer gl = glrender();
-		if (gl != null)
-			gl.palfade(fades);
 	}
 
 	public synchronized void loadpic(String filename) // gdxBuild
@@ -3519,19 +3496,14 @@ public abstract class Engine {
 		BuildGdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				final GLRenderer gl = glrender();
-				if (gl != null) {
-					gl.getTextureManager().invalidatepalookup(palnum);
-				}
 			}
 		});
 	}
 
-	public void setbrightness(int dabrightness, byte[] dapal, GLInvalidateFlag flags) {
-		final GLRenderer gl = glrender();
+	public void setbrightness(int dabrightness, byte[] dapal, boolean flags) {
 		curbrightness = BClipRange(dabrightness, 0, 15);
 
-		if ((gl == null || gl.getType().getFrameType() != FrameType.GL) && curbrightness != 0) {
+		if (curbrightness != 0) {
 			for (int i = 0; i < dapal.length; i++)
 				temppal[i] = britable[curbrightness][(dapal[i] & 0xFF) << 2];
 		} else {
@@ -3543,14 +3515,6 @@ public abstract class Engine {
 //				for (int i = 0; i < dapal.length; i++)
 //					temppal[i] = britable[curbrightness][(dapal[i] & 0xFF) << 2];
 //			}
-		}
-
-		if (changepalette(temppal)) {
-			if (gl != null)
-				gl.gltexinvalidateall(flags);
-
-			palfadergb.r = palfadergb.g = palfadergb.b = 0;
-			palfadergb.a = 0;
 		}
 	}
 
@@ -3571,26 +3535,6 @@ public abstract class Engine {
 	}
 
 	protected byte[] temppal = new byte[768];
-
-	public void setpalettefade(int r, int g, int b, int offset) { // jfBuild
-		palfadergb.r = min(63, r) << 2;
-		palfadergb.g = min(63, g) << 2;
-		palfadergb.b = min(63, b) << 2;
-		palfadergb.a = (min(63, offset) << 2);
-
-		if (glrender() == null) { // if 8bit renderer
-			int k = 0;
-			for (int i = 0; i < 256; i++) {
-				temppal[k++] = (byte) (curpalette.getRed(i) + (((palfadergb.r - curpalette.getRed(i)) * offset) >> 6));
-				temppal[k++] = (byte) (curpalette.getGreen(i)
-						+ (((palfadergb.g - curpalette.getGreen(i)) * offset) >> 6));
-				temppal[k++] = (byte) (curpalette.getBlue(i)
-						+ (((palfadergb.b - curpalette.getBlue(i)) * offset) >> 6));
-			}
-
-			render.changepalette(temppal);
-		}
-	}
 
 	public void clearview(int dacol) { // gdxBuild
 		render.clearview(dacol);
@@ -3904,13 +3848,6 @@ public abstract class Engine {
 	public Renderer getrender() // gdxBuild
 	{
 		return render;
-	}
-
-	public GLRenderer glrender() {
-		if (render != null && getrender().getType().getFrameType() == FrameType.GL)
-			return (GLRenderer) render;
-
-		return null;
 	}
 
 	public void copytilepiece(int tilenume1, int sx1, int sy1, int xsiz, int ysiz, // jfBuild
