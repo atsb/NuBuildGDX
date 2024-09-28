@@ -62,10 +62,7 @@ public class BloodFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new BloodSoftware(app.pEngine);
-		else
-			return new BloodPolymost(app.pEngine);
+		return new BloodSoftware(app.pEngine);
 	}
 
 	@Override

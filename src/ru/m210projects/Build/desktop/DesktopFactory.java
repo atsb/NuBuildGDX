@@ -38,8 +38,6 @@ import ru.m210projects.Build.Render.VideoMode;
 import ru.m210projects.Build.desktop.AWT.AWTGraphics;
 import ru.m210projects.Build.desktop.AWT.AWTInput;
 import ru.m210projects.Build.desktop.Controllers.JControllers;
-import ru.m210projects.Build.desktop.GLFW.Lwjgl3Graphics;
-import ru.m210projects.Build.desktop.GLFW.Lwjgl3Input;
 import ru.m210projects.Build.desktop.audio.ALAudio;
 import ru.m210projects.Build.desktop.audio.ALSoundDrv;
 import ru.m210projects.Build.desktop.audio.GdxAL;
@@ -98,24 +96,12 @@ public class DesktopFactory implements ApplicationFactory {
 		return new BuildFrame(config) {
 			@Override
 			public BuildGraphics getGraphics(FrameType type) {
-				if(type == FrameType.GL) 
-					return new Lwjgl3Graphics(cfg);
-				
-				if(type == FrameType.Canvas)
-					return new AWTGraphics(cfg);
-				
-				throw new UnsupportedOperationException("Unsupported frame type: " + type); 
+				return new AWTGraphics(cfg);
 			}
 
 			@Override
 			public BuildInput getInput(FrameType type) {
-				if(type == FrameType.GL) 
-					return new Lwjgl3Input();
-				
-				if(type == FrameType.Canvas)
-					return new AWTInput();
-				
-				throw new UnsupportedOperationException("Unsupported frame type: " + type); 
+				return new AWTInput();
 			}
 		};
 	}

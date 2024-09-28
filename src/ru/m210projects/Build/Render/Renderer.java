@@ -26,7 +26,7 @@ import ru.m210projects.Build.Types.TileFont;
 public interface Renderer {
 
 	enum RenderType {
-		Software(FrameType.Canvas, "Classic"), Polymost(FrameType.GL, "Polymost");
+		Software(FrameType.Canvas, "Classic");
 
 		FrameType type;
 		String name;

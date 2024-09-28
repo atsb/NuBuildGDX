@@ -60,10 +60,7 @@ public class RRFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new RRSoftware(app.pEngine);
-		else
-			return new RRPolymost(app.pEngine);
+		return new RRSoftware(app.pEngine);
 	}
 
 	@Override

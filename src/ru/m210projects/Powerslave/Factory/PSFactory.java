@@ -60,10 +60,7 @@ public class PSFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new PSSoftware(app.pEngine);
-		else
-			return new PSPolymost(app.pEngine);
+		return new PSSoftware(app.pEngine);
 	}
 
 	@Override

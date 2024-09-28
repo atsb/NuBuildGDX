@@ -238,7 +238,6 @@ public abstract class MenuVideoMode extends BuildMenu {
 						MenuConteiner item = (MenuConteiner) pItem;
 						switch(item.num) {
 							case 0: choosedRender = RenderType.Software; break;
-							case 1: choosedRender = RenderType.Polymost; break;
 						}
 					}
 				});
@@ -246,8 +245,7 @@ public abstract class MenuVideoMode extends BuildMenu {
 		};
 
 		String[] renderers = new String[] {
-			RenderType.Software.getName(),
-			RenderType.Polymost.getName()
+			RenderType.Software.getName()
 		};
 		mRenderer = new MenuConteiner("Renderer", style, posx, posy += itemHeight, width, renderers, 0, renderCallback) {
 			@Override
@@ -255,7 +253,6 @@ public abstract class MenuVideoMode extends BuildMenu {
 				choosedRender = currentRender = app.pEngine.getrender().getType();
 				switch(currentRender) {
 					case Software: num = 0; break;
-					case Polymost: num = 1; break;
 				}
 			}
 		};
