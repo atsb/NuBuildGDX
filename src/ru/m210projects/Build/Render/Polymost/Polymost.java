@@ -594,7 +594,7 @@ public class Polymost implements GLRenderer {
 
 	@Override
 	public RenderType getType() {
-		return null;
+		return RenderType.Software;
 	}
 
 	//
