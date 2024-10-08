@@ -31,16 +31,13 @@
  */
 package ru.m210projects.Build.desktop.audio.nopenal;
 
-import static com.badlogic.gdx.utils.SharedLibraryLoader.is64Bit;
-import static com.badlogic.gdx.utils.SharedLibraryLoader.isLinux;
-import static com.badlogic.gdx.utils.SharedLibraryLoader.isMac;
-import static com.badlogic.gdx.utils.SharedLibraryLoader.isWindows;
-
 import java.io.File;
 import java.nio.IntBuffer;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.SharedLibraryLoader;
 import com.sun.jna.Native;
+
+import static com.badlogic.gdx.utils.SharedLibraryLoader.*;
 
 /**
  * <p>
@@ -119,9 +116,9 @@ public final class AL {
 			if (isWindows)
 				library = loader.extractFile("soft_oal.dll", null);
 			else if (isMac)
-				library = loader.extractFile("nopenal.dylib", null);
+				library = loader.extractFile("openal.dylib", null);
 			else if (isLinux)
-				library = loader.extractFile("nlibopenal.so", null);
+				library = loader.extractFile(isARM ? "libopenalarm64.so" : "libopenal64.so", null);
 		} catch (Exception ex) {
 			throw new GdxRuntimeException("Unable to extract OAL natives.", ex);
 		}
