@@ -198,7 +198,7 @@ public float gFpsScale = 1.0f;
 	public String mAddress = "localhost";
 	public int mPort = NETPORT;
 
-	public RenderType renderType = RenderType.Polymost;
+	public RenderType renderType = RenderType.Software;
 	public boolean gPrecache = true;
 
 	public BuildConfig(String path, String name) {

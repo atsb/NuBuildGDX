@@ -886,25 +886,6 @@ public class View {
 			engine.getzsofslope(nSector, (int) x, (int) y, zofslope);
 			int lz = 4 << 8;
 			long crossDz = 0;
-			if (z < zofslope[CEIL] + lz) {
-				if (nLower == -1 || (engine.getrender().getType().equals(RenderType.Polymost) // Polymost zNear Plane
-																								// tweak
-						&& sector[nSector].ceilingpicnum < MIRRORLABEL
-						|| sector[nSector].ceilingpicnum >= MIRRORLABEL + MAXMIRRORS)) {
-					crossDz = z;
-					z = zofslope[CEIL] + lz;
-					crossDz -= z;
-				}
-			}
-			if (z > zofslope[FLOOR] - lz) {
-				if (nUpper == -1 || (engine.getrender().getType().equals(RenderType.Polymost)
-						&& sector[nSector].floorpicnum < MIRRORLABEL
-						|| sector[nSector].floorpicnum >= MIRRORLABEL + MAXMIRRORS)) {
-					crossDz = z;
-					z = zofslope[FLOOR] - lz;
-					crossDz -= z;
-				}
-			}
 
 			nHoriz = BClipRange(nHoriz, -200, 200);
 			int defHoriz = kHorizDefault;

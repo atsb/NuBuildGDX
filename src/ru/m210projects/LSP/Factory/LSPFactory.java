@@ -70,10 +70,7 @@ public class LSPFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new LSPSoftware(app.pEngine);
-		else
-			return new LSPPolymost(app.pEngine);
+		return new LSPSoftware(app.pEngine);
 	}
 
 	@Override

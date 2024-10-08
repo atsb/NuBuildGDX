@@ -18,8 +18,6 @@
     <orderEntry type="library" name="lwjgl-3.2.3" level="project" />
     <orderEntry type="library" name="lwjgl-glfw-3.2.3-natives-windows" level="project" />
     <orderEntry type="library" name="lwjgl-glfw-3.2.3" level="project" />
-    <orderEntry type="library" name="lwjgl-opengl-3.2.3-natives-windows" level="project" />
-    <orderEntry type="library" name="lwjgl-opengl-3.2.3" level="project" />
     <orderEntry type="library" name="jinput-2.6" level="project" />
   </component>
 </module>

@@ -43,10 +43,7 @@ public class WangFactory extends BuildFactory {
 
 	@Override
 	public Renderer renderer(RenderType type) {
-		if (type == RenderType.Software)
-			return new WangSoftware(app.pEngine);
-		else
-			return new WangPolymost(app.pEngine);
+		return new WangSoftware(app.pEngine);
 	}
 
 	@Override

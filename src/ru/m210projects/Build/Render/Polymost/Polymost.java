@@ -592,6 +592,11 @@ public class Polymost implements GLRenderer {
 		this.defs = defs;
 	}
 
+	@Override
+	public RenderType getType() {
+		return RenderType.Software;
+	}
+
 	//
 	// invalidatetile
 	// pal: pass -1 to invalidate all palettes for the tile, or >=0 for a particular
@@ -4091,11 +4096,6 @@ public class Polymost implements GLRenderer {
 
 	protected Polymost2D allocOrphoRenderer(IOverheadMapSettings settings) {
 		return new Polymost2D(this, settings);
-	}
-
-	@Override
-	public RenderType getType() {
-		return RenderType.Polymost;
 	}
 
 	@Override
