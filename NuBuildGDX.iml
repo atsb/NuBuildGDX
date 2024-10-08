@@ -8,16 +8,27 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="annotations-24.0.1" level="project" />
-    <orderEntry type="library" name="gdx-1.9.10" level="project" />
-    <orderEntry type="library" name="gdx-backend-lwjgl3-1.9.10" level="project" />
-    <orderEntry type="library" name="gdx-platform-1.9.10-natives-desktop" level="project" />
-    <orderEntry type="library" name="jinput-platform-2.0.7-natives-all" level="project" />
-    <orderEntry type="library" name="jna-5.4.0" level="project" />
-    <orderEntry type="library" name="jna-openal-natives-windows" level="project" />
-    <orderEntry type="library" name="lwjgl-3.2.3-natives-windows" level="project" />
-    <orderEntry type="library" name="lwjgl-3.2.3" level="project" />
-    <orderEntry type="library" name="lwjgl-glfw-3.2.3-natives-windows" level="project" />
-    <orderEntry type="library" name="lwjgl-glfw-3.2.3" level="project" />
     <orderEntry type="library" name="jinput-2.6" level="project" />
+    <orderEntry type="library" name="gdx-1.9.14" level="project" />
+    <orderEntry type="library" name="gdx-backend-lwjgl3-1.9.14" level="project" />
+    <orderEntry type="library" name="gdx-platform-1.9.14-natives-desktop" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-freebsd" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-linux-arm64" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-linux" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-macos-arm64" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-macos" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-windows-arm64" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4-natives-windows" level="project" />
+    <orderEntry type="library" name="lwjgl-3.3.4" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-freebsd" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-linux-arm64" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-linux" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-macos-arm64" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-macos" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-windows" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4" level="project" />
+    <orderEntry type="library" name="jna-5.15.0" level="project" />
+    <orderEntry type="library" name="jna-platform-5.15.0" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-windows-arm64" level="project" />
   </component>
 </module>

@@ -378,12 +378,10 @@ public abstract class GL10 implements com.badlogic.gdx.graphics.GL20 {
 		throw new UnsupportedOperationException("not implemented");
 	}
 
-	@Override
 	public String glGetActiveAttrib(int program, int index, IntBuffer size, Buffer type) {
 		throw new UnsupportedOperationException("not implemented");
 	}
 
-	@Override
 	public String glGetActiveUniform(int program, int index, IntBuffer size, Buffer type) {
 		throw new UnsupportedOperationException("not implemented");
 	}

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lwjgl-glfw-3.3.4-natives-freebsd">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/lwjgl-glfw-3.3.4-natives-freebsd.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

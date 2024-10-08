@@ -117,7 +117,7 @@ public final class AL {
 		File library = null;
 		try {
 			if (isWindows)
-				library = loader.extractFile(is64Bit ? "nOpenAL.dll" : "nOpenAL32.dll", null);
+				library = loader.extractFile("soft_oal.dll", null);
 			else if (isMac)
 				library = loader.extractFile("nopenal.dylib", null);
 			else if (isLinux)

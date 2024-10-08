@@ -169,7 +169,7 @@ public class AWTMouse implements MouseMotionListener, MouseListener, MouseWheelL
 							processor.mouseMoved(e.x, e.y);
 							break;
 						case TouchEvent.TOUCH_SCROLLED:
-							processor.scrolled(e.scrollAmount);
+							processor.scrolled(e.scrollAmount, 1);
 							break;
 					}
 					usedTouchEvents.free(e);

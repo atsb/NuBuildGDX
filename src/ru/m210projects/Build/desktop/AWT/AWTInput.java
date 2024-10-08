@@ -289,6 +289,11 @@ public class AWTInput implements BuildInput, KeyListener {
 	}
 
 	@Override
+	public void getTextInput(TextInputListener textInputListener, String s, String s1, String s2, OnscreenKeyboardType onscreenKeyboardType) {
+
+	}
+
+	@Override
 	public int getX() {
 		return mouse.getX();
 	}
@@ -374,6 +379,11 @@ public class AWTInput implements BuildInput, KeyListener {
 
 	@Override
 	public void setOnscreenKeyboardVisible (boolean visible) {
+
+	}
+
+	@Override
+	public void setOnscreenKeyboardVisible(boolean b, OnscreenKeyboardType onscreenKeyboardType) {
 
 	}
 
