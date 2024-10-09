@@ -114,9 +114,9 @@ public final class AL {
 		File library = null;
 		try {
 			if (isWindows)
-				library = loader.extractFile("soft_oal.dll", null);
+				library = loader.extractFile(isARM ? "soft_oalarm64.dll" : "soft_oal.dll", null);
 			else if (isMac)
-				library = loader.extractFile("openal.dylib", null);
+				library = loader.extractFile(isARM ? "openalarm64.dylib" : "openal.dylib", null);
 			else if (isLinux)
 				library = loader.extractFile(isARM ? "libopenalarm64.so" : "libopenal64.so", null);
 		} catch (Exception ex) {
