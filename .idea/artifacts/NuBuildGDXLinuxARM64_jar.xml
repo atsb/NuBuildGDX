@@ -37,9 +37,10 @@
       <element id="file-copy" path="$PROJECT_DIR$/libs/arm64linux/libgdxarm64.so" />
       <element id="file-copy" path="$PROJECT_DIR$/libs/arm64linux/libglfw.so" />
       <element id="file-copy" path="$PROJECT_DIR$/libs/arm64linux/liblwjgl.so" />
-      <element id="file-copy" path="$PROJECT_DIR$/libs/arm64linux/libopenalarm64.so" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/jinput-2.0.10-natives-all.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/libs/jinput-2.0.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-3.3.4-natives-linux-arm32.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/lwjgl-glfw-3.3.4-natives-linux-arm32.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
