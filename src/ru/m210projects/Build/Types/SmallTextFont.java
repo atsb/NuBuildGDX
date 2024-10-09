@@ -16,16 +16,13 @@
 
 package ru.m210projects.Build.Types;
 
-import static com.badlogic.gdx.graphics.GL20.GL_ALPHA;
 import static ru.m210projects.Build.Engine.pow2char;
 import static ru.m210projects.Build.Engine.smalltextfont;
-import static ru.m210projects.Build.Settings.GLSettings.glfiltermodes;
 
 import java.nio.ByteBuffer;
 
 import ru.m210projects.Build.Render.TextureHandle.GLTile;
 import ru.m210projects.Build.Render.TextureHandle.TextureManager;
-import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
 
 public class SmallTextFont extends TileFont {
 
@@ -34,14 +31,6 @@ public class SmallTextFont extends TileFont {
 
 		sizx = 128;
 		sizy = 128;
-	}
-
-	@Override
-	public GLTile getGL(TextureManager textureCache, PixelFormat fmt, int col) {
-		if (atlas == null || atlas.getTextureObjectHandle() == 0)
-			init(textureCache);
-
-		return atlas;
 	}
 
 	private GLTile init(TextureManager textureCache) {
@@ -62,16 +51,6 @@ public class SmallTextFont extends TileFont {
 				}
 
 				return data;
-			}
-
-			@Override
-			public int getGLInternalFormat() {
-				return GL_ALPHA;
-			}
-
-			@Override
-			public int getGLFormat() {
-				return GL_ALPHA;
 			}
 		};
 
