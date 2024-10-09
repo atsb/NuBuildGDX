@@ -76,7 +76,6 @@ public class SmallTextFont extends TileFont {
 		};
 
 		atlas = textureCache.newTile(dat, 0, false);
-		atlas.setupTextureFilter(glfiltermodes[0], 1);
 		return atlas;
 	}
 }

@@ -11,7 +11,6 @@ import ru.m210projects.Build.Architecture.BuildGraphics.Option;
 import ru.m210projects.Build.OnSceenDisplay.Console;
 import ru.m210projects.Build.OnSceenDisplay.OSDCOMMAND;
 import ru.m210projects.Build.OnSceenDisplay.OSDCVARFUNC;
-import ru.m210projects.Build.Render.GLInfo;
 import ru.m210projects.Build.Render.GLRenderer;
 import ru.m210projects.Build.Render.GLRenderer.GLInvalidateFlag;
 import ru.m210projects.Build.Render.Types.GLFilter;
@@ -65,42 +64,6 @@ public class GLSettings extends BuildSettings {
 				return null;
 			}
 		};
-
-		textureAnisotropy = new BuildVariable<Integer>(1, "Changes the texture anisotropy settings") {
-			@Override
-			public void execute(final Integer value) {
-				BuildGdx.app.postRunnable(new Runnable() { // it must be started at GLthread
-					@Override
-					public void run() {
-						GLRenderer gl = engine.glrender();
-						if (gl != null)
-							gl.gltexapplyprops();
-						cfg.glanisotropy = value;
-					}
-				});
-			}
-
-			@Override
-			public Integer check(Object value) {
-				if (value instanceof Integer) {
-					int anisotropy = (Integer) value;
-					if (GLInfo.maxanisotropy > 1.0) {
-						if (anisotropy <= 0 || anisotropy > GLInfo.maxanisotropy)
-							anisotropy = (int) GLInfo.maxanisotropy;
-					}
-					return pow2long[checkAnisotropy(anisotropy)];
-				}
-				return null;
-			}
-
-			int checkAnisotropy(int anisotropy) {
-				int anisotropysize = 0;
-				for (int s = anisotropy; s > 1; s >>= 1)
-					anisotropysize++;
-				return anisotropysize;
-			}
-		};
-		textureAnisotropy.set(cfg.glanisotropy);
 
 		OSDCOMMAND R_texture = new OSDCOMMAND("r_texturemode",
 				"r_texturemode: " + GLSettings.textureFilter.getDescription(), new OSDCVARFUNC() {

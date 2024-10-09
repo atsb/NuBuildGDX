@@ -17,17 +17,11 @@
 package ru.m210projects.Build.Render.TextureHandle;
 
 import static com.badlogic.gdx.graphics.GL20.GL_LUMINANCE;
-import static com.badlogic.gdx.graphics.GL20.GL_TEXTURE;
-import static com.badlogic.gdx.graphics.GL20.GL_TEXTURE_2D;
 import static ru.m210projects.Build.Engine.MAXPALOOKUPS;
 import static ru.m210projects.Build.Engine.MAXTILES;
 import static ru.m210projects.Build.Engine.RESERVEDPALS;
 import static ru.m210projects.Build.Engine.pSmallTextfont;
 import static ru.m210projects.Build.Engine.pTextfont;
-import static ru.m210projects.Build.Render.Types.GL10.GL_MODELVIEW;
-import static ru.m210projects.Build.Render.Types.GL10.GL_RGB_SCALE;
-import static ru.m210projects.Build.Render.Types.GL10.GL_TEXTURE0;
-import static ru.m210projects.Build.Render.Types.GL10.GL_TEXTURE_ENV;
 
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
@@ -35,7 +29,6 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import ru.m210projects.Build.Engine;
 import ru.m210projects.Build.Architecture.BuildGdx;
 import ru.m210projects.Build.OnSceenDisplay.Console;
-import ru.m210projects.Build.Render.GLInfo;
 import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
 import ru.m210projects.Build.Render.Types.GLFilter;
 import ru.m210projects.Build.Script.TextureHDInfo;
@@ -50,7 +43,6 @@ public class TextureManager {
 	private GLTile bindedTile;
 	protected GLTile palette; // to shader
 	protected GLTile[] palookups; // to shader
-	protected int texunits = 0;
 	protected final ExpandTexture expand;
 
 	public enum ExpandTexture {
@@ -72,10 +64,6 @@ public class TextureManager {
 		this.cache = new GLTileArray(MAXTILES);
 		this.palookups = new GLTile[MAXPALOOKUPS];
 		this.expand = opt;
-	}
-
-	public void setTextureInfo(TextureHDInfo info) {
-		this.info = info;
 	}
 
 	/**
@@ -128,18 +116,7 @@ public class TextureManager {
 
 			tile = allocTile(data, si, dapicnum, fmt == PixelFormat.Pal8 ? 0 : dapalnum, skybox, alpha, useMipMaps);
 		}
-
-		if (dapalnum >= (MAXPALOOKUPS - RESERVEDPALS))
-			activateEffect();
-
 		return tile;
-	}
-
-	public PixelFormat getFmt(int dapicnum) {
-		GLTile tile = cache.get(dapicnum);
-		if (tile != null)
-			return tile.getPixelFormat();
-		return null;
 	}
 
 	public boolean bind(GLTile tile) {
@@ -148,20 +125,6 @@ public class TextureManager {
 
 		tile.bind();
 		return true;
-	}
-
-	public void unbind() {
-		if (bindedTile != null)
-			bindedTile.unbind();
-		bindedTile = null;
-	}
-
-	public void precache(PixelFormat fmt, int dapicnum, int dapalnum, int method) {
-		get(fmt, dapicnum, dapalnum, 0, method);
-	}
-
-	public int getTextureUnits() {
-		return texunits;
 	}
 
 	protected TileData loadPic(PixelFormat fmt, Hicreplctyp hicr, int dapicnum, int dapalnum, boolean clamping,
@@ -329,32 +292,6 @@ public class TextureManager {
 
 	public GLTile getLastBinded() {
 		return bindedTile;
-	}
-
-	public void activateEffect() {
-		if (GLInfo.multisample == 0)
-			return;
-
-		BuildGdx.gl.glActiveTexture(GL_TEXTURE0 + ++texunits);
-		BuildGdx.gl.glEnable(GL_TEXTURE_2D);
-	}
-
-	public void deactivateEffects() {
-		if (GLInfo.multisample == 0)
-			return;
-
-		while (texunits >= 0) {
-			BuildGdx.gl.glActiveTexture(GL_TEXTURE0 + texunits);
-			BuildGdx.gl.glMatrixMode(GL_TEXTURE);
-			BuildGdx.gl.glLoadIdentity();
-			BuildGdx.gl.glMatrixMode(GL_MODELVIEW);
-			if (texunits > 0) {
-				BuildGdx.gl.glTexEnvf(GL_TEXTURE_ENV, GL_RGB_SCALE, 1.0f);
-				BuildGdx.gl.glDisable(GL_TEXTURE_2D);
-			}
-			texunits--;
-		}
-		texunits = 0;
 	}
 
 	// Indexed texture params and methods

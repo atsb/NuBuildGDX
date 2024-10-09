@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ru.m210projects.Build.Render.GLInfo;
 import ru.m210projects.Build.Render.TextureHandle.TileData.PixelFormat;
 
 public class TileAtlas {
@@ -37,16 +36,8 @@ public class TileAtlas {
 	public List<TileData> atlas = new ArrayList<TileData>();
 	public HashMap<Integer, TileUnit> units = new HashMap<Integer, TileUnit>();
 
-	public TileAtlas(PixelFormat fmt, int gridWidth, int gridHeight, int numtiles) {
-		this(fmt, Math.min((1 << GLInfo.gltexmaxsize), getAtlasSize(numtiles)[0] * gridWidth),
-				Math.min((1 << GLInfo.gltexmaxsize), getAtlasSize(numtiles)[1] * gridHeight), gridWidth, gridHeight, true);
-	}
-
 	public TileAtlas(PixelFormat fmt, int atlasWidth, int atlasHeight, int gridWidth, int gridHeight, boolean pow2) {
 		this.fmt = fmt;
-
-		this.atlasWidth = pow2 ? GLInfo.calcSize(atlasWidth) : atlasWidth;
-		this.atlasHeight = pow2 ? GLInfo.calcSize(atlasHeight) : atlasHeight;
 
 		this.gridWidth = gridWidth;
 		this.gridHeight = gridHeight;

@@ -85,7 +85,6 @@ public class GLTileArray {
 			GLTile next = pth.next;
 
 			pth.bind();
-			pth.setupTextureFilter(filter, anisotropy);
 			if (!filter.retro)
 				pth.setInvalidated(true);
 			pth = next;

@@ -264,10 +264,8 @@ public class Map {
 		parallaxyoffs = 256;
 		flash = 0;
 		pskybits = 2;
-		// precache()
 		LoadObjects();
 		levelnum = num;
-//		LoadSong("lev" + num + ".xmi");
 
 		return true;
 	}

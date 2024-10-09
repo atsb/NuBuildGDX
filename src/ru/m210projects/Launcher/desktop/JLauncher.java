@@ -124,11 +124,6 @@ public class JLauncher extends JFrame {
 			if (portableEntry == -1) {
 				buttons.add(b, "cell 0 " + i);
 				b.setHorizontalAlignment(SwingConstants.LEFT);
-
-				/*
-				 * if(entry.length > 4 && i != entry.length - 1)
-				 * buttons.add(Box.createVerticalGlue());
-				 */
 			}
 		}
 
