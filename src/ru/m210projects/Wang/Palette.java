@@ -340,13 +340,6 @@ public class Palette {
 		};
 	}
 
-	private static boolean CheckGLPalette(int color) {
-		if (engine.glrender() == null || (color == 210 || color == 148 || color == FORCERESET)) // dive, night palette
-																								// or forcereset palette
-			return true;
-		return false;
-	}
-
 	//////////////////////////////////////////
 	// Set the amount of redness for damage
 	// the player just took
@@ -364,10 +357,7 @@ public class Palette {
 
 		// Reset the palette
 		if (pp == Player[screenpeek]) {
-			if (!CheckGLPalette(startcolor))
-				ResetPalette(pp, startcolor);
-			else
-				System.arraycopy(palette, 0, pp.temp_pal, 0, 768);
+			System.arraycopy(palette, 0, pp.temp_pal, 0, 768);
 		}
 
 		if (damage < -150 && damage > -1000)
@@ -443,9 +433,6 @@ public class Palette {
 
 		// Do initial palette set
 		if (pp == Player[screenpeek]) {
-			if (engine.glrender() == null || CheckGLPalette(startcolor)) {
-				engine.setbrightness(gs.brightness, pp.temp_pal, GLInvalidateFlag.All);
-
 				if (game.currentDef != null) {
 					TextureHDInfo hdInfo = game.currentDef.texInfo;
 
@@ -461,7 +448,6 @@ public class Palette {
 
 			if (damage < -1000)
 				pp.FadeAmt = 1000; // Don't call DoPaletteFlash for underwater stuff
-		}
 	}
 
 	public static void DoPaletteFlash(PlayerStr pp) {
@@ -524,7 +510,7 @@ public class Palette {
 
 			// Only hard set the palette if this is currently the player's view
 			if (pp == Player[screenpeek]) {
-				if (engine.glrender() == null || CheckGLPalette(pp.StartColor & 0xFF))
+				if (engine.glrender() == null)
 					engine.setbrightness(gs.brightness, pp.temp_pal, GLInvalidateFlag.All);
 				else {
 					setpalettefade(pp.temp_pal[3 * (pp.StartColor & 0xFF) + 0],
@@ -587,8 +573,6 @@ public class Palette {
 			TextureHDInfo hdInfo = game.currentDef.texInfo;
 			hdInfo.setPaletteTint(MAXPALOOKUPS - 1, 255, 255, 255, 0);
 		}
-		if (!CheckGLPalette(color))
-			return;
 
 		engine.setbrightness(gs.brightness, palette, GLInvalidateFlag.All);
 		setpalettefade(0, 0, 0, 0);

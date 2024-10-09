@@ -376,13 +376,6 @@ public float gFpsScale = 1.0f;
 			if (value != -1)
 				gFpsScale = value / 65536.0f;
 
-			int gm = GetKeyInt("GLGamma");
-			if (gm != -1)
-				GLSettings.gamma.set(gm);
-			value = GetKeyInt("PaletteGamma");
-			if (value != -1)
-				BuildSettings.paletteGamma.set(value);
-
 			gShowFPS = GetKeyInt("ShowFPS") == 1;
 		}
 
@@ -776,10 +769,6 @@ public float gFpsScale = 1.0f;
 		saveInteger(fil, "FieldOfView", GetKeyInt("FieldOfView"));
 		saveInteger(fil, "FpsScale", GetKeyInt("FpsScale"));
 		saveBoolean(fil, "Palette_Emulation", GetKeyInt("Palette_Emulation") == 1);
-
-		saveInteger(fil, "GLGamma", GetKeyInt("GLGamma"));
-		saveInteger(fil, "GLBrightness", GetKeyInt("GLBrightness"));
-		saveInteger(fil, "GLContrast", GetKeyInt("GLContrast"));
 		saveInteger(fil, "PaletteGamma", GetKeyInt("PaletteGamma"));
 		saveBoolean(fil, "ShowFPS", GetKeyInt("ShowFPS") == 1);
 		saveString(fil, ";\r\n;\r\n");

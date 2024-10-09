@@ -90,11 +90,8 @@ public class BLMenuVideoMode extends MenuVideoMode {
 			@Override
 			protected void rebuild()
 			{
-				boolean built = GLRenderParamBuilt;
 				super.rebuild();
 				this.addItem(((BloodMenuHandler) app.pMenu).addMenuBlood(), false);
-				if(!built && GLHiresMenu != null)
-					GLHiresMenu.addItem(((BloodMenuHandler) app.pMenu).addMenuBlood(), false);
 			}
 		};
 
