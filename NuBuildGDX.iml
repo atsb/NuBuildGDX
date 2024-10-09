@@ -8,7 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="annotations-24.0.1" level="project" />
-    <orderEntry type="library" name="jinput-2.6" level="project" />
     <orderEntry type="library" name="gdx-1.9.14" level="project" />
     <orderEntry type="library" name="gdx-backend-lwjgl3-1.9.14" level="project" />
     <orderEntry type="library" name="gdx-platform-1.9.14-natives-desktop" level="project" />
@@ -30,5 +29,7 @@
     <orderEntry type="library" name="jna-5.15.0" level="project" />
     <orderEntry type="library" name="jna-platform-5.15.0" level="project" />
     <orderEntry type="library" name="lwjgl-glfw-3.3.4-natives-windows-arm64" level="project" />
+    <orderEntry type="library" name="jinput-2.0.9" level="project" />
+    <orderEntry type="library" name="jinput-2.0.10-natives-all" level="project" />
   </component>
 </module>

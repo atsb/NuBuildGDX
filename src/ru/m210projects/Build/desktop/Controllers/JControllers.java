@@ -69,14 +69,14 @@ public class JControllers extends BuildControllers {
 		File nativesDir = null;
 		try {
 			if (isWindows) {
-				nativesDir = loader.extractFile(is64Bit ? "jinput-dx8_64.dll" : "jinput-dx8.dll", null).getParentFile();
-				loader.extractFileTo(is64Bit ? "jinput-raw_64.dll" : "jinput-raw.dll", nativesDir);
+				nativesDir = loader.extractFile("jinput-dx8_64.dll", null).getParentFile();
+				loader.extractFileTo("jinput-raw_64.dll", nativesDir);
 			} else if (isMac) {
 				nativesDir = loader.extractFile("libjinput-osx.jnilib", null).getParentFile();
 			} else if (isLinux) {
-				nativesDir = loader.extractFile(is64Bit ? "libjinput-linux64.so" : "libjinput-linux.so", null)
+				nativesDir = loader.extractFile("libjinput-linux64.so", null)
 						.getParentFile();
-				loader.extractFileTo(is64Bit ? "libjinput-linux64.so" : "libjinput-linux.so", nativesDir);
+				loader.extractFileTo("libjinput-linux64.so", nativesDir);
 			}
 		} catch (Throwable ex) {
 			Console.Println("Unable to extract JInput natives.", Console.OSDTEXT_RED);
